@@ -1,0 +1,100 @@
+html, body {
+	/* background-color: white; */
+	background-image:url(../img/paper.png);
+	background-repeat:repeat;
+}
+
+.poem { 
+	margin: auto;
+	padding: 20px 0;
+	text-align: left;
+	width: 450px;
+	font-size: 16px;
+}
+		
+.poem h1, h2 {
+	font-weight: normal;
+	text-align: center;
+}
+
+.poem h1 {
+	font-size: 34px;
+	line-height: 1.2;
+	margin-bottom: 10px;
+}
+
+.poem h2 {
+	color: #667;
+	font-size: 16px;
+	font-style: italic;
+	margin-bottom: 30px;
+	text-align: right;
+}
+
+.poem p {
+	line-height: 1.5;
+	margin-bottom: 15px;
+}
+			
+.poem h2:before {
+	content: '— ';
+}
+			
+.poem h1 + p:first-letter {
+	float: left;
+	font-size: 60px;
+	line-height: 1;
+	margin: 2px 5px 0px 0px;
+}
+				
+.poem p:last-child {
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+}
+
+a {
+	color: #EDEDED;
+	text-decoration: none;
+	font-size: 30px;
+	line-height: 1.2;
+	margin-bottom: 10px;
+	margin-top: 30px;
+}
+
+a:hover, a:active {
+	color: #8B8878;
+}
+
+.menu {
+	position:absolute;
+	float:left;
+	display:block;
+	margin: 25px 50px;
+	background: rgba(255, 255, 255, 0.2);
+	background-image: none;
+	border: 0 none;
+}
+
+.menu-list {
+	position: absolute;
+	margin: -210px 60px;
+}
+
+.menu-current {
+	font-weight: bold;
+	background: #EDEDED;
+}
+
+.dropdown-menu {
+	background: none;
+	border: none;
+	box-shadow: none;
+}
+
+.dropdown-menu a {
+	font-size: 8pt;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	text-decoration: none;
+}
+

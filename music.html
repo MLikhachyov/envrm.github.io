@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Музыка</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/music.css">
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="css/animation.css">
+
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/audiojs/audio.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+      $(function() { 
+        // Setup the player to autoplay the next track
+        var a = audiojs.createAll({
+          trackEnded: function() {
+            var next = $('ol li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.addClass('playing').siblings().removeClass('playing');
+            audio.load($('a', next).attr('data-src'));
+            audio.play();
+          }
+        });
+        
+        // Load in the first track
+        var audio = a[0];
+            first = $('ol a').attr('data-src');
+        $('ol li').first().addClass('playing');
+        audio.load(first);
+
+        // Load in a track on click
+        $('ol li').click(function(e) {
+          e.preventDefault();
+          $(this).addClass('playing').siblings().removeClass('playing');
+          audio.load($('a', this).attr('data-src'));
+          audio.play();
+        });
+        // Keyboard shortcuts
+        $(document).keydown(function(e) {
+          var unicode = e.charCode ? e.charCode : e.keyCode;
+             // right arrow
+          if (unicode == 39) {
+            var next = $('li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.click();
+            // back arrow
+          } else if (unicode == 37) {
+            var prev = $('li.playing').prev();
+            if (!prev.length) prev = $('ol li').last();
+            prev.click();
+            // spacebar
+          } else if (unicode == 32) {
+            audio.playPause();
+          }
+        })
+      });
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon active"><a href="music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon"><a href="about.html"><span class="icon-user"></span></a></li>
+        </ul>
+
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <div class="row columns">
+        <div class="col-lg-6">
+	  <h3>Музыка</h3>
+	  <p class="pull-right social-icon">
+	  <a href="http://last.fm/music/Максим+Лихачёв"><i class="icon-lastfm"></i></a>
+	  <a href="http://vk.com/ml_without_words"><i class="icon-vk"></i></a>
+	  </p>
+
+
+    <div id="wrapper">
+      <ol>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Новая весна.mp3">Новая весна</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - कल्प.mp3">कल्प</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Апрель.mp3">Апрель</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Туман над росстанью.mp3">Туман над росстанью</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Ко Святому Озеру.mp3">Ко Святому Озеру</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Бумажный змей.mp3">Бумажный змей</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Consolamentum.mp3">Consolamentum</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Паутина.mp3">Паутина</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Предания Старого Парка.mp3">Предания Старого Парка</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - За Гранью Кристалла.mp3">За Гранью Кристалла</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Свет Ветра.mp3">Свет Ветра</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Nevermore.mp3">Nevermore</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Три дня в Неаполе.mp3">Три дня в Неаполе</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Terra Incognita.mp3">Terra Incognita</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Долина Мориона.mp3">Долина Мориона</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Нуар.mp3">Нуар</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - По следу.mp3">По следу</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Дочь Девяти Лун.mp3">Дочь Девяти Лун</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - То, что оставил дождь.mp3">То, что оставил дождь</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Всё будет не с нами.mp3">Всё будет не с нами</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - В отражении Красной Луны.mp3">В отражении Красной Луны</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Утро, которое ночь.mp3">Утро, которое ночь</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Горький берег.mp3">Горький берег</a></li>
+      </ol>
+        </div>
+	</div>
+
+        <div class="col-lg-6">
+	    <img title="Художник Султанова Г.С." alt="Художник Султанова Г.С." class="thumbnail" src="img/paintings/music.jpg" width="300px">
+
+	    <audio preload></audio>
+
+	    <div class="well">
+		<h3>Управление:</h3>
+		<p><kbd>&rarr;</kbd> Следующий трек</p>
+		<p><kbd>&larr;</kbd> Предыдущий трек</p>
+		<p><kbd>Space</kbd> Старт/Пауза</p>
+	    </div>
+
+        </div>
+      </div>
+
+      <div class="footer">
+      </div>
+
+    </div>
+
+
+  </body>
+</html>
+
