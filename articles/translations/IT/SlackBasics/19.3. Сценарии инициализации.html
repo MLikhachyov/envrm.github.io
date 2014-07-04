@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Юлиус Эвола - Вампиризм и вампиры</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../../develop.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="#"><span class="icon-home"></span></a></li>
+        <li><a href="#">Linux</a></li>
+        <li><a href="#">Slackbasics</a></li>
+        <li><a href="#">V. Системное администрирование</a></li>
+        <li class="active">19. Инициализация системы</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">19. Инициализация системы</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4>19.2. init</h4>
+
+<p>После того, как ядро будет загружено и запущено, оно запускает команду init.
+Init является родителем всех процессов и отвечает за запуск сценариев
+инициализации системы и консолей через agetty. Поведение init настраивается в
+файле <code>/etc/inittab</code>.</p>
+
+<p>Файл <code>/etc/inittab</code> неплохо документирован. Он указывает, какие сценарии должны
+запускаться на разных уровнях выполнения (runlevel). Уровень выполнения -- это статус
+запущенной системы. Например, уровень выполнения 1 означает однопользовательский
+режим, а уровень выполнения 3 -- многопользовательский. Давайте рассмотрим
+строку из файла <code>/etc/inittab</code>, чтобы понять, как это работает:</p>
+
+<pre class="brush: plain">
+rc:2345:wait:/etc/rc.d/rc.M
+</pre>
+    
+<p>Эта строка определяет запуск сценария <code>/etc/rc.d/rc.M</code> на 2, 3, 4 и 5 уровнях
+выполнения системы. Вероятно, вам придётся изменять в этом файле только одну
+строку -- уровень выполнения по умолчанию:</p>
+
+<pre class="brush: plain">
+id:3:initdefault:
+</pre>
+    
+<p>В этом примере уровень выполнения по умолчанию установлен в значение 3
+(многопользовательский режим). Вы можете установить иной уровень выполнения,
+заменив 3 другим числом. Уровень 4 может быть очень интересен на настольных
+компьютерах, т.к. на этом уровне выполнения Slackware Linux загрузит менеджер
+входа GDM, KDM или XDM (в таком порядке). Эти менеджеры входа в систему
+предоставляют графическую форму логина и являются частью соответственно GNOME,
+KDE и X11.</p>
+
+<p>Другая интересная секция -- строки с командами, запускающими консоли:</p>
+
+<pre class="brush: plain">
+c1:1235:respawn:/sbin/agetty 38400 tty1 linux
+</pre>
+    
+<p>Эта строка указывает, что на уровнях 1, 2, 3 и 5 на консоли tty1 (первый
+виртуальный терминал) должна быть запущена команда agetty, которая открывает
+порт tty и выводит приглашение ввода логина и пароля. Как вы можете заметить,
+Slackware Linux на уровне выполнения 6 запускает только одну консоль tty6. Можно
+спросить, что случилось с tty0; она существует и представляет собой активную
+консоль.</p>
+
+<p>В <code>/etc/inittab</code> настраиваются все экземпляры agetty, предоставляющие возможность
+входа в систему; вы также можете добавить agetty для последовательного порта.
+Это бывает особенно удобно, когда у вас есть один или более терминалов,
+подсоединённых к машине. Вы можете добавить что-нибудь вроде этого, чтобы
+настроить agetty на прослушивание COM1:</p>
+
+<pre class="brush: plain">
+s1:12345:respawn:/sbin/agetty -L ttyS0 9600 vt100
+</pre>
+
+</br>
+
+<h4>19.3. Сценарии инициализации</h4>
+
+<p>Как было сказано в разделе 19.2 "init", init запускает некоторые сценарии в
+зависимости от уровня выполнения. Эти сценарии выполняют задачи и изменяют
+настройки, необходимые этому конкретному уровню исполнения, но они также могут
+выполнять и другие скрипты. Давайте рассмотрим пример из файла <code>/etc/rc.d/rc.M</code>,
+сценария, который запускается с помощью init, когда система переходит в
+многопользовательский режим:</p>
+
+<pre class="brush: bash">
+# Start the sendmail daemon:
+if [ -x /etc/rc.d/rc.sendmail ]; then
+  . /etc/rc.d/rc.sendmail start
+fi
+</pre>
+    
+<p>Эта строка говорит: "выполнить /etc/rc.d/rc.sendmail start, если файл
+/etc/rc.d/rc.sendmail исполнимый". Это показывает всю простоту сценариев
+инициализации Slackware Linux. Различная функциональность, например, сетевые
+сервисы, могут быть включены или выключены изменением флага исполнимости у
+соответствующего сценария. Если сценарий инициализации исполнимый, то сервис
+будет запущен, в противном случае этого не случится. Установка флагов описана в
+разделе 8.5.2, "Изменение прав доступа к файлам", но мы рассмотрим небольшой
+пример, как можно включить и выключить sendmail.</p>
+
+<p>Для запуска sendmail в ходе инициализации системы, выполните:</p>
+
+<pre>
+# chmod +x /etc/rc.d/rc.sendmail
+</pre>
+    
+<p>Для отключения запуска sendmail во время загрузки системы, выполните:</p>
+
+<pre>
+# chmod -x /etc/rc.d/rc.sendmail
+</pre>
+    
+<p>Большая часть сервисо-специфичных сценариев инициализации поддерживают три
+параметра для изменения статуса сервиса: start, restart и stop. Назначение этих
+параметров можно прекрасно понять из их названий. Например, если вы хотите
+перезапустить sendmail, вы можете выполнить:</p>
+
+<pre>
+# /etc/rc.d/rc.sendmail restart
+</pre>
+
+<p>Если файл скрипта не является исполнимым, вы можете сообщить командной оболочке,
+что хотите исполнить файл, с помощью sh. Например:</p>
+
+<pre>
+# sh /etc/rc.d/rc.sendmail start
+</pre>
+
+</br>
+
+<h4>19.4. Горячее подключение устройств</h4>
+
+<p>Slackware Linux, начиная с версии 9.1, поддерживает горячее подключение
+устройств. Когда оно включено, ядро посылает уведомления о событиях устройства
+командам в пространстве пользователя. Начиная с версии Slackware Linux 11.0,
+этим занимается набор утилит udev, который управляет динамической директорией
+<code>/dev</code>.</p>
+
+<p>Режим управления горячим подключением устройств с помощью udev достаточно
+прост. Когда в систему добавляется устройство, ядро уведомляет об этом
+специальные сервисы пользовательского пространства. Udev принимает уведомление
+о подключенном устройстве и проверяет, существует ли соответствующий модуль.
+Если да, то модуль автоматически загружается. Udev удалит модуль, когда
+поступит уведомление об отключении устройства, если он не используется никаким
+другим оборудованием.</p>
+
+<p>Подсистема udev запускается сценарием <code>/etc/rc.d/rc.S</code> командой <code>/etc/rc.d/rc.udev
+start</code>. Как и большинство функций, вы можете включить или отключить udev,
+переключая флаг исполнимости файла сценария <code>/etc/rc.d/rc.udev</code> (см. 19.3,
+"Сценарии инициализации").</p>
+
+<p>Если вы не хотите загружать модули, загружаемые udev по умолчанию, вы можете
+добавить их в чёрный список в конфигурации modprobe в файле
+<code>/etc/modprobe.d/blacklist</code>. Например, если вы хотите предотвратить загрузку
+модуля 8139cp, вы можете добавить следующую строку (этот модуль уже
+заблокирован в Slackware Linux):</p>
+
+<pre class="brush: plain">
+blacklist 8139cp
+</pre>
+
+</br>
+
+<h4>19.5. Микропрограммы устройств</h4>
+
+</br>
+<strong>19.5.1. Введение</strong>
+
+<p>Некоторые устройства требуют загрузки микропрограммного обеспечения (firmware).
+Firmware -- это часть программы, которая используется для контроля аппаратного
+обеспечения. Традиционно микропрограмма сохранялась в ROM (read-only memory,
+память, доступная только для чтения) или на неизменяемых носителях, таких как
+флеш-память. Однако, много новых устройств используют изменяемую память для
+сохранения микропрограмм, что означает необходимость загрузки программы в память
+устройства при каждой перезагрузке системы.</p>
+
+<p>Драйверы устройств, требующие загрузки микропрограмм, имеют таблицу файлов
+необходимых им прошивок. Каждому файлу прошивки, который необходим драйверу,
+соответствует событие добавления. Если udev перехватит подключение, он
+постарается обработать это событии. Правила udev для добавления микропрограмм
+содержатся в файле <code>/etc/udev/rules.d/50-udev.rules</code>:</p>
+
+<pre class="brush: bash">
+# firmware loader
+SUBSYSTEM=="firmware", ACTION=="add", RUN+="/lib/udev/firmware.sh"
+</pre>
+      
+<p>Это означает, что при подключении firmware будет выполнен сценарий
+<code>/lib/udev/firmware</code>.sh. Если файл микропрограммы существует, то он будет загружен
+путём копирования содержимого в специальный объект sysfs.</p>
+
+</br>
+<strong>19.5.2. Добавление ПО</strong>
+
+<p>Как было рассказано в предыдущем разделе, некоторое аппаратное обеспечение
+требует от операционной системы загрузки микропрограммы. Если прошивка не
+установлена, ядро будет выдавать сообщения об ошибках во время загрузки такого
+драйвера. Вы можете увидеть сообщения ядра с помощью команды dmesg или в файле
+журнала <code>/var/log/messages</code>. Такое сообщение об ошибке прямо говорит, что
+микропрограмма не может быть загружена. Например:</p>
+
+<pre>
+ipw2100: eth1: Firmware 'ipw2100-1.3.fw' not available or load failed.
+ipw2100: eth1: ipw2100_get_firmware failed: -2 
+</pre>
+      
+<p>В этом случае вы должны найти прошивку устройства. Обычно её можно найти в
+интернете, запросив модель микросхемы или драйвера устройства (в данном случае
+ipw2100) и указав слово "firmware". Архивы микропрограмм часто содержат
+инструкции по установке. Обычно достаточно просто скопировать файлы в директорию
+<code>/lib/firmware</code>.</p>
+
+<p>После установки микропрограммы, вы можете перезагрузить драйвер командами rmmod
+и modprobe или с помощью перезагрузки системы.</p>
+
+</br>
+
+<ul class="pager">
+  <li class="previous"><a href="#">&larr; 18. Сборка ядра</a></li>
+  <li class="next"><a href="#">20. Безопасность &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+

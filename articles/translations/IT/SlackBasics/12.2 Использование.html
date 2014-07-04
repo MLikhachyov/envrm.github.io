@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Юлиус Эвола - Вампиризм и вампиры</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../../develop.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="#"><span class="icon-home"></span></a></li>
+        <li><a href="#">Linux</a></li>
+        <li><a href="#">Slackbasics</a></li>
+        <li><a href="#">V. Системное администрирование</a></li>
+        <li class="active">12. Mutt</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">12.2. Использование</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<p>Mutt очень прост в использовании, хотя для привыкания к клавишам управления,
+навигации, чтения и отправки сообщений может потребоваться некоторое время.
+Следующие разделы покажут наиболее важные клавиши. По нажатию <kbd>h</kbd> Mutt
+отобразит более полную информацию по всем доступным клавишам.</p>
+
+<h4>12.2.1. Просмотр списка сообщений</h4>
+
+<p>После выполнения команды mutt, будут показаны все почтовые сообщения. Вы можете
+перемещаться по списку сообщений с помощью курсорных клавиш или клавиш <kbd>k</kbd> и
+<kbd>j</kbd>.</p>
+
+<h4>12.2.2. Чтение почты</h4>
+
+<p>Для просмотра выбранного сообщения используется клавиша <kbd>Enter</kbd>. Во время чтения
+сообщения вы можете использовать клавиши <kbd>Page Up</kbd> и <kbd>Page Down</kbd> для перемещения
+по сообщению. Также вы можете использовать клавиши навигации для перелистывания
+сообщений.</p>
+
+<p>Если в письме есть вложения, вы можете просмотреть их с помощью клавиши <kbd>v</kbd>.
+Отдельные вложения выбираются клавишей <kbd>Enter</kbd>. Сохранить вложение в файл можно
+нажатием клавиши <kbd>s</kbd>.</p>
+
+<h4>12.2.3. Отправка почты</h4>
+
+<p>Вы можете создать новое письмо, нажав клавишу <kbd>m</kbd> или ответить на выбранное
+письмо клавишей <kbd>r</kbd>. Mutt попросит вас указать адресата (<code>To:</code>) и тему письма
+(<code>Subject:</code>). После введения этой информации будет запущен редактор (по умолчанию
+используется vi), в котором можно будет набрать текст письма. После сохранения
+письма и выхода из редактора, Mutt даст вам возможность изменить письмо.
+Если вы решите изменить текст, то клавишей <kbd>e</kbd> можно снова запустить редактор.
+Вы можете изменить адресата или тему письма клавишами <kbd>t</kbd> или <s</kbd>
+соответственно. Наконец, вы можете отправить письмо нажатием <kbd>y</kbd>. Если вы хотите
+отменить создание письма, нажмите <kbd>q</kbd>. Mutt спросит вас, хотите ли вы отложить
+написание письма. Если вы согласитесь, то позже сможете продолжить создание
+письма.</p>
+
+</br>
+
+<ul class="pager">
+  <li class="previous"><a href="#">&larr; 19.2</a></li>
+  <li class="next"><a href="#">19.4 &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
