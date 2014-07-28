@@ -11,7 +11,7 @@
 
     <link rel="shortcut icon" href="../../../../ico/favicon.ico">
 
-    <title>#!/usr/bin/env rm -- Статьи и переводы :: Юлиус Эвола - Вампиризм и вампиры</title>
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 19. Инициализация системы</title>
 
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../../css/custom.css">
@@ -64,26 +64,25 @@
       <div class="header">
         <ul class="nav navbar-nav pull-right">
           <li class="menu-icon"><a href="../../../../../index.html"><span class="icon-home"></span></a></li>
-          <li class="menu-icon active"><a href="../../../../../develop.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../develop.html"><span class="icon-tools"></span></a></li>
           <li class="menu-icon"><a href="../../../../../poetry.html"><span class="icon-feather"></span></a></li>
           <li class="menu-icon"><a href="../../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../../articles.html"><span class="icon-book"></span></a></li>
           <li class="menu-icon"><a href="../../../../../about.html"><span class="icon-user"></span></a></li>
         </ul>
-
         <h3 class="text-muted">#!/usr/bin/env rm</h3>
       </div>
 
       <ol class="plain breadcrumb">
-        <li><a href="#"><span class="icon-home"></span></a></li>
-        <li><a href="#">Linux</a></li>
-        <li><a href="#">Slackbasics</a></li>
-        <li><a href="#">V. Системное администрирование</a></li>
-        <li class="active">12. Mutt</li>
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#V">V. Системное администрирование</a></li>
+        <li class="active">19. Инициализация системы</li>
       </ol>
 
       <div class="row columns">
 
-        <h3 class="text-center">12.2. Использование</h3>
+        <h3 class="text-center">19. Инициализация системы</h3>
 
 </br>
 
@@ -92,47 +91,37 @@
 
 <div class="article col-lg-10 text-justify">
 
-<p>Mutt очень прост в использовании, хотя для привыкания к клавишам управления,
-навигации, чтения и отправки сообщений может потребоваться некоторое время.
-Следующие разделы покажут наиболее важные клавиши. По нажатию <kbd>h</kbd> Mutt
-отобразит более полную информацию по всем доступным клавишам.</p>
+<p>Эта глава объясняет процесс инициализации Slackware Linux. Будут рассмотрены
+различные конфигурационные файлы, используемые для управления процессом
+загрузки.</p>
 
-<h4>12.2.1. Просмотр списка сообщений</h4>
+<h4 id="2">19.1. Загрузчик</h4>
 
-<p>После выполнения команды mutt, будут показаны все почтовые сообщения. Вы можете
-перемещаться по списку сообщений с помощью курсорных клавиш или клавиш <kbd>k</kbd> и
-<kbd>j</kbd>.</p>
+<p>Вероятно, наиболее важная часть операционной системы -- это её ядро. Ядро
+управляет аппаратными ресурсами и программными процессами. Ядро запускается с
+помощью тонкой прослойки между <abbr title="Basic Input/Output System, базовая система
+ввода/вывода">BIOS</abbr> и ядром, называемой загрузчиком. Загрузчик обрабатывает все
+затруднения, связанные с загрузкой конкретного ядра.</p>
 
-<h4>12.2.2. Чтение почты</h4>
-
-<p>Для просмотра выбранного сообщения используется клавиша <kbd>Enter</kbd>. Во время чтения
-сообщения вы можете использовать клавиши <kbd>Page Up</kbd> и <kbd>Page Down</kbd> для перемещения
-по сообщению. Также вы можете использовать клавиши навигации для перелистывания
-сообщений.</p>
-
-<p>Если в письме есть вложения, вы можете просмотреть их с помощью клавиши <kbd>v</kbd>.
-Отдельные вложения выбираются клавишей <kbd>Enter</kbd>. Сохранить вложение в файл можно
-нажатием клавиши <kbd>s</kbd>.</p>
-
-<h4>12.2.3. Отправка почты</h4>
-
-<p>Вы можете создать новое письмо, нажав клавишу <kbd>m</kbd> или ответить на выбранное
-письмо клавишей <kbd>r</kbd>. Mutt попросит вас указать адресата (<code>To:</code>) и тему письма
-(<code>Subject:</code>). После введения этой информации будет запущен редактор (по умолчанию
-используется vi), в котором можно будет набрать текст письма. После сохранения
-письма и выхода из редактора, Mutt даст вам возможность изменить письмо.
-Если вы решите изменить текст, то клавишей <kbd>e</kbd> можно снова запустить редактор.
-Вы можете изменить адресата или тему письма клавишами <kbd>t</kbd> или <s</kbd>
-соответственно. Наконец, вы можете отправить письмо нажатием <kbd>y</kbd>. Если вы хотите
-отменить создание письма, нажмите <kbd>q</kbd>. Mutt спросит вас, хотите ли вы отложить
-написание письма. Если вы согласитесь, то позже сможете продолжить создание
-письма.</p>
+<pre class="brush: bash">
+# Start LILO global section
+boot = /dev/sda 1
+#compact        # faster, but won't work on all systems.
+prompt 2
+timeout = 50 3
+# Normal VGA console
+vga = normal 4
+</pre>
+      
+<pre>
+# sh /etc/rc.d/rc.sendmail start
+</pre>
 
 </br>
 
 <ul class="pager">
-  <li class="previous"><a href="#">&larr; 19.2</a></li>
-  <li class="next"><a href="#">19.4 &rarr;</a></li>
+  <li class="previous"><a href="#">&larr; 18. Сборка ядра</a></li>
+  <li class="next"><a href="#">20. Безопасность &rarr;</a></li>
 </ul>
 
         </div>

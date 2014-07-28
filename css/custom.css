@@ -141,6 +141,31 @@ kbd {
 	#wrapper { position: relative; left: -3%; }
 }
 
+.toc ol {
+	list-style:none;
+}
+
+.toc ul {
+	list-style:none;
+}
+
+.toc ol li span {
+	display: block;
+	float: left;
+	width: 37px;
+}
+
+.toc ol li {
+	clear: both;
+	width: 400px;
+}
+
+.toc ol li p {
+	float: left;
+	width: 370px;
+	margin: 0;
+}
+
 ol:not(.plain) {
 	padding: 0px;
 	margin: 0px;

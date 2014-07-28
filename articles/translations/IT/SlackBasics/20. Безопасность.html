@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 20. Безопасность</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../develop.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#V">V. Системное администрирование</a></li>
+        <li class="active">20. Безопасность</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">20. Безопасность</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">20.1. Введение</h4>
+
+<p>С увеличением использования сети Интернет и беспроводных сетей, каждый день всё
+важнее становится вопрос информационной безопасности. Невозможно раскрыть эту
+тему в одной главе введения в GNU/Linux. Эта глава раскрывает некоторые базовые
+техники обеспечения безопасности, которые являются неплохим началом для
+настройки рабочего компьютера и серверов.</p>
+
+<p>Прежде чем мы перейдём к конкретным темам, нужно сделать некоторые замечания
+насчёт паролей. Авторизация на компьютерах чаще всего основана на паролях,
+поэтому будьте уверены, что используете хорошие пароли для всех учётных
+записей. Избегайте использования слов, имён, дат рождения и коротких паролей.
+Такие пароли могут быть легко взломаны с помощью атаки по словарю или подобраны
+"атакой с помощью грубой силы" (brute force attack, метод перебора) против
+хостов или хэшей паролей. Используйте длинные пароли, в идеале содержащие 8 или
+более символов, включающих в себя случайные буквы алфавита (в том числе и
+заглавные) и цифры.</p>
+
+<h4 id="2">20.2. Закрытие портов</h4>
+
+<strong>20.2.1. Введение</strong>
+
+<p>Много систем GNU/Linux запускают различные сервисы, которые открыто "смотрят" в
+локальную сеть или сеть Интернет. Другие компьютеры могут соединяться с этими
+сервисами через определённые порты. Например, порт 80 используется для потока
+WWW. В файле <code>/etc/services</code> представлена таблица со всеми
+общеиспользуемыми сервисами и соответсвующими им номерами портов.</p>
+
+<p>Защищённая система должна запускать только необходимые сервисы. Так, хост,
+используемый только в качестве web-сервера, не должен открывать порты FTP или
+SMTP. С каждым открытым портом увеличивается риск компрометации системы, т.к.
+увеличивается вероятность небезопасной настройки сервисов, принимающих
+соединения извне, и/или обнаружения в них уязвимостей. Следующие разделы помогут
+вам выявить открытые порты и закрыть их.</p>
+
+<strong>20.2.2. Обнаружение открытых портов</strong>
+
+<p>Открытые порты можно обнаружить с помощью сканера портов. Вероятно, самый
+известный в GNU/Linux сканер портов -- это nmap. Nmap доступен в наборе пакетов
+"n".</p>
+
+<p>В простейшем случае nmap запускается так: <strong>nmap <имя хоста></strong>.
+Имя хоста может быть передано в форме доменного имени или IP-адреса. Допустим,
+что вы хотите просканировать компьютер, на котором установлен nmap. В этом
+случае вы должны указать IP-адрес локального хоста, 127.0.0.1:</p>
+
+<pre>
+$ nmap 127.0.0.1
+
+Starting nmap V. 3.00 ( www.insecure.org/nmap/ )
+Interesting ports on localhost (127.0.0.1):
+(The 1596 ports scanned but not shown below are in state: closed)
+Port       State       Service
+21/tcp     open        ftp                     
+22/tcp     open        ssh                     
+23/tcp     open        telnet                  
+80/tcp     open        http                    
+6000/tcp   open        X11                     
+
+Nmap run completed - 1 IP address (1 host up) scanned in 0 seconds
+</pre>
+
+<p>В этом примере вы можете увидеть, что на хосте открыты пять портов, которые
+слушают сервисы ftp, ssh, telnet, http и X11.</p>
+
+<strong>20.2.3. inetd</strong>
+
+<p>Существует два пути запуска TCP/IP-сервисов: запустить серверное приложение
+как демон или через интернет-суперсервер, inetd. Inetd -- это демон, который
+осуществляет мониторинг портов. Если клиент запрашивает соединение с портом,
+inetd направляет соединение на сервер, соответствующий типу соединения.
+Преимущество такого подхода заключается в том, что он добавляет дополнительный
+слой безопасности и упрощает журналирование входящих соединений. Недостаток же в
+том, что это иногда работает медленнее, чем обычный демон приложения. Таким
+образом, будет хорошей идеей, например, запустить высоконагруженный FTP-сервер
+отдельным сервисом.</p>
+
+<p>Вы можете проверить, запущен ли inetd, с помощью команды
+<strong>ps</strong>. Например:</p>
+
+<pre class="brush: plain">
+$ ps ax | grep inetd
+ 2845 ?        S      0:00 /usr/sbin/inetd
+</pre>
+
+<p>В этом примере inetd запущен в системе и имеет PID (идентификатор процесса)
+2845. Inetd может быть настроен в файле <code>/etc/inetd.conf</code>. Давайте
+рассмотрим пример строки из файла <code>inetd.conf</code>:</p>
+
+<pre class="brush: plain">
+# File Transfer Protocol (FTP) server:
+ftp  stream  tcp  nowait root /usr/sbin/tcpd  proftpd
+</pre>
+
+<p>Эта строка определяет, что inetd должен принимать FTP-соединения и передавать их
+tcpd. Это может выглядеть несколько странно, т.к. proftpd нормально обрабатывает
+FTP-соединения. Конечно, вы можете указать в файле <code>initd.conf</code>
+непосредственно proftpd, но хорошей идеей будет передавать соединения tcpd. Эта
+программа, как и указано, передаёт соединение proftpd. Tcpd используется для
+мониторинга сервисов и обеспечивает хост-ориентированный контроль доступа.</p>
+
+<p>Сервисы могут быть отключены простым комментированием строки -- добавлением
+символа # в начало строки. Хорошая практика -- отключить все сервисы и включить
+только необходимые в данный момент. После изменения файла
+<code>/etc/inetd.conf</code> нужно перезагрузить inetd, чтобы активировать
+настройки. Это можно сделать, послав сигнал HUP процессу inetd:</p>
+
+<pre>
+# ps ax | grep 'inetd'
+   2845 ?        S      0:00 /usr/sbin/inetd
+# kill -HUP 2845
+</pre>
+
+<p>Если вам не нужен inetd, будет хорошо удалить его. Если вы хотите оставить его в
+системе, но не желаете, чтобы Slackware Linux запускал его в процессе загрузки,
+выполните от суперпользователя следующую команду:</p>
+
+<pre>
+# chmod a-x /etc/rc.d/rc.inetd
+</pre>
+      
+<br />
+
+<ul class="pager">
+  <li class="previous"><a href="19. Инициализация системы.html">&larr; 19. Инициализация системы</a></li>
+  <li class="next"><a href="20. Разное">21. Разное &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
