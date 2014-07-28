@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 21. Разное</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../develop.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#V">V. Системное администрирование</a></li>
+        <li class="active">21. Разное</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">21. Разное</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">21.1. Планирование задач с cron</h4>
+
+<p class="text-right"><em>Написано Мюрреем Стокели</em></p>
+
+<p>Slackware Linux включает реализацию классического UNIX-демона cron, позволяющего
+пользователям выполнять задачи по расписанию с заданным регулярным интервалом.
+Каждый пользователь может создавать, удалять или модифицировать индивидуальный
+файл cron (crontab). Этот crontab-файл содержит команды или сценарии, которые
+будут выполняться через определённый промежуток времени. Пустые строки и строки,
+начинающиеся с символа решётки (&laquo;#&raquo;) игнорируются.</p>
+
+<p>Каждая запись в файле crontab должна содержать 6 полей, разделённых пробелами.
+Эти поля означают минуты, часы, дни, месяцы, дни недели и команду. Каждое из
+первых пяти полез может содержать значение времени или символ &laquo;*&raquo;,
+совпадающий с любым временем. Например, чтобы запускать команду
+<strong>date</strong> каждый день в 06:10, нужно использовать следующую
+запись:</p>
+
+<pre class="brush: plain">
+10 6 * * * date
+</pre>
+
+<p>Crontab пользователя можно просмотреть командой <strong>crontab -l</strong>.
+Давайте рассмотрим стандартный crontab суперпользователя для более глубокого
+понимания синтаксиса cron.</p>
+
+<pre class="brush: plain">
+# crontab -l
+# If you don't want the output of a cron job mailed to you,
+# you have to direct any output to /dev/null. We'll do this
+# here since these jobs should run properly on a newly
+# installed system, but if they don't the average newbie
+# might get quite perplexed about getting strange mail every
+# 5 minutes. :^)
+#
+# Run the hourly, daily, weekly, and monthly cron jobs.
+# Jobs that need different timing may be entered into
+# the crontab as before, but most really don't need greater
+# granularity than this.  If the exact times of the hourly,
+# daily, weekly, and monthly cron jobs do not suit your
+# needs, feel free to adjust them.
+#
+# Run hourly cron jobs at 47 minutes after the hour:
+47 * * * * /usr/bin/run-parts /etc/cron.hourly >/dev/null
+#
+# Run daily cron jobs at 4:40 every day:
+40 4 * * * /usr/bin/run-parts /etc/cron.daily >/dev/null
+#
+# Run weekly cron jobs at 4:30 on the 1st day of the week:
+30 4 * * 0 /usr/bin/run-parts /etc/cron.weekly >/dev/null
+#
+# Run monthly cron jobs at 4:20 on the 1st day of the month:
+20 4 1 * * /usr/bin/run-parts /etc/cron.monthly >/dev/null
+</pre>
+
+<ul>
+<li>Первое поле &#8211; 47, &#8211; определяет, что это задание должно выполняться на 47-й минуте часа.</li>
+<li>Второе поле &#8211; *, &#8211; это маска, совпадающая со всеми значениями. Так задание должно выполняться каждый час.</li>
+<li>Третье поле &#8211; *, &#8211; означает, что задание будет выполняться каждый день.</li>
+<li>Четвёртое поле &#8211; *, &#8211; означает, что задание будет выполняться каждый месяц.</li>
+<li>Пятое поле &#8211; *, &#8211; означает, что задание будет выполняться каждый день недели.</li>
+<li>Шестое поле &#8211; <strong>/usr/bin/run-parts /etc/cron.hourly 1> /dev/null</strong>, &#8211; обозначает команду, которая должна запускаться во время, указанное первыми пятью полями.</li>
+</ul>
+
+<p>Стандартный crontab-файл суперпользователя устанавливает запуск скриптов из
+директории <code>/etc/cron.mothly</code> каждый месяц, скриптов из
+<code>/etc/cron.weekly</code> раз в неделю, скриптов из
+<code>/etc/cron.daily</code> каждый день и скриптов из
+<code>/etc/cron.hourly</code> каждый час. По этой причине администраторам нет
+крайней необходимости понимать внутреннюю работу cron полностью. В Slackware
+Linux вы можете просто добавить новый скрипт в одну из перечисленных выше
+директорий, чтобы создать расписание периодического выполнения задачи.</p>
+
+<h4 id="2">21.2. Параметры жёсткого диска</h4>
+
+<p>Многие современные диски поддерживают различные возможности увеличения
+производительности и улучшения обеспечения целостности данных. Многие из этих
+возможностей могут быть настроены с помощью команды <strong>hdparm</strong>. Будьте осторожны при
+изменений параметров жёстких дисков с помощью этой утилиты, т.к. некоторые
+изменения могут повредить данные.</p>
+
+<p>Вы можете получить список установленных настроек диска, передав <strong>hdparm</strong> в
+качестве параметра файл устройства:</p>
+
+<pre>
+# hdparm /dev/hda
+
+/dev/hda:
+ multcount    =  0 (off)
+ IO_support   =  1 (32-bit)
+ unmaskirq    =  1 (on)
+ using_dma    =  1 (on)
+ keepsettings =  0 (off)
+ readonly     =  0 (off)
+ readahead    = 256 (on)
+ geometry     = 65535/16/63, sectors = 78165360, start = 0
+</pre>
+    
+<p>Обычная причина низкой производительности диска заключается в том, что ядро по
+умолчанию не использует DMA. DMA увеличивает пропускную способность системы
+ввода-вывода и уменьшает загруженность центрального процессора путём прямой
+передачи данных от диска к системной памяти. Если поддержка DMA отключена, в
+перечне опций диска должна быть следующая строка:</p>
+
+<pre class="brush: bash">
+using_dma    =  0 (off)
+</pre>
+    
+<p>Вы легко можете включить DMA для диска с помощью параметра <em>-d</em>:</p>
+
+<pre>
+# hdparm -d 1 /dev/hda
+
+/dev/hda:
+ setting using_dma to 1 (on)
+ using_dma    =  1 (on)
+</pre>
+    
+<p>Вы можете делать это во время каждой загрузки, если добавите команду в файл
+<code>/etc/rc.d/rc.local.</code></p>
+
+<p>Параметр <em>-i</em> также очень полезен, т.к. он выводит детальную информацию о диске:</p>
+
+<pre>
+# hdparm -i /dev/hda
+/dev/hda:
+
+ Model=WDC WD400EB-00CPF0, FwRev=06.04G06, SerialNo=WD-WCAAT6022342
+ Config={ HardSect NotMFM HdSw>15uSec SpinMotCtl Fixed DTR>5Mbs FmtGapReq }
+ RawCHS=16383/16/63, TrkSize=57600, SectSize=600, ECCbytes=40
+ BuffType=DualPortCache, BuffSize=2048kB, MaxMultSect=16, MultSect=off
+ CurCHS=16383/16/63, CurSects=16514064, LBA=yes, LBAsects=78163247
+ IORDY=on/off, tPIO={min:120,w/IORDY:120}, tDMA={min:120,rec:120}
+ PIO modes:  pio0 pio1 pio2 pio3 pio4 
+ DMA modes:  mdma0 mdma1 mdma2 
+ UDMA modes: udma0 udma1 udma2 udma3 udma4 *udma5 
+ AdvancedPM=no WriteCache=enabled
+ Drive conforms to: device does not report version: 
+
+ * signifies the current active mode
+</pre>
+
+<br />
+
+<h4 id="3">21.3. Мониторинг использования памяти</h4>
+
+<p>В некоторых ситуациях бывает полезно получить диагностическую информацию о том,
+сколько памяти занято. Например, на малопроизводительном сервере вам может
+понадобиться посмотреть, хватает ли оперативной памяти и не заполнен ли своп
+или, возможно, вы настраиваете сетевой сервис и хотите определить оптимальные
+настройки кэширования. В Slackware Linux есть несколько утилит, которые помогут
+вам анализировать используемую оперативную память.</p>
+
+<strong>21.3.1. vmstat</strong>
+
+<p><strong>Vmstat</strong> &#8211; это команда, отображающая статистику изменения различных частей
+системы виртуальной памяти. Без указания дополнительных параметров <strong>vmstat</strong>
+покажет суммарную статистику:</p>
+
+<pre>
+# vmstat
+procs ---------memory------- ---swap-- --io--- -system-- --cpu--
+ r  b swpd   free buff cache si so  bi bo   in  cs us sy  id wa
+ 0  0    0 286804 7912 98632  0  0 198  9 1189 783  5  1  93  1
+</pre>
+      
+<p>Поскольку в этом разделе мы рассматриваем только мониторинг использования
+памяти, нас будут интересовать только поля <em>memory</em> и <em>swap</em>.</p>
+
+<ul>
+<li><strong>swpd</strong>: объём используемой виртуальной памяти.</li>
+<li><strong>free</strong>: объём неиспользуемой в данный момент памяти.</li>
+<li><strong>buff</strong>: объём памяти, задействованной в качестве буферов.</li>
+<li><strong>cache</strong>: объём памяти, задействованной в качестве кэша.</li>
+<li><strong>si</strong>: объём памяти, загружающейся из свопа в секунду.</li>
+<li><strong>so</strong>: объём памяти, выгружающейся в своп в секунду.</li>
+</ul>
+
+<p>Также часто бывает полезным видеть, как с течением времени изменяется
+использование памяти. Вы можете указать интервал обновления информации в
+качестве параметра <strong>vmstat</strong>, чтобы программа непрерывно выводила текущую
+статистику. Интервал указывается в секундах. Так, если вы хотите обновлять
+статистику каждую секунду, вы можете выполнить:</p>
+
+<pre>
+# vmstat 1
+procs ---------memory------- ---swap-- ---io-- --system-- --cpu--
+ r  b swpd   free buff cache si so  bi bo   in   cs us sy  id wa
+ 2  0    0 315132 8832 99324  0  0 189 10 1185  767  5  1  93  1
+ 1  0    0 304812 8832 99324  0  0   0  0 1222 6881 24  8  68  0
+ 0  0    0 299948 8836 99312  0  0   0  0 1171 1824 41  9  49  0
+ [...]
+</pre>
+      
+<p>Дополнительно вы можете указать <strong>vmstat</strong>, сколько раз нужно вывести статистику
+(вместо того, чтобы делать это бесконечно). Например, если вы хотите выводить
+статистику каждые две секунды и сделать это всего пять раз, вы можете выполнить
+<strong>vmstat</strong> следующим образом:</p>
+
+<pre>
+# vmstat 2 5
+procs --------memory-------- ---swap--- ---io---- --system-- -cpu-
+ r  b swpd  free  buff cache si so   bi  bo   in    cs us sy id wa
+ 2  0    0 30996  9172 99360  0  0  186  10 1184   756  5  1 93  1
+ 0  1    0 29012  9848 99368  0  0  336   0 1293  8167 20  8 21 51
+ 1  0    0 29788 11976 99368  0  0 1054   0 1341 12749 14 11  0 76
+ 2  0    0 28996 13916 99368  0  0  960 176 1320 17636 22 14  0 64
+ 2  0    0 28620 16112 99368  0  0 1086 426 1351 21217 25 18  0 58
+</pre>
+
+</br>
+
+<ul class="pager">
+  <li class="previous"><a href="20. Безопасность.html">&larr; 20. Безопасность</a></li>
+  <li class="next"><a href="22. Настройка сети.html">22. Настройка сети &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
