@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 18. Сборка ядра</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#V">V. Системное администрирование</a></li>
+        <li class="active">18. Сборка ядра</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">18. Сборка ядра</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">18.1. Введение</h4>
+
+<p>Краткий обзор ядра Linux представлен в разделе <a href="02. Введение в
+Slackware Linux.html">2.1, &laquo;Что такое Linux?&raquo;</a>. Одно из
+преимуществ Linux заключается в том, что доступны все исходные тексты (как и
+большая часть Slackware Linux). Это означает, что вы можете пересобрать ядро.
+Это бывает полезно по многим причинам. Например:</p>
+
+<ul>
+<li>Сделать ядро компактнее: можно отключить некоторую функциональность ядра, чтобы уменьшить его размер. Это особенно полезно в окружении с недостаточной памятью.</li>
+<li>Возможно оптимизировать ядро. В частности, путём сборки ядра под конкретный тип процессора.</li>
+<li>Поддержка аппаратного обеспечения: поддержка некоторых устройств не включена по умолчанию в ядре, входящем в состав Slackware Linux.</li>
+<li>Использование сторонних патчей: существует множество неофициальных патчей для ядра Linux. В общем случае избегание неофициальных исправлений &#8211; хорошая идея, но некоторое программное обеспечение от сторонних разработчиков, такое как Win4Lin, требует от вас накладывания на ядро дополнительных патчей.</li>
+<li>Создание надлежащей инфраструктуры сборки, необходимой для установки сторонних модулей.</li>
+</ul>
+
+<p>Эта глава фокусируется на ядре версии 2.6, по умолчанию используемом в Slackware
+Linux 12.0. Сборка ядра на самом деле не очень сложна, просто сделайте
+резервную ядра, которую можно будет использовать в том случае, если что-то вдруг
+пойдёт не так.  Компиляция ядра Linux включает в себя следующие шаги:</p>
+
+<ol class="plain">
+<li>Конфигурация ядра</li>
+<li>Сборка ядра</li>
+<li>Сборка модулей</li>
+<li>Установка ядра и модулей</li>
+<li>Обновление конфигурации LILO</li>
+</ol>
+
+<p>В этой главе мы будем ориентироваться на то, что исходные тексты ядра доступны в
+директории <code>/usr/src/linux</code>. Если вы установили исходный код ядра из набора
+пакетов &laquo;k&raquo;, то они расположены в директории
+<code>/usr/src/linux-<версия ядра></code>, а /usr/src/linux &#8211; это
+символическая ссылка на настоящий каталог с кодом ядра.
+Так, если вы используете стандартный пакет ядра Slackware Linux, вы готовы
+начать.</p>
+
+<p>В отличие от предыдущих версий ядра, совсем не обязательно использовать
+символическую ссылку <code>/usr/src/linux</code>. Если вы распакуете исходный
+код нового ядра в <code>/usr/src</code>, вы можете собрать ядро в директории
+<code>/usr/src/linux-<версия ядра></code> и использовать эту директорию для
+выполнения примеров из этой главы.</p>
+
+<br />
+
+<h4 id="2">18.2. Конфигурирование</h4>
+
+<p>Как указано выше, первый шаг заключается в конфигурировании исходных текстов
+ядра. Чтобы облегчить настройку ядра, можно скопировать конфигурацию ядра
+Slackware Linux в директорию с исходным кодом. Конфигурация ядра Slackware
+Linux хранится на носителе дистрибутива в файле <code>kernels/<название ядра>/config</code>.
+Предположим, что вы хотите использовать в качестве отправной точки конфигурацию
+ядра <code>hugesmp.s</code> (ядро по умолчанию) и что ваш CD-ROM со Slackware Linux
+примонтирован в директории <code>/mnt/cdrom</code>; тогда вы можете скопировать конфигурацию
+ядра Slackware linux командой:</p>
+
+<pre>
+# cp /mnt/cdrom/kernels/hugesmp.s/config /usr/src/linux/.config
+}}}
+</pre>
+    
+<p>Конфигурация загруженного ядра может быть получена из файла <code>/proc/config.gz</code>,
+если ядро было собрано с опциями <var>CONFIG_IKCONFIG</var> и <var>CONFIG_IKCONFIG_PROC</var>. В
+стандартном ядре Slackware Linux эти опции включены по умолчанию. Так, если вы
+захотите использовать конфигурацию запущенного ядра, вы должны выполнить:</p>
+
+<pre>
+# zcat /proc/config.gz > /usr/src/linux/.config
+</pre>
+    
+<p>Если вы используете конфигурационный файл от версии, отличающейся от той,
+которую нужно собрать, вероятно, их параметры будут различаться. Часто
+добавляются новые опции (например потому, что появляются новые драйверы
+устройств) и иногда удаляются компоненты ядра. Вы можете настроить новые опции
+(и удалить неиспользуемые) с помощью команды <strong>make oldconfig</strong>:</p>
+
+<pre>
+# cd /usr/src/linux ; make oldconfig
+</pre>
+
+<p>Вам будут заданы вопросы, хотите ли вы вкомпилировать опцию в ядро (для ответа
+нужно нажать <kbd>Y</kbd>), скомпилировать её как модуль (<kbd>M</kbd>) или не включать (<kbd>N</kbd>).
+Например:</p>
+
+<pre>
+IBM ThinkPad Laptop Extras (ACPI_IBM) [N/m/y/?] (NEW)
+</pre>
+    
+<p>Как вы можете видеть, указаны все возможные действия; выбор по умолчанию набран
+верхним регистром и будет использован, если вы просто нажмёте <kbd>Enter</kbd>. Если вы
+хотите получить больше информации о параметре, вы можете нажать знак вопроса
+(<kbd>?</kbd>):</p>
+
+<pre>
+    IBM ThinkPad Laptop Extras (ACPI_IBM) [N/m/y/?] (NEW) ?
+
+This is a Linux ACPI driver for the IBM ThinkPad laptops. It adds
+support for Fn-Fx key combinations, Bluetooth control, video
+output switching, ThinkLight control, UltraBay eject and more.
+For more information about this driver see <file:Documentation/ibm-acpi.txt>
+and <http://ibm-acpi.sf.net/> .
+
+If you have an IBM ThinkPad laptop, say Y or M here.
+
+    IBM ThinkPad Laptop Extras (ACPI_IBM) [N/m/y/?] (NEW)
+</pre>
+    
+<p>Вывод этой команды может быть несколько многословным, т.к. будут показаны все
+опции, имеющиеся в конфигурационном файле и доступные в запущенном ядре, но
+конфигурация будет автоматически заполнена на основе файла конфигурации.</p>
+
+<p>На этом этапе вы можете начать детальную настройку ядра. Существует три
+конфигурационных интерфейса. Первый &#8211; <em>config</em>, который просто спросит вас, что
+вы хотите делать с каждой опцией ядра. Это занимает много времени. Обычно это
+не лучший путь конфигурирования ядра. Более дружелюбный подход &#8211; использование
+<em>menuconfig</em>, который предоставляет систему меню, с помощью которого вы можете
+настроить ядро. Также существует графический интерфейс &#8211; <em>xconfig</em>. Вы можете
+запустить выбранный интерфейс, перейдя в директорию с исходным кодом ядра и
+выполнив <strong>make <интерфейс></strong>. Например, для того, чтобы настроить ядро с помощью
+меню, вы можете использовать следующие команды:</p>
+
+<pre>
+# cd /usr/src/linux
+# make menuconfig
+</pre>
+    
+<p>Конечно, если вы пожелаете, то можете отредактировать файл <code>.config</code> в вашем
+любимом текстовом редакторе.</p>
+
+<p>Как мы уже кратко рассмотрели выше, в конфигурации ядра существует, в основном,
+три варианта выбора: &laquo;n&raquo; отключает функциональность,
+&laquo;y&raquo; включает и &laquo;m&raquo; компилирует функциональность в виде
+модуля. Стандартная конфигурация ядра Slackware Linux очень хороша, она
+включает поддержку большинства наиболее используемых дисковых контроллёров и
+файловых систем, остальное включено модулями. Какой бы выбор вы ни сделали, вы
+должны быть уверены, что в ядро включены драйверы для дискового контроллёра и
+поддержка типа файловой системы корневой директории. Если этого не будет, то
+ядро не сможет примонтировать корень диска и выдаст сообщение об ошибке, т.к.
+не сможет передать инициализацию программе <strong>init</strong>.</p>
+
+<div class="bq-note">
+    <h4 class="text-success">Примечание</h4>
+    <p>Всегда полезно сохранять старые версии ядра и модулей на случай, если вы
+    совершите ошибку в настройке. Если вы собираете ядро той же версии, что и
+    установлено в системе, вы должны серьёзно рассмотреть возможность изменения
+    параметра <var>CONFIG_LOCALVERSION</var>. Значение этого параметра добавляется к версии
+    ядра. Например, если ядро имеет номер версии 2.6.21.6, и опция
+    <var>CONFIG_LOCALVERSION</var> установлена в &laquo;-smp-ddk&raquo;, то версия собранного ядра будет
+    2.6.21.6-smp-ddk.</p>
+</div>
+
+<p>Если вы не измените версию таким образом, тогда установка модулей нового ядра
+перезапишет модули уже установленного. Это крайне неудобно в случае, если вам
+вдруг придётся вернуться к старому ядру.</p>
+
+<br />
+
+<h4 id="3">18.3. Компиляция</h4>
+
+<p>Компиляция ядра состоит из множества шагов, но ядро Linux версии 2.6 может быть
+скомпилировано командой make в директории с исходным кодом ядра. Эта команда
+вычислит зависимости, соберёт ядро и соберёт и слинкует модули ядра.</p>
+
+<pre>
+# cd /usr/src/linux
+# make
+</pre>
+
+<p>По завершению компиляции дерево файлов будет содержать скомпилированные модули
+и сжатый образ ядра в файле с именем <code>bzImage</code> в директории
+<code>/usr/src/linux/arch/i386/boot</code>. Далее вы можете продолжить
+установку ядра и модулей.</p>
+
+<br />
+
+<h4 id="4">18.4. Установка</h4>
+
+<strong>18.4.1. Установка ядра</strong>
+
+<p>Следующий шаг &#8211; установка ядра и модулей. Вы должны начать с установки модулей
+ядра, т.к. это можно сделать выполнением одной команды в директории с исходными
+текстами ядра:</p>
+
+<pre>
+# make modules_install
+</pre>
+      
+<p>Это установит модули в директорию <code>/lib/modules/<версия ядра></code>. Если вы заменяете
+ядро новым ядром такой же версии, лучше будет до установки удалить старые
+модули. Например:</p>
+
+<pre>
+# rm -rf /lib/modules/2.6.21.5-smp
+</pre>
+      
+<p>Вы можете &laquo;установить&raquo; ядро, скопировав его в директорию <code>/boot</code>.
+Вы можете назвать файл по своему желанию, но будет хорошо соблюдать
+какое-нибудь соглашение о наименовании. Например <code>vmlinuz-<версия
+ядра></code>. Так, если название ядра <code>vmlinuz-2.6.21.5-smp-ddk</code>, вы
+можете скопировать его из дерева исходных текстов ядра с помощью команды:</p>
+
+<pre>
+# cp arch/i386/boot/bzImage /boot/vmlinuz-2.6.21.5-smp-ddk
+</pre>
+
+<p>На этом этапе всё. Последний шаг &#8211; добавление нового ядра в загрузчик Linux
+(Linux boot loader, LILO).</p>
+
+<strong>18.4.2. Настройка LILO</strong>
+
+<p>LILO является загрузчиком, используемым по умолчанию в Slackware Linux.
+Конфигурация LILO производится в два этапа; первый этап &#8211; изменение настроек в
+файле <code>/etc/lilo.conf</code>. Второй этап &#8211; запуск команды
+<strong>lilo</strong>, которая запишет конфигурацию LILO в загрузчик. Текущая
+конфигурация LILO уже содержит запись о ядре, которое запускается при загрузке.
+Хорошей идеей будет оставить эту запись в качестве резервной копии на случай,
+если новое ядро не будет загрузаться. Если вы перейдёте в конец файла
+<code>/etc/lilo.conf</code>, вы увидите эту запись, она выглядит подобно
+этой:</p>
+
+<pre class="brush: bash">
+# Linux bootable partition config begins
+image = /boot/vmlinuz
+  root = /dev/hda5
+  label = Slack
+  read-only
+# Linux bootable partition config ends
+</pre>
+      
+<p>Самый простой способ добавить новое ядро &#8211; это скопировать имеющуюся запись и
+затем отредактировать первый параметр, изменив имя файла, и присвоить ядру
+название. После изменения примера выше, файл должен выглядеть так:</p>
+
+<pre class="brush: bash">
+# Linux bootable partition config begins
+image = /boot/vmlinuz-2.6.21.5-smp-ddk
+  root = /dev/hda5
+  label = Slack
+  read-only
+
+image = /boot/vmlinuz
+  root = /dev/hda5
+  label = SlackOld
+  read-only
+# Linux bootable partition config ends
+</pre>
+      
+<p>Как вы можете видеть, первый образ ядра ссылается на новый файл, а подпись
+второй записи была изменена на &laquo;SlackOld&raquo;. LILO будет автоматически загружать
+первое ядро. Вы можете установить эту новую конфигурацию LILO, выполнив команду
+<strong>lilo</strong>:</p>
+
+<pre>
+# lilo
+Added Slack *
+Added SlackOld
+</pre>
+      
+Во время следующей загрузки будут доступны обе записи, и загрузится новое ядро
+под названием &laquo;Slack&raquo;.
+
+<div class="bq-note">
+    <h4 class="text-success">Примечание</h4>
+    <p>Если вы хотите, чтобы LILO отображал меню с записями, настроенными в
+    <code>lilo.conf</code> при каждой загрузке, убедитесь, что в этом файле есть
+    строка <em>prompt</em>. В противном случае LILO будет загружать запись,
+    установленную по умолчанию параметром <em>default=<имя записи></em>, или же
+    первую запись в файле. Вы можете получить доступ к меню в любое время,
+    удерживая во время загрузки LILO клавишу <kbd>Shift</kbd>.</p>
+</div>
+
+<ul class="pager">
+  <li class="previous"><a href="17. Управление пакетами.html">&larr; 17. Управление пакетами</a></li>
+  <li class="next"><a href="19. Инициализация системы.html">19. Инициализация системы &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
