@@ -102,8 +102,29 @@ h3 {
 	margin: 0px 0px 18px;
 }
 
+.bq-note {
+	background: #f9f9f9;
+	border-left: 5px solid #ccc;
+	margin: 1.5em 10px;
+	padding: 0.5em 10px;
+	font-style:normal;
+}
+
+.bq-note h4 {
+	font-style: normal;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+
+.bq-note p {
+	display: inline;
+	font-style: normal;
+}
+
 blockquote {
 	font-size: 14px;
+	font-style: normal;
 }
 
 kbd {
@@ -114,7 +135,6 @@ kbd {
 	padding: 1px 9px;
 	margin: 1px 2px;
 	position: relative;
-	left: -3px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	-o-border-radius: 4px;
@@ -214,6 +234,6 @@ ol:not(.plain) li:not(.plain) a:not(.plain) {
 .article p:last-child {
 	padding-top: 30px;
 	text-align: right;
-	font-style: italic;
+	/* font-style: italic; */
 }
 
