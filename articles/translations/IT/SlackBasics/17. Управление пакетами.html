@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 17. Управление пакетами</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#V">V. Системное администрирование</a></li>
+        <li class="active">17. Управление пакетами</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">17. Управление пакетами</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">17.1. Pkgtools</h4>
+
+<h5>17.1.1. Введение</h5>
+
+<p>В отличие от других дистрибутивов Linux, Slackware Linux не использует
+комплексную систему пакетов. Пакеты имеют расширение <var>.tgz</var> и обычно
+представляют собой обычный тарболл, содержащий два дополнительных файла:
+сценарий инициализации и файл описания пакета. Простота пакетов Slackware Linux
+не предполагает средств управления зависимостями пакетов. Но многие
+пользователи Slackware Linux предпочитают этот подход, т.к. зависимости чаще
+создают проблемы, чем решают.</p>
+
+<p>В Slackware Linux есть несколько утилит для управления пакетами. Наиболее
+важные из них описаны в этой главе. Для понимания работы утилит мы должны
+рассмотреть соглашение об именовании пакетов. Например, представим, что у нас
+есть пакет с именем файла <code>bash-2.05b-i386-2.tgz</code>. В таком случае
+собственно именем пакета является <var>bash-2.05b-i386-2</var>. В имени пакета
+различная информация разделяется с помощью знака дефиса (&laquo;-rlaquo;), всё
+это означает следующее:
+<var>название_программы-версия-архитектура-версия_пакета</var>.</p>
+
+<h5>17.1.2. pkgtool</h5>
+
+<p>Команда <strong>pkgtool</strong> предоставляет интерфейс для нескольких операций управления
+пакетами. Наиболее важные пункты меню &#8211; это <var>Remove</var> и
+<var>Setup</var>. Опция <var>Remove</var> отображает список установленных
+пакетов. С помощью клавиши пробела вы можете выбрать те пакеты, которые хотите
+удалить, и подтвердить свой выбор клавишей ввода (<kbd>Enter</kbd>). Также вы
+можете снять отметку на удаление, нажав пробел (<kbd>Space</kbd>).</p>
+
+<p>Опция <var>Setup</var> предоставляет доступ к нескольким утилитам, которые
+могут помочь вам настроить вашу систему, например <strong>netconfig</strong>,
+<strong>ppconfig</strong> и <strong>xwmconfig</strong>.</p>
+
+<h5>17.1.3. installpkg</h5>
+
+<p>Команда <strong>installpkg</strong> используется для установки пакетов.
+<strong>installpkg</strong> принимает имя файла пакета в качестве параметра.
+Например, если вы хотите установить пакет <code>bash-025b-i386-2.tgz</code>,
+выполните:</p>
+
+<pre>
+# installpkg bash-2.05b-i386-2.tgz
+</pre>
+      
+<h5>17.1.4. upgradepkg</h5>
+
+<p>Команда <strong>upgradepkg</strong> может быть использована для обновления пакетов. В отличие от
+<strong>installpkg</strong>, эта команда установит только те пакеты, чьи более
+ранние версии уже имеются в системе. Синтаксис команды сопоставим с
+<strong>installpkg</strong>. Например, если вы хотите обновить все пакеты,
+находящиеся в директории, выполните:</p>
+
+<pre>
+# upgradepkg *.tgz
+</pre>
+      
+<p>Как уже было сказано, обновятся только установленные в системе пакеты.</p>
+
+<h5>17.1.5. removepkg</h5>
+
+<p>Команда <strong>removepkg</strong> может быть использована для удаления
+установленных пакетов.  Например, если вы хотите удалить пакет
+&laquo;bash&raquo; (делать это не рекомендуется!), вы можете выполнить:</p>
+
+<pre>
+# removepkg bash
+</pre>
+      
+<p>Как вы можете видеть, в примере указано только имя программы. Также вы можете
+удалить пакет, указав его полное наименование:</p>
+
+<pre>
+# removepkg bash-2.05b-i386-2
+</pre>
+
+<br />
+
+<h4 id="2">17.2. Slackpkg</h4>
+
+<h5>17.2.1. Введение</h5>
+
+<p><strong>Slackpkg</strong> &#8211; это средство управления пакетами, созданное Roberto F. Batista и
+Evaldo Gardenali. Оно помогает пользователям устанавливать и обновлять пакеты,
+используя одно из зеркал Slackware Linux. <strong>Slackpkg</strong> находится на втором
+компакт-диске Slackware Linux в директории <code>extra/</code>.</p>
+
+<h5>17.2.2. Настройка</h5>
+
+<p>Настройка <strong>Slackpkg</strong> производится в нескольких файлах в директории
+<code>/etc/slackpkg</code>. Первое, что вы должны настроить, &#8211; это адрес
+зеркала, которое будет использовать <strong>slackpkg</strong>. Это можно сделать, отредактировав
+файл <code>/etc/slackpkg/mirrors</code>. Данный файл содержит список зеркал; вы
+можете раскомментировать необходимые адреса. Например:</p>
+
+<pre>
+ftp://ftp.nluug.nl/pub/os/Linux/distr/slackware/slackware-12.0/
+</pre>
+      
+<p>Это включит использование дерева файлов Slackware Linux 12.0 на сервере
+<var>ftp.nluug.nl</var>. Убедитесь, что репозиторий соответствует используемой вами версии
+Slackware Linux. Если вы желаете следить за текущей версией Slackware, вы
+должны раскомментировать следующую строку (если вы хотите использовать зеркало
+NLUUG):</p>
+
+<pre>
+ftp://ftp.nluug.nl/pub/os/Linux/distr/slackware/slackware-current/
+</pre>
+      
+<strong>Slackpkg</strong> может использовать только одно зеркало. Подключение нескольких адресов
+не будет работать.
+
+<h5>17.2.3. Импорт GPG-ключа в Slackware Linux</h5>
+
+<p>По умолчанию <strong>slackpkg</strong> проверяет пакеты по сигнатурам и публичным GPG-ключом
+Slackware Linux. Так как это хорошая идея с точки зрения безопасности,
+возможно, вы не захотите изменить такое поведение. Для включения верификации
+пакетов вы должны импортировать GPG-ключ <var>security@slackware.com</var>.
+Если вы никогда до этого не использовали GPG, сначала создайте директорию GPG в
+домашнем каталоге пользователя root:</p>
+
+<pre>
+# mkdir ~/.gnupg
+</pre>
+      
+<p>Следующий шаг &#8211; поиск публичного ключа
+<var>security@slackware.com</var>. Мы сделаем это через запрос к серверу
+<var>pgp.mit.edu</var>:</p>
+
+<pre>
+# gpg --keyserver pgp.mit.edu --search security@slackware.com
+gpg: keyring `/root/.gnupg/secring.gpg' created
+gpg: keyring `/root/.gnupg/pubring.gpg' created
+gpg: searching for "security@slackware.com" from HKP server pgp.mit.edu
+Keys 1-2 of 2 for "security@slackware.com"
+(1)     Slackware Linux Project <security@slackware.com>
+          1024 bit DSA key 40102233, created 2003-02-25
+(2)     Slackware Linux Project <security@slackware.com>
+          1024 bit DSA key 40102233, created 2003-02-25
+Enter number(s), N)ext, or Q)uit > 
+</pre>
+      
+<p>Как вы можете видеть, мы получили два идентификатора. Выберите первый, введя
+&laquo;1&raquo;. GnuPG импортирует этот ключ в хранилище ключей суперпользователя:</p>
+
+<pre>
+Enter number(s), N)ext, or Q)uit > 1
+gpg: key 40102233: duplicated user ID detected - merged
+gpg: /root/.gnupg/trustdb.gpg: trustdb created
+gpg: key 40102233: public key "Slackware Linux Project <security@slackware.com>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+</pre>
+      
+<p>Дважды проверьте полученный ключ. Идентификатор и отпечаток ключа могут быть
+найдены в сети Интернет на многих сайтах, посвящённых компьютерной безопасности
+ID ключа выше &#8211; 40202233. Вы можете получить отпечаток ключа, используя
+параметр командной строки <var>--fingerprint</var>:</p>
+
+<pre>
+# gpg --fingerprint security@slackware.com
+pub  1024D/40102233 2003-02-26 Slackware Linux Project <security@slackware.com>
+     Key fingerprint = EC56 49DA 401E 22AB FA67  36EF 6A44 63C0 4010 2233
+sub  1024g/4E523569 2003-02-26 [expires: 2012-12-21]
+</pre>
+      
+<p>После импорта и проверки этого ключа вы можете начать использовать <strong>slackpkg</strong> для
+безопасной установки пакетов.</p>
+
+<h5>17.2.4. Обновление списка пакетов</h5>
+
+<p>Перед обновлением и установкой пакетов вы должны сказать <strong>slackpkg</strong> скачать
+список пакетов с зеркала. Регулярное обновление списка пакетов является хорошей
+практикой. Актуальную информацию о пакетах можно запросить следующим образом:<?p>
+
+<pre>
+$ slackpkg update
+</pre>
+      
+<h5>17.2.5. Обновление пакетов</h5>
+
+<p>Параметр <var>upgrade</var> используется для обновления установленных пакетов. Вы должны
+добавить ещё один параметр, чтобы указать <strong>slackpkg</strong>, что именно вы хотите
+обновить; это различается для стабильной и текущей веток Slackware Linux.
+Обновления стабильной ветки помещаются в директории исправления (patches). Вы
+можете обновить установку slackware-stable (например, Slackware Linux 12.0)
+так:</p>
+
+<pre>
+# slackpkg upgrade patches
+</pre>
+      
+<p>В этом случае <strong>slackpkg</strong> будет использовать пакеты из
+директории <code>patches</code>. В текущей ветке (slackware-current)
+обновлённые пакеты помещаются в обычных поддиректориях. Так, мы можем передать
+<strong>slackpkg</strong> следующий параметр для обновления системы:</p>
+
+<pre>
+# slackpkg upgrade slackware
+</pre>
+      
+<p>Также вы можете обновить конкретный пакет, уточнив его наименование. Например:</p>
+
+<pre>
+# slackpkg upgrade pine
+</pre>
+      
+<h5>17.2.6. Установка пакетов</h5>
+
+<p>Параметр <var>install</var> используется для установки пакетов:</p>
+
+<pre>
+# slackpkg install rexima
+</pre>
+      
+<p>Имейте в виду, что ни <strong>slackpkg</strong>, ни средства управления
+пакетами Slackware Linux не разрешают зависимости пакетов. Если какая-то
+программа не работает из-за отсутствующих библиотек, вы можете добавить их
+самостоятельно с помощью <strong>slackpkg</strong>.</p>
+
+<br />
+
+<h4 id="3">17.3. Обновление с помощью rsync</h4>
+
+<p>Другой популярный метод держать Slackware Linux в обновлённом состоянии
+заключается в хранении локального зеркала. Идеальный инструмент для этого &#8211;
+<strong>rsync</strong>. <strong>Rsync</strong> является программой, которая
+синхронизирует два дерева файлов. Преимущество заключается в том, что
+<strong>rsync</strong> передаёт только различия в файлах, поэтому это
+происходит очень быстро. После синхронизации с зеркалом вы можете
+обновить Slackware Linux с помощью команды <strong>upgradepkg</strong> или
+собрать новый установочный CD. Следующий пример синхронизирует локальное дерево
+пакетов с директорией обновлений на стороннем зеркале:</p>
+
+<pre>
+# rsync -av --delete \
+--exclude=slackware/kde \
+--exclude=slackware/kdei \
+--exclude=slackware/gnome \
+--exclude=bootdisks \
+--exclude=extra \
+--exclude=testing \
+--exclude=pasture \
+--exclude=rootdisks \
+--exclude=source \
+--exclude=zipslack \
+rsync://fill-in-mirror/pub/slackware/slackware-current/ \
+/usr/share/mirrors/slackware-current
+</pre>
+    
+<p>Параметр <var>-a</var> включает несколько других опций, которые пытаются
+скопировать файлы как можно точнее (в терминах сохранения символических ссылок,
+прав и владельцев); <var>--deletes</var> удаляет файлы, больше недоступные на
+зеркале.  Лучше использовать этот параметр, иначе ваше локальное дерево пакетов
+очень быстро заполнится устаревшими версиями пакетов. С параметром
+<var>--exclude</var> вы можете указать файлы и директории, которые должны быть
+проигнорированы.</p>
+
+<p>После синхронизации дерева пакетов вы можете использовать
+<strong>upgradepkg</strong> для обновления вашей установки Slackware Linux.
+Например:</p>
+
+<pre>
+#upgradepkg /usr/share/mirrors/slackware-current/slackware/*/*.tgz
+</pre>
+
+<br />
+
+<h4 id="4">17.4. Файлы тегов</h4>
+
+<h5>17.4.1. Введение</h5>
+
+<p>Файлы тегов &#8211; это относительно неизвестная возможность Slackware Linux. Это
+файлы, которые могут быть использованы, чтобы указать
+<strong>installpkg</strong>, какие пакеты из файлового хранилища должны быть
+установлены. Так, инсталлятор Slackware Linux генерирует файлы тегов во время
+установки в экспертном режиме и с помощью меню для сохранения списка пакетов,
+которые нужно установить.</p>
+
+<p>Приятная особенность файлов тегов заключается в том, что их легко создать
+самому. С помощью написания файлов тегов вы можете автоматизировать установку
+пакетов, что является идеальным решением для запуска большого количества
+клиентов или серверов (или в случае небольших установок, если это будет более
+удобным решением, чем устанавливать пакеты вручную). Самый простой способ
+создать свой файл тегов &#8211; это использовать файлы из официального дистрибутива
+Slackware Linux. В следующем разделе мы рассмотрим, как это сделать.</p>
+
+<h5>17.4.2. Создание файлов тегов</h5>
+
+<p>Тег-файлы &#8211; это простые текстовые файлы Каждая строка содержит название пакета
+и флаг, разделённые двоеточием и пробелом. Флаг указывает, что нужно сделать с
+этим пакетом. Значения тегов раскрыты в таблице 17.1. Посмотрите на несколько
+строк из файла, размещённого в разделе "a" установочного диска:</p>
+
+<pre class="brush: plain">
+aaa_base: ADD
+aaa_elflibs: ADD
+acpid: REC
+apmd: REC
+bash: ADD
+bin: ADD
+</pre>
+      
+<p>Нужно отметить, что вы также можете добавить комментарии в файлы, используя
+обычный символ комментариев (#). Как вы можете заметить в примере выше,
+существует несколько типов флагов. В таблице ниже представлены все четыре типа
+флагов.</p>
+
+<p class="text-right"><strong>Таблица 17.1. Поля файлов тегов</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Флаг</th>
+          <th>Значение</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+	<th>ADD</th>
+	<td>Пакет будет помечен для автоматической установки</td>
+        </tr>
+        <tr>
+	<th>SKP</th>
+	<td>Пакет будет пропущен</td>
+        </tr>
+        <tr>
+	<th>REC</th>
+	<td>Спросить у пользователя, что сделать с пакетом. Рекомендуется установить.</td>
+        </tr>
+        <tr>
+	<th>OPT</th>
+	<td>Спросить у пользователя, что сделать с пакетом. Пакет будет представлен как опциональный.</td>
+        </tr>
+      </tbody>
+    </table>
+
+<p>Как вы можете прочесть в таблице, <strong>installpkg</strong> будет
+действовать автоматически только при обработке флагов <var>ADD</var> или <var>SKP</var>.</p>
+
+<p>Писать тег-файлы для каждого набора пакетов Slackware Linux будет несколько
+утомительно. Официальный дистрибутив Slackware Linux имеет файлы тегов в
+каждой директории набора пакетов. Вы можете использовать эти файлы в качестве
+шаблонов. Небольшой сценарий, приведённый ниже, может быть использован для
+копирования файлов тегов в текущую директорию с сохранением файловой структуры
+диска.</p>
+
+<pre class="brush: bash">
+#!/bin/sh
+
+if [ ! $# -eq 1 ] ; then
+  echo "Syntax: $0 [directory]"
+  exit
+fi
+
+for tagfile in $1/*/tagfile; do 
+  setdir=`echo ${tagfile} \
+        | egrep -o '\w+/tagfile$' \
+        | xargs dirname`
+  mkdir ${setdir}
+  cp ${tagfile} ${setdir}/tagfile.org
+  cp ${tagfile} ${setdir}
+done
+</pre>
+      
+<p>После записи скрипта в файл, вы можете его выполнить, указав директорию
+<code>slackware/</code>, в котором содержатся пакеты. Например:</p>
+
+<pre>
+$ sh copy-tagfiles.sh /mnt/flux/slackware-current/slackware
+</pre>
+      
+<p>После выполнения сценария в текущей директории появится файловая структура,
+наподобие этой, в которой вы можете редактировать отдельные файлы тегов:</p>
+
+<pre class="brush: plain">
+a/tagfile
+a/tagfile.org
+ap/tagfile
+ap/tagfile.org
+d/tagfile
+d/tagfile.org
+e/tagfile
+e/tagfile.org
+[...]
+</pre>
+      
+<p>Файлы, имена которых завершаются на .org, &#8211; это резервные копии, которые вы
+можете использовать в качестве примера при редактировании своих тег-файлов.
+Кроме того они используются в сценарии, описанном в следующем разделе.</p>
+
+<h5>17.4.3. Автоматичекое создание файлов тегов</h5>
+
+<p>С помощью несложного скрипта возможно собрать тег-файлы, основанные на пакетах,
+установленных в текущей системе. Этой находчивой идее я обязан Питеру Каагману
+(Peter Kaagman).</p>
+
+<p>Сначала нужно создать директорию для файлов тегов на основе установочного
+ресурса Slackware Linux, как описано в предыдущем разделе. Далее вы можете
+создать следующий сценарий:</p>
+
+<pre class="brush: bash">
+#!/bin/sh
+
+if [ ! $# -eq 1 ] ; then
+ echo "Syntax: $0 [directory]"
+ exit
+fi
+
+for tforg in $1/*/tagfile.org ; do
+ tf=${tforg%.org}
+ rm -f ${tf}
+ for package in $(grep -v '^#' $tforg | cut -d ':' -f 1); do
+  if ls /var/log/packages/${package}-[0-9]*&&gt;/dev/null; then 
+    echo "${package}: ADD" &gt;&gt; ${tf}
+  else
+    echo "${package}: SKP" &gt;&gt; ${tf}
+  fi
+ done
+done
+</pre>
+
+<p>Предположим, что вы сохранили его в файле <code>build-tagfiles.sh</code>; тогда вы можете
+запустить его, в качестве аргумента указав директорию, содержащую тег-файлы:</p>
+
+<pre>
+$ sh build-tagfiles.sh .
+</pre>
+      
+<p>Сценарий отметит пакеты, которые присутствуют в системе, флагом <var>ADD</var>, а пакеты,
+которые не установлены, флагом <var>SKP</var>.</p>
+
+<h5>17.4.4. Использование файлов тегов</h5>
+
+<p>В установленной системе вы можете сказать <strong>installpkg</strong>
+использовать файл тегов, добавив параметр <var>-tagfile</var>. Например:</p>
+
+<pre>
+# installpkg -infobox -root /mnt-small -tagfile a/tagfile /mnt/flux/slackware-current/slackware/a/*.tgz
+</pre>
+      
+<div class="bq-note">
+    <h4 class="text-success">Примечание</h4>
+    <p>Вы должны использовать параметр <var>-infobox</var>, иначе файл тегов не будет
+    использован.</p>
+</div>
+
+<p>Конечно, файлы тегов были бы бесполезны, если бы их нельзя было использовать при
+установке Slackware Linux. Естественно, это возможно: после выбора набора
+пакетов, который вы хотите установить, вы можете указать, каким образом вы
+хотите выбрать пакеты для установки (диалог с названием <var>SELECT PROMPTING
+MODE</var>. Выберите путь к файлу тегов в этом меню, когда вас попросят ввести
+путь к директории с файлами. Обычный способ предоставить файлы тегов
+установщику Slackware Linux &#8211; это скопировать их на дискету или прочий
+носитель и примонтировать его перед или во время установки. Для этого вы можете
+переключиться на вторую консоль, нажав <kbd>Alt</kbd> + <kbd>F2</kbd>, создать точку монтирования
+и подключить носитель с файлами тегов:
+
+<pre>
+# mkdir /mnt-tagfiles
+# mount /dev/fd0 /mnt/mnt-tagfiles
+</pre>
+      
+<p>После монтирования диска вы можете вернуться в виртуальную консоль с запущенной
+установкой, нажав <kbd>Alt</kbd> + <kbd>F1</kbd>.</p>
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="16. X11.html">&larr; 16. X11</a></li>
+  <li class="next"><a href="18. Сборка ядра.html">18. Сборка ядра &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
