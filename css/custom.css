@@ -237,3 +237,10 @@ ol:not(.plain) li:not(.plain) a:not(.plain) {
 	/* font-style: italic; */
 }
 
+.article h5 {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
