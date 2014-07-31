@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 16. X11</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#V">V. Системное администрирование</a></li>
+        <li class="active">16. X11</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">16. X11</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">16.1. Настройка X-сервера</h4>
+
+<p>Настройки X-сервера хранятся в <code>/etc/X11/xorg.conf</code>. Многие
+дистрибутивы предоставляют специальные программы для настройки графического
+сервера, но Slackware Linux предоставляет только стандартные инструменты X11
+(которые в действительности очень просто использовать). В большинстве случаев
+X-сервер может быть настроен автоматически, но иногда возникает необходимость
+редактировать файл <code>/etc/X11/xorg.conf</code> вручную.</p>
+
+<h5>16.1.1. Автоматическая настройка</h5>
+
+<p>Сервер X11 обеспечивает опцию для автоматического создания конфигурационного
+файла. X11 загрузит все доступные модули драйверов, попытается определить
+используемое аппаратное обеспечение и создаст конфигурационный файл. Выполните
+следующую команду для создания <code>xorg.conf</code> &#8211; конфигурационного
+файла.</p>
+
+<pre>
+$ X -configure
+</pre>
+
+<p>Если X-сервер не сообщит об ошибках, созданный конфигурационный файл может быть
+скопирован в директорию <code>/etc/X11</code>. И X-сервер может быть запущен
+для проверки настроек:</p>
+
+<pre>
+$ cp /root/xorg.conf /etc/X11/
+$ startx
+</pre>
+
+<h5>16.1.2. Интерактивная настройка</h5>
+
+<p>X11 предоставляет две программы для интерактивной настройки графического
+сервера: <strong>xorgcfg</strong> и <strong>xorgconfig</strong>.
+<strong>xorgcfg</strong> пробует автоматически определить видеокарту и запускает
+утилиту, используемую для дальнейшей настройки. Иногда <strong>xorgcfg</strong>
+включает неподдерживаемый монитором видеорежим. В этом случае
+<strong>xorgcfg</strong> может запускаться в текстовом режиме с помощью команды
+<strong>xorgcfg -textmode</strong>.</p>
+
+<p><strong>Xorgconfig</strong> отличается от вышеописанной программы тем, что
+не определяет аппаратное обеспечение автоматически, а с этой целью задает
+детальные вопросы. Если у вас небольшой опыт настройки графического сервера,
+то использование <strong>xorgconfig</strong> &#8211; хорошая идея.</p>
+
+<br />
+
+<h4 id="2">16.2. Менеджеры окон</h4>
+
+<p>"Внешний вид" графического сервера X11 управляется так называемыми оконными
+менеджерами. Slackware Linux предоставляет следующие широко используемые
+менеджеры окон:</p>
+
+<ul>
+<li><strong>WindowMaker</strong>: Относительно лёгкий оконный менеджер, являющийся частью проекта GNUStep.</li>
+<li><strong>BlackBox</strong>: Лёгкий оконный менеджер. У Blackbox нет зависимостей, кроме библиотек X11.</li>
+<li><strong>KDE</strong>: Целостное окружение рабочего стола, включающее в себя браузер, программу для работы с электронной почтой и офисный пакет (KOffice).</li>
+<li><strong>Xfce</strong>: Легковесное окружение рабочего стола. Это идеальное окружение, если вы хотите получить удобный рабочий стол на не очень мощных машинах.</li>
+</ul>
+
+<p>Если вы привыкли к окружениям рабочего стола, логично выбрать использование KDE
+или Xfce. Но будет неплохой идеей попробовать и некоторые более лёгкие оконные
+менеджеры. Они быстрее и потребляют меньше памяти, кроме того, большинство
+приложений KDE и Xfce прекрасно запускаются в других оконных менеджерах.</p>
+
+<p>Выбрать используемый оконный менеджер можно командой <strong>xwmconfig</strong>. Эта программа
+отобразит для выбора установленные оконные менеджеры. Вы можете установить
+настройки глобально, выполнив команду <strong>xwmconfig</strong> под учётной записью
+суперпользователя.</p>
+
+</br>
+<ul class="pager">
+  <li class="previous"><a href="15. Настройка печати.html">&larr; 15. Настройка печати</a></li>
+  <li class="next"><a href="17. Управление пакетами.html">17. Управление пакетами &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
