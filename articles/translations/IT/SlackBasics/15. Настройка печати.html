@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 15. Настройка печати</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#V">V. Системное администрирование</a></li>
+        <li class="active">15. Настройка печати</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">15. Настройка печати</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">15.1. Введение</h4>
+
+<p>GNU/Linux поддерживает множество принтеров, подключаемых с помощью USB,
+паралельного порта или по сети. Slackware Linux предоставляет две системы
+печати: CUPS <abbr title="Common UNIX Printing System, Общая Система Печати
+UNIX">CUPS</abbr> и <abbr title="LPR Next Generation, LPR Нового
+Поколения">LPRNG</abbr>. Эта часть описывает систему CUPS.</p>
+
+<p>Независимо от используемой вами системы хорошей идеей будет установка некоторых
+печатных фильтров. Они могут быть найдены на установочном диске в секции
+&laquo;ap&raquo;. Если вы хотите получить максимальную поддержку принтеров,
+удостоверьтесь, что следующие пакеты установлены:</p>
+
+<pre class="brush: plain">
+a2ps
+enscript
+espgs
+gimp-print
+gnu-gs-fonts
+hpijs
+ifhp
+</pre>
+
+<br />
+
+<h4 id="2">15.2. Подготовка</h4>
+
+<p>Перед началом использования CUPS нужно установить пакет &laquo;cups&raquo;
+из набора &laquo;a&raquo; установочного диска. После установки CUPS может
+запускаться автоматически при каждой загрузке системы. Для этого нужно сделать
+файл <code>/etc/rc.d/rc.cups</code> исполнимым. Это можно сделать с помощью
+следующей команды:</p>
+
+<pre>
+# chmod a+x /etc/rc.d/rc.cups
+</pre>
+
+<p>После перезапуска системы система печати CUPS автоматически запустится. Вы
+можете запустить CUPS на работающей система следующей командой:</p>
+
+<pre>
+# /etc/rc.d/rc.cups start
+</pre>
+
+
+<p>Обе системы печати имеют собственные преимущества и недостатки. Если у вас
+недостаточно опыта в настройке печати в GNU/Linux, то начать с CUPS &#8211; хорошая
+идея, так как CUPS имеет удобный web-интерфейс, доступ к которому можно
+получить через web-браузер.</p>
+
+<br />
+
+<h4 id="3">15.3. Настройка</h4>
+
+<p>CUPS может быть настроен через web-интерфейс, доступный по адресу:
+<code>http://localhost:631/</code>. Некоторые разделы web-интерфейса требуют аутентификации.
+Если появится запрос авторизации, введите &laquo;root&raquo; в качестве имени
+пользователя и укажите пароль root.</p>
+
+<p>Принтер может быть добавлен в CUPS в разделе
+<em>&laquo;Administration&raquo; -> &laquo;Add Printer&raquo;</em>.
+Web-интерфейс запросит три опции:</p>
+
+<ul>
+<li><var>Name</var> &#8211; имя принтера. Используйте простое име, например, &laquo;epson&raquo;.</li>
+<li><var>Location</var> &#8211; физическое расположение принтера. Эта настройка не критична, но полезна для больших организаций.</li>
+<li><var>Description</var> &#8211; описание принтера, например, &laquo;Epson Stylys Color C42UX&raquo;.</li>
+</ul>
+
+<p>Вы можете продолжить установку с помощью кнопки &laquo;Continue&raquo;. На следующей
+странице вы можете настроить подключение принтера. Если ваш принтер
+подключается по USB и он включен, то конфигуратор покажет имя принтера и
+используемый USB-порт. После настройки порта вы можете выбрать марку и модель
+принтера. После этого настройка принтера завершится, и принтер будет добавлен в
+конфигурацию CUPS.</p>
+
+<p>Обзор настроенных принтеров доступен на странице &laquo;Printers&raquo;. На данной странице
+вы можете выполнить различные операции. Например, &laquo;Print Test Page&raquo; может быть
+использована для проверки правильности настройки принтера с помощью печати
+тестовой страницы.</p>
+
+<br />
+
+<h4 id="4">15.4. Управление доступом</h4>
+
+<p>Система CUPS предоставляет конфигурационный веб-интерфейс и удалённый доступ к
+принтерам через протокол межсетевой печати (IPP, Internet Printing Protocol).
+Конфигурационные файлы CUPS позволяют тонко настроить правила доступа к принтерам.
+По умолчанию доступ к принтерам ограничен локальной системой (localhost, 127.0.0.1).</p>
+
+<p>Вы можете отредактировать правила доступа в главном конфигурационном файле
+сервиса CUPS, расположенном по пути <code>/etc/cups/cupsd.conf</code> и синтаксисом
+сопоставимым с конфигурационным файлом Apache. Контроль доступа настраивается с
+помощью секции Location. Например, глобальная (корневая директория IPP) секция
+выглядит следующим образом:</p>
+
+<pre class="brush: html">
+&lt;Location /&gt;
+  Order Deny,Allow
+  Deny From All
+  Allow From 127.0.0.1
+&lt;/Location&gt;
+</pre>
+    
+<p>Как вы можете видеть, первыми обрабатываются правила запрета, следом за ними &#8211;
+разрешения. В конфигурации по умолчанию запрещается доступ от всех хостов,
+кроме локальной системы &#8211; localhost, 127.0.0.1. Предположим, вы хотели бы
+разрешить доступ системам локальной сети, использующей адреса из диапазона
+192.168.1.0/24, для использования принтеров, настроенных в CUPS. В таком случае
+вы можете добавить выделенную строку:</p>
+
+<pre class="brush: html">
+&lt;Location /&gt;
+  Order Deny,Allow
+  Deny From All
+  Allow From 127.0.0.1
+  *Allow From 192.168.1.0/24*
+&lt;/Location&gt;
+</pre>
+    
+<p>Вы можете настроить другие расположения в адресном пространстве путём
+добавления секций <var>Locations</var>. Настройки для поддиректорий переопределяют
+глобальные настройки. Например, вы можете ограничить доступ для принтера Epson
+к системам с IP-адресами 127.0.0.1 и 192.168.1.203 с помощью следующей секции:</p>
+
+<pre class="brush: html">
+&lt;Location /printers/epson&gt;
+  Order Deny,Allow
+  Deny From All
+  Allow From 127.0.0.1
+  Allow From 192.168.1.203
+&lt;/Location&gt;
+</pre>
+
+<br />
+
+<h4 id="5">15.5. Размер бумаги Ghostscript</h4>
+
+<p>Ghostscript является интерпретатором PostScript и <abbr title="Portable Document
+Format">PDF</abbr>, языков, которые описывают данные для печати. Ghostscript используется
+для преобразования PostScript и PDF в растровые форматы, которые могут быть
+отображены на экране или распечатаны. Большинство программ UNIX выводят
+PostScript; диспетчер очереди печати CUPS использует Ghostscript для
+растеризации этих данных в формат, понимаемый принтером.</p>
+
+<p>Есть несколько конфигурационных параметров Ghostscript, которые могут быть
+полезны в некоторых ситуациях. Эта секция описывает, как вы можете изменить
+размер бумаги, используемый Ghostscript по умолчанию.</p>
+
+<div class="bq-note">
+    <h4 class="text-success">Примечание</h4>
+    <p>Некоторые дорогие принтеры могут самостоятельно интерпретировать
+    PostScript. Для таких принтеров растеризация не требуется.</p>
+</div>
+
+<p>По умолчанию Ghostscript использует в качестве размера страницы формат US
+letter. Размер бумаги настраивается в файле
+<code>/usr/share/ghostscript/x.xx/lib/gs_init.ps</code>, где <var>x.xx</var>
+нужно заменить номером версии Ghostscript. В начале файла имеются строки,
+закомментированные знаком процента (%), которые выглядят следующим образом:</p>
+
+<pre class="brush: html">
+% Optionally choose a default paper size other than U.S. letter.
+% (a4) /PAPERSIZE where { pop pop } { /PAPERSIZE exch def } ifelse
+</pre>
+    
+<p>Вы можете изменить конфигурацию Ghostscript для использования формата бумаги
+A4, удалив знак процента и пробел в начале второй строки, изменив её так:</p>
+
+<pre class="brush: html">
+% Optionally choose a default paper size other than U.S. letter.
+(a4) /PAPERSIZE where { pop pop } { /PAPERSIZE exch def } ifelse
+</pre>
+    
+<p>Также возможно указать размер бумаги, отличный от US letter или A4, заменив a4
+в приведённом выше примере размером бумаги, который вы хотите использовать.
+Например, вы можете установить размером бумаги по умолчанию US Legal:</p>
+
+<pre class="brush: html">
+% Optionally choose a default paper size other than U.S. letter.
+(legal) /PAPERSIZE where { pop pop } { /PAPERSIZE exch def } ifelse
+</pre>
+    
+<p>Кроме того, можно указать размер бумаги в вызове Ghostscript с помощью
+параметра команды <strong>gs -sPAPERSIZE=</strong><em>size</em>. Например, вы можете
+добавить <var>-sPAPERSIZE=a4</var> при запуске <strong>gs</strong>, чтобы
+указать Ghostscript использование формата A4.</p>
+
+<p>Ознакомиться с поддерживаемыми форматами бумаги можно в файле
+<code>gs_statd.ps</code>, который можно найти в том же каталоге, что и
+<code>gs_init.ps</code>.</p>
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="14. Управление пользователями.html">&larr; 14. Управление пользователями</a></li>
+  <li class="next"><a href="16. X11.html">16. X11 &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
