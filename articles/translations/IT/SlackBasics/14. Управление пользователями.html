@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 14. Управление пользователями</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#V">V. Системное администрир-е</a></li>
+        <li class="active">14. Управление пользователями</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">14. Управление пользователями</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">14.1. Введение</h4>
+
+<p>GNU/Linux является многопользовательской операционной системой. Это означает,
+что несколько пользователей могут использовать систему и они могут использовать
+систему одновременно. Концепция управления пользователями, принятая в GNU/Linux
+очень проста. Прежде всего, существуют несколько учётных записей на каждой
+системе. Даже на однопользовательской системе существует несколько учётных
+записей, так как для некоторых задач GNU/Linux использует особые учётные
+записи. Пользователи могут быть членами групп. Группы используются для более
+тонкой настройки привелегий, например, вы можете разрешить чтение файла только
+определённой группе. В каждой системе существует несколько зарезервированных
+пользователей и групп. Самая важная учётная запись &#8211; аккаунт root.
+Пользователь root &#8211; это администратор системы. Запретить вход в систему под
+учётной записью root &#8211; хорошая идея, так как это значительно увеличивает риски
+в области безопасности. Вы можете войти в систему под обычным пользователем, а
+задачи администрирования выполнять с помощью команд <strong>su</strong> и <strong>sudo</strong>.
+
+<p>Имеющиеся учётные записи пользователей указываются в файле /etc/passwd. Вы
+можете посмотреть этот файл, чтобы получить представление об обязательных
+учётных записях. Как вы, вероятно, заметите, этот файл не содержит паролей.
+Пароли сохраняются в отдельном файле <code>/etc/shadow</code> в виде закодированной строки.
+Информация о группах содержится в файле <code>/etc/group</code>. Вообще говоря,
+редактировать эти файлы напрямую &#8211; не самая лучшая идея. Имеется ряд
+замечательных инструментов, которые могут помочь в управлении пользователями и
+группами. Эта глава описывает некоторые из них.</p>
+
+<br />
+
+<h4 id="2">14.2. Добавление и удаление пользователей</h4>
+
+<h5>14.2.1. useradd</h5>
+
+<p>Команда <strong>useradd</strong> используется для добавления учётной записи
+пользователя. Запуск <strong>useradd</strong> с именем пользователя в качестве параметра создаст
+в системе пользователя. Например:
+
+<pre>
+# useradd bob
+</pre>
+      
+<p>создаст пользовательский аккаунт <var>bob</var>. Но знайте, что это не создаст домашнюю
+директорию пользователя. Добавьте параметр <em>-m</em>, чтобы создать домашний
+каталог.  Например:</p>
+
+<pre>
+# useradd -m bob
+</pre>
+      
+<p>Это создаст в системе нового пользователя с именем <var>bob</var> и его домашнюю
+директорию /home/bob. Обычно пользователи становятся членами группы <var>users</var>.
+Допустим, вы хотите сделать <var>crew</var> основной группой пользователя
+<var>bob</var>. Это может быть осуществлено с помощью параметра <var>-g</var>.
+Например:</p>
+
+<pre>
+# useradd -g crew -m bob
+</pre>
+      
+<p>Кроме того, при создании пользователя, с помощью параметра <var>-G</var>
+возможно добавить его в другие группы. Названия групп должны быть разделены
+запятыми. Следующая команда создаст пользователя с именем <var>bob</var> в
+группе <var>crew</var> и с дополнительными группами <var>www-admins</var> и
+<var>ftp-admins.</var></p>
+
+<pre>
+# useradd -g crew -G www-admins,ftp-admins -m bob
+</pre>
+      
+<p>По умолчанию команда <strong>useradd</strong> только добавляет пользователя,
+но не назначает ему пароль. Пароль может быть установлен командой passwd.</p>
+
+<h5>14.2.2. passwd</h5>
+
+<p>Как вы, наверное, догадались, команда <strong>passwd</strong> используется
+для задания пароля пользователя. Запуск команды без параметров изменит пароль
+текущего пользователя. Команда попросит ввести старый пароль и (дважды) &#8211;
+новый.</p>
+
+<pre>
+$ passwd
+Changing password for bob
+(current) UNIX password: 
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+</pre>
+      
+<p>Root может устанавливать пароль пользователя, указав его имя в качестве
+параметра. Команда passwd только спросит новый пароль. Например:</p>
+
+<pre>
+# passwd bob
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+</pre>
+      
+<h5>14.2.3. adduser</h5>
+
+<p>Команда <strong>adduser</strong> совмещает команды <strong>useradd</strong>
+и <strong>passwd</strong> в интерактивном сценарии. Он попросит вас заполнить
+информацию о создаваемой учётной записи. После этого на основе введённой
+информации будет создана учётная запись пользователя. Следующий листинг
+демонстрирует возможный сеанс работы со скриптом.</p>
+
+<pre>
+# adduser
+
+Login name for new user []: john
+
+User ID ('UID') [ defaults to next available ]: <Enter>
+
+Initial group [ users ]: <Enter>
+
+Additional groups (comma separated) []: staff
+
+Home directory [ /home/john ] <Enter>
+
+Shell [ /bin/bash ] <Enter>
+
+Expiry date (YYYY-MM-DD) []: <Enter>
+
+New account will be created as follows:
+
+---------------------------------------
+Login name.......:  john
+UID..............:  [ Next available ]
+Initial group....:  users
+Additional groups:  [ None ]
+Home directory...:  /home/john
+Shell............:  /bin/bash
+Expiry date......:  [ Never ]
+
+This is it... if you want to bail out, hit Control-C.  Otherwise, press
+ENTER to go ahead and make the account.
+<Enter>
+
+Creating new account...
+
+
+Changing the user information for john
+Enter the new value, or press ENTER for the default
+        Full Name []: John Doe
+        Room Number []: <Enter>
+        Work Phone []: <Enter>
+        Home Phone []: <Enter>
+        Other []: <Enter>
+Changing password for john
+Enter the new password (minimum of 5, maximum of 127 characters)
+Please use a combination of upper and lower case letters and numbers.
+New password: password
+Re-enter new password: password
+
+
+Account setup complete.
+</pre>
+      
+<p>Вы можете использовать значения по умолчанию или оставить некоторые поля
+незаполненными, нажимая клавишу <kbd>Enter</kbd>.</p>
+
+<h5>14.2.4. userdel</h5>
+
+<p>Иногда необходимо удалить учётную запись пользователя из системы. Для этой цели
+GNU/Linux предоставляет команду <strong>userdel</strong>. Просто укажите в
+качестве параметра имя пользователя, которого следует удалить из системы.
+Например, следующая команда удалит пользователя <var>bob</var>:</p>
+
+<pre>
+# userdel bob
+</pre>
+      
+<p>Это удалит только учётную запись, но не домашнюю директорию и почтовый ящик
+пользователя. Добавьте параметр <var>-r</var>, чтобы удалить и пользовательские
+данные. Например:</p>
+
+<pre>
+# userdel -r bob
+</pre>
+
+<br />
+      
+<h4 id="3">14.3. Использование команды su</h4>
+
+<p>Избегать входа в систему под учётной записью root &#8211; хорошая идея.
+Существует множество причин, чтобы не делать этого. Случайный набор
+неправильной команды может привести к неприятностям, а вредоносные программы
+могут нанести больший вред, если вы зарегистрировались под администратором. Тем
+не менее, режим суперпользователя часто необходим. Например, чтобы решать
+задачи системного администрирования, или устанавливать новое программное
+обеспечение. К счастью, команда <strong>su</strong> может временно дать вам
+привелегии суперпользователя.</p>
+
+<p>Использовать команду <strong>su</strong> очень просто. После запуска
+<strong>su</strong> попросит вас ввести пароль суперпользователя и, если вы его
+правильно введёте, запустит командную оболочку с административными
+привелегиями:</p>
+
+<pre>
+$ whoami
+bob
+$ su
+Password: 
+# whoami
+root
+# exit
+exit
+$ whoami
+bob
+</pre>
+    
+<p>В этом примере команда <strong>whoami</strong> сообщает, что в системе
+зарегистрирован <var>bob</var>. Пользователь выполняет команду su и вводит пароль
+суперпользователя. <strong>Su</strong> запускает командную оболочку с правами
+<var>root</var>, что подтверждается выводом команды <strong>whoami</strong>. После выхода
+из командной оболочки, управление передаётся обратно пользователю
+<var>bob</var>.</p>
+
+<p>Так же возможно выполнить только одну команду с правами суперпользователя,
+используя параметр <var>-c</var>. Следующая команда запустит
+<strong>lilo</strong>:</p>
+
+<pre>
+$ su -c lilo
+</pre>
+    
+<p>Если вы хотите передать параметры запускаемой команде, вы должны использовать
+кавычки (например, <strong>su -c "ls -l /"</strong>). Без кавычек
+<strong>su</strong> не сможет отделить собственные параметры от параметров
+запускаемой команды.<?p>
+
+<h5>14.3.1. Ограничение доступа к su</h5>
+
+<p>Вы можете настроить доступ <strong>su</strong> с помощью
+<strong>suauth</strong>. Хорошей практикой считается разрешение получения прав
+суперпользователя только определённой группе. Например, вы можете запретить
+получение прав root членам группы <var>whell</var>, добавив в файл
+<code>/etc/suauth</code> следующую строку:</p>
+
+<pre class="brush: bash">
+root:ALL EXCEPT GROUP wheel:DENY
+</pre>
+
+</br>
+
+<h4 id="4">14.4. Дисковые квоты</h4>
+
+<h5>14.4.1. Введение</h5>
+
+<p>Дисковые квоты &#8211; это механизм, который позволяет системному
+администратору указать количество дисковых блоков или дескрипторов, которые
+могут быть использованы пользователем или группой. Квоты включаются и
+управляются на базе файловой системы. Linux поддерживает настройку квотирования
+не для всех файловых систем, широко распространённые файловые системы,
+поддерживающие квоты &#8211; это ext2, ext3 и XFS.</p>
+
+<h5>14.4.2. Включение квотирования</h5>
+
+<p>Квотирование может быть включено для каждой файловой системы в файле
+<code>/etc/fstab</code> с помощью добавления опций usrquota и grpquota.
+Например, предположим, что у нас есть следующая запись в
+<code>/etc/fstab</code>, описывающая раздел <code>/home</code>:</p>
+
+<pre class="brush: bash">
+/dev/hda8  /home  xfs  defaults  1   2
+</pre>
+      
+<p>Мы можем включить квотирование на уровне пользователей, добавив опцию
+usrquota:</p>
+
+<pre class="brush: bash">
+/dev/hda8  /home  xfs  defaults,usrquota 1   2
+</pre>
+      
+<p>После перезагрузки машины инициализационные сценарии Slackware Linux включат
+квотирование. Вы также можете включить квотирование без перезагрузки путём
+перемонтирования раздела и запуска команды quotaon:</p>
+
+<pre>
+# mount -o remount /home
+# quotaon -avug
+</pre>
+      
+<h5>14.4.3. Настройка квотирования</h5>
+
+<p>Пользователь и группа квотирования настраивается с помощью утилиты
+<strong>edquora</strong>. Эта программа позволяет вам редактировать квоты в
+интерактивном режиме с помощью текстового редактора <strong>vi</strong>.
+Наиболее простой синтаксис этой команды включает имя команды и имя
+пользователя. Например:</p>
+
+<pre>
+# edquota joe
+</pre>
+      
+<p>Эта команда запустит редактор <strong>vi</strong> с информацией по квотам
+для пользователя <strong>joe</strong>. Это будет выглядеть примерно так:
+
+<pre class="brush: plain">
+Disk quotas for user joe (uid 1143):
+  Filesystem blocks  soft  hard  inodes  soft  hard
+  /dev/hda5    2136     0     0      64     0     0
+</pre>
+      
+<p>В этом примере квотирование включено только для одной файловой системы,
+расположенной на разделе <code>/dev/hda5</code>. Как вы можете видеть,
+информация разбита на несколько колонок. Колонка <var>blocks</var> показывает, сколько
+блоков файловой системы может использовать пользователь; колонка <var>inodes</var> &#8211;
+количество доступных файловых дескрипторов. Колонки после каждой из
+рассмотренных столбцов &#8211; <var>soft</var> и <var>hard</var>, &#8211;
+определяют мягкий и жёсткий пределы использования файловых блоков и
+дескрипторов. Пользователь может превысить мягкий лимит на льготный период, но
+никогда не может выйти за жёсткий предел. Если значение в этих колонках равно
+нулю, то это указывает об отсутствии лимита.</p>
+
+<div class="bq-note">
+    <h4 class="text-success">Примечание</h4>
+    <p>Термин &laquo;блок&raquo; в этом контексте может немного смутить. В настройках
+    квотирования блок равен 1KB, а не размеру блока файловой системы.</p>
+</div>
+
+<p>Давайте рассмотрим простой пример. Предположим, мы хотели бы установить мягкий
+лимит для пользователя <var>joe</var> в 250 000 и жёсткий лимит в 300 000. Для
+этого мы должны изменить настройки квотирования следующим образом:</p>
+
+<pre class="brush: plain">
+Disk quotas for user joe (uid 1143):
+  Filesystem blocks    soft    hard  inodes  soft  hard
+  /dev/hda5    2136  250000  300000      64     0     0
+</pre>
+      
+<p>Новые настройки квотирования будут активированы после сохранения файла и выхода
+из <strong>vi</strong>.</p>
+
+<h5>14.4.4. Получение информации о настройках квотирования</h5>
+
+<p>Часто бывает полезно получить статистическую информацию о текущем использовании
+квот. Команда <strong>repquota</strong> может быть использована для получения информации о том,
+какие квоты имеет каждый пользователь, и насколько они использованы. Вы можете
+увидеть настройки квотирования по определённому разделу, указав название
+раздела в качестве параметра. Параметр <var>-a</var> включит отображение всех
+разделов со включенным квотированием. Предположим, вы хотите посмотреть
+информацию об установленных квотах для раздела <code>/dev/hda5</code>. Для
+этого вы можете использовать следующую команду:</p>
+
+<pre>
+# repquota /dev/hda5
+*** Report for user quotas on device /dev/hda5
+Block grace time: 7days; Inode grace time: 7days
+                    Block limits           File limits
+User        used    soft    hard  grace    used  soft  hard  grace
+------------------------------------------------------------------
+root  --       0       0       0              3     0     0       
+[..]
+joe   --    2136  250000  300000             64     0     0       
+[..]
+</pre>
+
+
+</br>
+
+<ul class="pager">
+  <li class="previous"><a href="13. Sendmail.html">&larr; 13. Sendmail</a></li>
+  <li class="next"><a href="15. настройка печати.html">15. Настройка печати &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
