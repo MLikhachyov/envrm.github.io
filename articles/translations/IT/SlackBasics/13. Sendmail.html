@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 13. Sendmail</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#IV">IV. Электронная почта</a></li>
+        <li class="active">13. Sendmail</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">13. Sendmail</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">13.1. Введение</h4>
+
+Sendmail &#8211; это стандартный почтовый сервер (<abbr title="Mail Transfer
+Agent &#8211; агент пересылки сообщений">MTA</abbr>). Sendmail
+был создан Эриком Аллманом (Eric Allman), кто всё ещё и поддерживает sendmail.
+Основная задача sendmail как MTA &#8211; пересылка сообщений, как локально, так и
+удалённо. Пересылка обычно осуществляется по протоколу SMTP. Это означает, что
+sendmail может принимать сообщения электронной почты от удалённых ресурсов
+через SMTP-порт и что sendmail пересылает на другие SMTP-серверы почту,
+адресованную удалённым сайтам.
+
+<br />
+
+<h4 id="2">13.2. Установка</h4>
+
+<p>Sendmail доступна в пакете sendmail в наборе &laquo;n&raquo; установочного
+диска. Если вы хотите создать свои собственные файлы конфигурации sendmail, вам
+также понадобится пакет sendmail-cf. Получить информацию об установке пакетов в
+Slackware Linux можно в <a href="17. Управление пакетами.html">Главе 17</a>.</p>
+
+<p>Вы можете настроить запуск sendmail при загрузке системы, сделав исполнимым файл
+<code>/etc/rc.d/rc.sendmail</code>. Для этого нужно выполнить команду:</p>
+
+<pre>
+# chmod a+x /etc/rc.d/rc.sendmail
+</pre>
+    
+<p>Также вы можете запустить, остановить и перезапустить sendmail, передав
+параметры <var>start</var>, <var>stop</var> и <var>restart</var> соответственно
+сценарию инициализации. Например, таким образом можно перезапустить
+sendmail:</p>
+
+<pre>
+# /etc/rc.d/rc.sendmail restart
+</pre>
+
+<br />
+
+<h4 id="3">13.3. Настройка</h4>
+
+<p>Важнейший центральный конфигурационный файл sendmail &#8211;
+<code>/etc/mail/sendmail.cf</code>; здесь настраивается поведение sendmail и
+подключаются прочие файлы настроек. Синтаксис
+<code>/etc/mail/sendmail.cf</code> несколько неясный, потому что этот файл
+компилируется из более простого для понимания .mc-файла, который использует
+макросы M4, определяемые для sendmail.</p>
+
+<p>Некоторые определения могут быть просто изменены в файле
+<code>/etc/mail/sendmail.cf</code>, но для прочих правок лучше создать свой
+собственный файл .mc. Примеры, приведённые в этой главе будут сфокусированы на
+создании отдельных mc-файлов.</p>
+
+<h5>13.3.1. Работа с файлами .mc</h5>
+
+<p>В этом разделе мы рассмотрим, как вы можете создать начальный файл mc и как
+скомпилировать его в файл cf. Существует множество интересных примеров файлов
+mc, доступных в <code>/usr/share/sendmail/cf/cf</code>. Наиболее интересные
+примеры &#8211; это <code>sendmail-slackware.mc</code> (который используется
+при создании файла <code>sendmail.cf</code>, используемого в Slackware Linux по
+умолчанию) и <code>sendmail-slackware-tls.mc</code>, который добавляет в
+конфигурацию sendmail Slackware Linux поддержку TLS. Если вы желаете создать
+собственный файл конфигурации, хорошей идеей будет начать это с копирования
+стандартного mc-файла Slackware Linux. Предположим, что вы хотите создать
+конфигурационный файл сервера с именем <var>straw</var>, вы можете выполнить:</p>
+
+<pre>
+# cd /usr/share/sendmail/cf/cf
+# cp sendmail-slackware.mc sendmail-straw.mc
+</pre>
+      
+<p>и начать редактирование <code>sendmail-straw.mc</code>. После изменения
+файла по вашим требованиям, его можно скомпилировать в cf-файл с помощью
+M4:</p>
+
+<pre>
+# m4 sendmail-straw.mc &gt; sendmail-straw.cf
+</pre>
+      
+<p>Если вы хотите использовать новый конфигурационный в качестве настроек по
+умолчанию, вы можете скопировать его в <code>/etc/mail/sendmail.cf</code>:</p>
+
+<pre>
+# cp sendmail-straw.cf /etc/mail/sendmail.cf
+</pre>
+      
+<h5>13.3.2. Использование &laquo;умных хостов&raquo;</h5>
+
+<p>Если вы хотите использовать другой хост для доставки электронной почты
+адресатам, которым не может доставить почту настраиваемый вами сервер, вы
+можете настроить sendmail на использование так называемых &laquo;умных
+хостов&raquo;. Sendmail перешлёт недоставленную электронную почту
+промежуточному узлу, который, в свою очередь, её обработает. Вы можете сделать
+это, определив переменную <var>SMART_HOST</var> в mc-файле. Например, если вы
+желаете использовать в качестве умного хоста адрес
+<var>smtp2.example.org</var>, вы можете добавить в конфигурацию следующую
+строку:</p>
+
+<pre class="brush: bash">
+define(`SMART_HOST',`stmp2.example.org')
+</pre>
+      
+<h5>13.3.3. Альтернативные имена для хоста/домена</h5>
+
+<p>По умолчанию sendmail будет принимать почтовые сообщения, направленные на
+localhost и текущее сетевое имя системы. Вы можете просто добавить
+дополнительные хосты или домены, которые должны принимать почту. Первый шаг &#8211;
+убедиться, что следующая строка присутствует в вашем конфигурационном mc-файле:</p>
+
+<pre class="brush: bash">
+FEATURE(`use_cw_file')dnl
+</pre>
+      
+<p>Когда эта опция будет включена, вы сможете добавлять имена хостов и доменов для
+получения почты в файл <code>/etc/mail/local-host-names</code>. Этот файл
+представляет собой список строк. Например, он может выглядеть так:</p>
+
+<pre class="brush: bash">
+example.org
+mail.example.org
+www.example.org
+</pre>
+      
+<h5>13.3.4. Таблицы пользователей</h5>
+
+<p>Часто возникает необходимость привязать адреса электронной почты к именам
+пользователей. Это бывает нужно, когда имя пользователя отличается от части
+адреса электронной почты до символа &laquo;@&raquo;. Для включения такой функциональности,
+нужно добавить следующую строку в конфигурационный файл mc:</p>
+
+<pre class="brush: bash">
+FEATURE(`vusertable',`hash -o/etc/mail/vusertable.db')dnl
+</pre>
+      
+<p>Соответствия будут читаться из файла
+<code>/etc/mail/vusertable.db</code>. Это двоичный файл базы данных, который
+невозможно редактировать напрямую. Вместо этого вы можете отредактировать файл
+<code>/etc/mail/vusertable</code> и создать из него файл
+<code>/etc/mail/vusertable.db</code>.</p>
+
+<p>Файл <code>/etc/mail/vusertable</code> &#8211; это обычный текстовый
+файл, содержащий в каждой строке соответствие адреса электронной почты и имени
+пользователя. Например:</p>
+
+<pre class="brush: bash">
+john.doe@example.org       john
+john.doe@mail.example.org  john
+</pre>
+      
+<p>В этом примере письма, отправленные на адреса <var>john.doe@example.org</var> и
+<var>john.doe@mail.example.org</var>, будут доставляться пользователю
+<var>john</var>. Также возможно доставлять некоторые письма, направленные на
+адрес сервера, на другой почтовый ящик, указав адрес-приёмник во второй
+колонке. Например:</p>
+
+<pre class="brush: bash">
+john.doe@example.org    john.doe@example.com
+</pre>
+      
+<p>После необходимых изменений в файле <code>vusertable</code>, вы можете
+создать базу данных следующей командой:</p>
+
+<pre>
+# makemap hash /etc/mail/vusertable < /etc/mail/vusertable
+</pre>
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="12. Mutt.html">&larr; 12. Mutt</a></li>
+  <li class="next"><a href="14. Управление пользователями.html">14. Управление пользователями &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
