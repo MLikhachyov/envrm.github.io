@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 12. Чтение и отправка электронной почты с mutt</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#IV">IV. Электронная почта</a></li>
+        <li class="active">12. Чтение электронной почты с mutt</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">12. Чтение и отправка электронной почты с mutt</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">12.1. Введение</h4>
+
+<p><strong>Mutt</strong> &#8211; это почтовая программа (<abbr title="Mail User Agent, почтовый агент
+пользователя">MUA</abbr>), которая может быть использована для чтения и
+написания сообщений электронной почты.</p>
+
+<p><strong>Mutt</strong> является программой, работающей в текстовом режиме. Это означает, что она
+может быть использована в консоли, по SSH и в графическом эмуляторе терминала.
+Благодаря интерфейсу, построенному на меню, в программе очень просто читать большие
+объёмы почты электронной почты, причём <strong>mutt</strong> может быть
+настроен на использование вашего любимого текстового редактора</p>
+
+<p>Эта глава расскажет, как вы можете настроить mutt под свои нужды, как его
+использовать и как обеспечить поддержку PGP/GnuPG.</p>
+
+<br />
+
+<h4 id="2">12.2. Использование</h4>
+
+<p><strong>Mutt</strong> очень прост в использовании, хотя для привыкания к
+клавишам управления, навигации, чтения и отправки сообщений может потребоваться
+некоторое время. Следующие разделы покажут наиболее важные клавиши. По нажатию
+<kbd>h</kbd> <strong>mutt</strong> отобразит более полную информацию по всем
+доступным клавишам.</p>
+
+<h5>12.2.1. Просмотр списка сообщений</h5>
+
+<p>После выполнения команды <strong>mutt</strong>, будут показаны все почтовые
+сообщения. Вы можете перемещаться по списку сообщений с помощью курсорных
+клавиш или клавиш <kbd>k</kbd> и <kbd>j</kbd>.</p>
+
+<h5>12.2.2. Чтение почты</h5>
+
+<p>Для просмотра выбранного сообщения используется клавиша <kbd>Enter</kbd>. Во
+время чтения сообщения вы можете использовать клавиши <kbd>Page Up</kbd> и
+<kbd>Page Down</kbd> для перемещения по сообщению. Также вы можете использовать
+клавиши навигации для перелистывания сообщений.</p>
+
+<p>Если в письме есть вложения, вы можете просмотреть их с помощью клавиши
+<kbd>v</kbd>. Отдельные вложения выбираются клавишей <kbd>Enter</kbd>. Сохранить
+вложение в файл можно нажатием клавиши <kbd>s</kbd>.</p>
+
+<h5>12.2.3. Отправка почты</h5>
+
+<p>Вы можете создать новое письмо, нажав клавишу <kbd>m</kbd> или ответить на
+выбранное письмо клавишей <kbd>r</kbd>. <strong>Mutt</strong> попросит вас
+указать адресата (<code>To:</code>) и тему письма (<code>Subject:</code>).
+После введения этой информации будет запущен редактор (по умолчанию
+используется <strong>vi</strong>), в котором можно будет набрать текст письма.
+После сохранения письма и выхода из редактора, <strong>mutt</strong> даст вам
+возможность изменить письмо. Если вы решите изменить текст, то клавишей
+<kbd>e</kbd> можно снова запустить редактор. Вы можете изменить адресата или
+тему письма клавишами <kbd>t</kbd> или <kbd>s</kbd> соответственно. Наконец, вы
+можете отправить письмо нажатием <kbd>y</kbd>. Если вы хотите отменить создание
+письма, нажмите <kbd>q</kbd>. Mutt спросит вас, хотите ли вы отложить написание письма.
+Если вы согласитесь, то позже сможете продолжить создание письма.</p>
+
+----------
+
+<p>Вероятно, наиболее важная часть операционной системы -- это её ядро. Ядро
+управляет аппаратными ресурсами и программными процессами. Ядро запускается с
+помощью тонкой прослойки между <abbr title="Basic Input/Output System, базовая система
+ввода/вывода">BIOS</abbr> и ядром, называемой загрузчиком. Загрузчик обрабатывает все
+затруднения, связанные с загрузкой конкретного ядра.</p>
+
+<pre class="brush: bash">
+# Start LILO global section
+boot = /dev/sda 1
+#compact        # faster, but won't work on all systems.
+prompt 2
+timeout = 50 3
+# Normal VGA console
+vga = normal 4
+</pre>
+      
+<pre>
+# sh /etc/rc.d/rc.sendmail start
+</pre>
+
+</br>
+
+<ul class="pager">
+  <li class="previous"><a href="#">&larr; 18. Сборка ядра</a></li>
+  <li class="next"><a href="#">20. Безопасность &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
