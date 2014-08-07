@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 24. Интернет-суперсервер</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#VI">VI. Сетевое администрирование</a></li>
+        <li class="active">24. Интернет-суперсервер</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">24. Интернет-суперсервер</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">24.1. Введение</h4>
+
+<p>Существует два пути запуска TCP/IP-сервисов: запустить серверное приложение
+как демон или через интернет-суперсервер, <strong>inetd</strong>.
+<strong>Inetd</strong> &#8211; это демон, который осуществляет мониторинг портов.
+Если клиент запрашивает соединение с портом, <strong>inetd</strong> направляет
+соединение на сервер, соответствующий типу соединения. Преимущество такого
+подхода заключается в том, что он добавляет дополнительный слой безопасности и
+упрощает журналирование входящих соединений. Недостаток же в том, что это
+иногда работает медленнее, чем обычный демон приложения. Таким образом, будет
+хорошей идеей, например, запустить высоконагруженный FTP-сервер отдельным
+сервисом.</p>
+
+<br />
+
+<h4 id="2">24.2. Настройка</h4>
+
+<p><strong>Inetd</strong> может быть настроен через файл
+<code>/etc/inetd.conf</code>. Давайте рассмотрим пример строки из этого
+файла:</p>
+
+<pre class="brush: plain">
+# File Transfer Protocol (FTP) server:
+ftp   stream  tcp  nowait  root    /usr/sbin/tcpd  proftpd
+</pre>
+
+<p>Эта строка определяет, что <strong>inetd</strong> должен принимать
+FTP-соединения и передавать их <strong>tcpd</strong>. Это может выглядеть
+несколько странно, т.к. <strong>proftpd</strong> нормально обрабатывает
+FTP-соединения. Конечно, вы можете указать в файле <code>initd.conf</code>
+непосредственно <strong>proftpd</strong>, но хорошей идеей будет передавать
+соединения <strong>tcpd</strong>. Эта программа, как и указано, передаёт
+соединение <strong>proftpd</strong>. <strong>Tcpd</strong> используется для
+мониторинга сервисов и обеспечивает хост-ориентированный контроль доступа.</p>
+
+<p>Сервисы могут быть отключены простым комментированием строки &#8211; добавлением
+символа # в начало строки. Хорошая практика &#8211; отключить все сервисы и включить
+только необходимые в данный момент. После изменения файла
+<code>/etc/inetd.conf</code> нужно перезагрузить <strong>inetd</strong>, чтобы
+активировать настройки. Это можно сделать, послав сигнал <var>HUP</var> процессу
+<strong>inetd</strong>:</p>
+
+<pre>
+# ps ax | grep 'inetd'
+   64 ?        S      0:00 /usr/sbin/inetd
+# kill -HUP 64
+</pre>
+
+<p>Или вы можете использовать сценарий инициализации <code>rc.initd</code>:</p>
+
+<pre>
+# /etc/rc.d/rc.inetd restart
+</pre>
+
+<br />
+
+<h4 id="3">24.3. TCP-оболочки</h4>
+
+<p>Как вы можете увидеть в файле <code>/etc/inetd.conf</code>, соединения с
+большинством протоколов вместо непосредственной передачи подключения сервисной
+программе совершаются через <strong>tcpd</strong>. Например:</p>
+
+<pre class="brush: plain">
+# File Transfer Protocol (FTP) server:
+ftp  stream  tcp  nowait  root    /usr/sbin/tcpd  proftpd
+</pre>
+
+<p>В этом примере FTP-соединения передаются <strong>tcpd</strong>.
+<strong>Tcpd</strong> журналирует соединение в syslog и позволяет проводить
+дополнительные проверки. Одна из самых используемых возможностей
+<strong>tcpd</strong> &#8211; это аутентификация хостов. Хосты, которые нужно
+блокировать, вносятся в <code>/etc/hosts.deny</code>, разрешённые хосты &#8211;
+в <code>/etc/hosts.allow</code>. Оба файла заполняются по одному правилу:</p>
+
+<pre class="brush: plain">
+service: hosts
+</pre>
+
+<p>Хосты могут быть указаны по имени компьютера или IP-адресу. Ключевое слово <var>ALL</var>
+определяет все хосты или все сервисы.</p>
+
+<p>Предположим, что мы хотим запретить доступ ко всем сервисам, управляемым
+<strong>tcpd</strong>, кроме хоста &laquo;<var>trusted.example.org</var>&raquo;. Чтобы это сделать,
+нужно создать <code>hosts.deny</code> и <code>hosts.allow</code> со следующим
+содержимым:</p>
+
+<p><code>/etc/hosts.deny:</code></p>
+
+<pre class="brush: plain">
+ALL: ALL
+</pre>
+
+<p><code>/etc/hosts.allow:</code></p>
+
+<pre class="brush: plain">
+ALL: trusted.example.org
+</pre>
+
+<p>В файле <code>hosts.deny</code> блокируется доступ всех (<var>ALL</var>)
+сервисов для всех (<var>ALL</var>) хостов. Но <code>hosts.allow</code>
+указывает, что все (<var>ALL</var>) сервисы должны быть доступны для
+<var>trusted.example.org</code>.</p>
+
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="23. IPsec.html">&larr; 23. IPsec</a></li>
+  <li class="next"><a href="25. Apache.html">25. Apache &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
