@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 26. BIND</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#VI">VI. Сетевое администрирование</a></li>
+        <li class="active">26. BIND</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">26. BIND</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">26.1. Введение</h4>
+
+<p>Система доменных имён (Domain dame system, DNS) используется для
+преобразования читаемых имён хостов (например, www.slackware.com) в IP-адреса.
+<abbr title="Berkeley Internet Name Domain">BIND</abbr> &#8211; это наиболее широко
+используемый сервис DNS, который и будет рассмотрен в этой главе.</p>
+
+<h5>26.1.1. Делегирование</h5>
+
+<p>Одна из главных возможностей DNS &#8211; делегирование запросов. Допустим, что вы
+владеете доменом &laquo;linuxcorp.com&raquo;. Предположим, что в вашей компании существует
+несколько подразделений, и вы желаете дать им доступ только к своим зонам. С DNS
+это не проблема. Вы можете делегировать DNS &laquo;sales.linuxcorp.com&raquo; на другой
+сервер имён в конфигурации DNS для зоны &laquo;linuxcorp.com&raquo;.</p>
+
+<p>Система DNS имеет так называемые корневые серверы, которые делегируют DNS
+миллионов доменных имён и доменных зон (например, доменных зон отдельных стран,
+таких как <var>&laquo;.nl&raquo;</var> или <var>&laquo;.uk&laquo;</var>)
+авторизованным DNS-серверам. Эта система позволяет разветвить дерево
+делегирования, делая его очень гибким, и распределять
+DNS-трафик.</p>
+
+<h5>26.1.2. Типы записей DNS</h5>
+
+<p>Следующие записи &#8211; общие типы записей DNS:</p>
+
+<p class="text-right"><strong>Таблица 26.1. Записи DNS</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Префикс</th>
+          <th>Описание</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+	<th>A</th>
+	<td>A-запись указывает на IP-адрес версии IPv4.</td>
+        </tr>
+        <tr>
+	<th>AAAA</th>
+	<td>AAAA-запись указывает на IP-адрес версии IPv6.</td>
+        </tr>
+        <tr>
+	<th>CNAME</th>
+	<td>CNAME-запись указывает на другую запись DNS.</td>
+        </tr>
+        <tr>
+	<th>MX</th>
+	<td>MX-запись определяет способ маршрутизации электронной почты.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+<h5>26.1.3. Первичные и вторичные серверы</h5>
+
+<p>Доменному имени можно предоставить два типа сервера имён: первичный
+(мастер-сервер) и вторичный (слейв-сервер). Записи мастер-сервера DNS
+авторитативны. Вторичные серверы загружают свои DNS-записи с первичных серверов.
+Использование слейв-серверов совместно с мастер-сервером рекомендовано для
+большей доступности и может использоваться для балансировки нагрузки.</p>
+
+<h4 id="2">26.2. Создание кэширующего сервера имён</h4>
+
+<p>Кэширующий сервер имён предоставляет DNS-сервис для отдельного устройства или
+сети, но не для домена. Это означает, что он может использоваться только для
+разрешения доменных имён в IP-адреса. Настроить такой сервер имён на базе
+Slackware Linux очень просто, т.к. BIND по умолчанию сконфигурирован именно как
+кэширующий сервер имён. Его включение делается за два простых шага: вы должны
+установить BIND и изменить сценарий инициализации. BIND может быть установлен из
+пакета bind (набор &laquo;n&raquo; на установочном диске). После этого bind
+может быть запущен командой <strong>named</strong>. Если вы желаете запускать
+BIND при загрузке системы, сделайте исполнимым файл
+<code>/etc/rc.d/rc.bind</code>. Это можно сделать, выполнив следующую команду с
+правами суперпользователя:</p>
+
+<pre>
+# chmod a+x /etc/rc.d/rc.bind
+</pre>
+
+<p>Если вы желаете использовать сервер имён на машине, где запущен BIND, вы также
+должны изменить настройки в файле <code>/etc/resolv.conf</code>.</p>
+
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="25. Apache.html">&larr; 25. Apache</a></li>
+  <li class="next"><a href="index.html">Содержание &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
