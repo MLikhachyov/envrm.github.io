@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 2. Введение в Slackware Linux</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#I">Начало</a></li>
+        <li class="active">2. Введение в Slackware Linux</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">2. Введение в Slackware Linux</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<br />
+
+<h4 id="1">3.1. В вашей системе</h4>
+
+<h5>3.1.1. Linux HOWTO</h5>
+
+<p>Linux HOWTO, представляет собой набор документов, рассматривающих конкретные
+вопросы GNU/Linux. Большинство документов в Linux HOWTO не адаптированы к
+специфическим дистрибутивам, поэтому они очень полезны для пользователей
+Slackware Linux. Пакет linux-howto из программного набора &laquo;f&raquo; содержит
+коллекцию руководств. После установки этого пакета все руководства будут
+доступны в директории <code>/usr/doc/Linux-HOWTOs/</code>. Slackware Linux также
+содержит небольшую коллекцию вопросов и ответов, связанных с Linux (документы
+FAQ &#8211; Frequently Asked Questions, &#8211; которые содержат ответы на часто
+задаваемые вопросы). Их можно найти в пакете linux-faqs (также доступном в
+программном наборе &laquo;f&raquo;), устанавливаемом в директорию
+<code>/usr/doc/Linux-FAQs/</code>.</p>
+
+<h5>3.1.2. Страницы руководства</h5>
+
+<p>Большинство UNIX-подобных команд описывается в традиционной справочной системе
+UNIX, называемой страницами руководства (manual pages, мануалы или просто
+маны). Выполнение <strong>man</strong> с именем команды в качестве аргумента
+выведет страницу руководства. Так,</p>
+
+<pre>
+$ man ls
+</pre>
+      
+<p>отобразит руководство по команде <strong>ls</strong>.</p>
+
+<p>Если вы не знаете точное название страницы руководства или имя команды, вы
+можете поискать его по ключевым словам по всей справочной системе. Этой цели
+служит параметр <var>-k</var>:</p>
+
+<pre>
+$ man -k rmdir
+hrmdir               (1)  - remove an empty HFS directory
+rmdir                (1)  - remove empty directories
+rmdir                (2)  - delete a directory
+</pre>
+      
+<p>Коллекция страниц руководства очень обширна и охватывает гораздо больше
+вопросов, чем просто команды. Доступны следующие разделы справочной системы:</p>
+
+<ol class="plain">
+  <li>Исполняемые программы или команды оболочки.</li>
+  <li>Системные вызовы (функции, предоставляемые ядром).</li>
+  <li>Библиотечные вызовы (функции программных библиотек).</li>
+  <li>Специальные файлы (обычно расположенные в /dev).</li>
+  <li>Форматы файлов и соглашения, например /etc/passwd.</li>
+  <li>Игры.</li>
+  <li>Разное (включая макропакеты и различные соглашения), например, man(7), groff(7).</li>
+  <li>Команды системного администрирования (как правило, доступные только суперпользователю).</li>
+  <li>Подпрограмм Linux [Нестандартные].</li>
+</ol>
+
+<p>Если определённое имя встречается более чем в одном разделе, например, как
+rmdir, вы можете выбрать конкретное руководство, добавив в параметры команды
+man номер справочного раздела:</p>
+
+<pre>
+man 2 rmdir
+</pre>
+      
+<p>Если вы хотите распечатать страницу руководства на принтере, вы можете передать
+вывод команды <strong>man</strong> программе <strong>lpr</strong>. Если при этом
+передать команде man параметр <var>-t</var>, то результат будет выведен не в ASCII, а в
+формате Postscript. Например, вы можете использовать следующую команду, чтобы
+распечатать руководство по команде <strong>cat</strong>:</p>
+
+<pre>
+$ man -t cat | lpr
+</pre>
+
+<br />
+
+<h4 id="2">3.2. В интернете</h4>
+
+<p>В интернете существует множество веб-сайтов и форумов, посвящённых GNU/Linux и
+Slackware Linux. Но многие сайты исчезают так же быстро, как и появляются, и
+информация на многих сайтах фрагментарна. Следующие ресурсы с хорошим контентом
+существуют уже долгое время.</p>
+
+<h5>3.2.1. Web-сайт Slackware Linux</h5>
+
+<p>Web-сайт Slackware Linux может показаться несколько несовременным, но он
+предоставляет множество полезных ресурсов:</p>
+
+<p>Новостную ленту, в которой анонсируются новые версии системы и важные новости,
+относящиеся к Slackware Linux.</p>
+
+<p>Обзор изменений, вносимых в дистрибутив, представлен в структурированном
+формате, называемом ChangeLog (журнал изменений). Имеются ChangeLog'и как для
+текущей разрабатываемой версии, так и для прошлых стабильных релизов.</p>
+
+<p>Существует два списка рассылки, на которые вы можете подписаться. Список
+slackware-announce используется для анонса новых выпусков Slackware Linux, а
+обновления безопасности публикуются в списке рассылки slackware-security.</p>
+
+<p>Далее &#8211; сгруппированный по странам список зеркал, с которых вы можете загрузить
+Slackware Linux. Дополнительная информация о доступных протоколах загрузки и
+скорости зеркала также включена.</p>
+
+<p>Различного рода документация, включающая ответы на часто встречающиеся вопросы и
+книгу Slackware Linux Essential.</p>
+
+<p>Web-сайт Slackware Linux доступен по адресу <a href="http://www.slackware.com/">http://www.slackware.com/</a>.</p>
+
+<h5>3.2.2. LinuxQuestions</h5>
+
+<p>LinuxQuestions &#8211; это большой форум, посвящённый GNU/Linux, со множеством
+пользователей, готовых помочь. Особенно интересен подфорум, посвящённый
+Slackware Linux, где вы можете найти содействие в решении проблем, с которыми
+столкнулись в Slackware Linux. Форум LinuxQuestions доступен по адресу
+<a href="http://www.linuxquestions.org/">http://www.linuxquestions.org/</a>.</p>
+
+<h5>3.2.3. alt.os.linux.slackware</h5>
+
+<p>alt.os.linux.slackware &#8211; это новостная группа Slackware Linux. Вы можете читель
+новостные группы с помощью специальных программ, например, <strong>tin</strong>
+или <strong>slrn</strong>, подключившись к серверу новостей вашего
+интернет-провайдера. В этой новостной группе, прежде чем публиковать вопросы,
+нужно прочесть всю необходимую документацию и правила. Если вы этого не
+сделаете, то существует высокая вероятность получить статус
+&laquo;флеймера&raquo;.</p>
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="02. Введение в Slackware Linux.html">&larr; 2. Введение в Slackware Linux</a></li>
+  <li class="next"><a href="04. Основные положения.html">3. Основные положения &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
