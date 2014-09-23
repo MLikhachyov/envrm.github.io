@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 2. Введение в Slackware Linux</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#I">Начало</a></li>
+        <li class="active">2. Введение в Slackware Linux</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">2. Введение в Slackware Linux</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<br />
+
+<h4 id="1">2.1. Что такое Linux?</h4>
+
+<p>Linux &#8211; это UNIX-подобное ядро операционной системы, которое написано Линусом
+Торвальдсом и другими разработчиками. Linux может быть запущен на различных
+архитектурах, например, на IA32, IA64, Alpha, m68k, SPARC и PowerPC. Последнее
+ядро и информация по ядру Linux может быть получена на официальном веб-сайте:
+<a href="http://www.kernel.org">http://www.kernel.org</a>.</p>
+
+<p>Ядро Linux часто путают с операционной системой GNU/Linux. Linux &#8211; только
+ядро, но не целая операционная система. В свою очередь, GNU/Linux состоит из
+операционной GNU и ядра Linux. Следующая секция содержит более подробное
+описание GNU/Linux.</p>
+
+<h4 id="2">2.2. Что такое GNU/Linux?</h4>
+
+<p>В 1984 году Ричард Столлман начал амбициозный проект, целью которого было
+создание свободной UNIX-подобной операционной системы. Название системы &#8211; GNU
+&#8211; является рекурсивным акронимом и расшифровывается как &laquo;GNU's Not
+UNIX&raquo; (GNU
+&#8211; это не UNIX). Примерно к 1990 году все основные компоненты операционной
+системы GNU были написаны, за исключением ядра. Двумя годами ранее, в 1988
+году, было решено, что в качестве основы для своего ядра проект GNU будет
+использовать микроядро Mach 3.0. Однако Mach 3.0 был выпущен под свободной
+лицензией только в 1991 году. В том же году Линус Торвальдс устранил недостаток
+ядра системы GNU, написав ядро Linux. Таким образом, GNU/Linux является
+системой GNU с ядром Linux.</p>
+
+<p>Во время написания этой книги ядро GNU под названием &laquo;HURD&raquo; было еще в стадии
+разработки и доступно в качестве операционной системы GNU/Hurd. Есть и другие
+ядра, которые перенесены в операционную систему GNU, а также, например, проект
+Debian разработал версию операционной системы GNU, который работает с ядром
+NetBSD.</p>
+
+<h4 id="3">2.3. Что такое Slackware Linux?</h4>
+
+<p>Slackware Linux &#8211; это дистрибутив GNU/Linux, который поддерживается и
+разрабатывается Патриком Фолькердингом. Дистрибутив &#8211; это когерентный набор
+программного обеспечения, предоставляющий удобную в использовании операционную
+систему GNU/Linux. Фолькердинг начал использовать GNU/Linux в связи с
+необходимостью использовать в проектах интерпретатор LISP. В то время
+доминирующим дистрибутивом GNU/Linux был Softlanding System Linux (SLS Linux).
+Slackware Linux зародился из личной коллекции исправлений Патрика Фолькердинга
+для SLS Linux. Первая публичная версия Slackware Linux 1.0 вышла 16 июля 1993
+года.</p>
+
+<p>В отличие от множества других дистрибутивов GNU/Linux, Slackware Linux
+придерживается принципа KISS (Keep It Simple Stupid - Оставь это простым,
+тупица). Это означает, что в Slackware Linux нет комплексных графических
+приложений для конфигурирования и настройки системы. В результате кривая
+изучения Slackware может быть высока для неопытных пользователей GNU/Linux, но
+это сохраняет большую прозрачность и гибкость системы. Кроме того, при работе с
+дистрибутивами без излишеств, такими, как Slackware Linux, вы получите более
+глубокое понимание работы GNU/Linux.</p>
+
+<p>Другой отличительной особенностью Slackware Linux, тоже соответствующей
+принципу KISS, является менеджер пакетов. В Slackware нет комплексного
+менеджера управления пакетами, как RPM или dpkg. Пакеты являются обычными
+файлами tgz (tar, сжатый gzip), обычно включающими в себя установочные сценарии
+и файл описания пакета. Для начинающих пользователей tgz может оказаться более
+мощным средством, нежели RPM, избавляющим от проблем с зависимостями. Ещё одна
+широко известная черта Slackware Linux &#8211; это система инициализации. В отличие
+от большинства прочих дистрибутивов GNU/Linux в Slackware Linux нет отдельных
+директорий для каждого уровня запуска, содержащих символьные ссылки на сервисы,
+которые запускаются или останавливаются в зависимости от уровня запуска; в нём
+используется более простой подход, позволяющий включать или отключать сервисы с
+помощью установки флага исполнимости на файлах сценариев.</p>
+
+<p>Пакеты Slacware Linux собираются с минимально возможными изменениями. Это
+означает, что вы можете руководствоваться общей документацией GNU/Linux.</p>
+
+<h4 id="4">2.4. Философия UNIX</h4>
+
+<p>Так как GNU/Linux является свободной реализацией операционной системы UNIX,
+будет хорошей идеей взглянуть на философию UNIX, которая привлекла так много
+поклонников. Дуг Макилрой резюмировал философию UNIX в трёх простых правилах:</p>
+
+<ul>
+  <li>Пишите программы, которые делают одну вещь, но делают это хорошо.</li>
+  <li>Пишите программы для совместной работы.</li>
+  <li>Пишите программы для обработки текстовых данных, потому что это универсальный интерфейс.</li>
+</ul>
+
+<p>Вполне вероятно, что вы намерены писать программы для GNU/Linux. Тем не менее,
+эти основные правила могут многое означать для вас и как для пользователя.
+После того как вы познакомитесь с основными командами, которые были частью UNIX
+в течение многих лет, вы сможете комбинировать простые программы для решения
+сложных проблем. Имейте это в виду, когда будете изучать Slackware Linux;
+попробуйте почувствовать, как можно разделить сложные задачи на простые
+операции, объединённые вместе.</p>
+
+<h4 id="5">2.5. Бесплатное и свободное программное обеспечение</h4>
+
+<p>Большая часть пакетов Slackware Linux распространяется как свободное
+программное обеспечение с открытым исходным кодом. Программы с такими
+лицензиями можно свободно использовать, изучать, изменять и распространять.
+Практически, это означает, что такое программное обеспечение доступно и
+распространяется в формах исходных текстов и бинарной сборки. Хотя свободные
+программы и программы, предоставляющие исходный код, разделяют некоторые общие
+принципы, существует тонкое различие между двумя этими движениями. Движения
+программного обеспечеия с открытым исходным кодом, как правило, сосредоточены
+на экономических и технических преимуществах обмена исходными текстами
+программ, движение за свободное программное обеспечение акцентирует внимание на
+этической стороне свободного распространения исходных текстов и исполнимых
+файлов. Сайт GNU разъясняет это так: &laquo;Свободное программное обеспечение
+является вопросом свободы, а не стоимости. Чтобы понять эту концепцию, вы
+должны думать об этом как о свободе слова, а не как о бесплатном пиве (free as
+in free speech, not as in free beer)&raquo;. В духе свободного и открытого
+программного обеспечения исходный код почти всех пакетов размещён на
+официальных CD и DVD Slackware Linux.</p>
+
+<h4 id="6">2.6. Особенности Slackware Linux 12.0</h4>
+
+<ul>
+<li><strong>Linux 2.6.21.5</strong> - Slackware Linux использует современное высокопроизводительное ядро Linux. Ядро включает в себя поддержку всех современных дисковых контроллёров, LVM, программного RAID, шифрованных разделов и мультипроцессорных/многоядерных систем. Для автоматического управления устройствами используется включенный по умолчанию udev.</li>
+<li><strong>HAL</strong> - <abbr title="Hardware Abstraction Layer &#8211; Слой аппаратных абстракций">HAL</abbr> сейчас тоже включён!</li>
+<li><strong>X11 7.2.0</strong> - Это первая версия Slackware Linux, использующая модульный X. Это означает, что X11 разделен на компоненты, содержащиеся в небольших пакетах, для более лёгкого управления и легковесных обновлений.</li>
+<li><strong>GCC 4.1.2</strong> - Slackware Linux 12.0 включает полностью переработанные средства разработки, основанные на GNU Compiler Collection 4.1.2. GCC предоставляет компиляторы для C, C++, Objective-C, Fortran-77/95 и Ada 95. Дополнительно используется библиотека GNU C версии 2.5.</li>
+<li><strong>Apache 2.2.4</strong> - Apache был обновлён до новой мажорной версии. Apache 2.x является существенно переписанной старой серии 1.3.x.</li>
+<li><strong>The K Desktop Environment (KDE) 3.5.7</strong> - Доступно полное окружение KDE, включающее в себя KOffice, веб-браузер Konqueror, мультимедийные программы, средства разработки и множество другого программного обеспечения.</li>
+<li><strong>Xfce 4.4.1</strong> - Xfce &#8211; это легковесное окружение рабочего стола, основанное на GTK2. Оно воплощает собой дух модульности и повторного использования, присущий UNIX.</li>
+</ul>
+
+<h4 id="7">2.7. Получение Slackware Linux</h4>
+
+<p>Slackware Linux может быть свободно загружено с официальных ресурсов. Список
+зеркал Slackware доступен по адресу <a
+href="http://www.slackware.com/getslack/">http://www.slackware.com/getslack/</a>.</p>
+
+<p>Также вы можете заказать набор CD или DVD Slackware Linux в Slackware Store.
+Многие интернет-магазины также предоставляют Slackware Linux на CD-ROM или DVD,
+но вы можете финансово поддержать Slackware Linux только купив официальные CD и
+DVD. Slackware Store также предлагает подписку Slackware Linux. Подписчик
+автоматически получает новые версии Slackware Linux по сниженной цене.</p>
+
+<p>Если вы хотите получить больше информации о заказе Slackware Linux, посетите
+веб-сайт Slackware Store: <a href="http://store.slackware.com/">http://store.slackware.com/</a>.</p>
+
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="00. Предисловие.html">&larr; Предисловие</a></li>
+  <li class="next"><a href="02. Введение в Slackware Linux.html">2. Введение в Slackware Linux &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
