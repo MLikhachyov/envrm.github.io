@@ -125,7 +125,7 @@ PCMCIA. Пакет pcmcia-cs из дискового набора &laquo;a&raquo
 <strong>ifconfig</strong>:</p>
 
 <pre>
-# ifconfig -a
+# <strong>ifconfig -a</strong>
 eth0  Link encap:Ethernet  HWaddr 00:20:AF:F6:D4:AD  
       inet addr:192.168.1.1 Bcast:192.168.1.255 Mask:255.255.255.0
       UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
@@ -241,7 +241,7 @@ MAC-адреса. По умолчанию в файле содержится с�
 определить MAC-адрес следующим образом:</p>
 
 <pre>
-# ifconfig eth1
+# <strong>ifconfig eth1</strong>
 eth1 Link encap:Ethernet  HWaddr 00:01:F4:EC:A5:32
      inet addr:192.168.2.2 Bcast:192.168.2.255 Mask:255.255.255.0
      UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
@@ -279,7 +279,7 @@ MAC-адрес, в данном примере 00:01:F4:EC:A5:32. Когда в�
 <strong>iwconfig</strong>:</p>
 
 <pre>
-# iwconfig
+# <strong>iwconfig</strong>
 eth1   IEEE 802.11-DS  ESSID:"home"  Nickname:"HERMES I"
        Mode:Managed Frequency:2.447 GHz
        Access Point: 02:20:6B:75:0C:56   
@@ -393,7 +393,7 @@ nameserver 192.168.1.169
 включает):</p>
 
 <pre>
-# echo 0 > /proc/sys/net/ipv4/ip_forward
+# <strong>echo 0 > /proc/sys/net/ipv4/ip_forward</strong>
 </pre>
 
 <p>Будьте осмотрительны! По умолчанию нет никаких активных фильтров пакетов. Это

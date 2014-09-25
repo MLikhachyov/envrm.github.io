@@ -193,7 +193,7 @@ image = /boot/vmlinuz 1
 LILO может быть выполнена с помощью команды <strong>lilo</strong>:</p>
 
 <pre>
-# lilo
+# <strong>lilo</strong>
 Added Slack26 *
 Added Slack
 </pre>
@@ -289,13 +289,13 @@ fi
 <p>Для запуска sendmail в ходе инициализации системы, выполните:</p>
 
 <pre>
-# chmod +x /etc/rc.d/rc.sendmail
+# <strong>chmod +x /etc/rc.d/rc.sendmail</strong>
 </pre>
     
 <p>Для отключения запуска sendmail во время загрузки системы, выполните:</p>
 
 <pre>
-# chmod -x /etc/rc.d/rc.sendmail
+# <strong>chmod -x /etc/rc.d/rc.sendmail</strong>
 </pre>
     
 <p>Большая часть сервисо-специфичных сценариев инициализации поддерживают три
@@ -304,14 +304,14 @@ fi
 перезапустить sendmail, вы можете выполнить:</p>
 
 <pre>
-# /etc/rc.d/rc.sendmail restart
+# <strong>/etc/rc.d/rc.sendmail restart</strong>
 </pre>
 
 <p>Если файл скрипта не является исполнимым, вы можете сообщить командной оболочке,
 что хотите исполнить файл, с помощью <strong>sh</strong>. Например:</p>
 
 <pre>
-# sh /etc/rc.d/rc.sendmail start
+# <strong>sh /etc/rc.d/rc.sendmail start</strong>
 </pre>
 
 <br />
@@ -386,8 +386,8 @@ SUBSYSTEM=="firmware", ACTION=="add", RUN+="/lib/udev/firmware.sh"
 микропрограмма не может быть загружена. Например:</p>
 
 <pre>
-ipw2100: eth1: Firmware 'ipw2100-1.3.fw' not available or load failed.
-ipw2100: eth1: ipw2100_get_firmware failed: -2 
+ipw2100: Firmware 'ipw2100-1.3.fw' not available or load failed.
+ipw2100: ipw2100_get_firmware failed: -2 
 </pre>
       
 <p>В этом случае вы должны найти прошивку устройства. Обычно её можно найти в

@@ -115,7 +115,7 @@ Slackware Linux можно в <a href="17. Управление пакетами
 <code>/etc/rc.d/rc.sendmail</code>. Для этого нужно выполнить команду:</p>
 
 <pre>
-# chmod a+x /etc/rc.d/rc.sendmail
+# <strong>chmod a+x /etc/rc.d/rc.sendmail</strong>
 </pre>
     
 <p>Также вы можете запустить, остановить и перезапустить sendmail, передав
@@ -124,7 +124,7 @@ Slackware Linux можно в <a href="17. Управление пакетами
 sendmail:</p>
 
 <pre>
-# /etc/rc.d/rc.sendmail restart
+# <strong>/etc/rc.d/rc.sendmail restart</strong>
 </pre>
 
 <br />
@@ -157,8 +157,8 @@ mc, доступных в <code>/usr/share/sendmail/cf/cf</code>. Наиболе
 конфигурационный файл сервера с именем <var>straw</var>, вы можете выполнить:</p>
 
 <pre>
-# cd /usr/share/sendmail/cf/cf
-# cp sendmail-slackware.mc sendmail-straw.mc
+# <strong>cd /usr/share/sendmail/cf/cf</strong>
+# <strong>cp sendmail-slackware.mc sendmail-straw.mc</strong>
 </pre>
       
 <p>и начать редактирование <code>sendmail-straw.mc</code>. После изменения
@@ -166,14 +166,14 @@ mc, доступных в <code>/usr/share/sendmail/cf/cf</code>. Наиболе
 M4:</p>
 
 <pre>
-# m4 sendmail-straw.mc &gt; sendmail-straw.cf
+# <strong>m4 sendmail-straw.mc &gt; sendmail-straw.cf</strong>
 </pre>
       
 <p>Если вы хотите использовать новый конфигурационный в качестве настроек по
 умолчанию, вы можете скопировать его в <code>/etc/mail/sendmail.cf</code>:</p>
 
 <pre>
-# cp sendmail-straw.cf /etc/mail/sendmail.cf
+# <strong>cp sendmail-straw.cf /etc/mail/sendmail.cf</strong>
 </pre>
       
 <h5>13.3.2. Использование &laquo;умных хостов&raquo;</h5>
@@ -253,7 +253,7 @@ john.doe@example.org    john.doe@example.com
 создать базу данных следующей командой:</p>
 
 <pre>
-# makemap hash /etc/mail/vusertable < /etc/mail/vusertable
+# <strong>makemap hash /etc/mail/vusertable < /etc/mail/vusertable</strong>
 </pre>
 
 <br />

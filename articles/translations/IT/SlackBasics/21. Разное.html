@@ -117,7 +117,7 @@
 Давайте рассмотрим стандартный crontab суперпользователя для более глубокого
 понимания синтаксиса cron.</p>
 
-<pre class="brush: plain">
+<pre class="brush: bash">
 # crontab -l
 # If you don't want the output of a cron job mailed to you,
 # you have to direct any output to /dev/null. We'll do this
@@ -178,7 +178,7 @@ Linux вы можете просто добавить новый скрипт в
 качестве параметра файл устройства:</p>
 
 <pre>
-# hdparm /dev/hda
+# <strong>hdparm /dev/hda</strong>
 
 /dev/hda:
  multcount    =  0 (off)
@@ -204,7 +204,7 @@ using_dma    =  0 (off)
 <p>Вы легко можете включить DMA для диска с помощью параметра <em>-d</em>:</p>
 
 <pre>
-# hdparm -d 1 /dev/hda
+# <strong>hdparm -d 1 /dev/hda</strong>
 
 /dev/hda:
  setting using_dma to 1 (on)
@@ -217,7 +217,7 @@ using_dma    =  0 (off)
 <p>Параметр <em>-i</em> также очень полезен, т.к. он выводит детальную информацию о диске:</p>
 
 <pre>
-# hdparm -i /dev/hda
+# <strong>hdparm -i /dev/hda</strong>
 /dev/hda:
 
  Model=WDC WD400EB-00CPF0, FwRev=06.04G06, SerialNo=WD-WCAAT6022342
@@ -253,7 +253,7 @@ using_dma    =  0 (off)
 покажет суммарную статистику:</p>
 
 <pre>
-# vmstat
+# <strong>vmstat</strong>
 procs ---------memory------- ---swap-- --io--- -system-- --cpu--
  r  b swpd   free buff cache si so  bi bo   in  cs us sy  id wa
  0  0    0 286804 7912 98632  0  0 198  9 1189 783  5  1  93  1
@@ -278,7 +278,7 @@ procs ---------memory------- ---swap-- --io--- -system-- --cpu--
 статистику каждую секунду, вы можете выполнить:</p>
 
 <pre>
-# vmstat 1
+# <strong>vmstat 1</strong>
 procs ---------memory------- ---swap-- ---io-- --system-- --cpu--
  r  b swpd   free buff cache si so  bi bo   in   cs us sy  id wa
  2  0    0 315132 8832 99324  0  0 189 10 1185  767  5  1  93  1
@@ -293,7 +293,7 @@ procs ---------memory------- ---swap-- ---io-- --system-- --cpu--
 <strong>vmstat</strong> следующим образом:</p>
 
 <pre>
-# vmstat 2 5
+# <strong>vmstat 2 5</strong>
 procs --------memory-------- ---swap--- ---io---- --system-- -cpu-
  r  b swpd  free  buff cache si so   bi  bo   in    cs us sy id wa
  2  0    0 30996  9172 99360  0  0  186  10 1184   756  5  1 93  1

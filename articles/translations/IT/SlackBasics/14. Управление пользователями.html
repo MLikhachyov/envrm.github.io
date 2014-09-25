@@ -128,7 +128,7 @@
 в системе пользователя. Например:
 
 <pre>
-# useradd bob
+# <strong>useradd bob</strong>
 </pre>
       
 <p>создаст пользовательский аккаунт <var>bob</var>. Но знайте, что это не создаст домашнюю
@@ -136,7 +136,7 @@
 каталог.  Например:</p>
 
 <pre>
-# useradd -m bob
+# <strong>useradd -m bob</strong>
 </pre>
       
 <p>Это создаст в системе нового пользователя с именем <var>bob</var> и его домашнюю
@@ -146,7 +146,7 @@
 Например:</p>
 
 <pre>
-# useradd -g crew -m bob
+# <strong>useradd -g crew -m bob</strong>
 </pre>
       
 <p>Кроме того, при создании пользователя, с помощью параметра <var>-G</var>
@@ -156,7 +156,7 @@
 <var>ftp-admins.</var></p>
 
 <pre>
-# useradd -g crew -G www-admins,ftp-admins -m bob
+# <strong>useradd -g crew -G www-admins,ftp-admins -m bob</strong>
 </pre>
       
 <p>По умолчанию команда <strong>useradd</strong> только добавляет пользователя,
@@ -170,7 +170,7 @@
 новый.</p>
 
 <pre>
-$ passwd
+$ <strong>passwd</strong>
 Changing password for bob
 (current) UNIX password: 
 Enter new UNIX password: 
@@ -182,7 +182,7 @@ passwd: password updated successfully
 параметра. Команда passwd только спросит новый пароль. Например:</p>
 
 <pre>
-# passwd bob
+# <strong>passwd bob</strong>
 Enter new UNIX password: 
 Retype new UNIX password: 
 passwd: password updated successfully
@@ -197,7 +197,7 @@ passwd: password updated successfully
 демонстрирует возможный сеанс работы со скриптом.</p>
 
 <pre>
-# adduser
+# <strong>adduser</strong>
 
 Login name for new user []: john
 
@@ -259,7 +259,7 @@ GNU/Linux предоставляет команду <strong>userdel</strong>. П
 Например, следующая команда удалит пользователя <var>bob</var>:</p>
 
 <pre>
-# userdel bob
+# <strong>userdel bob</strong>
 </pre>
       
 <p>Это удалит только учётную запись, но не домашнюю директорию и почтовый ящик
@@ -267,7 +267,7 @@ GNU/Linux предоставляет команду <strong>userdel</strong>. П
 данные. Например:</p>
 
 <pre>
-# userdel -r bob
+# <strong>userdel -r bob</strong>
 </pre>
 
 <br />
@@ -289,15 +289,15 @@ GNU/Linux предоставляет команду <strong>userdel</strong>. П
 привелегиями:</p>
 
 <pre>
-$ whoami
+$ <strong>whoami</strong>
 bob
-$ su
+$ <strong>su</strong>
 Password: 
-# whoami
+# <strong>whoami</strong>
 root
-# exit
+# <strong>exit</strong>
 exit
-$ whoami
+$ <strong>whoami</strong>
 bob
 </pre>
     
@@ -313,7 +313,7 @@ bob
 <strong>lilo</strong>:</p>
 
 <pre>
-$ su -c lilo
+$ <strong>su -c lilo</strong>
 </pre>
     
 <p>Если вы хотите передать параметры запускаемой команде, вы должны использовать
@@ -369,8 +369,8 @@ usrquota:</p>
 перемонтирования раздела и запуска команды quotaon:</p>
 
 <pre>
-# mount -o remount /home
-# quotaon -avug
+# <strong>mount -o remount /home</strong>
+# <strong>quotaon -avug</strong>
 </pre>
       
 <h5>14.4.3. Настройка квотирования</h5>
@@ -382,7 +382,7 @@ usrquota:</p>
 пользователя. Например:</p>
 
 <pre>
-# edquota joe
+# <strong>edquota joe</strong>
 </pre>
       
 <p>Эта команда запустит редактор <strong>vi</strong> с информацией по квотам
@@ -436,7 +436,7 @@ Disk quotas for user joe (uid 1143):
 этого вы можете использовать следующую команду:</p>
 
 <pre>
-# repquota /dev/hda5
+# <strong>repquota /dev/hda5</strong>
 *** Report for user quotas on device /dev/hda5
 Block grace time: 7days; Inode grace time: 7days
                     Block limits           File limits
