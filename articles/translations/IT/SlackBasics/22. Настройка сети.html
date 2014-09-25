@@ -124,11 +124,10 @@ PCMCIA. Пакет pcmcia-cs из дискового набора &laquo;a&raquo
 отображения доступных интерфейсов может быть использована команда
 <strong>ifconfig</strong>:</p>
 
-<pre class="brush: plain">
+<pre>
 # ifconfig -a
 eth0  Link encap:Ethernet  HWaddr 00:20:AF:F6:D4:AD  
-      inet addr:192.168.1.1 Bcast:192.168.1.255
-      Mask:255.255.255.0
+      inet addr:192.168.1.1 Bcast:192.168.1.255 Mask:255.255.255.0
       UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
       RX packets:1301 errors:0 dropped:0 overruns:0 frame:0
       TX packets:1529 errors:0 dropped:0 overruns:0 carier:0
@@ -153,7 +152,7 @@ IP-адрес. Но у ненастроенного интерфейса IP-ад
 легко можете прочесть комментарии в файле и заполнить требуемую информацию.
 Например:</p>
 
-<pre class="brush: plain">
+<pre class="brush: bash">
 # Config information for eth0:
 IPADDR[0]="192.168.1.1"
 NETMASK[0]="255.255.255.0"
@@ -168,7 +167,7 @@ DHCP-сервер, вы можете изменить строку <code>USE_DHC
 включено использование DHCP, все параметры, кроме <var>DHCP_HOSTNAME</var>,
 игнорируются.  Например:</p>
 
-<pre class="brush: plain">
+<pre class="brush: bash">
 IPADDR[1]=""
 NETMASK[1]=""
 USE_DHCP[1]="yes"
@@ -199,6 +198,100 @@ DHCP_HOSTNAME[1]=""
 <br />
 <br />
 <br />
+<br />
+
+<h4 id="4">22.4. Беспроводные интерфейсы</h4>
+
+<p>Беспроводные интерфейсы обычно требуют дополнительной настройки, например,
+установки <var>ESSID</var>, <var>WEP-ключей</var> и режима работы. Настройки
+интерфейсов указываются в конфигурационном файле
+<code>/etc/rc.d/rc.wireless.conf</code>. Настройки делаются для каждого
+MAC-адреса. По умолчанию в файле содержится секция, настраивающая любой
+интерфейс:</p>
+
+<pre class="brush: bash">
+## NOTE : Comment out the following five lines
+## to activate the samples below ...
+## --------- START SECTION TO REMOVE -----------
+## Pick up any Access Point, should work on most 802.11 cards
+*)
+    INFO="Any ESSID"
+    ESSID="any"
+    ;;
+## ---------- END SECTION TO REMOVE ------------
+</pre>
+
+<p>Удалить эту секцию и настроить каждый интерфейс по отдельности -- хорошая
+идея. Если у вас только один интерфейс, и вы достаточно ленивы, вы можете
+оставить эту секцию и добавить дополнительные требуемые параметры. Так как эти
+настройки относятся ко всем интерфейсам, ваша сетевая карта также будет
+настроена.</p>
+
+<p>Вы можете добавить секцию, описывающую беспроводной интерфейс, в следующем
+формате:</p>
+
+<pre class="brush: bash">
+&lt;MAC address&gt;)
+    &lt;settings&gt;
+;;
+</pre>
+
+<p>Вы можете найти MAC-адрес в выводе команды <strong>ifconfig</strong>.
+Например, если беспроводная карта имеет наименование <var>eth1</var>, вы можете
+определить MAC-адрес следующим образом:</p>
+
+<pre>
+# ifconfig eth1
+eth1 Link encap:Ethernet  HWaddr 00:01:F4:EC:A5:32
+     inet addr:192.168.2.2 Bcast:192.168.2.255 Mask:255.255.255.0
+     UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+     RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+     TX packets:4 errors:1 dropped:0 overruns:0 carrier:0
+     collisions:0 txqueuelen:1000 
+     RX bytes:0 (0.0 b)  TX bytes:504 (504.0 b)
+     Interrupt:5 Base address:0x100
+</pre>
+
+<p>Шестнадцатиричное число, указанное после строки &laquo;HWaddr&raquo -- это
+MAC-адрес, в данном примере 00:01:F4:EC:A5:32. Когда вы определите MAC-адрес
+интерфейса, вы можете добавить секцию устройства в файл
+<code>/etc/rc.d/rc.wireless.conf</code>. Например:</p>
+
+<pre class="brush: bash">
+00:01:F4:EC:A5:32)
+    INFO="Cabletron Roamabout WLAN NIC"
+    ESSID="home"
+    CHANNEL="8"
+    MODE="Managed"
+    KEY="1234-5678-AB"
+    ;;
+</pre>
+
+<p>Это настроит интерфейс с MAC-адресом 00:01:F4:EC:A5:32 на использование ESSID
+<var>&laquo;home&raquo;</var>, работу на 8-м канале в режиме
+<var>&laquo;Managed&raquo;</var>. В качестве ключа для WEP-шифрования указан
+<var>1234-5678-AB</var>. Возможно установить и другие параметры. Обзор всех
+опций указан в последнем примере в файле <code>rc.wireless.conf</code>.</p>
+
+<p>После настройки беспроводного интерфейса, вы можете активировать изменения,
+выполнив сценарий инициализации сети <strong>/etc/rc.d/rc.inet1</strong>. Вы
+можете увидеть текущие настройки, выполнив команду
+<strong>iwconfig</strong>:</p>
+
+<pre>
+# iwconfig
+eth1   IEEE 802.11-DS  ESSID:"home"  Nickname:"HERMES I"
+       Mode:Managed Frequency:2.447 GHz
+       Access Point: 02:20:6B:75:0C:56   
+       Bit Rate:2 Mb/s   Tx-Power=15 dBm   Sensitivity:1/3  
+       Retry limit:4   RTS thr:off   Fragment thr:off
+       Encryption key:1234-5678-AB
+       Power Management:off
+       Link Quality=0/92 Signal level=134/153 Noise level=134/153
+       Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+       Tx excessive retries:27  Invalid misc:0   Missed beacon:0
+</pre>
+
 <br />
 
 <h4 id="5">22.5. Разрешение имён</h4>
