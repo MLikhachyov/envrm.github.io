@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 23. IPsec</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#VI">VI. Сетевое администрирование</a></li>
+        <li class="active">23. IPsec</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">23. IPsec</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">23.1. Теория</h4>
+
+<p>IPsec является стандартом для обеспечения безопасности IP-коммуникаций через
+аутентификацию и шифрование. Кроме того, IPsec может сжимать пакеты, уменьшая
+объём трафика. Следующие протоколы являются частью стандарта IPsec:</p>
+
+<ul>
+  <li><strong>AH</strong> (Authentication Header, заголовок аутентификации) предоставляет гарантии аутентификации передаваемых пакетов. Это обеспечивается с помощью высчитывания контрольных сумм пакетов с применением криптографических алгоритмов.</li>
+  <li><strong>ESP</strong> (Encapsulating Security Payload) используется для шифрования пакетов. Это делает данные пакета конфиденциальными и доступными для чтения только компьютерам, обладающим верным ключом расшифровки.</li>
+  <li><strong>IPcomp</strong> (IP payload compression) сжимает пакеты перед шифрованием. Это полезно, т.к. шифрованные данные сжимаются хуже, чем нешифрованные.</li>
+  <li><strong>IKE</strong> (Internet Key Exchange) управляет секретными ключами. Пожалуйста отметьте себе, что IKE опционально, и ключи могут быть сконфигурированы вручную.</li>
+</ul>
+
+<p>Есть два режима операций: транспортный режим используется для шифрования обычных
+соединений между двумя хостами, режим туннеля же инкапсулирует начальные пакеты
+с помощью новых заголовков. В этой главе мы рассмотрим транспортный режим,
+потому что основная цель главы &#8211; показать, как установить защищённое соединение
+между двумя хостами.</p>
+
+<p>Также существует два основных метода аутентификации. Вы можете использовать
+самостоятельно созданные ключи или сервис IKE, подобный racoon, который
+настраивает защищённый автоматический обмен ключами между двумя хостами. В обоих
+случаях вам необходимо добавить политику в <abbr title="Security Policy Database, база
+данных политик безопасности">SPD</abbr>. Эта база данных используется ядром для
+выбора типа политики безопасности, которая требуется для соединения с другим
+узлом сети. Если вы используете собственные ключи, вы также должны настроить
+базу данных политик безопасности, которая укажет, какие алгоритмы шифрования и
+ключи должны быть использованы для безопасных соединений. В случае использования
+IKE-сервиса ассоциации безопасности будут установлены автоматически.</p>
+
+<h4 id="2">23.2. Настройка Linux</h4>
+
+<p>IPsec поддерживается только веткой ядра Linux 2.6.x. Более ранние версии ядра не
+имеют поддержки IPsec. Поэтому убедитесь, что у вас установлено ядро версии не
+меньше 2.6.x. В Slackware Linux 10.0, 10.1 и 10.2 ядро 2.6 доступно из
+директории <code>testing/</code> на втором дистрибутивном диске или на любом официальном
+зеркале Slackware Linux. Начиная с версии 12.0, Slackware Linux по умолчанию
+включает ядро 2.6 с поддержкой AH, ESP и IPcomp для IPv4 и IPv6. Если вы сами
+собираете ядро, включите эти опции:</p>
+
+<pre class="brush: bash">
+CONFIG_INET_AH=y
+CONFIG_INET_ESP=y
+CONFIG_INET_IPCOMP=y
+</pre>
+    
+<p>Или вы можете скомпилировать поддержку IPsec в виде модуля:</p>
+
+<pre class="brush: bash">
+CONFIG_INET_AH=m
+CONFIG_INET_ESP=m
+CONFIG_INET_IPCOMP=m
+</pre>
+    
+<p>В этой главе мы будем использовать только преобразования AH и ESP, но всё равно
+будет хорошо включить поддержку IPcomp для дальнейшей настройки IPsec. Кроме
+поддержки протоколов IPsec, вы должны собрать ядро с поддержкой алгоритмов
+шифрования и хэширования, которые будут использованы для AH и ESP. Модули этих
+алгоритмов могут быть включены с помощью различных опций
+<var>CONFIG_CRYPTO</var>. Не сложно собрать все шифры и алгоритмы хэширования в
+формате модуля.</p>
+
+<p>Если вы собрали поддержку IPsec в виде модуля, убедитесь, что загружен
+соответствующий необходимый модуль. Например, для модуля ESP для соединений IPv4
+это модуль <var>esp4</var>.</p>
+
+<p>Соберите ядро стандартным образом и загрузите его.</p>
+
+<h4 id="3">23.3. Установка IPsec-Tools</h4>
+
+<p>Следующий шаг &#8211; установка <a
+href="http://ipsec-tools.sourceforge.net/">IPsec-Tools</a>. Эти утилиты являются
+портом <a href="http://kame.net/">KAME</a> IPsec. Загрузите последнюю версию
+исходных текстов, распакуйте, сконфигурируйте и установите их:</p>
+
+<pre>
+# <strong>tar jxf ipsec-tools-x.y.z.tar.bz2</strong>
+# <strong>cd ipsec-tools-x.y.z</strong>
+# CFLAGS="-O2 -march=i486 -mcpu=i686" \
+  <strong>./configure</strong> --prefix=/usr \
+              --sysconfdir=/etc \
+              --localstatedir=/var \
+              --enable-hybrid \
+              --enable-natt \
+              --enable-dpd \
+              --enable-frag \
+              i486-slackware-linux
+# <strong>make</strong>
+# <strong>make install</strong>
+</pre>
+    
+<p>Замените <var>x.y.z</var> на версию скачанного дистрибутива. Следует обратить
+внимание на следующие флаги, указанные при конфигурировании исходных
+текстов:</p>
+
+<p><var>--enable-dpd</var> включает DPD (dead peer detection). DPD -- это метод для
+обнаружения &laquo;умерших&raquo; узлов с более недоступными ранее
+установленными ассоциациями безопасности. При обнаружении таких узлов,
+ассоциации безопасности могут быть удалены.
+</p>
+
+<p><var>--enable-natt</var> включает обход NAT (NAT-Traversal). Поскольку NAT изменяет
+IP-заголовки, это вызывает проблемы с обеспечением подлинности пакета. NAT-T
+решает эту проблему. Настройка NAT-T выходит за рамки этой статьи.<p>
+
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="22. Настройка сети.html">&larr; 22. Настройка сети</a></li>
+  <li class="next"><a href="24. Интернет-суперсервер.html">24. Интернет-суперсервер &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
