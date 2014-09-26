@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
 		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
@@ -147,18 +149,24 @@ Linux хранится на носителе дистрибутива в фай�
 примонтирован в директории <code>/mnt/cdrom</code>; тогда вы можете скопировать конфигурацию
 ядра Slackware linux командой:</p>
 
-<pre>
-# <strong>cp /mnt/cdrom/kernels/hugesmp.s/config /usr/src/linux/.config</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cp /mnt/cdrom/kernels/hugesmp.s/config /usr/src/linux/.config</li>
+</ul>
+</div>
     
 <p>Конфигурация загруженного ядра может быть получена из файла <code>/proc/config.gz</code>,
 если ядро было собрано с опциями <var>CONFIG_IKCONFIG</var> и <var>CONFIG_IKCONFIG_PROC</var>. В
 стандартном ядре Slackware Linux эти опции включены по умолчанию. Так, если вы
 захотите использовать конфигурацию запущенного ядра, вы должны выполнить:</p>
 
-<pre>
-# <strong>zcat /proc/config.gz > /usr/src/linux/.config</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># zcat /proc/config.gz &gt; /usr/src/linux/.config</li>
+</ul>
+</div>
     
 <p>Если вы используете конфигурационный файл от версии, отличающейся от той,
 которую нужно собрать, вероятно, их параметры будут различаться. Часто
@@ -166,9 +174,12 @@ Linux хранится на носителе дистрибутива в фай�
 устройств) и иногда удаляются компоненты ядра. Вы можете настроить новые опции
 (и удалить неиспользуемые) с помощью команды <strong>make oldconfig</strong>:</p>
 
-<pre>
-# <strong>cd /usr/src/linux ; make oldconfig</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cd /usr/src/linux ; make oldconfig</li>
+</ul>
+</div>
 
 <p>Вам будут заданы вопросы, хотите ли вы вкомпилировать опцию в ядро (для ответа
 нужно нажать <kbd>Y</kbd>), скомпилировать её как модуль (<kbd>M</kbd>) или не включать (<kbd>N</kbd>).
@@ -211,10 +222,13 @@ If you have an IBM ThinkPad laptop, say Y or M here.
 выполнив <strong>make <интерфейс></strong>. Например, для того, чтобы настроить ядро с помощью
 меню, вы можете использовать следующие команды:</p>
 
-<pre>
-# <strong>cd /usr/src/linux</strong>
-# <strong>make menuconfig</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cd /usr/src/linux</li>
+<li># make menuconfig</li>
+</ul>
+</div>
     
 <p>Конечно, если вы пожелаете, то можете отредактировать файл <code>.config</code> в вашем
 любимом текстовом редакторе.</p>
@@ -253,10 +267,13 @@ If you have an IBM ThinkPad laptop, say Y or M here.
 скомпилировано командой make в директории с исходным кодом ядра. Эта команда
 вычислит зависимости, соберёт ядро и соберёт и слинкует модули ядра.</p>
 
-<pre>
-# <strong>cd /usr/src/linux</strong>
-# <strong>make</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cd /usr/src/linux</li>
+<li># make</li>
+</ul>
+</div>
 
 <p>По завершению компиляции дерево файлов будет содержать скомпилированные модули
 и сжатый образ ядра в файле с именем <code>bzImage</code> в директории
@@ -273,17 +290,23 @@ If you have an IBM ThinkPad laptop, say Y or M here.
 ядра, т.к. это можно сделать выполнением одной команды в директории с исходными
 текстами ядра:</p>
 
-<pre>
-# <strong>make modules_install</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># make modules_install</li>
+</ul>
+</div>
       
 <p>Это установит модули в директорию <code>/lib/modules/<версия ядра></code>. Если вы заменяете
 ядро новым ядром такой же версии, лучше будет до установки удалить старые
 модули. Например:</p>
 
-<pre>
-# <strong>rm -rf /lib/modules/2.6.21.5-smp</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># rm -rf /lib/modules/2.6.21.5-smp</li>
+</ul>
+</div>
       
 <p>Вы можете &laquo;установить&raquo; ядро, скопировав его в директорию <code>/boot</code>.
 Вы можете назвать файл по своему желанию, но будет хорошо соблюдать
@@ -291,9 +314,12 @@ If you have an IBM ThinkPad laptop, say Y or M here.
 ядра></code>. Так, если название ядра <code>vmlinuz-2.6.21.5-smp-ddk</code>, вы
 можете скопировать его из дерева исходных текстов ядра с помощью команды:</p>
 
-<pre>
-# <strong>cp arch/i386/boot/bzImage /boot/vmlinuz-2.6.21.5-smp-ddk</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cp arch/i386/boot/bzImage /boot/vmlinuz-2.6.21.5-smp-ddk</li>
+</ul>
+</div>
 
 <p>На этом этапе всё. Последний шаг &#8211; добавление нового ядра в загрузчик Linux
 (Linux boot loader, LILO).</p>
@@ -342,11 +368,14 @@ image = /boot/vmlinuz
 первое ядро. Вы можете установить эту новую конфигурацию LILO, выполнив команду
 <strong>lilo</strong>:</p>
 
-<pre>
-# <strong>lilo</strong>
-Added Slack *
-Added SlackOld
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># lilo</li>
+<li>Added Slack *</li>
+<li>Added SlackOld</li>
+</ul>
+</div>
       
 Во время следующей загрузки будут доступны обе записи, и загрузится новое ядро
 под названием &laquo;Slack&raquo;.

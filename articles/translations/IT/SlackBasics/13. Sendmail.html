@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
 		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
@@ -114,18 +116,24 @@ Slackware Linux можно в <a href="17. Управление пакетами
 <p>Вы можете настроить запуск sendmail при загрузке системы, сделав исполнимым файл
 <code>/etc/rc.d/rc.sendmail</code>. Для этого нужно выполнить команду:</p>
 
-<pre>
-# <strong>chmod a+x /etc/rc.d/rc.sendmail</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># chmod a+x /etc/rc.d/rc.sendmail</li>
+</ul>
+</div>
     
 <p>Также вы можете запустить, остановить и перезапустить sendmail, передав
 параметры <var>start</var>, <var>stop</var> и <var>restart</var> соответственно
 сценарию инициализации. Например, таким образом можно перезапустить
 sendmail:</p>
 
-<pre>
-# <strong>/etc/rc.d/rc.sendmail restart</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># /etc/rc.d/rc.sendmail restart</li>
+</ul>
+</div>
 
 <br />
 
@@ -156,25 +164,34 @@ mc, доступных в <code>/usr/share/sendmail/cf/cf</code>. Наиболе
 стандартного mc-файла Slackware Linux. Предположим, что вы хотите создать
 конфигурационный файл сервера с именем <var>straw</var>, вы можете выполнить:</p>
 
-<pre>
-# <strong>cd /usr/share/sendmail/cf/cf</strong>
-# <strong>cp sendmail-slackware.mc sendmail-straw.mc</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cd /usr/share/sendmail/cf/cf</li>
+<li># cp sendmail-slackware.mc sendmail-straw.mc</li>
+</ul>
+</div>
       
 <p>и начать редактирование <code>sendmail-straw.mc</code>. После изменения
 файла по вашим требованиям, его можно скомпилировать в cf-файл с помощью
 M4:</p>
 
-<pre>
-# <strong>m4 sendmail-straw.mc &gt; sendmail-straw.cf</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># m4 sendmail-straw.mc &gt; sendmail-straw.cf</li>
+</ul>
+</div>
       
 <p>Если вы хотите использовать новый конфигурационный в качестве настроек по
 умолчанию, вы можете скопировать его в <code>/etc/mail/sendmail.cf</code>:</p>
 
-<pre>
-# <strong>cp sendmail-straw.cf /etc/mail/sendmail.cf</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cp sendmail-straw.cf /etc/mail/sendmail.cf</li>
+</ul>
+</div>
       
 <h5>13.3.2. Использование &laquo;умных хостов&raquo;</h5>
 
@@ -252,13 +269,16 @@ john.doe@example.org    john.doe@example.com
 <p>После необходимых изменений в файле <code>vusertable</code>, вы можете
 создать базу данных следующей командой:</p>
 
-<pre>
-# <strong>makemap hash /etc/mail/vusertable < /etc/mail/vusertable</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># makemap hash /etc/mail/vusertable &lt; /etc/mail/vusertable</li>
+</ul>
+</div>
 
 <br />
 <ul class="pager">
-  <li class="previous"><a href="12. Mutt.html">&larr; 12. Mutt</a></li>
+  <li class="previous"><a href="12. Чтение и отправка электронной почты с mutt.html">&larr; 12. Mutt</a></li>
   <li class="next"><a href="14. Управление пользователями.html">14. Управление пользователями &rarr;</a></li>
 </ul>
 

@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
 		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
@@ -124,17 +126,22 @@ ifhp
 файл <code>/etc/rc.d/rc.cups</code> исполнимым. Это можно сделать с помощью
 следующей команды:</p>
 
-<pre>
-# <strong>chmod a+x /etc/rc.d/rc.cups</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># chmod a+x /etc/rc.d/rc.cups</li>
+</ul>
+</div>
 
 <p>После перезапуска системы система печати CUPS автоматически запустится. Вы
 можете запустить CUPS на работающей система следующей командой:</p>
 
-<pre>
-# <strong>/etc/rc.d/rc.cups start</strong>
-</pre>
-
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># /etc/rc.d/rc.cups start</li>
+</ul>
+</div>
 
 <p>Обе системы печати имеют собственные преимущества и недостатки. Если у вас
 недостаточно опыта в настройке печати в GNU/Linux, то начать с CUPS &#8211; хорошая

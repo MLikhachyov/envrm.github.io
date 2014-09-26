@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
 		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
@@ -108,18 +110,24 @@ X-сервер может быть настроен автоматически, 
 следующую команду для создания <code>xorg.conf</code> &#8211; конфигурационного
 файла.</p>
 
-<pre>
-$ <strong>X -configure</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ X -configure</li>
+</ul>
+</div>
 
 <p>Если X-сервер не сообщит об ошибках, созданный конфигурационный файл может быть
 скопирован в директорию <code>/etc/X11</code>. И X-сервер может быть запущен
 для проверки настроек:</p>
 
-<pre>
-$ <strong>cp /root/xorg.conf /etc/X11/</strong>
-$ <strong>startx</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ cp /root/xorg.conf /etc/X11/</li>
+<li>$ startx</li>
+</ul>
+</div>
 
 <h5>16.1.2. Интерактивная настройка</h5>
 

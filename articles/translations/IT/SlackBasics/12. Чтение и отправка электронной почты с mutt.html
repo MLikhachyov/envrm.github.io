@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
 		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
@@ -275,9 +277,12 @@ set spoolfile=imap://me@imap.example.org/INBOX
 включить его содержимое в файл <code>.mutrc</code>. В консоли вы можете сделать это
 следующей командой:</p>
 
-<pre>
-$ <strong>cat /usr/share/doc/mutt/samples/gpg.rc &gt;&gt; ~/.muttrc</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ cat /usr/share/doc/mutt/samples/gpg.rc &gt;&gt; ~/.muttrc</li>
+</ul>
+</div>
       
 <p>Есть несколько полезных параметров, которые вы можете установить. Например, если
 вы хотите всегда подписывать сообщения, добавьте в файл конфигурации <strong>mutt</strong>

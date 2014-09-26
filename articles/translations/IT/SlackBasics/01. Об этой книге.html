@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <style>
       .hl_border { border: 1px solid grey; padding: 17px; }
     </style>
@@ -162,18 +164,15 @@ UNIX is a registered trademark of The Open Group.
 
 <h5>1.2.3. Вывод информации</h5>
 
-Вывод текста на экран выглядит так:
+<p>Сеанс работы в консоли выглядит так:</p>
 
-<pre>
-Hello world!
-</pre>
-
-Введённые пользователем команды набраны полужирным шрифтом:
-
-<pre>
-$ <strong>command</strong>
-Output
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ echo "Hello, World!"</li>
+<li>Hello, World!</li>
+</ul>
+</div>
 
 <p>Если команда выполняется от имени суперпользователя (root), то приглашением
 оболочки является знак решётки (&laquo;#&raquo;). Если команда выполняется от

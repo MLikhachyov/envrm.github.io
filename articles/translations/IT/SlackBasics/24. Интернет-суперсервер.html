@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
 		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
@@ -133,17 +135,23 @@ FTP-соединения. Конечно, вы можете указать в ф
 активировать настройки. Это можно сделать, послав сигнал <var>HUP</var> процессу
 <strong>inetd</strong>:</p>
 
-<pre>
-# <strong>ps ax | grep 'inetd'</strong>
-   64 ?        S      0:00 /usr/sbin/inetd
-# <strong>kill -HUP 64</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># ps ax | grep 'inetd'</li>
+<li>   64 ?        S      0:00 /usr/sbin/inetd</li>
+<li># kill -HUP 64</li>
+</ul>
+</div>
 
 <p>Или вы можете использовать сценарий инициализации <code>rc.initd</code>:</p>
 
-<pre>
-# <strong>/etc/rc.d/rc.inetd restart</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># /etc/rc.d/rc.inetd restart</li>
+</ul>
+</div>
 
 <br />
 

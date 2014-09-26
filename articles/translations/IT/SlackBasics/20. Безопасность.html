@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
 		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
@@ -140,21 +142,24 @@ SMTP. С каждым открытым портом увеличивается �
 <strong>nmap</strong>. В этом случае вы должны указать IP-адрес локального
 хоста (localhost), 127.0.0.1:</p>
 
-<pre>
-$ <strong>nmap 127.0.0.1</strong>
-
-Starting nmap V. 3.00 ( www.insecure.org/nmap/ )
-Interesting ports on localhost (127.0.0.1):
-(The 1596 ports scanned but not shown below are in state: closed)
-Port       State       Service
-21/tcp     open        ftp                     
-22/tcp     open        ssh                     
-23/tcp     open        telnet                  
-80/tcp     open        http                    
-6000/tcp   open        X11                     
-
-Nmap run completed - 1 IP address (1 host up) scanned in 0 seconds
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ nmap 127.0.0.1</li>
+<br />
+<li>Starting nmap V. 3.00 ( www.insecure.org/nmap/ )</li>
+<li>Interesting ports on localhost (127.0.0.1):</li>
+<li>(The 1596 ports scanned but not shown below are in state: closed)</li>
+<li>Port       State       Service</li>
+<li>21/tcp     open        ftp</li>                     
+<li>22/tcp     open        ssh</li>                     
+<li>23/tcp     open        telnet</li>                  
+<li>80/tcp     open        http</li>                    
+<li>6000/tcp   open        X11</li>                     
+<br />
+<li>Nmap run completed - 1 IP address (1 host up) scanned in 0 seconds</li>
+</ul>
+</div>
 
 <p>В этом примере вы можете увидеть, что на хосте открыты пять портов, которые
 слушают сервисы ftp, ssh, telnet, http и X11.</p>
@@ -174,10 +179,13 @@ Nmap run completed - 1 IP address (1 host up) scanned in 0 seconds
 <p>Вы можете проверить, запущен ли <strong>inetd</strong>, с помощью команды
 <strong>ps</strong>. Например:</p>
 
-<pre>
-$ <strong>ps ax | grep inetd</strong>
- 2845 ?        S      0:00 /usr/sbin/inetd
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ ps ax | grep inetd</li>
+<li> 2845 ?        S      0:00 /usr/sbin/inetd</li>
+</ul>
+</div>
 
 <p>В этом примере inetd запущен в системе и имеет <abbr title="идентификатор
 процесса">PID</abbr> 2845. <strong>Inetd</strong> может быть настроен в файле
@@ -205,19 +213,25 @@ FTP-соединения и передавать их tcpd. Это может в
 активировать настройки. Это можно сделать, послав сигнал HUP процессу
 inetd:</p>
 
-<pre>
-# <strong>ps ax | grep 'inetd'</strong>
-   2845 ?        S      0:00 /usr/sbin/inetd
-# <strong>kill -HUP 2845</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># ps ax | grep 'inetd'</li>
+<li>   2845 ?        S      0:00 /usr/sbin/inetd</li>
+<li># kill -HUP 2845</li>
+</ul>
+</div>
 
 <p>Если вам не нужен <strong>inetd</strong>, будет хорошо удалить его. Если вы
 хотите оставить его в системе, но не желаете, чтобы Slackware Linux запускал
 его в процессе загрузки, выполните от суперпользователя следующую команду:</p>
 
-<pre>
-# <strong>chmod a-x /etc/rc.d/rc.inetd</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># chmod a-x /etc/rc.d/rc.inetd</li>
+</ul>
+</div>
       
 <br />
 

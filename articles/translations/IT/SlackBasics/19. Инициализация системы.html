@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
 		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
@@ -192,11 +194,14 @@ image = /boot/vmlinuz 1
 ядро с тем же именем, но иным расположением файла ядра на диске. Переустановка
 LILO может быть выполнена с помощью команды <strong>lilo</strong>:</p>
 
-<pre>
-# <strong>lilo</strong>
-Added Slack26 *
-Added Slack
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># lilo</li>
+<li>Added Slack26 *</li>
+<li>Added Slack</li>
+</ul>
+</div>
 
 <br />
 
@@ -288,31 +293,43 @@ fi
 
 <p>Для запуска sendmail в ходе инициализации системы, выполните:</p>
 
-<pre>
-# <strong>chmod +x /etc/rc.d/rc.sendmail</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># chmod +x /etc/rc.d/rc.sendmail</li>
+</ul>
+</div>
     
 <p>Для отключения запуска sendmail во время загрузки системы, выполните:</p>
 
-<pre>
-# <strong>chmod -x /etc/rc.d/rc.sendmail</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># chmod -x /etc/rc.d/rc.sendmail</li>
+</ul>
+</div>
     
 <p>Большая часть сервисо-специфичных сценариев инициализации поддерживают три
 параметра для изменения статуса сервиса: start, restart и stop. Назначение этих
 параметров можно прекрасно понять из их названий. Например, если вы хотите
 перезапустить sendmail, вы можете выполнить:</p>
 
-<pre>
-# <strong>/etc/rc.d/rc.sendmail restart</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># /etc/rc.d/rc.sendmail restart</li>
+</ul>
+</div>
 
 <p>Если файл скрипта не является исполнимым, вы можете сообщить командной оболочке,
 что хотите исполнить файл, с помощью <strong>sh</strong>. Например:</p>
 
-<pre>
-# <strong>sh /etc/rc.d/rc.sendmail start</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># sh /etc/rc.d/rc.sendmail start</li>
+</ul>
+</div>
 
 <br />
 

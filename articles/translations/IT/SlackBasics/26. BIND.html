@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
 		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
@@ -169,9 +171,12 @@ BIND при загрузке системы, сделайте исполнимы
 <code>/etc/rc.d/rc.bind</code>. Это можно сделать, выполнив следующую команду с
 правами суперпользователя:</p>
 
-<pre>
-# <strong>chmod a+x /etc/rc.d/rc.bind</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># chmod a+x /etc/rc.d/rc.bind</li>
+</ul>
+</div>
 
 <p>Если вы желаете использовать сервер имён на машине, где запущен BIND, вы также
 должны изменить настройки в файле <code>/etc/resolv.conf</code>.</p>

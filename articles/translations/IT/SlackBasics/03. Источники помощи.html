@@ -11,12 +11,14 @@
 
     <link rel="shortcut icon" href="../../../../ico/favicon.ico">
 
-    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 2. Введение в Slackware Linux</title>
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 3. Источники помощи</title>
 
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../../css/custom.css">
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
 
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
@@ -77,12 +79,12 @@
         <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
         <li><a href="index.html">Основы Slackware Linux</a></li>
         <li><a href="index.html#I">Начало</a></li>
-        <li class="active">2. Введение в Slackware Linux</li>
+        <li class="active">3. Источники помощи</li>
       </ol>
 
       <div class="row columns">
 
-        <h3 class="text-center">2. Введение в Slackware Linux</h3>
+        <h3 class="text-center">3. Источники помощи</h3>
 
 <br />
 
@@ -116,9 +118,12 @@ UNIX, называемой страницами руководства (manual p
 маны). Выполнение <strong>man</strong> с именем команды в качестве аргумента
 выведет страницу руководства. Так,</p>
 
-<pre>
-$ <strong>man ls</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ man ls</li>
+</ul>
+</div>
       
 <p>отобразит руководство по команде <strong>ls</strong>.</p>
 
@@ -126,12 +131,15 @@ $ <strong>man ls</strong>
 можете поискать его по ключевым словам по всей справочной системе. Этой цели
 служит параметр <var>-k</var>:</p>
 
-<pre>
-$ <strong>man -k rmdir</strong>
-hrmdir               (1)  - remove an empty HFS directory
-rmdir                (1)  - remove empty directories
-rmdir                (2)  - delete a directory
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ man -k rmdir</li>
+<li>hrmdir               (1)  - remove an empty HFS directory</li>
+<li>rmdir                (1)  - remove empty directories</li>
+<li>rmdir                (2)  - delete a directory</li>
+</ul>
+</div>
       
 <p>Коллекция страниц руководства очень обширна и охватывает гораздо больше
 вопросов, чем просто команды. Доступны следующие разделы справочной системы:</p>
@@ -152,9 +160,12 @@ rmdir                (2)  - delete a directory
 rmdir, вы можете выбрать конкретное руководство, добавив в параметры команды
 man номер справочного раздела:</p>
 
-<pre>
-$ <strong>man 2 rmdir</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ man 2 rmdir</li>
+</ul>
+</div>
       
 <p>Если вы хотите распечатать страницу руководства на принтере, вы можете передать
 вывод команды <strong>man</strong> программе <strong>lpr</strong>. Если при этом
@@ -162,9 +173,12 @@ $ <strong>man 2 rmdir</strong>
 формате Postscript. Например, вы можете использовать следующую команду, чтобы
 распечатать руководство по команде <strong>cat</strong>:</p>
 
-<pre>
-$ <strong>man -t cat | lpr</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ man -t cat | lpr</li>
+</ul>
+</div>
 
 <br />
 
@@ -221,7 +235,7 @@ Slackware Linux, где вы можете найти содействие в р�
 <br />
 <ul class="pager">
   <li class="previous"><a href="02. Введение в Slackware Linux.html">&larr; 2. Введение в Slackware Linux</a></li>
-  <li class="next"><a href="04. Основные положения.html">3. Основные положения &rarr;</a></li>
+  <li class="next"><a href="04. Основные положения.html">4. Основные положения &rarr;</a></li>
 </ul>
 
         </div>

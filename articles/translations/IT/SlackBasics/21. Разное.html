@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
 		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
@@ -177,19 +179,22 @@ Linux вы можете просто добавить новый скрипт в
 <p>Вы можете получить список установленных настроек диска, передав <strong>hdparm</strong> в
 качестве параметра файл устройства:</p>
 
-<pre>
-# <strong>hdparm /dev/hda</strong>
-
-/dev/hda:
- multcount    =  0 (off)
- IO_support   =  1 (32-bit)
- unmaskirq    =  1 (on)
- using_dma    =  1 (on)
- keepsettings =  0 (off)
- readonly     =  0 (off)
- readahead    = 256 (on)
- geometry     = 65535/16/63, sectors = 78165360, start = 0
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># hdparm /dev/hda</li>
+<br />
+<li>/dev/hda:</li>
+<li> multcount    =  0 (off)</li>
+<li> IO_support   =  1 (32-bit)</li>
+<li> unmaskirq    =  1 (on)</li>
+<li> using_dma    =  1 (on)</li>
+<li> keepsettings =  0 (off)</li>
+<li> readonly     =  0 (off)</li>
+<li> readahead    = 256 (on)</li>
+<li> geometry     = 65535/16/63, sectors = 78165360, start = 0</li>
+</ul>
+</div>
     
 <p>Обычная причина низкой производительности диска заключается в том, что ядро по
 умолчанию не использует DMA. DMA увеличивает пропускную способность системы
@@ -203,37 +208,43 @@ using_dma    =  0 (off)
     
 <p>Вы легко можете включить DMA для диска с помощью параметра <em>-d</em>:</p>
 
-<pre>
-# <strong>hdparm -d 1 /dev/hda</strong>
-
-/dev/hda:
- setting using_dma to 1 (on)
- using_dma    =  1 (on)
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># hdparm -d 1 /dev/hda</li>
+<br />
+<li>/dev/hda:</li>
+<li> setting using_dma to 1 (on)</li>
+<li> using_dma    =  1 (on)</li>
+</ul>
+</div>
     
 <p>Вы можете делать это во время каждой загрузки, если добавите команду в файл
 <code>/etc/rc.d/rc.local.</code></p>
 
 <p>Параметр <em>-i</em> также очень полезен, т.к. он выводит детальную информацию о диске:</p>
 
-<pre>
-# <strong>hdparm -i /dev/hda</strong>
-/dev/hda:
-
- Model=WDC WD400EB-00CPF0, FwRev=06.04G06, SerialNo=WD-WCAAT6022342
- Config={ HardSect NotMFM HdSw>15uSec SpinMotCtl Fixed DTR>5Mbs FmtGapReq }
- RawCHS=16383/16/63, TrkSize=57600, SectSize=600, ECCbytes=40
- BuffType=DualPortCache, BuffSize=2048kB, MaxMultSect=16, MultSect=off
- CurCHS=16383/16/63, CurSects=16514064, LBA=yes, LBAsects=78163247
- IORDY=on/off, tPIO={min:120,w/IORDY:120}, tDMA={min:120,rec:120}
- PIO modes:  pio0 pio1 pio2 pio3 pio4 
- DMA modes:  mdma0 mdma1 mdma2 
- UDMA modes: udma0 udma1 udma2 udma3 udma4 *udma5 
- AdvancedPM=no WriteCache=enabled
- Drive conforms to: device does not report version: 
-
- * signifies the current active mode
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># hdparm -i /dev/hda</li>
+<li>/dev/hda:</li>
+<br />
+<li> Model=WDC WD400EB-00CPF0, FwRev=06.04G06, SerialNo=WD-WCAAT6022342</li>
+<li> Config={ HardSect NotMFM HdSw>15uSec SpinMotCtl Fixed DTR>5Mbs FmtGapReq }</li>
+<li> RawCHS=16383/16/63, TrkSize=57600, SectSize=600, ECCbytes=40</li>
+<li> BuffType=DualPortCache, BuffSize=2048kB, MaxMultSect=16, MultSect=off</li>
+<li> CurCHS=16383/16/63, CurSects=16514064, LBA=yes, LBAsects=78163247</li>
+<li> IORDY=on/off, tPIO={min:120,w/IORDY:120}, tDMA={min:120,rec:120}</li>
+<li> PIO modes:  pio0 pio1 pio2 pio3 pio4</li> 
+<li> DMA modes:  mdma0 mdma1 mdma2</li> 
+<li> UDMA modes: udma0 udma1 udma2 udma3 udma4 *udma5</li> 
+<li> AdvancedPM=no WriteCache=enabled</li>
+<li> Drive conforms to: device does not report version:</li> 
+<br />
+<li> * signifies the current active mode</li>
+</ul>
+</div>
 
 <br />
 
@@ -252,12 +263,15 @@ using_dma    =  0 (off)
 системы виртуальной памяти. Без указания дополнительных параметров <strong>vmstat</strong>
 покажет суммарную статистику:</p>
 
-<pre>
-# <strong>vmstat</strong>
-procs ---------memory------- ---swap-- --io--- -system-- --cpu--
- r  b swpd   free buff cache si so  bi bo   in  cs us sy  id wa
- 0  0    0 286804 7912 98632  0  0 198  9 1189 783  5  1  93  1
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># vmstat</li>
+<li><pre class="plain">procs ---------memory------- ---swap-- --io--- -system-- --cpu--</pre></li>
+<li><pre class="plain"> r  b swpd   free buff cache si so  bi bo   in  cs us sy  id wa</pre></li>
+<li><pre class="plain"> 0  0    0 286804 7912 98632  0  0 198  9 1189 783  5  1  93  1</pre></li>
+</ul>
+</div>
       
 <p>Поскольку в этом разделе мы рассматриваем только мониторинг использования
 памяти, нас будут интересовать только поля <em>memory</em> и <em>swap</em>.</p>
@@ -277,31 +291,36 @@ procs ---------memory------- ---swap-- --io--- -system-- --cpu--
 статистику. Интервал указывается в секундах. Так, если вы хотите обновлять
 статистику каждую секунду, вы можете выполнить:</p>
 
-<pre>
-# <strong>vmstat 1</strong>
-procs ---------memory------- ---swap-- ---io-- --system-- --cpu--
- r  b swpd   free buff cache si so  bi bo   in   cs us sy  id wa
- 2  0    0 315132 8832 99324  0  0 189 10 1185  767  5  1  93  1
- 1  0    0 304812 8832 99324  0  0   0  0 1222 6881 24  8  68  0
- 0  0    0 299948 8836 99312  0  0   0  0 1171 1824 41  9  49  0
- [...]
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># vmstat 1</li>
+<li><pre class="plain">procs ---------memory------- ---swap-- ---io-- --system-- --cpu--</pre></li>
+<li><pre class="plain"> r  b swpd   free buff cache si so  bi bo   in   cs us sy  id wa</pre></li>
+<li><pre class="plain"> 2  0    0 315132 8832 99324  0  0 189 10 1185  767  5  1  93  1</pre></li>
+<li><pre class="plain"> 1  0    0 304812 8832 99324  0  0   0  0 1222 6881 24  8  68  0</pre></li>
+<li><pre class="plain"> 0  0    0 299948 8836 99312  0  0   0  0 1171 1824 41  9  49  0</pre></li>
+</ul>
+</div>
       
 <p>Дополнительно вы можете указать <strong>vmstat</strong>, сколько раз нужно вывести статистику
 (вместо того, чтобы делать это бесконечно). Например, если вы хотите выводить
 статистику каждые две секунды и сделать это всего пять раз, вы можете выполнить
 <strong>vmstat</strong> следующим образом:</p>
 
-<pre>
-# <strong>vmstat 2 5</strong>
-procs --------memory-------- ---swap--- ---io---- --system-- -cpu-
- r  b swpd  free  buff cache si so   bi  bo   in    cs us sy id wa
- 2  0    0 30996  9172 99360  0  0  186  10 1184   756  5  1 93  1
- 0  1    0 29012  9848 99368  0  0  336   0 1293  8167 20  8 21 51
- 1  0    0 29788 11976 99368  0  0 1054   0 1341 12749 14 11  0 76
- 2  0    0 28996 13916 99368  0  0  960 176 1320 17636 22 14  0 64
- 2  0    0 28620 16112 99368  0  0 1086 426 1351 21217 25 18  0 58
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># vmstat 2 5</li>
+<li><pre class="plain">procs --------memory------- ---swap--- ---io---- --system-- -cpu-</pre></li>
+<li><pre class="plain"> r  b swpd free  buff cache si so   bi  bo   in    cs us sy id wa</pre></li>
+<li><pre class="plain"> 2  0    0 3099  9172 99360  0  0  186  10 1184   756  5  1 93  1</pre></li>
+<li><pre class="plain"> 0  1    0 2901  9848 99368  0  0  336   0 1293  8167 20  8 21 51</pre></li>
+<li><pre class="plain"> 1  0    0 2978 11976 99368  0  0 1054   0 1341 12749 14 11  0 76</pre></li>
+<li><pre class="plain"> 2  0    0 2899 13916 99368  0  0  960 176 1320 17636 22 14  0 64</pre></li>
+<li><pre class="plain"> 2  0    0 2862 16112 99368  0  0 1086 426 1351 21217 25 18  0 58</pre></li>
+</ul>
+</div>
 
 </br>
 

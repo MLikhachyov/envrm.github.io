@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../css/animation.css">
 
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
     <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
 
 		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
@@ -127,17 +129,23 @@
 пользователя. Запуск <strong>useradd</strong> с именем пользователя в качестве параметра создаст
 в системе пользователя. Например:
 
-<pre>
-# <strong>useradd bob</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li># useradd bob</li>
+</ul>
+</div>
       
 <p>создаст пользовательский аккаунт <var>bob</var>. Но знайте, что это не создаст домашнюю
 директорию пользователя. Добавьте параметр <em>-m</em>, чтобы создать домашний
 каталог.  Например:</p>
 
-<pre>
-# <strong>useradd -m bob</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># useradd -m bob</li>
+</ul>
+</div>
       
 <p>Это создаст в системе нового пользователя с именем <var>bob</var> и его домашнюю
 директорию /home/bob. Обычно пользователи становятся членами группы <var>users</var>.
@@ -145,9 +153,12 @@
 <var>bob</var>. Это может быть осуществлено с помощью параметра <var>-g</var>.
 Например:</p>
 
-<pre>
-# <strong>useradd -g crew -m bob</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># useradd -g crew -m bob</li>
+</ul>
+</div>
       
 <p>Кроме того, при создании пользователя, с помощью параметра <var>-G</var>
 возможно добавить его в другие группы. Названия групп должны быть разделены
@@ -155,9 +166,12 @@
 группе <var>crew</var> и с дополнительными группами <var>www-admins</var> и
 <var>ftp-admins.</var></p>
 
-<pre>
-# <strong>useradd -g crew -G www-admins,ftp-admins -m bob</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># useradd -g crew -G www-admins,ftp-admins -m bob</li>
+</ul>
+</div>
       
 <p>По умолчанию команда <strong>useradd</strong> только добавляет пользователя,
 но не назначает ему пароль. Пароль может быть установлен командой passwd.</p>
@@ -169,24 +183,30 @@
 текущего пользователя. Команда попросит ввести старый пароль и (дважды) &#8211;
 новый.</p>
 
-<pre>
-$ <strong>passwd</strong>
-Changing password for bob
-(current) UNIX password: 
-Enter new UNIX password: 
-Retype new UNIX password: 
-passwd: password updated successfully
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ passwd</li>
+<li>Changing password for bob</li>
+<li>(current) UNIX password:</li> 
+<li>Enter new UNIX password:</li> 
+<li>Retype new UNIX password:</li> 
+<li>passwd: password updated successfully</li>
+</ul>
+</div>
       
 <p>Root может устанавливать пароль пользователя, указав его имя в качестве
 параметра. Команда passwd только спросит новый пароль. Например:</p>
 
-<pre>
-# <strong>passwd bob</strong>
-Enter new UNIX password: 
-Retype new UNIX password: 
-passwd: password updated successfully
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># passwd bob</li>
+<li>Enter new UNIX password:</li> 
+<li>Retype new UNIX password:</li> 
+<li>passwd: password updated successfully</li>
+</ul>
+</div>
       
 <h5>14.2.3. adduser</h5>
 
@@ -196,57 +216,50 @@ passwd: password updated successfully
 информации будет создана учётная запись пользователя. Следующий листинг
 демонстрирует возможный сеанс работы со скриптом.</p>
 
-<pre>
-# <strong>adduser</strong>
-
-Login name for new user []: john
-
-User ID ('UID') [ defaults to next available ]: <Enter>
-
-Initial group [ users ]: <Enter>
-
-Additional groups (comma separated) []: staff
-
-Home directory [ /home/john ] <Enter>
-
-Shell [ /bin/bash ] <Enter>
-
-Expiry date (YYYY-MM-DD) []: <Enter>
-
-New account will be created as follows:
-
----------------------------------------
-Login name.......:  john
-UID..............:  [ Next available ]
-Initial group....:  users
-Additional groups:  [ None ]
-Home directory...:  /home/john
-Shell............:  /bin/bash
-Expiry date......:  [ Never ]
-
-This is it... if you want to bail out, hit Control-C.  Otherwise, press
-ENTER to go ahead and make the account.
-<Enter>
-
-Creating new account...
-
-
-Changing the user information for john
-Enter the new value, or press ENTER for the default
-        Full Name []: John Doe
-        Room Number []: <Enter>
-        Work Phone []: <Enter>
-        Home Phone []: <Enter>
-        Other []: <Enter>
-Changing password for john
-Enter the new password (minimum of 5, maximum of 127 characters)
-Please use a combination of upper and lower case letters and numbers.
-New password: password
-Re-enter new password: password
-
-
-Account setup complete.
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># adduser</li>
+<li>Login name for new user []: john</li>
+<li>User ID ('UID') [ defaults to next available ]: <Enter></li>
+<li>Initial group [ users ]: <Enter></li>
+<li>Additional groups (comma separated) []: staff</li>
+<li>Home directory [ /home/john ] <Enter></li>
+<li>Shell [ /bin/bash ] <Enter></li>
+<li>Expiry date (YYYY-MM-DD) []: <Enter></li>
+<br />
+<li>New account will be created as follows:</li>
+<li>---------------------------------------</li>
+<li>Login name.......:  john</li>
+<li>UID..............:  [ Next available ]</li>
+<li>Initial group....:  users</li>
+<li>Additional groups:  [ None ]</li>
+<li>Home directory...:  /home/john</li>
+<li>Shell............:  /bin/bash</li>
+<li>Expiry date......:  [ Never ]</li>
+<br />
+<li>This is it... if you want to bail out, hit Control-C.  Otherwise, press</li>
+<li>ENTER to go ahead and make the account.</li>
+<li><Enter></li>
+<br />
+<li>Creating new account...</li>
+<br />
+<li>Changing the user information for john</li>
+<li>Enter the new value, or press ENTER for the default</li>
+<li>        Full Name []: John Doe</li>
+<li>        Room Number []: <Enter></li>
+<li>        Work Phone []: <Enter></li>
+<li>        Home Phone []: <Enter></li>
+<li>        Other []: <Enter></li>
+<li>Changing password for john</li>
+<li>Enter the new password (minimum of 5, maximum of 127 characters)</li>
+<li>Please use a combination of upper and lower case letters and numbers.</li>
+<li>New password: password</li>
+<li>Re-enter new password: password</li>
+<br />
+<li>Account setup complete.</li>
+</ul>
+</div>
       
 <p>Вы можете использовать значения по умолчанию или оставить некоторые поля
 незаполненными, нажимая клавишу <kbd>Enter</kbd>.</p>
@@ -258,17 +271,23 @@ GNU/Linux предоставляет команду <strong>userdel</strong>. П
 качестве параметра имя пользователя, которого следует удалить из системы.
 Например, следующая команда удалит пользователя <var>bob</var>:</p>
 
-<pre>
-# <strong>userdel bob</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># userdel bob</li>
+  </ul>
+  </div>
       
 <p>Это удалит только учётную запись, но не домашнюю директорию и почтовый ящик
 пользователя. Добавьте параметр <var>-r</var>, чтобы удалить и пользовательские
 данные. Например:</p>
 
-<pre>
-# <strong>userdel -r bob</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># userdel -r bob</li>
+</ul>
+</div>
 
 <br />
       
@@ -288,18 +307,21 @@ GNU/Linux предоставляет команду <strong>userdel</strong>. П
 правильно введёте, запустит командную оболочку с административными
 привелегиями:</p>
 
-<pre>
-$ <strong>whoami</strong>
-bob
-$ <strong>su</strong>
-Password: 
-# <strong>whoami</strong>
-root
-# <strong>exit</strong>
-exit
-$ <strong>whoami</strong>
-bob
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ whoami</li>
+<li>bob</li>
+<li>$ su</li>
+<li>Password:</li> 
+<li># whoami</li>
+<li>root</li>
+<li># exit</li>
+<li>exit</li>
+<li>$ whoami</li>
+<li>bob</li>
+</ul>
+</div>
     
 <p>В этом примере команда <strong>whoami</strong> сообщает, что в системе
 зарегистрирован <var>bob</var>. Пользователь выполняет команду su и вводит пароль
@@ -312,9 +334,12 @@ bob
 используя параметр <var>-c</var>. Следующая команда запустит
 <strong>lilo</strong>:</p>
 
-<pre>
-$ <strong>su -c lilo</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ su -c lilo</li>
+</ul>
+</div>
     
 <p>Если вы хотите передать параметры запускаемой команде, вы должны использовать
 кавычки (например, <strong>su -c "ls -l /"</strong>). Без кавычек
@@ -368,10 +393,13 @@ usrquota:</p>
 квотирование. Вы также можете включить квотирование без перезагрузки путём
 перемонтирования раздела и запуска команды quotaon:</p>
 
-<pre>
-# <strong>mount -o remount /home</strong>
-# <strong>quotaon -avug</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># mount -o remount /home</li>
+<li># quotaon -avug</li>
+</ul>
+</div>
       
 <h5>14.4.3. Настройка квотирования</h5>
 
@@ -381,9 +409,12 @@ usrquota:</p>
 Наиболее простой синтаксис этой команды включает имя команды и имя
 пользователя. Например:</p>
 
-<pre>
-# <strong>edquota joe</strong>
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># edquota joe</li>
+</ul>
+</div>
       
 <p>Эта команда запустит редактор <strong>vi</strong> с информацией по квотам
 для пользователя <strong>joe</strong>. Это будет выглядеть примерно так:
@@ -435,18 +466,21 @@ Disk quotas for user joe (uid 1143):
 информацию об установленных квотах для раздела <code>/dev/hda5</code>. Для
 этого вы можете использовать следующую команду:</p>
 
-<pre>
-# <strong>repquota /dev/hda5</strong>
-*** Report for user quotas on device /dev/hda5
-Block grace time: 7days; Inode grace time: 7days
-                    Block limits           File limits
-User        used    soft    hard  grace    used  soft  hard  grace
-------------------------------------------------------------------
-root  --       0       0       0              3     0     0       
-[..]
-joe   --    2136  250000  300000             64     0     0       
-[..]
-</pre>
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># repquota /dev/hda5</li>
+<li><pre class="plain">*** Report for user quotas on device /dev/hda5</pre></li>
+<li><pre class="plain">Block grace time: 7days; Inode grace time: 7days</pre></li>
+<li><pre class="plain">                    Block limits           File limits</pre></li>
+<li><pre class="plain">User        used    soft    hard  grace    used  soft  hard  grace</pre></li>
+<li><pre class="plain">------------------------------------------------------------------</pre></li>
+<li><pre class="plain">root  --       0       0       0              3     0     0</pre></li>       
+<li><pre class="plain">[..]</pre></li>
+<li><pre class="plain">joe   --    2136  250000  300000             64     0     0</pre></li>       
+<li><pre class="plain">[..]</pre></li>
+</ul>
+</div>
 
 
 </br>
