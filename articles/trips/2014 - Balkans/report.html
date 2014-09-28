@@ -1,0 +1,2905 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 19. Инициализация системы</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/custom.css">
+    <link rel="stylesheet" href="../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="../../../css/bootstrap-image-gallery.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="../../../articles.html">Путешествия</a></li>
+        <li class="active">2014 - Балканы</li>
+      </ol>
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="row columns">
+
+        <h3 class="text-center">Балканы'2014</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<div class="text-right">
+<em>Бегу, летит под кедами земля...</em>
+</div>
+
+<br />
+
+<p><em>Србиjа</em> для меня всегда значила нечто личное, родственное, но
+неизменно далёкое. Мысль посетить эту страну возникла давно, но казалась (пусть
+даже я и начал когда-то самостоятельно изучать сербский язык) маловероятной.
+Однако, в этом году мы совершили трёхнедельное путешествие по трём странам, ещё
+недавно входившим в состав Югославии: Сербии, Боснии и Герцеговине и
+Черногории. Маршрут протяжённостью около двух тысяч км получился таким:</p>
+
+<div id="links">
+    <a href="img/map.png" title="Балканы" data-gallery>
+        <img src="img/map.png" alt="Балканы" class="img-responsive img-thumbnail">
+    </a>
+
+<br />
+<br />
+
+<p>16 августа 2014 года сразу после свадьбы мы отправились в Уфу на поезде, откуда
+утренним самолётом Уфа-Москва-Белград и начали свой <em>медени месец</em>.</p>
+
+    <a href="img/2014-08-17_1.jpg" title="Сербия" data-gallery>
+        <img src="img/2014-08-17_1.jpg" alt="Сербия" class="img-responsive img-thumbnail">
+    </a>
+
+<br />
+
+<h3 class="text-center">Сербия</h3>
+
+<br />
+
+<h4>17 августа, Уфа - Москва - Белград</h4>
+
+<p>Раннее прибытие в Уфу, такси до аэропорта и водитель, спрашивающий, почему
+именно Сербия, и &laquo;что там смотреть?&raquo;. Шестичасовой перелёт на
+четыре часа назад в Белград и вот они -- Балканы, до которых всего минут 15:
+забрать багаж и сесть на автобус А1, идущий до площади Славия.</p>
+
+<p>Пятнадцать минут растянулись на час: багажа не было. А багаж -- два рюкзака
+-- это всё: одежда, палатка, спальные мешки... Написали заявление об утере; нам
+сказали, что всё будет известно завтра. Вот так всё началось. Прилетели.</p>
+
+<p>Добравшись <em>до центра старог града</em>, пошли искать хостел. Первый же
+человек -- мужчина лет тридцати, -- к которому я обратился, узнав, что мы
+русские, спросил, есть ли где нам ночевать, желая подсказать вариант; показал
+дорогу и сказал, что русские и сербы <em>браћа заувек</em>.</p>
+
+<p>Заселившись в светлый просторный хостел, мы сообщили <em>рецепциjи</em> об
+утере багажа. Ко всему прочему оказалось, что в заявлении мы указали
+неправильный номер телефона. Администратор позвонил в аэропорт и всё уладил. Мы
+отправились на прогулку в город, но поначалу из-за тревоги о багаже и
+соответсвующей дезориентации всё складывалось непоследовательно и даже суетно.
+Город вторил этому настроению: множество пустых витрин, окна и двери за
+решётками и бесконечные граффити: от вязи нечитаемых тэгов до полотен на
+фасадах.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-17_16.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_16.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_2.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_2.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_3.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_3.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_4.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_4.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_5.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_5.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_6.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_6.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_7.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_7.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_8.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_8.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_9.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_9.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_10.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_10.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_11.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_11.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_12.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_12.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_13.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_13.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_14.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_14.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_15.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_15.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Погуляв по городу, на обед мы совершенно случайно зашли на летнюю террасу
+старейшего в Белграде кафе &laquo;Знак питања&raquo;. Вообще, я не ем мясного,
+поэтому несколько сомневался в разнообразии вегетарианских блюд в Сербии. Как
+оказалось, в этом я не был прав. Знакомство с сербской кухней мы начали с
+традиционной плескавицы и, в моём случае, печёная фасоль. Порции в Сербии
+удивительны! Правда, <em>домаћа кафа</em> варится очень крепко и поэтому
+подаётся в маленьких чашках со стаканом воды для разбавления.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-17_17.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_17.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_18.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_18.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_19.jpg" title="Белград, улица князя Михаила" data-gallery>
+        <img src="img/th/2014-08-17_19.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_20.jpg" title="Белград, улица князя Михаила" data-gallery>
+        <img src="img/th/2014-08-17_20.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<div class="text-center">
+    <a href="img/2014-08-17_21.jpg" title="Белград, улица князя Михаила" data-gallery>
+        <img src="img/th/2014-08-17_21.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_22.jpg" title="Белград, улица князя Михаила" data-gallery>
+        <img src="img/th/2014-08-17_22.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_23.jpg" title="Сербский кофе" data-gallery>
+        <img src="img/th/2014-08-17_23.jpg" alt="Сербский кофе" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_24.jpg" title="Обед: печёные бобы, плескавица, панированный сыр" data-gallery>
+        <img src="img/th/2014-08-17_24.jpg" alt="Обед: печёные бобы, плескавица, панированный сыр" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>После кафе мы отправились в белградскую крепость и парк Калемегдан.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-17_25.jpg" title="Белград, Калемегдан, крепость" data-gallery>
+        <img src="img/th/2014-08-17_25.jpg" alt="Белград, Калемегдан, крепость" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_26.jpg" title="Белград, Калемегдан, крепость" data-gallery>
+        <img src="img/th/2014-08-17_26.jpg" alt="Белград, Калемегдан, крепость" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_27.jpg" title="Белград, Калемегдан, крепость" data-gallery>
+        <img src="img/th/2014-08-17_27.jpg" alt="Белград, Калемегдан, крепость" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_28.jpg" title="Белград, Калемегдан, крепость" data-gallery>
+        <img src="img/th/2014-08-17_28.jpg" alt="Белград, Калемегдан, крепость" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_29.jpg" title="Белград, Калемегдан, крепость" data-gallery>
+        <img src="img/th/2014-08-17_29.jpg" alt="Белград, Калемегдан, крепость" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_30.jpg" title="Белград, Калемегдан, крепость" data-gallery>
+        <img src="img/th/2014-08-17_30.jpg" alt="Белград, Калемегдан, крепость" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_31.jpg" title="Белград, Калемегдан, крепость" data-gallery>
+        <img src="img/th/2014-08-17_31.jpg" alt="Белград, Калемегдан, крепость" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_32.jpg" title="Белград, Калемегдан, крепость" data-gallery>
+        <img src="img/th/2014-08-17_32.jpg" alt="Белград, Калемегдан, крепость" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_33.jpg" title="Белград, Калемегдан, крепость" data-gallery>
+        <img src="img/th/2014-08-17_33.jpg" alt="Белград, Калемегдан, крепость" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_34.jpg" title="Белград, Калемегдан, крепость" data-gallery>
+        <img src="img/th/2014-08-17_34.jpg" alt="Белград, Калемегдан, крепость" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Крепость не произвела какого-то впечатления: стены, парк, орудия Первой
+мировой войны. Из-за того, что мысли были заняты багажом, мы не утрудили себя
+поисками того, что мне хотелось посмотреть, и отправились дальше в город к
+Церкви Святого Марка и затем -- к крупнейшему православному храму в Европе --
+Храму <em>Светог Саве</em>.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-17_35.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_35.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_36.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_36.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_37.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-17_37.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-17_38.jpg" title="Белград, Церковь Святого Марка" data-gallery>
+        <img src="img/th/2014-08-17_38.jpg" alt="Белград, Церковь Святого Марка" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_39.jpg" title="Белград, Церковь Святого Марка" data-gallery>
+        <img src="img/th/2014-08-17_39.jpg" alt="Белград, Церковь Святого Марка" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_40.jpg" title="Белград, Церковь Святого Марка" data-gallery>
+        <img src="img/th/2014-08-17_40.jpg" alt="Белград, Церковь Святого Марка" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-17_41.jpg" title="Белград, Храм Святого Саввы" data-gallery>
+        <img src="img/th/2014-08-17_41.jpg" alt="Белград, Храм Святого Саввы" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_42.jpg" title="Белград, Храм Святого Саввы" data-gallery>
+        <img src="img/th/2014-08-17_42.jpg" alt="Белград, Храм Святого Саввы" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_43.jpg" title="Белград, Храм Святого Саввы" data-gallery>
+        <img src="img/th/2014-08-17_43.jpg" alt="Белград, Храм Святого Саввы" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-17_44.jpg" title="Белград, Храм Святого Саввы" data-gallery>
+        <img src="img/th/2014-08-17_44.jpg" alt="Белград, Храм Святого Саввы" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_45.jpg" title="Белград, Храм Святого Саввы" data-gallery>
+        <img src="img/th/2014-08-17_45.jpg" alt="Белград, Храм Святого Саввы" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_46.jpg" title="Белград, Храм Святого Саввы" data-gallery>
+        <img src="img/th/2014-08-17_46.jpg" alt="Белград, Храм Святого Саввы" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-17_47.jpg" title="Белград, Храм Святого Саввы" data-gallery>
+        <img src="img/th/2014-08-17_47.jpg" alt="Белград, Храм Святого Саввы" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Храм Святого Саввы потрясает размерами и внутренним пространством, но ввиду
+реконструкции добавляется и ощущение некоторой оставленности. Вообще, от мысли
+&laquo;вот я и здесь&raquo; почему-то становилось грустно.</p>
+
+<p>Погуляв по городу, мы вернулись в хостел. Утро понедельника должно было
+определить ход всего путешествия: задержимся ли мы в Белграде дольше двух
+запланированных дней и нужно ли будет покупать всё необходимое снаряжение.</p>
+
+<h4>18 августа, Белград</h4>
+
+<p>Утро началось с <em>пекары</em>, в которой мы взяли две <em>питы</em> --
+<em>са сиром и са зељем</em>. Вообще, на Балканах, особенно в Сербии, очень
+много пекарен, причём большая часть пирогов, пирожков и прочего печёного
+съестного готовится с использованием слоёного теста.</p>
+
+<p>Позавтракав, мы вернулись в хостел и -- о чудо! -- узнали, что наш багаж
+найден и его доставят в течение нескольких часов! Планы наши не сорвались, чему
+мы были бесконечно рады.</p>
+
+<p>Уже вполне весёлые, если не сказать счастливые, мы вновь отправились в
+крепость, чтобы увидеть <em>цркву Свете Петке и цркву Ружица</em>. Они
+совершенно незаметно притаились под крепостной стеной, но несомненно стоили
+наших поисков. Ружица кроме всё увивающего плюща примечательна и люстрой,
+собранной из различных оружейных частей.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-18_48.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_48.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_49.jpg" title="Белград, Церковь Ружица" data-gallery>
+        <img src="img/th/2014-08-18_49.jpg" alt="Белград, Церковь Ружица" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_50.jpg" title="Белград, Церковь Ружица" data-gallery>
+        <img src="img/th/2014-08-18_50.jpg" alt="Белград, Церковь Ружица" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_51.jpg" title="Белград, Церковь Ружица" data-gallery>
+        <img src="img/th/2014-08-18_51.jpg" alt="Белград, Церковь Ружица" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_52.jpg" title="Белград, Церковь Ружица" data-gallery>
+        <img src="img/th/2014-08-18_52.jpg" alt="Белград, Церковь Ружица" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_53.jpg" title="Белград, Церковь Ружица" data-gallery>
+        <img src="img/th/2014-08-18_53.jpg" alt="Белград, Церковь Ружица" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_54.jpg" title="Белград, Церковь Ружица" data-gallery>
+        <img src="img/th/2014-08-18_54.jpg" alt="Белград, Церковь Ружица" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_55.jpg" title="Белград, Церковь Ружица" data-gallery>
+        <img src="img/th/2014-08-18_55.jpg" alt="Белград, Церковь Ружица" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_56.jpg" title="Белград, Церковь Святого Петра" data-gallery>
+        <img src="img/th/2014-08-18_56.jpg" alt="Белград, Церковь Святого Петра" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_57.jpg" title="Белград, Церковь Святого Петра" data-gallery>
+        <img src="img/th/2014-08-18_57.jpg" alt="Белград, Церковь Святого Петра" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_58.jpg" title="Белград, Церковь Святого Петра" data-gallery>
+        <img src="img/th/2014-08-18_58.jpg" alt="Белград, Церковь Святого Петра" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_59.jpg" title="Белград, Церковь Святого Петра" data-gallery>
+        <img src="img/th/2014-08-18_59.jpg" alt="Белград, Церковь Святого Петра" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_60.jpg" title="Белград, Церковь Святого Петра" data-gallery>
+        <img src="img/th/2014-08-18_60.jpg" alt="Белград, Церковь Святого Петра" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_61.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_61.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_62.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_62.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Завершив планы в этой части города, мы отправились пешком в Земун -- район
+Белграда, некогда бывший отдельным городом и потому сохранивший отличающуюся от
+общебелградской австро-венгерскую архитектуру.</p>
+
+<p>Отдельно стоит отметить обилие в городе пророссийских плакатов, баннеров,
+граффити и наклеек.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-18_63.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_63.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_64.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_64.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_65.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_65.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_66.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_66.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_67.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_67.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Земун встретил нас узкими улочками в духе старой Европы, церковью со шпилем
+и <em>кафанами</em>, в одной из которых мы и пообедали: <em>ћевапи, шопска
+салата и кремпита</em>. Кремпита особенно удивила несопоставимым по отношению к
+тонкому тесту содержанием крема.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-18_68.jpg" title="Белград, инсталляция возле музея современного искусства" data-gallery>
+        <img src="img/th/2014-08-18_68.jpg" alt="Белград, инсталляция возле музея современного искусства" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_69.jpg" title="Белград, Земун" data-gallery>
+        <img src="img/th/2014-08-18_69.jpg" alt="Белград, Земун" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_70.jpg" title="Белград, Земун" data-gallery>
+        <img src="img/th/2014-08-18_70.jpg" alt="Белград, Земун" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_71.jpg" title="Белград, Земун" data-gallery>
+        <img src="img/th/2014-08-18_71.jpg" alt="Белград, Земун" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_72.jpg" title="Белград, Земун" data-gallery>
+        <img src="img/th/2014-08-18_72.jpg" alt="Белград, Земун" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_73.jpg" title="Ћевапи и шопска салата" data-gallery>
+        <img src="img/th/2014-08-18_73.jpg" alt="Ћевапи и шопска салата" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_74.jpg" title="Кремпита" data-gallery>
+        <img src="img/th/2014-08-18_74.jpg" alt="Кремпита" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Далее -- земунское <em>гробље</em>. Кладбище старое и будто перегруженное
+захоронениями. Поразило то, что в сербии в одной могиле лежит вся
+<em>породица</em>, т.е. умирающего члена семьи кладут в общую могилу. В
+русских, еврейских и прочих захоронениях на том же кладбище такого нет.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-18_75.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_75.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_76.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_76.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_77.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_77.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_78.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_78.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_79.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_79.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_80.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_80.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_81.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_81.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_82.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_82.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_86.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_86.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_87.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_87.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Рядом с кладбищем расположена старая башня, с которой открывается вид на
+весь Земун и Белград, где видно, как заканчиваются австро-венгерские дома и
+начинается типовая современная городская застройка.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-18_83.jpg" title="Белград, Земун" data-gallery>
+        <img src="img/th/2014-08-18_83.jpg" alt="Белград, Земун" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_84.jpg" title="Белград, Земун" data-gallery>
+        <img src="img/th/2014-08-18_84.jpg" alt="Белград, Земун" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_88.jpg" title="Белград, Земун" data-gallery>
+        <img src="img/th/2014-08-18_88.jpg" alt="Белград, Земун" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_89.jpg" title="Белград, Земун" data-gallery>
+        <img src="img/th/2014-08-18_89.jpg" alt="Белград, Земун" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Вернувшись в <em>стари град</em>, мы прогулялись по Скадарлии -- небольшой
+пешеходной улочке-&laquo;богемскому кварталу&raquo; и отправились на <em>Ново
+гробље</em>, где совсем недавно были завершены работы по реставрации русского
+кладбища, по дороге поужинав буреком, проей и <em>принцес крофне</em> из
+пекарни.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-18_90.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-08-18_90.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_91.jpg" title="Белград, Скадарлия" data-gallery>
+        <img src="img/th/2014-08-18_91.jpg" alt="Белград, Скадарлия" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_92.jpg" title="Белград, Скадарлия" data-gallery>
+        <img src="img/th/2014-08-18_92.jpg" alt="Белград, Скадарлия" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_93.jpg" title="Белград, Скадарлия" data-gallery>
+        <img src="img/th/2014-08-18_93.jpg" alt="Белград, Скадарлия" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-18_94.jpg" title="Бурек" data-gallery>
+        <img src="img/th/2014-08-18_94.jpg" alt="Бурек" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_95.jpg" title="Проя и принцес крофне" data-gallery>
+        <img src="img/th/2014-08-18_95.jpg" alt="Проя и принцес крофне" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_96.jpg" title="Принцес и крофне" data-gallery>
+        <img src="img/th/2014-08-18_96.jpg" alt="Принцес и крофне" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>С огромного кладбища выбирались уже в темноте, что несомненно добавляло
+ощущений к и без того насыщенной атмосфере бесконечных крестов и надгробий.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-18_97.jpg" title="Белград, новое кладбище" data-gallery>
+        <img src="img/th/2014-08-18_97.jpg" alt="Белград, новое кладбище" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_98.jpg" title="Белград, новое кладбище" data-gallery>
+        <img src="img/th/2014-08-18_98.jpg" alt="Белград, новое кладбище" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_99.jpg" title="Белград, новое кладбище" data-gallery>
+        <img src="img/th/2014-08-18_99.jpg" alt="Белград, новое кладбище" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-18_100.jpg" title="Белград, новое кладбище" data-gallery>
+        <img src="img/th/2014-08-18_100.jpg" alt="Белград, новое кладбище" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Утром нас ждала трасса <em>Београд-Нови Сад</em>.</p>
+
+<br />
+
+<h4>19 августа, Беочин</h4>
+
+<p>План был таков: доехать до Нови Сада, погулять по городу, потом поехать на
+ночь на Фрушку Гору в монастырь Беочин, где и переночевать; утром 20 августа
+посмотреть городок Беочин и поехать через Белград в Смедерево. Всё вышло совсем
+иначе.</p>
+
+<p>В поисках выезда из Белграда и <em>аутопута за Нови Сад</em> мы провели 6
+(шесть!) часов. Бесконечные указатели на Нови Сад со стрелками в разные стороны
+не добавляли уверенности в правильности направления; локальный трафик упрямо не
+останавливался, т.к. не считал, что имеет смысл подвозить нас какие-то пару
+километров. После шести часов блуждания по Земуну в поисках магистрали мы сели
+на автобус до Батайницы, которая располагалась за поворотом на искомую
+трассу.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-19_101.jpg" title="Белград-Нови Сад" data-gallery>
+        <img src="img/th/2014-08-19_101.jpg" alt="Белград-Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-19_102.jpg" title="Белград-Нови Сад" data-gallery>
+        <img src="img/th/2014-08-19_102.jpg" alt="Белград-Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-19_103.jpg" title="Белград-Нови Сад" data-gallery>
+        <img src="img/th/2014-08-19_103.jpg" alt="Белград-Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Как мы поймём позже, на Балканах можно вывести следующее правило автостопа:
+можно провисеть на позиции несколько часов, но если остановится кто-нибудь
+местный, то он довезёт до места и, вероятно, накормит или хотя бы напоит кофе.
+Так случилось и в наш первый раз.</p>
+
+<p>Не прошло и пяти минут, как возле нас (ещё со времён Земуна шедших с флагом
+Российской Федерации) остановился автомобиль. Это была семейная пара из Нови
+Сада. Мы разговорились (это был первый раз, когда я говорил на сербском больше
+пары фраз), они очень удивились, узнав, что мы едем в монастырь Беочин, т.к.
+это их любимый монастырь на Фрушке Горе, его прихожанами они являются, там
+крестили своих детей и проч, поэтому, раз мы уже и так потеряли половину дня и
+не успели бы познакомиться с Нови Садом, они решили довезти нас до монастыря.
+По дороге заехали в Сремски Карловцы, где показали винодельни и церковь
+(правда, не останавливались), затем завезли в магазин, где мы купили продукты к
+ужину, и направились на Фрушку Гору.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-19_104.jpg" title="Фрушка гора" data-gallery>
+        <img src="img/2014-08-19_104.jpg" alt="Фрушка гора" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p><em>Манастир Беочин</em> встретил нас уже вечером. В церкви было не так
+много людей, но все они, узнавая о русских, прошедших около 5 000 км до Сербии
+(пусть и <em>авионом у Београд</em>, неизменно желали поговорить. В это время
+Драгиш (так звали подвёзшего нас человека) договаривался с настоятельницей
+монастыря о нашем ночлеге. Отстояв почти всю службу, он с женой уехали в Нови
+Сад. Если бы не они, всё сложилось бы иначе и, вероятно, много хуже: они
+буквально вернули потраченные нами часы в Земуне и побудили изменить маршрут
+путешествия: вместо того, чтобы дважды проезжать почти 300 км до Ниша и обратно
+к границе с Боснией, они посоветовали на следующий день ехать сразу в Биелину,
+что в Республике Сербской (субъекте Боснии и Герцеговины).</p>
+
+<div class="text-center">
+    <a href="img/2014-08-19_105.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-19_105.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-19_106.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-19_106.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-19_107.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-19_107.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-19_108.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-19_108.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-19_109.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-19_109.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-19_110.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-19_110.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Когда они уехали, за наше обустройство в монастыре взялся один из прихожан.
+По его научению я присутствовал при прошении благословения у настоятельницы.
+Получив разрешение на установку палатки, мы выбрали место и расположились.
+Начало стремительно темнеть. По двору свободно ходили павлины, в загоне паслись
+овцы.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-19_111.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-19_111.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-19_112.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-19_112.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-19_113.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-19_113.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-19_114.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-19_114.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Вечером нам принесли ужин -- буреки с картошкой и сладкие, а также рыбу,
+которую (пусть она и постна с точки зрения православия), я не мог есть. Порции
+и здесь были по-сербски большим: мы не смогли справиться и оставили часть
+ужина, из-за чего ночью подрались монастырские кошки.</p>
+
+<p>Монастырь был спокоен. Он показался мне абсолютно самодостаточной единицей.
+На такие мысли наталкивала ещё и сербская служба, где служителей почти не
+видно, слышно лишь их пение. Во время этого действа стало совершенно ясно, что
+всё происходит только лишь из wu wei, принципа недеяния. Это ощущение ещё не
+раз возникнет.</p>
+
+<p>По дороге в Беочин мы видели разрушенный снарядами НАТО телецентр. Драгиш
+сказал, что за короткое время в том месте были разрушены все мосты через Дунай,
+добавив: <em>fucking NATO!</em> И в палатке на територии монастыря, на святой
+горе стало предельно ясно, что боеголовки могут уничтожить лишь внешнее,
+временное и в любом случае преходящее.</p>
+
+<br />
+
+<h4>20 августа, Беочин, Нови Сад</h4>
+
+<p>Утром, собрав палатку и умывшись, мы пошли в трапезную, где нас уже ждал
+Перо, работник (вероятно, занятый при строительстве часовни на деньги некоего
+мецената). Нас накормили маринованной <em>паприкой, крофне са джемоj од
+шливы</em> и напоили кофе.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-20_115.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-20_115.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_116.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-20_116.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_117.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-20_117.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_118.jpg" title="Фрушка гора, монастырь Беочин" data-gallery>
+        <img src="img/th/2014-08-20_118.jpg" alt="Фрушка гора, монастырь Беочин" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>До городка Беочин добрались пешком. Вообще, из всех монастырей Фрушки Горы
+мы выбрали Беочин не случайно и не только лишь из-за близости к Нови Саду. На
+одном из сайтов сербских автостопщиков я нашёл информацию о заброшенном дворце.
+Такое мы не могли пропустить.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-20_119.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_119.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_121.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_121.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_122.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_122.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-20_120.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_120.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_123.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_123.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_124.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_124.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_125.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_125.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_126.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_126.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_127.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_127.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_128.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_128.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_129.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_129.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_130.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_130.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_131.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_131.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_132.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_132.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_133.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_133.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_134.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_134.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_135.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_135.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_136.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_136.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_137.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_137.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_138.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_138.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_139.jpg" title="Беочин" data-gallery>
+        <img src="img/th/2014-08-20_139.jpg" alt="Беочин" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>До Нови Сада доехали на автобусе. Сдав рюкзаки в камеру хранения, мы пошли
+гулять по городу.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-20_140.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_140.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_141.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_141.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_142.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_142.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_143.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_143.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_144.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_144.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_145.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_145.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_146.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_146.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_147.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_147.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_148.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_148.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_149.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_149.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_150.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_150.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_151.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_151.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Петроварадинская крепость:</p>
+
+<div class="text-center">
+    <a href="img/2014-08-20_152.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_152.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_153.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_153.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_156.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_156.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_157.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_157.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_158.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_158.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_159.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_159.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_160.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_160.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_161.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_161.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_162.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_162.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-20_163.jpg" title="Нови Сад" data-gallery>
+        <img src="img/th/2014-08-20_163.jpg" alt="Нови Сад" class="img-responsive img-thumbnail">
+    </a>
+</div>
+<br />
+
+<p>У входа в крепость случилось непредвиденное: мы разбили фотоаппарат. По
+возвращению в город пришлось купить новый.</p>
+
+<p>Будучи в монастыре Беочин, мы познакомились с семьёй сербов, живущих в Нови
+Саде, Олей и Звонко. Они пригласили нас к себе. Мы воспользовались приглашением
+и вечером были у них (увы, по разным причинам изрядно запоздав).</p>
+
+<p>Нас ждал ужин. Вегетарианство моё они восприняли нормально, спросили лишь,
+по какой причине я не ем мясо. Хозяин сходил за пивом, и вот так,
+по-домашнему мы сидели за столом и разговаривали -- с переменным
+успехом на сербском и через сына на английском, -- о Сербии и России, о
+НАТО и войне, о зарплатах и жизни вообще. <em>Оља</em> мечтает увидеть
+зимнюю Москву. Все они так или иначе надеются на Россию, ждут её; но со
+всей силой я пойму это позже -- в Нише. Пока же Звонко, всё понимая,
+говорил: &laquo;<em>Шта je Србиjа?.. Нула!</em>&raquo;, но тут же
+добавлял с улыбкой: &laquo;<em>Али лепа Србиjа?</em>&raquo;. <em>Лепа</em>.</p>
+
+<p>Так прошёл вечер. Мы, простые русские люди, были для них радостью. Я узнал,
+каково было в Нови Саде во время войны. К великой своей радости понял, что
+доброту и честность (а с точки зрения русского человека и некоторую, безусловно
+положительную, наивность) не уничтожить бомбами. Но с прискорбием заметил, что
+среди новых поколений есть люди, готовые отказаться от истории и чести ради
+членства в ЕС. Увы.</p>
+
+<br />
+
+<h3 class="text-center">Босния и Герцеговина</h3>
+
+<br />
+
+<h4>21 августа, Станишичи, Сребреник</h4>
+
+<p>В <em>Републику Српску</em>, что в Боснии и Герцеговине, мы въехали на
+автобусе, т.к. были наслышаны о боснийской границе и хотели избежать возможных
+проблем. Оля довезла нас до автовокзала, помогла купить билеты; мы попрощались
+и через 137 км были в другой стране.</p>
+
+<p>Первый пункт назначения -- этносело Станишичи.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-21_164.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_164.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_165.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_165.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_178.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_178.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_168.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_168.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_169.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_169.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_171.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_171.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_170.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_170.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_172.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_172.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_173.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_173.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_174.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_174.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_175.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_175.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_176.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_176.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_179.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_179.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_180.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_180.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_167.jpg" title="Станишичи" data-gallery>
+        <img src="img/th/2014-08-21_167.jpg" alt="Станишичи" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Село насквозь искусственное, я бы даже сказал, что оно
+шпоново-пластмассовое. Но имитация чистая и красивая. Всё для туристов, правда,
+нет банкомата, на чём мы и попались, не сумев расплатиться банковской картой
+(возникли какие-то проблемы). К нашей радости, получилось расплатиться
+оставшимися сербскими динарами.</p>
+
+<p>До Биелины доехали с каким-то угрюмым немцем. Сняли с карты боснийские
+конвертируемые марки и отправились в Сребреник. Первым остановился хорват,
+почему-то то и дело говоривший на немецком. К концу поездки он ВНЕЗАПНО начал
+спрашивать у меня, знаю ли я <em>Kleine-Kleine pubis</em>. Сделав вид, что не
+понимаю его и его активную жестикуляцию возле соответствующего места, я пытался
+сохранить спокойствие и не выказывать удивления. К счастью, скоро наши пути
+разошлись. Следующий водитель -- дорожный рабочий, который поначалу решил, что
+мы словены. Он сказал, что Сребреник -- город мусульманский, но люди там
+хорошие (хотя в Нови Саде нас пугали нравами боснийцев и их отношением к
+сербам).</p>
+
+<p>До Тузлы мы доехали с молодым мужчиной, а дальше -- до самого Сребренника и
+немного в гору в сторону крепости, к которой, собственно, и направлялись, с
+боснийцем, рассказывавшим о войне в тех местах.</p>
+
+<a href="img/2014-08-21_190.jpg" title="Сребреник" data-gallery>
+  <img src="img/2014-08-21_190.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+</a>
+
+<br />
+<br />
+
+<p>К крепости (около 7 км от города) добрались под вечер. До закрытия
+оставалось мало времени, поэтому мы поспешили осмотреть эту стоящую на скале
+<em>тврђаву</em> 13-14 вв. Крепость интересна, но почти разрушена.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-21_184.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_184.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_182.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_182.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_183.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_183.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_185.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_185.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Работы по восстановлению ведутся, но, как можно было заметить, они были
+начаты недавно.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-21_186.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_186.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_187.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_187.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_188.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_188.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_189.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_189.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_192.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_192.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Уже темнело, поэтому мы спросили у смотрителя, идёт ли автобус в город (а
+лучше -- в Добой). Автобус был только утром. На вопрос же о хорошем месте для
+ночёвки в палатке смотритель предложил переночевать в крепости. От такого мы не
+могли отказаться! И даже последующие уговоры пойти ночевать к нему домой (там
+кофе и постель, а здесь холодно и ветер) не разубедили нас в желании остаться
+на ночь в средневековой крепости.</p>
+
+<p>Когда посетители ушли, ворота крепости закрыли, и мы остались одни. Поужинав
+соком печеньем и шоколадом, мы ещё раз обошли руины, а когда стало темно, стали
+укладываться спать в комнатке смотрителя.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-21_191.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_191.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_193.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_193.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_195.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_195.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_196.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_196.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-21_197.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-21_197.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Ночь была несколько тревожной. Этому способствовали и различные царапающие
+звуки, которые то и дело нарушали тишину камеенной комнаты. После нескольких
+попыток выяснить, что это такое, освещая стены экраном мобильного телефона,
+виновник был найден: белка! После этого спать было гораздо спокойнее.</p>
+
+<a href="img/2014-08-21_194.jpg" title="Сребреник" data-gallery>
+  <img src="img/2014-08-21_194.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+</a>
+
+<br />
+
+<br />
+
+<h4>22 августа, Добой, Сараево</h4>
+
+<p>Утром мы отправились в Сребреник, а затем в Добой. Городок ничем не
+примечателен (чего не скажешь о дороге к нему: горы и горы), крепость тоже.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-22_198.jpg" title="Сребреник" data-gallery>
+        <img src="img/th/2014-08-22_198.jpg" alt="Сребреник" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_200.jpg" title="Добой" data-gallery>
+        <img src="img/th/2014-08-22_200.jpg" alt="Добой" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_201.jpg" title="Добой" data-gallery>
+        <img src="img/th/2014-08-22_201.jpg" alt="Добой" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_202.jpg" title="Добой" data-gallery>
+        <img src="img/th/2014-08-22_202.jpg" alt="Добой" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_203.jpg" title="Добой" data-gallery>
+        <img src="img/th/2014-08-22_203.jpg" alt="Добой" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>По плану нужно было добраться до Бани Луки -- столицы Республики Сербской,
+но оказалось, что мы отстаём от графика, поэтому было решено ехать сразу в
+Сараево.</p>
+
+<p>Из водителей того дня хотелось бы отметить двух молодых боснийцев на красной
+трёхдверке (коих за всё время путешествия было на удивление много). Прямо за
+рулём водитель вдруг скрутил косяк с травкой, раскурил его, и к концу поездки
+они с другом уже были вполне весёлые. На прощание один из парней дал мне
+зажигалку -- <em>успомену из Босны</em> и оставил номер телефона на случай,
+если мы вдруг снова окажемся в тех краях.</p>
+
+<p>На въезде в Сараево нас подобрал турок Омер, который немного говорил
+по-русски. Узнав, что мы не видели природный парк Врело Босне, он сделал крюк в
+20 км и свозил нас туда и оплатил вход.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-22_204.jpg" title="Врело Босне" data-gallery>
+        <img src="img/th/2014-08-22_204.jpg" alt="Врело Босне" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_205.jpg" title="Врело Босне" data-gallery>
+        <img src="img/th/2014-08-22_205.jpg" alt="Врело Босне" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_206.jpg" title="Врело Босне" data-gallery>
+        <img src="img/th/2014-08-22_206.jpg" alt="Врело Босне" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_207.jpg" title="Врело Босне" data-gallery>
+        <img src="img/th/2014-08-22_207.jpg" alt="Врело Босне" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_208.jpg" title="Врело Босне" data-gallery>
+        <img src="img/th/2014-08-22_208.jpg" alt="Врело Босне" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>После прогулки по парку он отвёз нас в Сараево в центр старого города, дал
+по 5 марок &laquo;на кофе&raquo; и подарил открытки с родным городом --
+Тешанью.</p>
+
+<p>Там, попрощавшись с Омером, мы и окунулись в восточную атмосферу Сараево:
+минареты, базары, джезвы, сладости и всеобъемлющий магометанский колорит.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-22_213.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-22_213.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_214.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-22_214.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_215.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-22_215.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_216.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-22_216.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-22_209.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-22_209.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_210.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-22_210.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_211.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-22_211.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-22_212.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-22_212.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>В Сараево мы остановились на вписке у Грабуса. Он живёт, по его же словам, в
+русле &laquo;real bosnian style&raquo;. На деле <em>bosnian style</em> -- это
+трёхкомнатная обшарпанная квартира (одна комната &laquo;для собаки&raquo;) с
+такого же состояния террасой, полная анархия в обстановке и, если позволите,
+атмосфере квартиры и -- уже не удивительно -- наркотики (но, sic fere, никакого
+героина! и алкоголя, т.к. религия не одобряет).</p>
+
+<p>Ещё Грабус был реальным представителем тех самых боснийцев-мусульман, о
+которых я был наслышан. Да, он ненавидел сербов. Но к нам отнёсся хорошо, хоть
+и вполне понимал, что <em>русские любят сербов, а сербы любят русских</em>.</p>
+
+<br />
+
+<h4>23 августа, Сараево</h4>
+
+<p>Позавтракав и сходив в музей Сараево, мы отправились на поиски заброшенных
+олимпийских объектов. Именно из-за бобслейной трассы 1984 года мы остались в
+столице на два дня.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-23_217.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-23_217.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_218.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-23_218.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_219.jpg" title="Ћевапчићи и поврће на жару" data-gallery>
+        <img src="img/th/2014-08-23_219.jpg" alt="Ћевапчићи и поврће на жару" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_220.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-23_220.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Путь был не близкий и постоянно в гору. Вскоре у меня заболели ноги (думаю,
+поспособствовали обычные кеды), но мы продолжали наше восхождение. Как
+оказалось, всё напрасно: мы свернули не на ту дорогу и ушли в сторону смотровой
+площадки, а не к бобслейной трассе.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-23_221.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-23_221.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_222.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-23_222.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_223.jpg" title="Сараево" data-gallery>
+        <img src="img/th/2014-08-23_223.jpg" alt="Сараево" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Вернувшись на развилку, мы поймали машину, идущую в нужном направлении, и
+она нас довезла почти до самой трассы.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-23_225.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_225.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_226.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_226.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_224.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_224.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_227.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_227.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_228.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_228.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_229.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_229.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_230.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_230.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_231.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_231.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_232.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_232.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_233.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_233.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-24_240.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-24_240.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_234.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_234.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_235.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_235.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-23_236.jpg" title="Сараево, санно-бобслейная трасса Олимпиады 1984 года" data-gallery>
+        <img src="img/th/2014-08-23_236.jpg" alt="Сараево, санно-бобслейная трасса Олимпиады 1984 года" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>По возвращению в город сил осталось мало, поэтому мы пошли на вписку
+отдыхать.</p>
+
+<h4>24 августа, Мостар, Столац</h4>
+
+<p>До Мостара добирались долго. Горные дороги — это большое количество
+поворотов и неудобные позиции для автостопа.  Но как же там красиво! Жаль, что
+пришлось смотреть и фотографировать только из движущегося автомобиля, да и
+фотография не может передать увиденное.</p>
+
+<p>Мостар — город не менее, а может и более туристический, чем Сараево. Главная
+достопримечательность — сам мост, по обеим сторонам которого теснятся базары с
+лавочками, кафе и сластичарнями, испещрённые следами войны.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-24_241.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_241.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_249.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_249.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_243.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_243.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_248.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_248.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Оставив рюкзаки в галерее фотографий югославской войны, мы отправились обедать
+и смотреть город.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-24_244.jpg" title="Паста" data-gallery>
+        <img src="img/th/2014-08-24_244.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_245.jpg" title="Вегетарианская лазанья" data-gallery>
+        <img src="img/th/2014-08-24_245.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_246.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_246.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_247.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_247.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_254.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_254.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_242.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_242.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_255.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_255.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_256.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_256.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_257.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_257.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_258.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_258.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Потом посетили партизанское кладбище — огромный монументальный комплекс,
+стоящий невдалеке от туристических троп, но тем не менее поросший бурьяном и
+сорной травой. Место заброшено, но так оно будто ещё откровеннее произносит:
+&laquo;Враг всё равно уничтожит наш лес, это значит всего лишь, что ни пяди без
+боя&raquo;.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-24_250.jpg" title="Мостар, партизанское кладбище, партизанское кладбище" data-gallery>
+        <img src="img/th/2014-08-24_250.jpg" alt="Мостар, партизанское кладбище, партизанское кладбище" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_251.jpg" title="Мостар, партизанское кладбище, партизанское кладбище" data-gallery>
+        <img src="img/th/2014-08-24_251.jpg" alt="Мостар, партизанское кладбище, партизанское кладбище" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_252.jpg" title="Мостар, партизанское кладбище, партизанское кладбище" data-gallery>
+        <img src="img/th/2014-08-24_252.jpg" alt="Мостар, партизанское кладбище, партизанское кладбище" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_253.jpg" title="Мостар, партизанское кладбище, партизанское кладбище" data-gallery>
+        <img src="img/th/2014-08-24_253.jpg" alt="Мостар, партизанское кладбище, партизанское кладбище" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Мы планировали доехать до Столаца (следующего города по плану) на автобусе,
+но ко времени нашего прибытия на вокзал он уже закрылся, поэтому мы взяли такси
+до выезда. Водитель-босниец много говорил о войне и роли России в конфликте (в
+частности, о поддержке сербского национализма). Как и каждый встреченный нами
+босниец старше тридцати лет, он резко критиковал развал Югославии и с теплотой
+вспоминал жизнь до войны.</p>
+
+<p>Стопили мы уже ночью. Кстати, это был наш первый ночной автостоп.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-24_259.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_259.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_260.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_260.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-24_261.jpg" title="Мостар" data-gallery>
+        <img src="img/th/2014-08-24_261.jpg" alt="Мостар" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Две машины (чехи и поляки; отступление: всю поездку меня не отпускала мысль
+о том, что славяне не должны разговаривать друг с другом на английском или
+любом ином не славянском языке), и мы в Столаце. В центре было много людей, но
+никто нам не подсказал хостел или иное <em>преноћиште</em>.</p>
+
+<p>Поэтому мы отправились искать место для установки палатки. Ноги болели всё
+больше. Ночной Столац же казался какой-то албанской или мексиканской деревней
+со множеством заброшенных зданий по сторонам бурного речного потока. Через час
+безуспешных поисков мы нашли место возле ворот какого-то дома, где вместилась
+бы палатка. Запомнив это место "на крайний случай" (который, учитывая состояние
+моих ног, уже давно наступил), мы продолжили свой путь. К счастью, на террасе
+одного дома сидели люди. Обратившись к ним, мы объяснили, что нам негде
+ночевать. Тогда двое оставили гостей и отвезли нас в кемпинг в восьми
+километрах от города. Сил на установку палатки не было, поэтому мы устроились
+на ночлег в новом гараже.</p>
+
+<p>Ночью меня разбудила Полина. Сначала я не мог разобрать, о чём она пытается
+сказать, но потом понял, что она слышит собаку. Выбравшись из спальника, я
+обвёл гараж фонариком и увидел нечто чёрное с одним ярким белым глазом. Первая
+реакция была непредсказуема: &laquo;Это же... СВИНЬЯ-УБИЙЦА!
+СВИНЬЯ-УБИЙЦА!&raquo;. Мне почему-то показалось, что это маленький чёрный
+поросёнок со страшными глазами.</p>
+
+<p>Свинья-убийца оказалась щенком, который только лишь хотел познакомиться с
+ночными гостями. Но ночевать ему пришлось на улице. Закрыв ворота гаража, мы
+снова закутались в спальные мешки и продолжили прерванный сон.</p>
+
+<br />
+
+<h4>25 августа, Столац, Херцег-Нови, Котор</h4>
+
+<p>Утром приехали владельцы кемпинга. Нас напоили кофе. За столом я
+разговорился с работником кемпинга, который устраивал нас на ночлег. Это был
+обычный рабочий, но разговаривали мы о том, какому <em>изговору</em>
+соответсвует столацкая речь. Оказалось, что (по мнению собеседника; не могу
+знать, насколько эта информация достоверна) местное произношение -- наиболее
+чистая версия сербохорватского языка. Он сообщил ещё много интересного. Но в
+нём я вновь встретился с интеллигентностью и глубокомыслием, с любовью к своей
+земле и культуре, увидел проблеск <em>имперского сознания</em>, которое таится
+в сербах. Это было очень ценным. В этой части Европы я ни разу не встретил
+типичного европейца -- homo economicus.</p>
+	
+<p>Владелец лагеря предложил отвезти нас в город. Я хотел посмотреть на римское
+кладбище. Как оказалось, оно расположено с другой стороны города. Если бы нас
+не довезли, вряд ли я добрался бы пешком.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-25_262.jpg" title="Столац" data-gallery>
+        <img src="img/th/2014-08-25_262.jpg" alt="Столац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_263.jpg" title="Столац" data-gallery>
+        <img src="img/th/2014-08-25_263.jpg" alt="Столац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_264.jpg" title="Столац" data-gallery>
+        <img src="img/th/2014-08-25_264.jpg" alt="Столац" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Кладбище интересно, но не аутентично. Но всё равно стоило посмотреть эти белые
+надгробия с сакральными символами.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-25_265.jpg" title="Столац, римский некрополь" data-gallery>
+        <img src="img/th/2014-08-25_265.jpg" alt="Столац, римский некрополь" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_267.jpg" title="Столац, римский некрополь" data-gallery>
+        <img src="img/th/2014-08-25_267.jpg" alt="Столац, римский некрополь" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_268.jpg" title="Столац, римский некрополь" data-gallery>
+        <img src="img/th/2014-08-25_268.jpg" alt="Столац, римский некрополь" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_272.jpg" title="Столац, римский некрополь" data-gallery>
+        <img src="img/th/2014-08-25_272.jpg" alt="Столац, римский некрополь" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_273.jpg" title="Столац, римский некрополь" data-gallery>
+        <img src="img/th/2014-08-25_273.jpg" alt="Столац, римский некрополь" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_274.jpg" title="Столац, римский некрополь" data-gallery>
+        <img src="img/th/2014-08-25_274.jpg" alt="Столац, римский некрополь" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_275.jpg" title="Столац, римский некрополь" data-gallery>
+        <img src="img/th/2014-08-25_275.jpg" alt="Столац, римский некрополь" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_276.jpg" title="Столац, римский некрополь" data-gallery>
+        <img src="img/th/2014-08-25_276.jpg" alt="Столац, римский некрополь" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_266.jpg" title="Столац, римский некрополь" data-gallery>
+        <img src="img/th/2014-08-25_266.jpg" alt="Столац, римский некрополь" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Ждавший у входа владелец кемпинга дал нам туристическую карту с отмеченными
+достопримечательностями, но сказал, что это карта хорватская, а они указывают
+далеко не всё. Иллюстрацией этим словам стало захоронение иудейского
+праведника, которое не было отмечено на карте.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-25_269.jpg" title="Столац" data-gallery>
+        <img src="img/th/2014-08-25_269.jpg" alt="Столац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_270.jpg" title="Столац" data-gallery>
+        <img src="img/th/2014-08-25_270.jpg" alt="Столац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_271.jpg" title="Столац" data-gallery>
+        <img src="img/th/2014-08-25_271.jpg" alt="Столац" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Расстались мы у подножия холма с крепостью.</p>
+
+<a href="img/2014-08-25_280.jpg" title="Столац" data-gallery>
+    <img src="img/2014-08-25_280.jpg" alt="Столац" class="img-responsive img-thumbnail">
+</a>
+
+<p>Крепость была малоинтересной, частично восстановленной &laquo;под эгидой
+EU&raquo;, но с использованием современных строительных материалов. Увы.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-25_277.jpg" title="Столац" data-gallery>
+        <img src="img/th/2014-08-25_277.jpg" alt="Столац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_278.jpg" title="Столац" data-gallery>
+        <img src="img/th/2014-08-25_278.jpg" alt="Столац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_279.jpg" title="Столац" data-gallery>
+        <img src="img/th/2014-08-25_279.jpg" alt="Столац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_281.jpg" title="Столац" data-gallery>
+        <img src="img/th/2014-08-25_281.jpg" alt="Столац" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Пообедав выпечкой и соком, мы вышли на выезд в сторону Черногории (последние
+несколько дней мы буквально жили мыслью &laquo;купаться и загорать&raquo;).
+Никто не останавливался, поэтому мы сменили позицию и стали голосовать на
+въезде в город. Но только написав на табличке пункт назначения, мы смогли
+остановить машину.</p>
+
+<p>Автобус из Требине, куда мы приехали, отправлялся вечером, поэтому мы решили
+доехать до Черногории автостопом. Два парня, Боян и Драган, довезли нас до
+самого Херцег-Нови! Там мы и искупались на многолюдном пляже.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-25_282.jpg" title="Херцег-Нови" data-gallery>
+        <img src="img/th/2014-08-25_282.jpg" alt="Херцег-Нови" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_283.jpg" title="Херцег-Нови" data-gallery>
+        <img src="img/th/2014-08-25_283.jpg" alt="Херцег-Нови" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_284.jpg" title="Херцег-Нови" data-gallery>
+        <img src="img/th/2014-08-25_284.jpg" alt="Херцег-Нови" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Но оставаться там не хотелось, поэтому мы поехали дальше и через какое-то время
+были в Которе. Денег у нас не было (мы только что пересекли границу), а
+ближайший банкомат был в Тивате в пяти километрах от Котора. В кемпинге
+отказались принимать карту, поэтому нам пришлось ставить палатку буквально в
+зарослях. Кое как <em>расширив шатор</em>, мы искупались в довольно грязном и
+холодном заливе и легли спать.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-25_285.jpg" title="Котор" data-gallery>
+        <img src="img/th/2014-08-25_285.jpg" alt="Котор" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_286.jpg" title="Котор" data-gallery>
+        <img src="img/th/2014-08-25_286.jpg" alt="Котор" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-25_287.jpg" title="Котор" data-gallery>
+        <img src="img/th/2014-08-25_287.jpg" alt="Котор" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<h4>26-27 августа, Котор, Свети Стефан</h4>
+
+<p>Утром мы собрали мокрую палатку и вышли на дорогу, ведущую в Тиват. Простояв
+какое-то время, мы поняли, что не сможем уехать автостопом и наняли такси. В
+Тивате мы сняли деньги с карты, пообедали (сразу поняли, что в Черногории всё
+много дороже Боснии и уж тем более Сербии) и направились в какой-нибудь из
+нескольких кемпингов возле Будвы или Свети Стефана.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-26_288.jpg" title="Котор" data-gallery>
+        <img src="img/th/2014-08-26_288.jpg" alt="Котор" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-26_289.jpg" title="Тиват" data-gallery>
+        <img src="img/th/2014-08-26_289.jpg" alt="Тиват" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>К сожалению, из-за состояния моих ног и плохого автостопа (вернее полного
+его отсутствия) снова пришлось брать такси, но уже вскоре мы были в кемпинге,
+где и остановились на два дня. Купаться и загорать!</p>
+
+<a href="img/2014-08-26_291.jpg" title="Свети Стефан" data-gallery>
+    <img src="img/2014-08-26_291.jpg" alt="Свети Стефан" class="img-responsive img-thumbnail">
+</a>
+
+<br />
+<br />
+
+<p>В первый день мы сгорели на солнце, поэтому на второй день пришлось взять
+шезлонги и зонтик. Пляж был хорош, вода тёплая, но еда дорогая: салат и жареные
+овощи обошлись в 10 евро (два полноценных обеда в Сербии).</p>
+
+<div class="text-center">
+    <a href="img/2014-08-26_293.jpg" title="Обед в Свети Стефане" data-gallery>
+        <img src="img/th/2014-08-26_293.jpg" alt="Обед в Свети Стефане" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-26_290.jpg" title="Свети Стефан" data-gallery>
+        <img src="img/th/2014-08-26_290.jpg" alt="Свети Стефан" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-26_292.jpg" title="Свети Стефан" data-gallery>
+        <img src="img/th/2014-08-26_292.jpg" alt="Свети Стефан" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-26_294.jpg" title="Свети Стефан" data-gallery>
+        <img src="img/th/2014-08-26_294.jpg" alt="Свети Стефан" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-27_297.jpg" title="Свети Стефан" data-gallery>
+        <img src="img/th/2014-08-27_297.jpg" alt="Свети Стефан" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>В воде ногам было лучше, но ходить всё равно было больно, поэтому я
+постоянно мазал ноги гелем с ибупрофеном и пил обезболивающее. Из-за болезни мы
+мало посмотрели побережье и Черногорию вообще. Но, быть может, мы когда-нибудь
+туда вернёмся.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-26_296.jpg" title="Свети Стефан" data-gallery>
+        <img src="img/th/2014-08-26_296.jpg" alt="Свети Стефан" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-26_295.jpg" title="Свети Стефан" data-gallery>
+        <img src="img/th/2014-08-26_295.jpg" alt="Свети Стефан" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<h4>28 августа, Цетине, Ловчен, Подгорица</h4>
+
+<p>Два дня на море -- это мало, но нас ждала центральная Черногория.</p>
+
+<p>До Цетине доехали снова на такси. На нём же добрались и до вершины
+национального парка Ловчен. Сам бы я не смог преодолеть эти бесчисленные
+повороты в горах.</p>
+
+<p>На вершине расположен мавзолей Негоша, правителя и писателя Черногории. Но
+главное -- это, конечно же, горы, которые раскинулись во все стороны до
+горизонта..</p>
+
+<a href="img/2014-08-28_307.jpg" title="Ловчен" data-gallery>
+    <img src="img/2014-08-28_307.jpg" alt="Ловчен" class="img-responsive img-thumbnail">
+</a>
+
+<br />
+<br />
+
+<div class="text-center">
+    <a href="img/2014-08-28_305.jpg" title="Ловчен" data-gallery>
+        <img src="img/th/2014-08-28_305.jpg" alt="Ловчен" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_306.jpg" title="Ловчен" data-gallery>
+        <img src="img/th/2014-08-28_306.jpg" alt="Ловчен" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_298.jpg" title="Ловчен" data-gallery>
+        <img src="img/th/2014-08-28_298.jpg" alt="Ловчен" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_299.jpg" title="Ловчен" data-gallery>
+        <img src="img/th/2014-08-28_299.jpg" alt="Ловчен" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_300.jpg" title="Ловчен" data-gallery>
+        <img src="img/th/2014-08-28_300.jpg" alt="Ловчен" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_301.jpg" title="Ловчен" data-gallery>
+        <img src="img/th/2014-08-28_301.jpg" alt="Ловчен" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_303.jpg" title="Ловчен" data-gallery>
+        <img src="img/th/2014-08-28_303.jpg" alt="Ловчен" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_304.jpg" title="Ловчен" data-gallery>
+        <img src="img/th/2014-08-28_304.jpg" alt="Ловчен" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_302.jpg" title="Ловчен" data-gallery>
+        <img src="img/th/2014-08-28_302.jpg" alt="Ловчен" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Спустившись с Ловчена, мы остановили -- наконец-то автостоп! -- автомобиль
+до самой Подгорицы. Водитель сказал, что любит русских, и даже троих своих
+детей назвал русскими именами, о чём шутят все его друзья, а сейчас ждёт
+четвёртого -- Александра.</p>
+
+<p>В Подгорице мы заселились в хостел. Хозяйка приняла нас как дорогих гостей.
+В хостеле, который представлял собой три комнаты и гостиную на втором этаже
+частного дома в пригороде столицы, мы были одни, поэтому фактически за 15 евро
+сняли весь этаж.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-28_309.jpg" title="Хостел в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_309.jpg" alt="Хостел в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_310.jpg" title="Хостел в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_310.jpg" alt="Хостел в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Хозяйка хостела довезла нас до торгового центра, чтобы мы купили обувь, и
+настоятельно советовала посмотреть храм Подгорицы.</p>
+
+<p>Мы купили кроссовки и ортопедические стельки. Результат был заметен: ноги не
+так болели при ходьбе, но до беззаботных прогулок было ещё очень далеко,
+поэтому мы взяли такси до храма и хостела.</p>
+
+<p>Церковь великолепна! Одна из самых красивых, что я видел вообще!</p>
+
+<div class="text-center">
+    <a href="img/2014-08-28_327.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_327.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_322.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_322.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_323.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_323.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_328.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_328.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_319.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_319.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-28_311.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_311.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_312.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_312.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_314.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_314.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_313.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_313.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_315.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_315.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_316.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_316.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_325.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_325.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_318.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_318.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-28_317.jpg" title="Храм в Подгорице" data-gallery>
+        <img src="img/th/2014-08-28_317.jpg" alt="Храм в Подгорице" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Но в этом же храме с его новыми фресками стало особенно ясно и другое: традиция
+эта не моя. Роспись красива, но на ней Иисус Христос соседствует с Моисеем и
+т.н. пророками. Понятно, что в традиции кафолической ортодоксии всё так, но
+однако же возникает правомочный вопрос: кому они все молятся?</p>
+
+<p>В одном из недавно прочитанных молитвенных дневников увидел следующее
+свидетельство такого грубого смешения и даже отождествления Бога и силы века
+сего:</p>
+
+<p><em>&laquo;Посмотри, увидишь ли чего более, что есть на Небе у престола Божия? Там есть
+тьма тем святых ангелов славящих Бога Саваофа и непрестанно взывающих: “Свят,
+Свят, Свят Господь Бог Саваое...” И тоже славишь, только иными словами:
+“Господи, Иисусе Христе, Сыне Божий...”&raquo;</em></p>
+
+<p>Но храм прекрасен! Как был прекрасен и восточный мусульманский колорит
+старого Сараево.</p>
+
+<br />
+
+<h4>29 августа, Острог, Плевля</h4>
+
+<p>Утром хозяйка отвезла нас на хорошую позицию, где мы вскоре и остановили
+автомобиль. Ехали мы в монастырь Острог -- второе по величине православное
+паломническое место в Европе. Оказалось, что водитель -- работник этого
+монастыря. Ехал он не до самого Острога, но всё же решил нас довезти до места.</p>
+
+<p>В монастыре было множество -- МНОЖЕСТВО -- людей! И совсем не паломников. Ещё
+крайне не понравилось то, что буквально всё было выставлено на продажу: лики
+святых, крестики-чётки, музыкальные инструменты, маршрутки до верхнего
+монастыря. Это нимало угнетало.</p>
+
+<p>Но главное для меня -- это подвиг человека, ведь что есть место?
+<em>Ништа!</em> Но дух, дело его -- вечно. С этой точки зрения монастырь
+безусловно впечатлил, ведь он и есть свидетельство подвига: вырублен в
+скале. Не знаю, думают ли об этом туристы, которых полными автобусами привозят
+в это место.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-29_329.jpg" title="Монастырь Острог" data-gallery>
+        <img src="img/th/2014-08-29_329.jpg" alt="Монастырь Острог" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_330.jpg" title="Монастырь Острог" data-gallery>
+        <img src="img/th/2014-08-29_330.jpg" alt="Монастырь Острог" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_331.jpg" title="Монастырь Острог" data-gallery>
+        <img src="img/th/2014-08-29_331.jpg" alt="Монастырь Острог" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_332.jpg" title="Монастырь Острог" data-gallery>
+        <img src="img/th/2014-08-29_332.jpg" alt="Монастырь Острог" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-29_333.jpg" title="Монастырь Острог" data-gallery>
+        <img src="img/th/2014-08-29_333.jpg" alt="Монастырь Острог" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_334.jpg" title="Монастырь Острог" data-gallery>
+        <img src="img/th/2014-08-29_334.jpg" alt="Монастырь Острог" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_335.jpg" title="Монастырь Острог" data-gallery>
+        <img src="img/th/2014-08-29_335.jpg" alt="Монастырь Острог" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_336.jpg" title="Монастырь Острог" data-gallery>
+        <img src="img/th/2014-08-29_336.jpg" alt="Монастырь Острог" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>От Острога нам нужно было доехать до любого населённого пункта близ границы с
+Сербией. Первый водитель (предельно понятно выразивший мысли большинства
+встреченных нами людей: <em>&laquo;Америка и Њемачка за#бавали&raquo;</em>) --
+агроном -- купил нам колу, а потом и вовсе завёз в кафе познакомить со
+&laquo;старым русофилом&raquo;. До Плевли, которая располагается в паре
+десятков километров от границы, нас подвёз мужчина, вёзший сына к родителям. Мы
+сказали, что хотим посмотреть мост через Тару; он подождал, пока мы всё
+осмотрим и пройдём по мосту, а в Плевле пригласил в гости, где нас кормили
+домашним сыром и прочим и поили меня собственной ракией, которую я попробовал в
+первый раз. Глава семейства, которому было 75 лет, рассказывал о Второй мировой
+войне, а его жена подарила нам вязаные шерстяные носки. Потом нам помогли найти
+ночлег -- <em>двекреветну собу</em>, где мы и устроились.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-29_339.jpg" title="река Тара" data-gallery>
+        <img src="img/th/2014-08-29_339.jpg" alt="река Тара" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_340.jpg" title="река Тара" data-gallery>
+        <img src="img/th/2014-08-29_340.jpg" alt="река Тара" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_341.jpg" title="река Тара" data-gallery>
+        <img src="img/th/2014-08-29_341.jpg" alt="река Тара" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_342.jpg" title="река Тара" data-gallery>
+        <img src="img/th/2014-08-29_342.jpg" alt="река Тара" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_343.jpg" title="Домашний сыр, хлеб, ракия" data-gallery>
+        <img src="img/th/2014-08-29_343.jpg" alt="Домашний сыр, хлеб, ракия" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>На центральной площади было какое-то празденство, но я его не видел, т.к. всё
+ещё очень болели ноги, и я не стал выходить из комнаты. Полина же во время
+поисков банкомата успела сфотографировать черногорок в национальных костюмах.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-29_344.jpg" title="Плевля" data-gallery>
+        <img src="img/th/2014-08-29_344.jpg" alt="Плевля" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_345.jpg" title="Плевля" data-gallery>
+        <img src="img/th/2014-08-29_345.jpg" alt="Плевля" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-29_346.jpg" title="Плевля" data-gallery>
+        <img src="img/th/2014-08-29_346.jpg" alt="Плевля" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<h4>30 августа, Мокра Гора, Златибор</h4>
+
+<p>День не задался с самого утра. Автостопа не было. Простояв на трассе, где
+единственным положительным моментом был разговор с местным человеком о России и
+сербах, о том, почему <em>Srbija</em> на нашей табличке написана
+<em>латиницом</em> и проч., мы отправились в Сербию на автобусе, который шёл
+добрую половину дня.</p>
+
+<p>Первое место, которое мы хотели посетить по возвращении в Сербию, -- это
+Мокра Гора и Шарганска осмица. До национального парка мы доехали уже к вечеру,
+но там -- простите, ВНЕЗАПНО, -- не было банкомата! Традиционная в нашем
+путешествии проблема. Ночевать было негде, поэтому мы поехали обратно.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-30_347.jpg" title="Поворот на Мокру Гору" data-gallery>
+        <img src="img/th/2014-08-30_347.jpg" alt="Поворот на Мокру Гору" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-30_348.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-30_348.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-30_350.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-30_350.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-30_352.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-30_352.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Стремительно темнело, поэтому мы не очень надеялись уехать отсюда, т.к. дорога
+была малооживлённая, тем более недалеко -- за нац. парком -- была уже Босния и
+Герцеговина, но к нашей радости возле нас остановился автомобиль, выезжавший со
+стоянки железнодорожной станции Шарганской осмицы.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-30_349.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-30_349.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>С этой семьёй (Немања, Радмила и два сына: Савва и Дмитрий) мы доехали в
+обратную сторону до Златибора, где они проводили нас до банкомата и
+супермаркета, а затем довезли до кемпинга, где мы и заночевали, чтобы на
+следующее утро вернуться в Мокру Гору.</p>
+
+<br />
+
+<h4>31 августа, Мокра Гора</h4>
+
+<p>До Мокрой Горы добирались не долго. Купили билеты на поезд, ещё раз погуляли
+по станции и пообедали питой и йогуртом (так называется кефир).</p>
+
+<div class="text-center">
+    <a href="img/2014-08-31_355.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_355.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_360.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_360.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_353.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_353.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_354.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_354.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-31_356.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_356.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_357.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_357.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_358.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_358.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_361.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_361.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Когда прибыл поезд, мы заняли места в вагоне и стали ждать отправления.
+Понемногу подошли и остальные люди.</p>
+
+<p>Поезд тронулся и повёз нас по горам и туннелям. Было шумно (в том числе и от
+детей), но очень интересно!</p>
+
+<div class="text-center">
+    <a href="img/2014-08-31_363.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_363.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_364.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_364.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_362.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_362.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_365.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_365.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_366.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_366.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_367.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_367.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_368.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_368.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_369.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_369.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_370.jpg" title="Мокра Гора" data-gallery>
+        <img src="img/th/2014-08-31_370.jpg" alt="Мокра Гора" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>После двухчасовой поездки мы отправились в деревню Кустурицы -- Дервенград.
+Занимательна она тем, что всюду встречаются знакомые имена. Особое внимание
+уделено русской культуре.</p>
+
+<p>Там же мы и пообедали (а заодним и поужинали) чорбой, грибным супом и
+домашним сыром.</p>
+
+<div class="text-center">
+    <a href="img/2014-08-31_372.jpg" title="Дервенград" data-gallery>
+        <img src="img/th/2014-08-31_372.jpg" alt="Дервенград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_371.jpg" title="Дервенград" data-gallery>
+        <img src="img/th/2014-08-31_371.jpg" alt="Дервенград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_373.jpg" title="Дервенград" data-gallery>
+        <img src="img/th/2014-08-31_373.jpg" alt="Дервенград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_374.jpg" title="Дервенград" data-gallery>
+        <img src="img/th/2014-08-31_374.jpg" alt="Дервенград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_375.jpg" title="Дервенград" data-gallery>
+        <img src="img/th/2014-08-31_375.jpg" alt="Дервенград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_376.jpg" title="Дервенград" data-gallery>
+        <img src="img/th/2014-08-31_376.jpg" alt="Дервенград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_377.jpg" title="Дервенград" data-gallery>
+        <img src="img/th/2014-08-31_377.jpg" alt="Дервенград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_378.jpg" title="Дервенград" data-gallery>
+        <img src="img/th/2014-08-31_378.jpg" alt="Дервенград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_379.jpg" title="Дервенград" data-gallery>
+        <img src="img/th/2014-08-31_379.jpg" alt="Дервенград" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-08-31_380.jpg" title="Чорба, грибной суп и домашний сыр" data-gallery>
+        <img src="img/th/2014-08-31_380.jpg" alt="Чорба, грибной суп и домашний сыр" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_381.jpg" title="Дервенград" data-gallery>
+        <img src="img/th/2014-08-31_381.jpg" alt="Дервенград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-08-31_382.jpg" title="Дервенград" data-gallery>
+        <img src="img/th/2014-08-31_382.jpg" alt="Дервенград" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Следующий пункт назначения -- Ниш, до которого добрая половина страны. Решив
+ехать и ночью, мы выбрались на трассу. Стоп был плохой, поэтому до развилки,
+знакомой нам по двум дням езды от Златибора до Мокрой Горы и обратно, мы
+добрались уже в темноте. Там нас и подобрали мужчина с дочерью, ехавшие в
+Чачак. В пути выяснилось, что девушка очень любит фильмы Тарковского, но
+главное -- крокодила Гену и Чебурашку! И вот в последнюю ночь лета мы
+втроём пели песню про то, что день рождения бывает раз в году. Было очень
+трогательно.</p>
+
+<p>Ближе к Чачаку мы уже устали, поэтому решили остановиться на ночлег в кемпинге.
+Кемпинг был почти заброшенный, полный накрытых полиэтиленовой плёнкой
+вагончиков с Югославскими номерами... Сырая палатка тоже не добавляла уюта.</p>
+
+<br />
+
+<h4>1 сентября, Ниш</h4>
+
+<p>Собрав палатку и позавтракав в кафе омлетом с грибами и <em>палачинками са
+джемой</em>, мы отправились в Ниш.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-01_383.jpg" title="Чачак" data-gallery>
+        <img src="img/th/2014-09-01_383.jpg" alt="Чачак" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_384.jpg" title="Чачак" data-gallery>
+        <img src="img/th/2014-09-01_384.jpg" alt="Чачак" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_385.jpg" title="Чачак" data-gallery>
+        <img src="img/th/2014-09-01_385.jpg" alt="Чачак" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_387.jpg" title="Чачак" data-gallery>
+        <img src="img/th/2014-09-01_387.jpg" alt="Чачак" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_386.jpg" title="Омлет с грибами и блинчики с джемом" data-gallery>
+        <img src="img/th/2014-09-01_386.jpg" alt="Омлет с грибами и блинчики с джемом" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Доехав до города, мы оставили <em>пртљаг</em> в камере хранения на
+ж/д-вокзале и отправились завтракать и осматривать город.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-01_388.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_388.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_389.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_389.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_390.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_390.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_391.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_391.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_392.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_392.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_393.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_393.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_394.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_394.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_395.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_395.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_396.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_396.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Было пасмурно, поэтому мы посмотрели только крепость, которая не произвела
+большого впечатления, был интересно лишь собраниее римских надгробий.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-01_409.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_409.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_410.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_410.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_397.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_397.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_398.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_398.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_399.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_399.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_400.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_400.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_401.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_401.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_402.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_402.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_403.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_403.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_404.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_404.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_405.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_405.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_406.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_406.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_407.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_407.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-01_408.jpg" title="Ниш" data-gallery>
+        <img src="img/th/2014-09-01_408.jpg" alt="Ниш" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>В Нише мы остановились на вписке у Миодрага. Его семья отвела нам фактически
+весь этаж, на котором кроме комнаты располагалась летняя кухня, туалет и
+душ. Отец Миодрага знал русский, поэтому мы много разговаривали с ним. Именно
+тот разговор стал для меня вербализацией всех мыслей, возникших в ходе
+путешествия.</p>
+
+<p>Отец Миодрага рассказывал о жизни в Югославии, о современной Сербии. Он как
+и многие сербы надеялся на Россию; каждый день он следил за новостями из
+Украины, всё больше убеждаясь в том, что события развиваются по югославскому
+сценарию. О Европе и <em>европской униjи</em> он говорил как о людях морально
+неполноценных, homo economicus, несущих войны и убивающих ради денег и
+собственного материального благополучия. Но главное -- это непреодолимая тоска
+по России.</p>
+
+<p>В Боснии можно было увидеть надежду на Европу, но здесь -- сербский вариант
+-- был метафизичен, это не есть надежда на улучшение жизни и возможность найти
+работу, нет; это тоска по матери, желание преодолеть раскол славянского мира,
+стремление установить справедливость, воссоздать единое языковое кириллическое
+пространство от океана до океана: <em>&laquo;Россия должна быть от Барселоны до
+Владивостока&raquo;</em>.</p>
+
+<br />
+
+<h4>2 сентября, Ниш</h4>
+
+<p>Утром мы первым делом посетили Бубань -- мемориал в память о нишских жертвах
+национал-социализма в годы Второй мировой войны.</p>
+
+<p>Монумент страшен кричащей волей к сопротивлению посреди безмятежности
+летнего луга.</p>
+
+    <a href="img/2014-09-02_411.jpg" title="Бубань" data-gallery>
+        <img src="img/2014-09-02_411.jpg" alt="Бубань" class="img-responsive img-thumbnail">
+    </a>
+
+<br />
+<br />
+
+<p>Ћеле Кула -- это башня, построенная турками из голов сербов. В настоящее
+время черепов осталось мало: 58, вокруг башни выстроена часовня.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-02_418.jpg" title="Башня черепов" data-gallery>
+        <img src="img/th/2014-09-02_418.jpg" alt="Башня черепов" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_417.jpg" title="Башня черепов" data-gallery>
+        <img src="img/th/2014-09-02_417.jpg" alt="Башня черепов" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_413.jpg" title="Башня черепов" data-gallery>
+        <img src="img/th/2014-09-02_413.jpg" alt="Башня черепов" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-09-02_414.jpg" title="Башня черепов" data-gallery>
+        <img src="img/th/2014-09-02_414.jpg" alt="Башня черепов" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_415.jpg" title="Башня черепов" data-gallery>
+        <img src="img/th/2014-09-02_415.jpg" alt="Башня черепов" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_419.jpg" title="Башня черепов" data-gallery>
+        <img src="img/th/2014-09-02_419.jpg" alt="Башня черепов" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_416.jpg" title="Башня черепов" data-gallery>
+        <img src="img/th/2014-09-02_416.jpg" alt="Башня черепов" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>После Башни черепов мы должны были поехать на Медиану, место рождения
+Константина Великого, но она была на реконструкции. Мы отправились в Нишку
+Баню, т.к. Миодраг сказал, что там есть интересные строения и заброшенный отель
+Сербия.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-02_420.jpg" title="Нишка Баня" data-gallery>
+        <img src="img/th/2014-09-02_420.jpg" alt="Нишка Баня" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_428.jpg" title="Нишка Баня" data-gallery>
+        <img src="img/th/2014-09-02_428.jpg" alt="Нишка Баня" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_427.jpg" title="Нишка Баня" data-gallery>
+        <img src="img/th/2014-09-02_427.jpg" alt="Нишка Баня" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_421.jpg" title="Нишка Баня" data-gallery>
+        <img src="img/th/2014-09-02_421.jpg" alt="Нишка Баня" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-09-02_422.jpg" title="Нишка Баня" data-gallery>
+        <img src="img/th/2014-09-02_422.jpg" alt="Нишка Баня" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_426.jpg" title="Нишка Баня" data-gallery>
+        <img src="img/th/2014-09-02_426.jpg" alt="Нишка Баня" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_423.jpg" title="Нишка Баня" data-gallery>
+        <img src="img/th/2014-09-02_423.jpg" alt="Нишка Баня" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_424.jpg" title="Нишка Баня" data-gallery>
+        <img src="img/th/2014-09-02_424.jpg" alt="Нишка Баня" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_425.jpg" title="Нишка Баня" data-gallery>
+        <img src="img/th/2014-09-02_425.jpg" alt="Нишка Баня" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Вернувшись в Ниш, мы отправились в концентрационный лагерь <em>&laquo;Црвени
+Крст&raquo;</em>.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-02_437.jpg" title="Концентрационный лагерь Красный Крест" data-gallery>
+        <img src="img/th/2014-09-02_437.jpg" alt="Концентрационный лагерь Красный Крест" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_438.jpg" title="Концентрационный лагерь Красный Крест" data-gallery>
+        <img src="img/th/2014-09-02_438.jpg" alt="Концентрационный лагерь Красный Крест" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_439.jpg" title="Концентрационный лагерь Красный Крест" data-gallery>
+        <img src="img/th/2014-09-02_439.jpg" alt="Концентрационный лагерь Красный Крест" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_440.jpg" title="Концентрационный лагерь Красный Крест" data-gallery>
+        <img src="img/th/2014-09-02_440.jpg" alt="Концентрационный лагерь Красный Крест" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_433.jpg" title="Концентрационный лагерь Красный Крест" data-gallery>
+        <img src="img/th/2014-09-02_433.jpg" alt="Концентрационный лагерь Красный Крест" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_441.jpg" title="Концентрационный лагерь Красный Крест" data-gallery>
+        <img src="img/th/2014-09-02_441.jpg" alt="Концентрационный лагерь Красный Крест" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_431.jpg" title="Концентрационный лагерь Красный Крест" data-gallery>
+        <img src="img/th/2014-09-02_431.jpg" alt="Концентрационный лагерь Красный Крест" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_432.jpg" title="Концентрационный лагерь Красный Крест" data-gallery>
+        <img src="img/th/2014-09-02_432.jpg" alt="Концентрационный лагерь Красный Крест" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-02_436.jpg" title="Концентрационный лагерь Красный Крест" data-gallery>
+        <img src="img/th/2014-09-02_436.jpg" alt="Концентрационный лагерь Красный Крест" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Территория лагеря чиста и -- вновь -- безмятежна. Я бы даже сказал, что
+атмосфера лагеря смерти являет собой незамутнённый покой и уверенность
+<em>Ordnung muß sein</em>. Так и представляется красавец немец, отдыхающий от
+дневных расстрелов за потрёпанным томиком Йейтса. <em>Irgendeiner muss doch für
+Ordnung sorgen</em>.</p>
+
+<p>От дождя и холодной воды Полина простыла (кстати, моим ногам, возможно, от
+таблеток и геля, стало лучше, и я уже ходил самостоятельно), поэтому, поужинав,
+мы отказались от прогулки с друзьями Миодрага и легли спать.</p>
+
+<br />
+
+<h4>3 сентября, Манасия, Петровац</h4>
+
+<p>Из Ниша мы поехали в Деспотовац, от которого нужно было добраться до
+монастыря Манасия, затем в Горняк и в сторону крепости Голубац. Первый
+автомобиль -- фура из Македонии. Причём я не сразу понял, что водитель
+македонец, т.к. языки похожи, и я общался с ним по-сербски, лишь изредка
+периферией сознания замечая странности <em>изговора</em>. Он спросил,
+позавтракали ли мы, и, узнав, что мы ещё не ели, снабдил каждого бутылкой
+кефира, энергетического напитка, банкой паштета, выдал упаковку сыра и булку
+хлеба. Так мы доехали до поворота на Деспотовац.</p>
+
+<p>На неоживлённой просёлочной дороге я подружился с улиткой Вениамином.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-03_442.jpg" title="Вениамин" data-gallery>
+        <img src="img/th/2014-09-03_442.jpg" alt="Вениамин" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Через какое-то время мы снова были в пути. Первый водитель провёз нас
+километра четыре, потом приглашал к себе домой в другой деревне, но нам нужно
+было ехать дальше. Вскоре нас подобрал Боjан, который и свозил в искомый
+монастырь.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-03_449.jpg" title="Монастырь Манасия" data-gallery>
+        <img src="img/th/2014-09-03_449.jpg" alt="Монастырь Манасия" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-03_443.jpg" title="Монастырь Манасия" data-gallery>
+        <img src="img/th/2014-09-03_443.jpg" alt="Монастырь Манасия" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-03_444.jpg" title="Монастырь Манасия" data-gallery>
+        <img src="img/th/2014-09-03_444.jpg" alt="Монастырь Манасия" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-03_445.jpg" title="Монастырь Манасия" data-gallery>
+        <img src="img/th/2014-09-03_445.jpg" alt="Монастырь Манасия" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-09-03_446.jpg" title="Монастырь Манасия" data-gallery>
+        <img src="img/th/2014-09-03_446.jpg" alt="Монастырь Манасия" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-03_447.jpg" title="Монастырь Манасия" data-gallery>
+        <img src="img/th/2014-09-03_447.jpg" alt="Монастырь Манасия" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-03_448.jpg" title="Монастырь Манасия" data-gallery>
+        <img src="img/th/2014-09-03_448.jpg" alt="Монастырь Манасия" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>После Монастыря нас вновь пригласили в гости, сказав, что потом довезут до
+выезда из города. Дома нас традиционно поили кофе и кормили попкорном.
+Просидев достаточное время, мы обменялись контактами и поехали дальше.</p>
+
+<p>На просёлочной дороге <em>короткого пути через деревни</em>, где нам
+посоветовали голосовать, совсем не было машин, поэтому мы вернулись на
+оживлённую, но более длинную трассу, где и остановили российскую Ниву.
+Так к вечеру мы были в Петроваце, не добравшись до следующего пункта назначения
+-- монастыря Горняк (хотели было уехать налегке на ночь, но, к счастью, нас
+никто не подвёз).</p>
+
+<p>Ночевали мы в отеле Lepeza, заведении явно для своих; добрая половина ночи
+прошла под разудалые балканские наигрыши на баяне, но это было лучше сырой
+палатки.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-03_450.jpg" title="Петровац" data-gallery>
+        <img src="img/th/2014-09-03_450.jpg" alt="Петровац" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<h4>4 сентября, Горняк, Голубац</h4>
+
+<p>До Горняка мы добирались половину дня. Очень долго стояли на выезде из
+Петроваца. В итоге, увидев <em>заставу</em> Российской Федерации, к нам подошёл
+молодой человек, работающий на телестудии рядом. На студии мы за
+<em>эколошки</em> чистым арахисом и газ. водой обсуждали экологические движения
+в России и пути сближения славянских стран. Наверное, этот разговор был нашей
+нереализованной кармой, т.к. после него нас подобрал автомобиль и довёз до самого Горняка, остановившись у горячего источника Ждрело Баня.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-04_451.jpg" title="Ждрело Баня" data-gallery>
+        <img src="img/th/2014-09-04_451.jpg" alt="Ждрело Баня" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_452.jpg" title="Ждрело Баня" data-gallery>
+        <img src="img/th/2014-09-04_452.jpg" alt="Ждрело Баня" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_453.jpg" title="Ждрело Баня" data-gallery>
+        <img src="img/th/2014-09-04_453.jpg" alt="Ждрело Баня" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Составляя маршрут, мы включили монастырь Горняк, но сведения из google maps
+и panoramio оказались ошибочными, и монастырь, который мы хотели посмотреть,
+оказался совсем не Горняком. Однако, <em>Горњак</em> всё равно стоило посетить.
+Настоятельница открыла нам церковь, немного рассказала о ней, дала свечи и
+открытку с видом монастыря. Всё было тихо и спокойно: полная противоположность
+атмосфере Острога.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-04_454.jpg" title="Монастырь Горњак" data-gallery>
+        <img src="img/th/2014-09-04_454.jpg" alt="Монастырь Горњак" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_456.jpg" title="Монастырь Горњак" data-gallery>
+        <img src="img/th/2014-09-04_456.jpg" alt="Монастырь Горњак" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_455.jpg" title="Монастырь Горњак" data-gallery>
+        <img src="img/th/2014-09-04_455.jpg" alt="Монастырь Горњак" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Но интересующий нас монастырь был совсем близко и называется он
+<em>Благовештење</em>.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-04_460.jpg" title="Монастырь Благовештење" data-gallery>
+        <img src="img/th/2014-09-04_460.jpg" alt="Монастырь Благовештење" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_458.jpg" title="Монастырь Благовештење" data-gallery>
+        <img src="img/th/2014-09-04_458.jpg" alt="Монастырь Благовештење" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Монастырь оставил неизгладимое впечатление. Позже мы узнали, что сейчас он
+не действует и является памятником культуры, но когда я находился там, у меня
+было чувство, что я лишний, что я нарушаю покой и безмолвную созерцательность
+святого места. Вот таким и должен быть подлинный <em>ἀναχώρησις</em>, ведущий к
+преодолению мiра.</p>
+
+    <a href="img/2014-09-04_461.jpg" title="Монастырь Благовештење" data-gallery>
+        <img src="img/2014-09-04_461.jpg" alt="Монастырь Благовештење" class="img-responsive img-thumbnail">
+    </a>
+
+<br />
+<br />
+
+<p>У монастыря нас подобрал экономист из Петроваца (а дорога к Голубацу лежала
+через город, где мы ночевали). Узнав, куда мы направляемся, он позвонил в свою
+компанию и договорился, чтобы нас довезли до Деспотоваца. В Петроваце мы
+приехали в эту фирму, где в ожидании водителя разговаривали и пили чай.</p>
+
+<p>С объездной Деспотоваца, куда нас довёз водитель, отправившийся дальше в
+Белград, мы уезжали тоже долго. Но, как уже было отмечено, если водитель
+остановился, то он довезёт до места. Так вышло и в этот раз: мы доехали до
+самого Голубаца и Дуная, за которым была уже Румыния.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-04_462.jpg" title="Голубац" data-gallery>
+        <img src="img/th/2014-09-04_462.jpg" alt="Голубац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_474.jpg" title="Голубац" data-gallery>
+        <img src="img/th/2014-09-04_474.jpg" alt="Голубац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_463.jpg" title="Голубац" data-gallery>
+        <img src="img/th/2014-09-04_463.jpg" alt="Голубац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_465.jpg" title="Голубац" data-gallery>
+        <img src="img/th/2014-09-04_465.jpg" alt="Голубац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_466.jpg" title="Голубац" data-gallery>
+        <img src="img/th/2014-09-04_466.jpg" alt="Голубац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_468.jpg" title="Голубац" data-gallery>
+        <img src="img/th/2014-09-04_468.jpg" alt="Голубац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_469.jpg" title="Голубац" data-gallery>
+        <img src="img/th/2014-09-04_469.jpg" alt="Голубац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_470.jpg" title="Голубац" data-gallery>
+        <img src="img/th/2014-09-04_470.jpg" alt="Голубац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_471.jpg" title="Голубац" data-gallery>
+        <img src="img/th/2014-09-04_471.jpg" alt="Голубац" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-04_472.jpg" title="Голубац" data-gallery>
+        <img src="img/th/2014-09-04_472.jpg" alt="Голубац" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Следивший за порядком работник предложил нам остановить автобус, на котором
+мы могли бы доехать до города Голубац, где уже можно стопить в сторону
+Белграда. Но к нашей радости автобус шёл в Белград! Таким образом, уже вечером
+мы были в столице, где заселились в тот же хостел. А до самолёта в Россию
+оставалось ещё два дня.</p>
+
+<h4>5 сентября, Белград</h4>
+
+<p>И вот Белград! Вновь столичная еда и буйство урбан-красок.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-05_475.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_475.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_526.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-06_526.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-09-05_503.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_503.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_487.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_487.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_518.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-06_518.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_532.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-06_532.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-09-06_507.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-06_507.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_485.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_485.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_486.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_486.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-09-05_488.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_488.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_489.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_489.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_490.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_490.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Также мы посетили музей Николы Теслы, в который мы не попали в начале
+путешествия. Посмотрев экспозицию, мы остались на экскурсию, во время которой
+посмотрели экспонаты в действии и даже участвовали в экспериментах с
+электричеством.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-05_476.jpg" title="Музей Николы Теслы" data-gallery>
+        <img src="img/th/2014-09-05_476.jpg" alt="Музей Николы Теслы" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_479.jpg" title="Музей Николы Теслы" data-gallery>
+        <img src="img/th/2014-09-05_479.jpg" alt="Музей Николы Теслы" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_477.jpg" title="Музей Николы Теслы" data-gallery>
+        <img src="img/th/2014-09-05_477.jpg" alt="Музей Николы Теслы" class="img-responsive img-thumbnail">
+    </a>
+<br />
+    <a href="img/2014-09-05_480.jpg" title="Музей Николы Теслы" data-gallery>
+        <img src="img/th/2014-09-05_480.jpg" alt="Музей Николы Теслы" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_481.jpg" title="Музей Николы Теслы" data-gallery>
+        <img src="img/th/2014-09-05_481.jpg" alt="Музей Николы Теслы" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_478.jpg" title="Прах Теслы" data-gallery>
+        <img src="img/th/2014-09-05_478.jpg" alt="Прах Теслы" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Этим культурная программа в столице не завершилась: мы посетили выставку
+работ сербских импрессионистов в народном музее. Я как не очень большой
+любитель импрессионизма (непременно вспоминаю строку Юлиуса Эволы из его поэмы
+&laquo;Тёмные слова внутреннего пейзажа&raquo;, которой здесь не место) всё
+же нашёл много интересного.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-05_494.jpg" title="Народный музей" data-gallery>
+        <img src="img/th/2014-09-05_494.jpg" alt="Народный музей" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_495.jpg" title="Народный музей" data-gallery>
+        <img src="img/th/2014-09-05_495.jpg" alt="Народный музей" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_496.jpg" title="Народный музей" data-gallery>
+        <img src="img/th/2014-09-05_496.jpg" alt="Народный музей" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_497.jpg" title="Народный музей" data-gallery>
+        <img src="img/th/2014-09-05_497.jpg" alt="Народный музей" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_498.jpg" title="Народный музей" data-gallery>
+        <img src="img/th/2014-09-05_498.jpg" alt="Народный музей" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_499.jpg" title="Народный музей" data-gallery>
+        <img src="img/th/2014-09-05_499.jpg" alt="Народный музей" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_500.jpg" title="Народный музей" data-gallery>
+        <img src="img/th/2014-09-05_500.jpg" alt="Народный музей" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_501.jpg" title="Народный музей" data-gallery>
+        <img src="img/th/2014-09-05_501.jpg" alt="Народный музей" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Вот и прошёл предпоследний день на Балканах.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-05_502.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_502.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_504.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_504.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_505.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_505.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-05_506.jpg" title="Белград" data-gallery>
+        <img src="img/th/2014-09-05_506.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<h4>6 сентября, Белград</h4>
+
+<p><em>Последњи дан у Београду</em> прошёл в прогулках, часе
+сна-<em>одмору</em> на скамейке в парке Калемегдан, поедании -- в последний
+раз! -- неизменно огромной <em>принцес крофне</em> и доброй грусти от мысли о
+скором отъезде.</p>
+
+<p>Но день был наполнен и продолжением культурной программы.</p>
+
+<p>В музее современного искусства были представлены работы Михайло Петрова,
+отсылающие зрителя к модерну начала XX века и необусловленности дадаизма.
+Некоторые произведения напомнили мне &laquo;кисть&raquo; Ива Кляйна.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-06_531.jpg" title="Михаило Петров, &laquo;Простори промене&raquo;" data-gallery>
+        <img src="img/th/2014-09-06_531.jpg" alt="Михаило Петров, &laquo;Простори промене&raquo;" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_527.jpg" title="Михаило Петров, &laquo;Простори промене&raquo;" data-gallery>
+        <img src="img/th/2014-09-06_527.jpg" alt="Михаило Петров, &laquo;Простори промене&raquo;" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_528.jpg" title="Михаило Петров, &laquo;Простори промене&raquo;" data-gallery>
+        <img src="img/th/2014-09-06_528.jpg" alt="Михаило Петров, &laquo;Простори промене&raquo;" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_529.jpg" title="Михаило Петров, &laquo;Простори промене&raquo;" data-gallery>
+        <img src="img/th/2014-09-06_529.jpg" alt="Михаило Петров, &laquo;Простори промене&raquo;" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_530.jpg" title="Михаило Петров, &laquo;Простори промене&raquo;" data-gallery>
+        <img src="img/th/2014-09-06_530.jpg" alt="Михаило Петров, &laquo;Простори промене&raquo;" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>Уже вечером мы посетили музей истории Югославии, в экспозициях которого
+представлены картины из коллекции Тито (любимого правителя Югославии, о котором
+с теплотой отзывались как встреченные нами сербы, так и боснийцы) и подаренные
+ему вещи и предметы быта разных народов.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-06_512.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_512.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_534.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_534.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_508.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_508.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_509.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_509.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_510.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_510.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_511.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_511.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_513.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_513.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_514.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_514.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_515.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_515.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_516.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_516.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_517.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_517.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_520.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_520.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_521.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_521.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_522.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_522.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+    <a href="img/2014-09-06_524.jpg" title="Музей истории Югославии" data-gallery>
+        <img src="img/th/2014-09-06_524.jpg" alt="Музей истории Югославии" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<br />
+
+<p>На территории музея, в Доме цветов находится и могила Иосипа Броз Тито.</p>
+
+<div class="text-center">
+    <a href="img/2014-09-06_523.jpg" title="Могила Тито" data-gallery>
+        <img src="img/th/2014-09-06_523.jpg" alt="Могила Тито" class="img-responsive img-thumbnail">
+    </a>
+</div>
+
+<hr />
+
+<p>Путешествие подошло к концу. За эти три недели мы увидели очень многое, но
+главное -- познакомились с замечательными людьми. И пусть я излишне (?)
+политически ангажирован [когда в Столаце видел плакат, посвященный известным
+трагическим событиям, с надписью &laquo;Не забывай!&raquo;, первая мысль, что
+прискорбно, была &laquo;Я помню, я горжусь!&raquo;], не было человека, который
+мне откровенно бы не понравился; только лишь немецкоязычный хорват в Боснии
+вызвал улыбку и удивление.</p>
+
+<p>Думаю, эта поездка чуть больше открыла меня самому себе. Многое было
+переосмысленно (например, наполнился смыслом флаг Российской Федерации, к
+которому я относился с некоторым презрением), что-то -- вновь переоткрыто.</p>
+
+<p>Что-то мы не успели посетить, что-то я не зафиксировал, не осознал, а быть
+может и не понял. В связи с этим вспоминаются слова Шопенгауэра:</p>
+
+<p>&laquo;В путешествиях, где встречаешь так много разных достопримечательностей,
+духовная пища извне бывает, правда, часто так велика, что недостает времени ее
+переварить. Сожалеешь, что быстро мелькающие впечатления не могут оставить
+длительного следа. Но в сущности с этим дело обстоит так же, как и с чтением:
+как часто сожалеешь о том, что из прочитанного можешь удержать в памяти едва ли
+одну тысячную долю; но утешительно в обоих случаях то, что как виденное, так и
+прочитанйое производит свое впечатление на дух, прежде чем оно забывается, и
+этим образует дух и делается, собственно, для него питанием, в то время как то,
+что только удержано в памяти, лишь начиняет дух и раздувает его, наполняя его
+пустоту вечно чуждым для него материалом, но оставляя в то же время его
+сущность пустою&raquo;.</p>
+
+<p>Но есть главное, что я вынес из поездки и что я надеюсь сохранить навсегда:
+там, в Югославии, где вместе со смертью международного права, началась новая
+мировая война, люди остались простыми и светлыми, главное для которых далеко не
+экономическое процветание, но Человек -- слово, которое непременно
+&laquo;пишется с большой буквы&raquo;.</p>
+
+    <a href="img/2014-09-06_525.jpg" title="Белград" data-gallery>
+        <img src="img/2014-09-06_525.jpg" alt="Белград" class="img-responsive img-thumbnail">
+    </a>
+
+<br />
+<br />
+
+<div style="width:230px; margin:0 auto;">
+<p class="text-center">***</p>
+
+<p>Здесь тропы замощены камнем.<br />
+Знаешь?<br />
+А между камней<br />
+Ростки мысли: болото.<br />
+Пусть кто-то-никто<br />
+Не ждёт/вспоминает:<br />
+Прошло.</p>
+
+<p>Сгоревшими фресками<br />
+Высятся своды,<br />
+Гудят провода,<br />
+Дверные проёмы<br />
+В решётках,<br />
+И всюду,<br />
+Повсюду —<br />
+Повсюду! —<br />
+Мне слышится<br />
+Эхо войны.</p>
+
+<p>Все дни сочтены:<br />
+Заполнены клетки,<br />
+Цепями гремит календарь.</p>
+
+<p>И линии на листе<br />
+Расплылись вместе с водой.</p>
+
+<p>Клинопись фонарных столбов<br />
+Расскажет.<br />
+Мост на Дунае помнит.<br />
+Пустые глазницы окон:<br />
+Так прошлое смотрит.<br />
+Верь.
+
+<p class="text-right"><em>2014-09-06, Белград</em></p>
+</p>
+</div>
+
+</div>
+
+<br />
+
+<!-- ----- -->
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+
+<script src="../../../js/jquery.blueimp-gallery.min.js"></script>
+<script src="../../../js/bootstrap-image-gallery.min.js"></script>
+
+  </body>
+</html>
+
