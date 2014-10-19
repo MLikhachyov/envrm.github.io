@@ -1,0 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 6. Нестандартная установка</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#I">I. Начало</a></li>
+        <li class="active">6. Нестандартная установка</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">6. Нестандартная установка</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<p>Порой вам может понадобиться установить Slackware Linux нестандартным
+способом, например, чтобы получить лучшее понимание о том, как работает система
+GNU/Linux, или для подготовки сценария автоматической установки. Эта глава
+наметит шаги, которые необходимы для установки Slackware Linux вручную. Пример
+установочного скрипта также приведён в части 6.5 <a href="#5">&laquo;Сценарий
+автоматической установки&raquo;</a></p>
+
+<h4 id="1">6.1. Разметка жёсткого диска</h4>
+
+<p>Если вы уже устанавливали ОС обычным способом, то вы не должны столкнуться с
+проблемами во время разметки жёсткого диска. Вы можете использовать команды
+<strong>fdisk</strong> и <strong>cfdisk</strong>. Если вы автоматизируете
+установку Slackware Linux, будет полезным знать, как вы можете передавать
+команды для обработки <strong>fdisk</strong>. Например:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li># fdisk /dev/hda << EOF</li>
+    <li>n</li>
+    <li>p</li>
+    <li>1</li>
+    <li></li>
+    <li>+10000M</li>
+    <li>n</li>
+    <li>p</li>
+    <li>2</li>
+    <li></li>
+    <li>+512M</li>
+    <li>t</li>
+    <li>2</li>
+    <li>82</li>
+    <li>w</li>
+    <li>EOF</li>
+  </ul>
+</div>
+    
+<p>Эти команды создают основной раздел Linux размером 10 000 Mb и swap-раздел
+размером 512 Mb. Вы можете сохранить команды <strong>fdisk</strong> в различных
+дисковых профилях и использовать их в различных установках (выбирая по размеру
+или иному критерию). Например:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li># cat /usr/share/fdisk-profiles/smalldisk | fdisk</li>
+  </ul>
+</div>
+
+<br />
+
+<h4 id="2">6.2. Инициализация и подключение файловых систем</h4>
+
+<p>После создания разделов на жёстком диске, вы можете создать файловые системы
+и подключить их для использования. На системах с небольшим объёмом памяти, вы
+должны сперва подключить swap. В дальнейших примерах мы будем использовать
+созданную выше дисковую конфигурацию. Для подключения swap-раздела
+выполните:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># mkswap /dev/hda2</li>
+<li># swapon /dev/hda2</li>
+  </ul>
+</div>
+    
+<p>Смысл этих команд совершенно ясен. <strong>mkswap</strong> создаёт swap, а
+<strong>swapon</strong> подключает его. Вы должны использовать
+<strong>mkswap</strong> лишь единожды, но <strong>swapon</strong> будет
+выполняться при каждой загрузке системы. Это может делаться автоматически, если
+вы добавите swap-раздел в файл <code>/etc/fstab</code>, что мы сделаем чуть
+позже.</p>
+
+<p>Теперь нужно провести инициализацию разделов. Это можно сделать с помощью
+команды <strong>mkfs</strong>. Вы можете указать требуемый тип файловой системы
+в параметре <var>-t<var>. <strong>mkfs</strong> автоматически выполнит команду
+<strong>mkfs.&lt;тип_файловой_системы&gt;</strong> в зависимости от указанного
+параметра. Знайте, что доступные файловые системы зависят от типа установки
+загруженного ядра ОС. Если вы загрузились с ядра <var>bare.i</var>, то вам
+будут доступны типы ФС <var>ext2, ext3</var> и <var>reiserfs</var>.</p>
+
+<p>Чтобы инициализировать файловую систему <var>ext3</var> и подключить её для
+использования, выполните следующие команды:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li># mkfs -t ext3 /dev/hda1</li>
+    <li># mount /dev/hda1 /mnt</li>
+  </ul>
+</div>
+    
+<p>Если вы создали отдельные разделы для различных директорий файловой системы,
+например, <code>/home</code>, вы можете инициализировать их и подключить в
+соответствующую директорию с помощью следующих команд:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li># mkfs -t ext3 /dev/hda2</li>
+    <li># mkdir /mnt/home</li>
+    <li># mount /dev/hda2 /mnt/home</li>
+  </ul>
+</div>
+    
+<p>Наконец, вы должны примонтировать носитель с дистрибутивом. Это просто
+сделать, если вы используете CD-ROM. Допустим, что CD-ROM соответствует файл
+устройства <code>/dev/hdc</code>, тогда вы можете подключить его так:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li># mount /dev/hdc /var/log/mount</li>
+  </ul>
+</div>
+    
+<p>Использование NFS в качестве источника для установки ОС требует
+дополнительных действий. Для начала вы должны загрузить сетевой диск. При
+доступности физического носителя, вы можете сделать это с помощью команды
+<strong>network</strong>. Вы также можете загрузить этот диск с другого
+носителя, например, с USB-накопителя. Допустим, у вас есть USB-накопитель,
+подключённый к директории <code>/var/log/mount</code>, тогда вы можете
+загрузить сетевой диск с помощью команды <strong>network
+/var/log/mount/network.dsk</strong>. После загрузки диска, вы должны настроить
+сетевые интерфейсы. Если NFS-сервер находится в той же сети, вам требуется
+только назначить интерфейсу IP-адрес. Например, для использования адреса
+<var>192.168.2.201</var>, нужно выполнить следующую команду:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># ifconfig eth0 192.168.2.201</li>
+  </ul>
+</div>
+    
+<p>Затем вы можете загрузить <strong>portmapper</strong>, который необходим для
+корректной работы NFS-клиента:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># /sbin/rpc.portmap</li>
+  </ul>
+</div>
+    
+<p>Если <strong>portmapper</strong> запустился успешно, вы можете подключить
+NFS-диск. Но сначала убедитесь, что вы отключили диски, ранее примонтированные
+к директории <code>/var/log/mount</code>. Допустим, что вы хотите подключить
+ресурс <code>192.168.2.1:/home/pub/slackware-current</code>, тогда вы должны
+выполнить следующую команду:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># mount -r -t nfs -o nolock 192.168.2.1:/home/pub/slackware-current /var/log/mount</li>
+  </ul>
+</div>
+    
+<p>Если не возникло ошибок во время монтирования раздела, тогда он будет
+доступен в директории <code>/var/log/mount</code></p>
+
+<h4 id="3">6.3. Установка пакетов</h4>
+
+<p>Сейчас всё готово к установке пакетов с установочного носителя. Вы можете
+использовать команду <strong>installpkg</strong>, доступную в системе, для
+установки пакетов Slackware Linux. Для установки пакетов в файловую систему,
+подключённую к директории <code>/mnt</code>, добавьте параметр
+<var>-root</var>. Следующая команда установит все пакеты с медианосителя.</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li># installpkg -root /mnt /var/log/mount/slackware/*/*.tgz</li>
+  </ul>
+</div>
+    
+<p>Если вы создали файл тегов, описывающий пакеты, предназначенные для
+установки, тогда вы можете его использовать (создание файлов тегов описано в
+части 17.4. <a href="17. Управление пакетами.html#4">&laquo;Управление пакетами&raquo;</a>).
+Допустим, что файлы тегов для каждого дискового набора хранятся в директории
+<code>/usr/share/tagfiles/small-desktop</code>, тогда вы можете установить все
+указанные пакеты следующим образом:</p>
+
+<pre class="brush: bash">
+for p in a ap d e f k kde kdei l n t tcl x xap y; do
+   installpkg -infobox -root /mnt \
+     -tagfile /usr/share/tagfiles/small-desktop/$p/tagfile \
+     /var/log/mount/slackware/$p/*.tgz
+done
+</pre>
+
+<br />
+
+<h4 id="5">6.5. Сценарий автоматической установки</h4>
+
+<p>Можно объединить шаги установки в одном сценарии, чтобы устанавливать
+ОС в автоматическом режиме. Это идеально для создания одного сервера установки,
+с помощью которого можно развёртывать множество Linux-клиентов. Эта часть
+содержит пример сценария, который был написан Вильямом Парком. Очень просто
+добавить установочный скрипт на дистрибутивный носитель Slackware Linux,
+особенно если вы используете установочные CD или загружаетесь с
+USB-накопителя.</p>
+
+<p>Система установки хранится в одном сжатом файле, доступном на загрузочном
+диске как <code>isolinux/initrd.img</code>. Вы можете скопировать этот
+образ на жёсткий диск и распаковать его с помощью
+<strong>gunzip</strong>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># mv initrd.img initrd.img.gz</li>
+<li># gunzip initrd.img.gz</li>
+</ul>
+</div>
+    
+<p>После распаковки образа, вы сможете смонтировать файл в качестве дискова,
+используя устройство <var>loopback</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># mount -o loop initrd.img /mnt/hd</li>
+</ul>
+</div>
+    
+<p>Сейчас вы можете добавить скрипт в файл initrd, поместив его в структуру
+директорий, подключённую к точке монтирования <code>/mnt/hd</code>. После
+необходимых изменений, вы можете отключить файловую систему и сжать её:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># umount /mnt/hd</li>
+<li># gzip initd.img</li>
+<li># mv initrd.img.gz initrd.img</li>
+</ul>
+</div>
+    
+<p>Далее вы можете скопировать новый файл <code>initrd.img</code> на
+установочный диск и проверить сценарий.</p>
+
+<pre class="brush: bash">
+#! /bin/sh
+# Copyright (c) 2003-2005 by William Park
+# <opengeometry@yahoo.ca>.
+# All rights reserved.
+#
+# Usage: slackware-install.sh
+
+rm_ln ()		# Usage: rm_ln from to
+{
+	rm -rf $2; ln -sf $1 $2
+}
+
+
+###########################################################
+echo "Partitioning harddisk..."
+
+( echo -ne "n\np\n1\n\n+1000M\n" # /dev/hda1 --> 1GB swap
+  echo -ne "n\np\n2\n\n+6000M\n" # /dev/hda2 --> 6GB /
+  echo -ne "t\n1\n82\nw\n"
+) | fdisk /dev/hda
+
+mkswap /dev/hda1		# swap
+swapon /dev/hda1
+
+mke2fs -c /dev/hda2		# /
+mount /dev/hda2 /mnt
+
+
+###########################################################
+echo "Installing packages..."
+
+mount -t iso9660 /dev/hdc /cdrom # actually, /var/log/mount
+cd /cdrom/slackware
+for p in [a-z]*; do		# a, ap, ..., y
+	installpkg -root /mnt -priority ADD $p/*.tgz
+done
+
+cd /mnt
+
+
+###########################################################
+echo "Configuring /dev/* stuffs..."
+
+rm_ln psaux dev/mouse # or, 'input/mice' for usb mouse
+rm_ln ttyS0 dev/modem
+rm_ln hdc dev/cdrom
+rm_ln hdc dev/dvd
+
+
+###########################################################
+echo "Configuring /etc/* stuffs..."
+
+cat > etc/fstab << EOF
+/dev/hda1   swap         swap     defaults         0  0
+/dev/hda2   /            ext2     defaults         1  1
+devpts      /dev/pts     devpts   gid=5,mode=620   0  0
+proc        /proc        proc     defaults         0  0
+#
+/dev/cdrom  /mnt/cdrom   iso9660  noauto,owner,ro  0  0
+/dev/fd0    /mnt/floppy  auto     noauto,owner     0  0
+tmpfs       /dev/shm     tmpfs    noauto           0  0
+EOF
+
+cat > etc/networks << EOF
+loopback	127.0.0.0
+localnet	192.168.1.0
+EOF
+cat > etc/hosts << EOF
+127.0.0.1	localhost
+192.168.1.1	node1.example.net	node1
+EOF
+cat > etc/resolv.conf << EOF
+search example.net
+nameserver 127.0.0.1
+EOF
+cat > etc/HOSTNAME << EOF
+node1.example.net
+EOF
+
+## setup.05.fontconfig
+chroot . /sbin/ldconfig	# must be run before other program
+chroot . /usr/X11R6/bin/fc-cache
+
+chroot . /usr/bin/passwd root
+
+## setup.06.scrollkeeper
+chroot . /usr/bin/scrollkeeper-update
+
+## setup.timeconfig
+rm_ln /usr/share/zoneinfo/Canada/Eastern  etc/localtime
+cat > etc/hardwareclock << EOF
+localtime
+EOF
+
+## setup.liloconfig
+cat > etc/lilo.conf << EOF
+boot=/dev/hda
+delay=100
+vga=normal	# 80x25 char
+# VESA framebuffer console:
+#   pixel	char	8bit	15bit	16bit	24bit
+#   -----	----	----	-----	-----	-----
+#   1600x1200		796	797	798	799
+#   1280x1024	160x64	775	793	794	795
+#   1024x768	128x48	773	790	791	792
+#   800x600	100x37	771	787	788	789
+#   640x480	80x30	769	784	785	786
+image=/boot/vmlinuz		# Linux
+	root=/dev/hda2
+	label=bare.i
+	read-only
+# other=/dev/hda1		# Windows
+#     label=win
+#     table=/dev/hda
+EOF
+lilo -r .
+
+## setup.xwmconfig
+rm_ln xinitrc.fvwm95  etc/X11/xinit/xinitrc
+
+
+###########################################################
+echo "Configuring /etc/rc.d/rc.* stuffs..."
+
+cat > etc/rc.d/rc.keymap << EOF
+#! /bin/sh
+[ -x /usr/bin/loadkeys ] && /usr/bin/loadkeys us.map
+EOF
+chmod -x etc/rc.d/rc.keymap
+
+## setup.mouse
+cat > etc/rc.d/rc.gpm << 'EOF'
+#! /bin/sh
+case $1 in
+	stop)
+	    echo "Stopping gpm..."
+	    /usr/sbin/gpm -k
+	    ;;
+	restart)
+	    echo "Restarting gpm..."
+	    /usr/sbin/gpm -k
+	    sleep 1
+	    /usr/sbin/gpm -m /dev/mouse -t ps2
+	    ;;
+	start)
+	    echo "Starting gpm..."
+	    /usr/sbin/gpm -m /dev/mouse -t ps2
+	    ;;
+	*)
+	    echo "Usage $0 {start|stop|restart}"
+	    ;;
+esac
+EOF
+chmod +x etc/rc.d/rc.gpm
+
+## setup.netconfig
+cat > etc/rc.d/rc.inet1.conf << EOF
+IPADDR=(192.168.1.1)		# array variables
+NETMASK=(255.255.255.0)
+USE_DHCP=()			# "yes" or ""
+DHCP_HOSTNAME=()
+GATEWAY=""
+DEBUG_ETH_UP="no"
+EOF
+
+cat > etc/rc.d/rc.netdevice << EOF
+/sbin/modprobe 3c59x
+EOF
+chmod +x etc/rc.d/rc.netdevice
+
+## setup.setconsolefont
+mv etc/rc.d/rc.font{.sample,}
+chmod -x etc/rc.d/rc.font
+
+## setup.services
+chmod +x etc/rc.d/rc.bind
+chmod +x etc/rc.d/rc.hotplug
+chmod +x etc/rc.d/rc.inetd
+chmod +x etc/rc.d/rc.portmap
+chmod +x etc/rc.d/rc.sendmail
+#
+chmod -x etc/rc.d/rc.atalk
+chmod -x etc/rc.d/rc.cups
+chmod -x etc/rc.d/rc.httpd
+chmod -x etc/rc.d/rc.ip_forward
+chmod -x etc/rc.d/rc.lprng
+chmod -x etc/rc.d/rc.mysqld
+chmod -x etc/rc.d/rc.pcmcia
+chmod -x etc/rc.d/rc.samba
+chmod -x etc/rc.d/rc.sshd
+</pre>
+    
+<br />
+<ul class="pager">
+  <li class="previous"><a href="05. Установка Slackware Linux.html">&larr; 5. Установка Slackware Linux</a></li>
+  <li class="next"><a href="07. Оболочка командной строки.html">7. Оболочка командной строки &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
