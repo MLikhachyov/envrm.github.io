@@ -201,11 +201,12 @@ ol:not(.plain) li:not(.plain) {
 	margin: 0px;
 	padding: 9px 2px 10px;
 	border-bottom: 1px solid #ccc;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 
 ol:not(.plain) li:not(.plain) a:not(.plain) {
-	display: block;
+	/* display: block; */
+	display: inline-block;
 	text-indent: -3.3ex;
 	padding: 0px 0px 0px 20px;
 }
