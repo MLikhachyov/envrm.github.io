@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 4. Основные положения</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#I">I. Начало</a></li>
+        <li class="active">4. Основные положения</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">4. Основные положения</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<p>Эта глава является введением в некоторые основные концепции UNIX и
+GNU/Linux. Очень важно прочитать эту главу, если у вас нет достаточного опыта
+использования этих систем. Многие раскрытые здесь положения
+используются далее в этой книге.</p>
+
+<h4 id="1">4.1. Многозадачность</h4>
+
+<h5>4.1.1. Введение</h5>
+
+<p>Многозадачность — одна из самых известных сильных сторон UNIX. Многозадачность
+означает, что множество программ могут выполняться одновременно. Вы можете
+удивиться важности этого, т.к. большинство людей работают только с одной
+программой единовременно, но мультизадачность совершенно необходима
+UNIX-подобным системам. Даже если вы не запускали каких-либо приложений, в фоне
+всегда работают какие-то программы, называемые процессами-демонами (daemon
+processes, их не стоит путать с demon'ами; слово daemon отсылает к
+сверхъестественным сущностям греческой мифологии).</p>
+
+<h5>4.1.2. Процессы и потоки</h5>
+
+<p>После загрузки программы с физического носителя, запускается экземпляр этой
+программы, который называется <var>процессом</var>. Процессу отводится
+собственный защищённый участок оперативной памяти — <var>адресное
+пространство</var>. В адресном пространстве процесса имеется два важных
+сегмента: область текста и область данных. Область текста занимает программный
+код; он используется для того, чтобы сообщить системе, что нужно делать. Область
+данных используется для сохранения постоянных данных и данных времени
+выполнения. Операционная система выделяет процессорное время для выполнения
+процессов. На однопроцессорной системе процессы не могут работать по-настоящему
+одновременно, в таком случае ими управляет планировщик ядра, который
+распределяет процессорное время между процессами, что и создаёт иллюзию
+одновременной работы программ. Такие процессы называются <var>процессами,
+работающими в режиме разделения времени</var>. На системах, имеющих в
+распоряжении более одного центрального процессора или несколько ядер, процессы
+могут выполняться одновременно, но и в этом случае используется режим разделения
+времени, чтобы распределять доступное процессорное время.</p>
+
+<p>Новые процессы создаются путём копирования запущенных процессов с помощью
+системного вызова <strong>fork</strong>. Изображение ниже схематично показывает
+работу вызова fork(). Родительский процесс инициирует fork(), ядро отвечает на
+этот вызов дублированием процесса; такие процессы называются
+<var>родительским</var> и <var>дочерним</var> (или <var>потомком</var>)
+соответственно.</p>
+
+<p align="center">
+  <img class="img-responsive" src="img/04.1-1.png" alt="fork()">
+</p>
+
+<br />
+
+<p>Копирование процессов может использоваться для создания двух процессов, которые
+могут выполняться одновременно. Но обычно это не лучшее решение, т.к. оба
+процесса будут использовать одно адресное пространство. Копирование содержимого
+пространства памяти занимает относительно долгое время, и сложно разделить
+данные между двумя процессами. Эта проблема решается в подходе, называемом
+<var>многопоточностью</var>. Многопоточность означает, что множество экземпляров
+текстовой области могут быть запущены в одно время с доступом к одной области
+данных. Такие экземпляры, называемые потоками, могут выполняться параллельно на
+нескольких процессорах.</p>
+
+<h4 id="2">4.2. Иерархия файловой системы</h4>
+
+<h5>4.2.1. Структура</h5>
+
+<p>Операционная система хранит данные в файловой системе. Файловая система
+представляет собой древовидную структуру директорий, содержащих файлы, такие как
+саму ОС, программы и пользовательские данные. Также большинство файловых систем
+способны сохранять различные метаданные с информацией о файлах и директориях, к
+примеру, права доступа и время изменения. В GNU/Linux имеется только одна
+иерархия файловой системы; это означает, что в GNU/Linux нет "букв дисков" (A:,
+C:, D:) для различных файловых систем, как в DOS и Windows. Файловая система
+выглядит как дерево с корневой директорией (у которой нет родительской
+директории), ветвями и листьями (директориями без поддиректорий). Корень
+файловой системы обозначается знаком &laquo;<code>/</code>&raquo;. Директории
+разделяются этим же знаком.</p>
+
+<p align="center">
+  <img class="img-responsive" src="img/04.2-1.png" alt="Иерархия файловой системы">
+</p>
+
+<br />
+
+<p>Иллюстрация, приведённая выше, показывает структуру файловой системы. Вы можете увидеть, что
+у корневой директории <code>/</code> две поддиректории: <code>bin</code> и
+<code>home</code>. Директория <code>home</code> имеет две дочерние директории,
+<code>joe</code> и <code>jack</code>. Диаграмма показывает полные пути к каждой
+директории. Те же правила наименования действуют и для файлов. Допустим,
+что в директории <code>/home/jack</code> имеется файл <code>memo.txt</code>,
+тогда полный путь к файлу будет <code>/home/jack/memo.txt</code>.</p>
+
+<p>У каждой директории есть две специальных сущности, &laquo;.&raquo; и
+&laquo;..&raquo;. Первая ссылается на саму директорию, а вторая — на
+родительский каталог. Эти записи могут использоваться для создания относительных
+путей. Так, если вы работаете в директории <code>jack</code>, вы можете
+обратиться к директории <code>/home/joe</code> как к <code>../joe</code>.</p>
+
+<h5>4.2.2. Монтирование</h5>
+
+У вас может возникнуть вопрос, как возможно получить доступ к другим устройствам
+или разделом, имеющим свою корневую файловую систему. Linux использует подобный
+принятому в UNIX подход для подключения других файловых систем. Linux позволяет
+системному администратору подключить устройство к любой директории файловой
+структуры. Этот процесс называется монтированием (mounting). Например, можно
+подключить CD-ROM к директории <code>/cdrom</code>. Если монтирование прошло
+успешно, файлы с CD-ROM будут доступны в этой директории. Монтирование детально
+рассмотрено в разделе <a href="08. Файлы и директории.html">8.8. Подключение файловых
+систем</a>.
+
+<h5>4.2.3. Основные директории</h5>
+
+<p>Группа стандартизирования иерархии файловой системы выпустила стандарт,
+описывающий, какие директории должны быть доступны в системе GNU/Linux.
+В настоящее время большинство крупных дистрибутивов используют рекомендации
+Стандарта иерархии файловой системы (<abbr title="Filesystem Hierarchy
+Standard">FHS</abbr>). Этот параграф описывает основные директории файловой
+иерархии GNU/Linux.</p>
+
+<p>Заметьте, что в GNU/Linux нет отдельных директорий для программ (как в Windows).
+Вместо этого файлы упорядочены по типам и выполняемым функциям. Например,
+исполнимые файлы основных пользовательских приложений хранятся в директории
+<code>/usr/bin</code>, а их библиотеки в <code>/usr/lib</code>. Это краткий
+обзор наиболее важных директорий Slackware Linux:</p>
+
+<ul>
+  <li><strong>/bin</strong>: важнейшие исполнимые файлы, которые должны быть доступны, даже если не подключена директория <code>/usr</code>.</li>
+  <li><strong>/dev</strong>: файлы устройств. Это специальные файлы, используемые для доступа к устройствам.</li>
+  <li><strong>/etc</strong> содержит все важные конфигурационные файлы.</li>
+  <li><strong>/home</strong> содержит домашние директории отдельных пользователей.</li>
+  <li><strong>/lib</strong>: важнейшие системные библиотеки (вроде glibc) и модули ядра.</li>
+  <li><strong>/root</strong>: домашняя директория суперпользователя (root).</li>
+  <li><strong>/sbin</strong>: важнейшие исполнимые файлы, используемые в администрировании системы.</li>
+  <li><strong>/tmp</strong>: директория для временных файлов, доступная на запись всем пользователям.</li>
+  <li><strong>/usr/bin</strong> хранит большую часть пользовательских двоичных файлов.</li>
+  <li><strong>/usr/lib</strong>: библиотеки, которые не требуются для загрузки системы.</li>
+  <li><strong>/usr/sbin</strong>: не необходимые программы для системного администрирования.</li>
+  <li><strong>/var</strong>: изменяемые данные, например, файлы журналов.</li>
+</ul>
+
+<br />
+
+<h4 id="3">4.3. Устройства</h4>
+
+<h5>4.3.1. Введение</h5>
+
+<p>В GNU/Linux всё представлено в виде файлов, включая и устройства. В каждой
+системе GNU/Linux есть директория со специальными файлами, называющаяся
+<code>/dev</code>. Каждый файл в директории <code>/dev</code> представляет
+устройства или псевдо-устройства. С каждым файлом устройств ассоциировано два
+специальных номера — старший и младший номера устройства; по ним ядро ОС
+определяет соответствие файла физическому устройству. Следующий пример
+показывает номера устройства для специального файла <code>/dev/zero</code>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ file /dev/zero</li>
+    <li>/dev/zero: character special (1/5)</li>
+  </ul>
+</div>
+      
+<p>Команда <strong>file</strong> может быть использована для определения типа
+файла. Этот особенный файл распознаётся как файл устройства, старший номер
+которого равен 1, а младший &#8211; 5.</p>
+
+<p>Если вы установили пакет с исходным кодом ядра, вы можете найти
+всеобъемлющий список всех главных устройств с соответсвующими им номерами в
+файле <code>/usr/src/linux/Documentation/devices.txt</code>. Обновлённую версию
+этого списка также можно получить в интернете:
+<a href="ftp://ftp.kernel.org/pub/linux/docs/device-list/">ftp://ftp.kernel.org/pub/linux/docs/device-list/</a>.</p>
+
+<p>Ядро Linux управляет двумя типами устройств: симвльными и блочными.
+Символьные устройства могут быть прочитаны побайтово, блочные же устройства
+считываются поблочно (например, по 4096 байт за один раз). Является ли
+устройство символьным или блочным определяется по его характеру. Например,
+большинство накопителей -- блочные устройства, а большинство устройств ввода --
+символьные. У блочных устройств есть одно отличительное преимущество, а именно
+возможность кеширования. Это означает, что прочитанные или записанные блоки
+могут быть сохранены в специальной области системной памяти -- кеше. Память
+более быстрая, чем большинство носителей, поэтому с помощью оперирования
+блоками информации в памяти можно довольно сильно увеличить быстродействие.
+Конечно, в конечном счёте изменения будут записаны на накопитель, чтобы
+отразить изменения, произошедшие в кеше.</p>
+
+<h5>4.3.2. Устройства ATA и SCSI</h5>
+
+<p>Мы подробно остановимся на двух типах блочных устройств, т.к. понимание
+правил наименования этих устройств является ключевым для разметки и управления
+жёстким диском. Почти все современные компьютеры для архитектуры x86 используют
+жёсткие диски ATA и приводы CD-ROM. Под Linux эти устройства именуются
+следующим образом:</p>
+
+<pre>
+/dev/hda - master-устройство на первом канале ATA
+/dev/hdb - slave-устройство на первом канале ATA
+/dev/hdc - master-устройство на втором канале ATA
+/dev/hdd - slave-устройство на втором канале ATA
+</pre>
+      
+<p>На большинстве компьютеров с одним жёстким диском, это master-устройство,
+подключенное к первому ATA-каналу (<code>/dev/hda</code>). Разделы жёсткого
+диска именуются путём добавления номера к имени файла устройства. Например,
+<code>/dev/hda1</code> -- это первый раздел на диске, представленном файлом
+<code>/dev/hda</code>.</p>
+
+<p>Имена устройств жёстких дисков SCSI и приводов CD-ROM следуют другому
+соглашению. SCSI-диски не часто используются в компьютерах нижнего ценового
+сегмента, но USB-накопители и SATA-устройства выглядят как SCSI-диски. Для них
+используется следующее представление:</p>
+
+<pre>
+/dev/sda - Первый SCSI диск
+/dev/sdb - Второй SCSI диск
+/dev/sdc - Третий SCSI диск
+/dev/scd0 - Первый CD-ROM
+/dev/scd1 - Второй CD-ROM
+/dev/scd2 - Третий CD-ROM
+</pre>
+      
+<p>Разделы именуются по тому же принципу, что и в случае ATA-дисков;
+<code>/dev/sda1</code> -- это первый раздел первого SCSI-диска.</p>
+
+<p>Если вы используете программную реализацию RAID в ядре Linux, RAID-том будет
+доступен как <code>/dev/mdn</code>, где <var>n</var> -- это номер тома, начиная
+с 0.</p>
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="03. Источники помощи.html">&larr; 3. Источники помощи</a></li>
+  <li class="next"><a href="05. Установка Slackware Linux.html">5. Установка Slackware Linux &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
