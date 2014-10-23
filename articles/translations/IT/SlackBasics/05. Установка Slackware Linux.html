@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Статьи и переводы :: Основы Slackware Linux -- 5. Установка Slackware Linux</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#I">I. Начало</a></li>
+        <li class="active">5. Установка Slackware Linux</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">5. Установка Slackware Linux</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">5.1. Загрузка с установочного диска</h4>
+
+<p>Простейший метод загрузить установочную систему — использовать установочный
+CD-ROM. Установочный диск Slackware Linux является загрузочным CD, что
+означает, что BIOS может начать загрузку с этого носителя точно так же, как и с
+дискеты. Большинство BIOS современных систем поддерживают загрузку с CD-ROM.</p>
+
+<p>Если компьютер не загружается со вставленного компакт-диска, то, возможно, в
+BIOS указан некорректный порядок загрузочных устройств Войдите в настройки BIOS
+(обычно это можно сделать, нажав клавиши <kbd>Del</kbd> или <kbd>Esc</kbd> на
+экране с сообщениями BIOS во время старта компьютера) и убедитесь, что CD-ROM
+указан первым в списке устройств, с которых будет осуществляться загрузка
+системы. Если вы используете SCSI CD-ROM, возможно, вам придётся настроить
+загрузку в SCSI BIOS вместо системного. Сверьтесь с руководством SCSI-карты.</p>
+
+<p>Когда CD-ROM будет загружен, появится экран приветствия. Обычно вы можете
+просто нажать <kbd>Enter</kbd>, чтобы загрузить стандартное
+(<code>hugesmp.s</code>) ядро Linux. Это ядро требует для загрузки процессор не
+старше Pentium Pro. Вы можете загрузить другие ядра, указав имя ядра в
+приглашении загрузчика и нажав <kbd>Enter</kbd>. Следующая таблица содержит
+описание ядер, доступных для загрузки с CD и DVD Slackware Linux.</p>
+
+<p class="text-right"><strong>Таблица 5.1. Установочные ядра</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Linux</th>
+          <th>Описание</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>huge.s</th>
+          <td>Ранее каждому дисковому контроллёру соответствовал свой образ ядра. Новое большое ядро поддерживает наиболее распространённые контроллёры ATA, SATA и SCSI. Ядро не поддерживает SMP и работает на всех компьютерах младше i486. Если у вас Pentium Pro или компьютер с более новым процессором, то лучше использовать ядро <var>hugesmp.s</var>.</td>
+        </tr>
+        <tr>
+          <th>hugesmp.s</th>
+          <td>Это ядро поддерживает обычные контроллёры ATA, SATA и SCSI. Дополнительно в ядре включена поддержка SMP. Рекомендуется использовать этот образ ядра на компьютерах с процессором новее Pentium Pro.</td>
+        </tr>
+        <tr>
+          <th>speakup.s</th>
+          <td>Это ядро сравнимо с ядром <var>huge.s</var>, но оно также поддерживает аппаратный синтез речи.</td>
+        </tr>
+      </tbody>
+    </table>
+
+<p>После загрузки системы установки, вам будет задан вопрос, желаете ли вы
+использовать специальную (национальную) клавиатуру. Если у вас обычная
+US/интернациональная клавиатура, как это бывает в большинстве случаев, вы
+можете просто нажать <kbd>Enter</kbd>. После этого появится приглашение для
+входа в систему. Авторизируйтесь под пользователем &laquo;root&raquo; Без
+пароля. После логина запустится оболочка командной строки, и вы можете начать
+установку Slackware Linux. Процедура установки будет описана в этой главе.</p>
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="04. Основные положения.html">&larr; 2. Основные положения</a></li>
+  <li class="next"><a href="06. Нестандартная установка.html">6. Нестандартная установка &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
