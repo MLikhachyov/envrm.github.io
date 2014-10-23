@@ -287,6 +287,277 @@ done
 
 <br />
 
+<h4 id="4">6.4. Настройка после установки</h4>
+
+<p>Следующий раздел описывает минимально необходимые настройки, которые нужно
+сделать в запущенной системе.</p>
+
+<h5>6.4.1. fstab</h5>
+
+<p>Один из необходимых шагов конфигурации системы &#8211; создание файла
+<code>fstab</code>, в котором описываются дисковые разделы и устройства,
+подключаемые при загрузке системы. Формат файла <code>/etc/fstab</code> описан
+в <a href="08. Файлы и директории.html#8">разделе 8.8.4</a>. Как минимум, вы
+должны добавить запись для корневой файловой системы, для псевдо-систем
+<code>/proc</code> и <code>devpts</code> и для раздела <code>swap</code>.</p>
+
+<p>Для разделов, созданных ранее в этой главе, вы должны создать такой файл
+<code>/etc/fstab</code>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>#  cat &gt; /mnt/etc/fstab &lt;&lt; EOF</li>
+<li>/dev/hda2	 swap             swap        defaults         0   0</li>
+<li>/dev/hda1        /                ext3        defaults         1   1</li>
+<li>devpts           /dev/pts         devpts      gid=5,mode=620   0   0</li>
+<li>proc             /proc            proc        defaults         0   0</li>
+<li>EOF</li>
+  </ul>
+</div>
+      
+<h5>6.4.2. LILO</h5>
+
+<p>Для того, чтобы сделать систему загружаемой, вы должны настроить и
+установить загрузчик Linux (LILO, Linux Loader). Настройка LILO описана в
+разделе <a href="19. Инициализация системы.html#1">19.1. Загрузчик</a>. 
+Здесь же мы просто покажем пример конфигурации LILO, которая может быть
+использована с разделами, созданными в этой главе.</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cat &gt; /mnt/etc/lilo.conf &lt;&lt; EOF</li>
+<li>boot = /dev/hda</li>
+<li>vga = normal</li>
+<li>timeout = 50</li>
+<li>image = /boot/vmlinuz</li>
+<li>	root = /dev/hda1</li>
+<li>	label = Slackware</li>
+<li>	read-only</li>
+<li>EOF</li>
+  </ul>
+</div>
+      
+<p>После настройки LILO вы можете установить его в раздел <code>/mnt</code>. В
+этом случае LILO будет использовать <code>/etc/lilo.conf</code> с целевого
+раздела:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># lilo -r /mnt</li>
+  </ul>
+</div>
+      
+<h5>6.4.3. Сеть</h5>
+
+<p>Настройка сети в Slackware Linux описана в <a href="22. Настройка
+сети.html">Главе 22</a>. В этом разделе мы опишем один пример настройки узла
+сети с получением IP-адреса с помощью DHCP.</p>
+
+<p>Информация об известных компьютерных сетях хранится в файле
+<code>/etc/networks</code>. Так как мы будем получать сетевую информацию с
+помощью DHCP, мы укажем только локальную сеть 127.0.0.1.</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cat &gt; /mnt/etc/networks &lt;&lt; EOF</li>
+<li>loopback        127.0.0.0</li>
+<li>localnet        127.0.0.0</li>
+<li>EOF</li>
+  </ul>
+</div>
+      
+<p>Не смотря то, что DHCP назначит и имя хоста, мы всё же укажем его в
+файле:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cat &gt; /mnt/etc/HOSTNAME &lt;&lt; EOF</li>
+<li>sugaree.example.net</li>
+<li>EOF</li>
+  </ul>
+</div>
+      
+<p>Когда имя компьютера настроено, оно и узел localhost должны быть добавлены в
+файл <code>/etc/hosts</code> для разрешения имён:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cat &gt; /mnt/etc/hosts &lt;&lt; EOF</li>
+<li>127.0.0.1	localhost</li>
+<li>127.0.0.1	sugaree.example.net	sugaree</li>	
+<li>EOF</li>
+  </ul>
+</div>
+      
+<p>Мы не создали файл <code>/etc/resolv.conf</code>, т.к он будет создан
+автоматически с помощью DHCP-клиента <strong>dhcpcd</strong>.
+Для завершения настройки мы должны настроить интерфейс в файле
+<code>/etc/rc.d/tc.inet1.conf</code>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cat &gt; /mnt/etc/rc.d/rc.inet1.conf &lt;&lt; EOF</li>
+<li>IPADDR[0]=""</li>
+<li>NETMASK[0]=""</li>
+<li>USE_DHCP[0]="yes"</li>
+<li>DHCP_HOSTNAME[0]=""</li>
+<li>EOF</li>
+  </ul>
+</div>
+      
+<p>Вы можете захотеть сделать резервную копию файла <code>rc.inet1.conf</code>,
+т.к. он содержит много полезных комментариев. Или же вы можете использовать
+<strong>sed</strong> для изменения конкретных параметров:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># sed -i 's/USE_DHCP\[0\]=""/USE_DHCP[0]="yes"/' \</li>
+<li>   /mnt/etc/rc.d/rc.inet1.conf</li>
+  </ul>
+</div>
+
+<h5>6.4.4. Тонкая настройка сценариев инициализации</h5>
+
+<p>В зависимости от назначения установленной системы, нужно определить, какие
+именно сценарии инициализации будут выполняться в процессе загрузки. Состав
+доступных для загрузки сервисов зависит от установленных пакетов. Вы можете
+вывести список имеющихся сценариев с помощью <strong>ls</strong>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># ls -l /mnt/etc/rc.d/rc.*</li>
+  </ul>
+</div>
+      
+<p>Если на файле скрипта стоит бит исполнимости, то он будет выполнен, в
+противном случае сценарий будет пропущен. Очевидно, что вы должны оставить
+включенными стандартные необходимые скрипты, включающие сценарии,
+соответствующие уровням исполнения. Вы можете установить на файл бит
+исполнимости так:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># chmod +x /mnt/etc/rc.d/rc.scriptname</li>
+  </ul>
+</div>
+      
+<p>Или удалить его:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># chmod -x /mnt/etc/rc.d/rc.scriptname</li>
+  </ul>
+</div>
+      
+<h5>6.4.5. Настройка кэша динамических библиотек</h5>
+
+<p>GNU/Linux использует кэш для загрузки динамических библиотек. Кроме того,
+множество программ зависят от основных версий библиотек (например, от
+/usr/lib/libgtk-x11-2.0.so, а не от /usr/lib/libgtk-x11-2.0.so.0.600.8). Кэш и
+символьные ссылки на библиотеки могут быть обновлены с помощью запуска
+<strong>ldconfig</strong>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># chroot /mnt /sbin/ldconfig</li>
+  </ul>
+</div>
+      
+<p>Возможно, вам не знакома команда <strong>chroot</strong>; это команда,
+которая исполняет другие команды с корневой директорией, отличной от корня
+текущей файловой иерархии. В этом примере корневой директорией будет
+<code>/mnt</code>, и в ней <strong>chroot</strong> запустит файл
+<code>/sbin/ldconfig</code>. После того, как программа завершит свою работу,
+система вернётся в командную оболочку, которая использует оригинальный корневой
+каталог. Для использования <strong>chroot</strong> с другими командами, нужно,
+как в примере, сперва запустить <strong>ldconfig</strong>, потому что без
+инициализации привязок динамического компоновщика программы могут не
+запуститься из-за неразрешимых библиотечных зависимостей.</p>
+
+<h5>6.4.6. Установка пароля root</h5>
+
+<p>Сейчас, когда настроен кэш динамических библиотек, вы можете выполнять
+команды в установленной системе. Мы воспользуемся этим и зададим пароль
+суперпользователя. Команда <strong>passwd</strong> может быть использована для
+установки пароля существующего пользователя (пользователь root по умолчанию
+настроен в файле <code>/etc/passwd</code>). Мы снова воспользуемся командой
+<strong>chroot</strong>, чтобы запустить <strong>passwd root</strong> на
+требуемом разделе:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># chroot /mnt /usr/bin/passwd root</li>
+  </ul>
+</div>
+      
+<h5>6.4.7. Настройка часового пояса</h5>
+
+<p>На UNIX-системах очень важно установить корректный часовой пояс, так как он
+используется различными частями операционной системы. Например, временная зона
+используется NTP для синхронизации системного времени, или различными сетевыми
+программами для вычисления разницы во времени между клиентом и сервером. На
+Slackware Linux временная зона устанавливается созданием ссыки
+<code>/etc/localtime</code> на файл зоны. Вы можете найти временную зону вашего
+региона в директории <code>/mnt/usr/share/zoneinfo</code>. Большая часть
+временных зон может быть обнаружена в поддиректории соответствующего региона.
+Например, для использования временной зоны Амстердама, вы можете выполнить
+следующие команды:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># cd /mnt</li>
+<li># rm -rf etc/localtime</li>
+<li># ln -sf /usr/share/zoneinfo/Europe/Amsterdam etc/localtime</li>
+  </ul>
+</div>
+      
+<p>После установки часового пояса, программы всё равно не будут знать, является
+ли время, установленное на аппаратных часах, местного или же по стандарту
+Всемирного координированного времени (UTC, Coordinated Universal Time). Если вы
+используете другую операционную систему на этом же компьютере, то лучше не
+использовать UTC и установить локальное время. На UNIX-подобных системах
+традиционно используется системное время UTC. Вы можете указать тип системных
+часов путём создания файла <code>/etc/hardwareclock</code> и указания в нём
+слова <var>localtime</var> в случае использования местного времени или
+<var>UTC</var> в ином случае. Например, для использования UTC, вы можете
+создать файл <code>/etc/hardwareclock</code> следующим образом:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># echo "UTC" &gt; /mnt/etc/hardwareclock</li>
+  </ul>
+</div>
+      
+<h5>6.4.8. Создание кэша шрифтов X11</h5>
+
+<p>Если вы планируете использовать X11, вы должны инициализировать кэш для
+шрифтов TrueType и Type1. Это можно сделать с помощью команды
+<strong>fc-cache</strong>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li># chroot /mnt /usr/bin/fc-cache</li>
+  </ul>
+</div>
+
+<br />
+
 <h4 id="5">6.5. Сценарий автоматической установки</h4>
 
 <p>Можно объединить шаги установки в одном сценарии, чтобы устанавливать
@@ -339,7 +610,7 @@ USB-накопителя.</p>
 <pre class="brush: bash">
 #! /bin/sh
 # Copyright (c) 2003-2005 by William Park
-# <opengeometry@yahoo.ca>.
+# opengeometry@yahoo.ca.
 # All rights reserved.
 #
 # Usage: slackware-install.sh
