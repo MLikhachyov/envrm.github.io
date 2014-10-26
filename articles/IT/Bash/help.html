@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Заметки и переводы :: Bash -- Автодокументирование псевдонимов и функций</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/custom.css">
+    <link rel="stylesheet" href="../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../css/shell-wrap.css">
+
+    <script type="text/javascript" src="../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+
+                <script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="../../../articles.html">Информационные технологии</a></li>
+        <li><a href="../../../articles.html">Bash</a></li>
+        <li class="active">Автодокументирование псевдонимов и функций</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">Bash: автодокументирование<br />псевдонимов и функций</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<p>Псевдонимы &#8211; одна из наиболее полезных и часто используемых возможностей
+оболочки командной строки. Но когда псевдонимов и функций становится чрезмерно
+много, удержать в памяти всю информацию становится сложно, запоминаются только
+самые используемые команды. Посмотреть список псевдонимов можно командой
+<strong>alias</strong> без параметров, но вывод совсем не нагляден. Функции тоже
+отсутствуют.  При этом в вывод попадают совершенно очевидные псевдонимы, подобные
+<strong>cp -i -v</strong>.</p>
+
+<p>Захотелось решить проблему документации средствами самой оболочки. В результате
+получилась одна функция, собирающая информацию о функциях и псевдонимах.</p>
+
+<pre class="brush:bash">
+#- Список функций и псевдонимов
+:h() { echo "
+----------------[ Функции и псевдонимы ]----------------"
+  for i in $(awk '/\w\(\)|^alias|^#\{\{\{ / &amp;&amp; !/#noindex/ {
+			print NR"\n"
+		}' $ALIASES); {
+
+		printf  "\t%-17s%s\n" \
+			"$(echo $(sed "s/=/ /g;
+					/alias \|()\|#{{{ \| .*/ s///g;
+					"$i"q;d" $ALIASES))" \
+			"$(sed "/#\|}}}/ s///g;
+				"$((--i))"q;d" $ALIASES)";
+  }
+  echo "
+--------------------------------------------------------\n"
+}
+</pre>
+
+<p>Переменная окружения ALIASES содержит путь до файла с псевдонимами командной
+строки.</p>
+
+<p>Формат записи псевдонимов следующий:</p>
+
+<pre class="brush:bash">
+#{{{ ------------&lt;Категория&gt;\n
+# Категория не должна содержать пробелов
+
+#- Комментарий, начинающийся со знака комментария и дефиса
+alias name=command
+
+#- Функция
+func() {
+	commands
+}
+
+</pre>
+
+<p>Пример описания псевдонимов и функций:</p>
+
+<pre class="brush:bash">
+#{{{ \033[00m\n\b------&lt;Bash&gt;\n
+#\033[00m - голубой цвет
+#\b - удаление знака табуляции
+#\n - перевод строки
+
+#- Правка псевдонимов в Vim
+alias ealias="$EDITOR $ALIASES"	#noindex
+#- Перезагрузка bash
+alias reload=". ~/.bashrc"
+#- Выход из сеанса
+alias :q="exit"
+#- ls с цифровым видом прав
+alias lls="ls -l | sed 's/--x/1/g; s/-w-/2/g;
+			s/-wx/3/g; s/r--/4/g;
+			s/r-x/5/g; s/rw-/6/g;
+			s/rwx/7/g; s/---/0/g'"
+
+#- История bash
+h() {
+	[ -z "$1" ] &amp;&amp; history \
+		|| history \
+		| grep "$1";
+}
+#}}}
+</pre>
+
+<p>Принцип действия функции следующий:</p>
+
+<ol class="plain">
+  <li>
+    Awk выбирает все строки, содержащие <code>слово()</code>,
+    <code>alias</code> или <code>#\{\{\{</code> (метка скрытия <br />  блоков
+    текста в vim). Строки, содержащие <code>#noindex</code>, не учитываются.
+    Это <br /> полезно для отметки псевдонимов и функций, вывод справки для
+    которых не <br /> требуется.
+  </li>
+
+  <li>
+    Sed выбирает эти и предыдущие строки, удаляет метки vim, тела функций и
+    <br />  команды псевдонимов.
+  </li>
+
+  <li>
+    Список выводится в формате &laquo;Команда - комментарий&raquo;.
+  </li>
+</ol>
+
+<p>
+В итоге, с помощью этой функции возможно получать автоматическую справку по
+пользовательским псевдонимам и функциям.
+</p>
+
+<p>Пример работы:</p>
+
+<div>
+<img class="img-thumbnail img-responsive" src="img/help.png">
+</div>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+

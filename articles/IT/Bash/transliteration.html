@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Заметки и переводы :: Bash -- Коррекция раскладки при вводе команд</title>
+
+
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/custom.css">
+    <link rel="stylesheet" href="../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../css/shell-wrap.css">
+
+    <script type="text/javascript" src="../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+
+                <script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="../../../articles.html">Информационные технологии</a></li>
+        <li><a href="../../../articles.html">Bash</a></li>
+        <li class="active">Коррекция раскладки при вводе команд</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">Bash: коррекция раскладки при вводе команд</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<p>При работе в командной строке случается вводить команду в нелатинской
+раскладке. После очередной такой ошибки возникла идея автоматической
+коррекции символов. В bash можно переназначить функцию
+<code>command_not_found_handle</code>, которая вызывается в случае
+неправильного ввода команды. Введенный текст передается функции и доступен
+через переменную первого аргумента &#8211; <var>$1</var>.</p>
+
+<pre class="brush:bash">
+#Переназначение функции, вызываемой неизвестной командой
+command_not_found_handle() {
+	echo $1 | grep '[фывапролджэйцукенгшщзхъячсмитьбю\
+			ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ]' \
+		2&gt;&amp;1 &gt; /dev/null
+
+	if [ $? == 0 ]; then
+		ex="$(echo -n $@ | \
+		sed "y/йцукенгшщзхъфывапролджэячсмитьбю
+			\.ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ,
+			/qwertyuiop\[\]asdfghjkl;\'zxcvbnm,\.\/
+			QWERTYUIOP\{\}ASDFGHJKL:\"ZXCVBNM&lt;&gt;\?/")"
+		echo "[$@] -&gt; [$ex]"
+		$ex
+	else
+		echo &gt;&amp;2 "Команда не найдена."
+	fi
+}
+</pre>
+
+<p>Функция ищет кириллические символы в команде и преобразует их в
+соответствующие латинские (для qwerty-раскладки).</p>
+
+<p>Пример работы:</p>
+
+<div>
+<img class="img-thumbnail img-responsive" src="img/transliteration.png">
+</div>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
