@@ -206,9 +206,11 @@ ol:not(.plain) li:not(.plain) {
 
 ol:not(.plain) li:not(.plain) a:not(.plain) {
 	/* display: block; */
-	display: inline-block;
+	/* display: inline-block; */
+	display: run-in;
+	/* list-style-position: outside; */
 	text-indent: -3.3ex;
-	padding: 0px 0px 0px 20px;
+	/* padding: 0px 0px 0px 20px; */
 }
 
 .tooltip-inner {
