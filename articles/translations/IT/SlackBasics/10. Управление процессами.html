@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Заметки и переводы :: Основы Slackware Linux -- 10. Управление процессами</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#X">II. Основы Slackware Linux</a></li>
+        <li class="active">10. Управление процессами</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">10. Управление процессами</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="2">10.2. Анализ запущенных процессов</h4>
+
+<h5>10.2.1. Вывод списка выполняемых процессов</h5>
+
+<p>В UNIX-системах имеется команда <strong>ps</strong>, которая отображает
+список выполняемых процессов. К сожалению, эта команда является демонстрацией
+отсутствия какой-либо стандартизации. Варианты <strong>ps</strong>,
+используемые в BSD и System V, принимают свои собственные наборы параметров. К
+счастью, GNU/Linux реализует оба стандарта передачи аргументов, также
+предоставляя и привычные GNU "длинные параметры". Аргументы, начинающиеся с
+дефиса, интерпретируются как параметры System V, а опции без дефиса &#8211; как
+принятые в BSD. Мы будем использовать соглашения System V.</p>
+
+<p>Если запустить <strong>ps</strong> без параметров, то будут отображены все
+процессы, инициализованные пользователем, запустившим <strong>ps</strong>.
+Например:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li><pre class="plain">$ ps</pre></li>
+<li><pre class="plain">  PID TTY          TIME CMD</pre></li>
+<li><pre class="plain"> 8844 pts/5    00:00:00 bash</pre></li>
+<li><pre class="plain"> 8862 pts/5    00:00:00 ps</pre></li>
+</ul>
+</div>
+      
+<p>Из вывода программы можно получить много полезной информации. Как вы можете
+видеть, показаны два процесса: оболочка командной строки
+(<strong>bash</strong>) и собственно процесс <strong>ps</strong>. В
+рассматриваемом примере мы видим четыре колонки с информацией. <var>PID</var>
+&#8211; это идентификатор процесса, <var>TTY</var> &#8211; контролирующий терминал,
+<var>TIME</var> &#8211; это используемое процессом процессорное время, а
+<var>CMD</var> &#8211; команда, которой была запущена программа.</p>
+
+<p>Иногда вам может понадобиться вывести более обширный список запущенных
+процессов. Добавьте параметр <var>-a</var>, чтобы отобразить все процессы,
+ассоциированные с терминалом:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li><pre class="plain">$ ps -a</pre></li>
+<li><pre class="plain">  PID TTY          TIME CMD</pre></li>
+<li><pre class="plain"> 7487 pts/1    00:00:00 less</pre></li>
+<li><pre class="plain"> 8556 pts/4    00:00:10 emacs-x</pre></li>
+<li><pre class="plain">11324 pts/3    00:00:00 ps</pre></li>
+</ul>
+</div>
+      
+<p>Как вы можете видеть, отображены процессы, контролируемые различными
+терминалами. Однако, в отличие от обычного вывода <strong>ps</strong>, показаны
+только процессы, управляемые терминалом в данный момент. Например, здесь не
+показана оболочка командной строки, из которой была вызвана программа
+<strong>ps</strong>.</p>
+
+<p>Также вы можете вывести все запущенные процессы, включая те, что не
+ассоциированы с каким-либо терминалом, используя параметр <var>-A</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li><pre class="plain">$ ps -A | head -n 10</pre></li>
+<li><pre class="plain">  PID TTY          TIME CMD</pre></li>
+<li><pre class="plain">    1 ?        00:00:01 init</pre></li>
+<li><pre class="plain">    2 ?        00:00:00 migration/0</pre></li>
+<li><pre class="plain">    3 ?        00:00:00 ksoftirqd/0</pre></li>
+<li><pre class="plain">    4 ?        00:00:00 watchdog/0</pre></li>
+<li><pre class="plain">    5 ?        00:00:00 migration/1</pre></li>
+<li><pre class="plain">    6 ?        00:00:00 ksoftirqd/1</pre></li>
+<li><pre class="plain">    7 ?        00:00:00 watchdog/1</pre></li>
+<li><pre class="plain">    8 ?        00:00:00 events/0</pre></li>
+<li><pre class="plain">    9 ?        00:00:00 events/1</pre></li>
+</ul>
+</div>
+      
+<p>Вы можете отобрзить все процессы с определённым идентификатором
+пользователя, используя аргумент <var>-U</var>. Эта опция в качестве параметра
+принимает имя пользователя или список имён, разделённых запятой. Следующая
+команда выведет все процессы, выполненные пользователями <var>xfs</var> и
+<var>rpc</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li><pre class="plain">$ ps -U xfs,rpc</pre></li>
+<li><pre class="plain">  PID TTY          TIME CMD</pre></li>
+<li><pre class="plain"> 2409 ?        00:00:00 portmap</pre></li>
+<li><pre class="plain"> 2784 ?        00:00:00 xfs</pre></li>
+</ul>
+</div>
+      
+<p>Подобно этому вы можете вывести процессы с определённым ID группы или
+нескольких, используя параметр <var>-G</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li><pre class="plain">$ ps -G messagebus,haldaemon</pre></li>
+<li><pre class="plain">  PID TTY          TIME CMD</pre></li>
+<li><pre class="plain"> 8233 ?        00:00:00 dbus-daemon</pre></li>
+<li><pre class="plain">11312 ?        00:00:00 hald</pre></li>
+<li><pre class="plain">11320 ?        00:00:00 hald-addon-keyb</pre></li>
+<li><pre class="plain">11323 ?        00:00:00 hald-addon-acpi</pre></li>
+</ul>
+</div>
+      
+<p>Если вам нужен список процессов, соответствующих физическому или
+псевдо-терминалу, вы можете использовать параметр <var>-t</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li><pre class="plain">$ ps -t tty2</pre></li>
+<li><pre class="plain">  PID TTY          TIME CMD</pre></li>
+<li><pre class="plain"> 2655 tty2     00:00:00 getty</pre></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+</br>
+<ul class="pager">
+  <li class="previous"><a href="09. Работа с текстом.html">&larr; 9. Работа с текстом</a></li>
+  <li class="next"><a href="10. Управление процессами.html">10. Управление процессами&rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
