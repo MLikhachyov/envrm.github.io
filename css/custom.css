@@ -248,3 +248,9 @@ ol:not(.plain) li:not(.plain) a:not(.plain) {
 	font-weight: bold;
 }
 
+.article h6 {
+	margin-top: 16px;
+	margin-bottom: 6px;
+	font-size: 13px;
+	font-weight: bold;
+}
