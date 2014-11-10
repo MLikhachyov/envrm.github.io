@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Заметки и переводы :: Основы Slackware Linux -- 9. Работа с текстом</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+
+    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCpp.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li><a href="index.html#IX">II. Основы Slackware Linux</a></li>
+        <li class="active">9. Работа с текстом</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">9. Работа с текстом</h3>
+
+</br>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<p>Обработка текста &#8211; одна из тех вещей, что UNIX делает превосходно; работа с
+текстом соответствует сущности UNIX-философии, как было описано в
+<a href="02. Введение в Slackware Linux.html#4">разделе 2.4.</a>
+Большая часть команд UNIX &#8211; это простые программы, которые читают данные из
+стандартного потока ввода, производят над ними некоторые операции и направляют
+результат в стандартный поток вывода. Эти программы действуют как фильтры, и их
+можно соединять друг с другом. Это позволяет ползователю соединять программы
+таким образом, каким сложно вообразить. В следующих частях мы увидим, как можно
+создавать собственные фильтры.</p>
+
+<p>Эта глава описывает несколько простых, но важных команд UNIX, которые
+используются для работы с текстом. После этого мы погрузимся в регулярные
+выражения &#8211; специальный язык для описания текстовых шаблонов.</p>
+
+
+
+<h4 id="3">9.3. grep</h4>
+
+<h5>9.3.1. Простое использование grep</h5>
+
+<p>Сейчас мы обратимся к одной из самых важных утилит в UNIX-подобных системах
+и впервые используем регулярные выражения. Команда <strong>grep</strong>
+используется для поиска шаблона в потоке текста или файле. Шаблон представляет
+собой регулярное выражение и может быть записан в простом формате или с
+использованием расширений POSIX (при этом нужно указать параметр <var>-E</var>).
+По умолчанию <strong>grep</strong> выводит строки, совпавшие с шаблоном, в
+стандартный поток вывода. В простейшем случае вы можете указать шаблон поиска в
+качестве аргумента, и <strong>grep</strong> произведёт поиск по этому шаблону в
+стандартном потоке ввода. Это будет полезно для практики в составлении
+регулярных выражений.</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ grep '^\(ab\)\{2,3\}$'</li>
+<li>ab</li>
+<li>abab</li>
+<li>abab</li>
+<li>ababab</li>
+<li>ababab</li>
+<li>abababab</li>
+</ul>
+</div>
+      
+<p>Выше показан пример использования простого регулярного выражения,
+совпадающего со строками, содержащими две или три подстроки
+<var>&laquo;ab&raquo;</var>. Вы можете записать то же самое без экранирования
+специальных символов, если укажете параметр <var>-E</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ grep -E '^(ab){2,3}$'</li>
+<li>ab</li>
+<li>abab</li>
+<li>abab</li>
+<li>ababab</li>
+<li>ababab</li>
+<li>abababab</li>
+</ul>
+</div>
+      
+<p>По умолчанию <strong>grep</strong> читает стандартный ввод, но вы можете
+встроить его в конвеер, чтобы обработать вывод какой-либо программы. Например,
+если вам нужно найти подстроку <var>&laquo;2006&raquo;</var> в третьей колонке
+файла, вы можете объединить в одном конвеере программы <strong>cut</strong> и
+<strong>grep</strong>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ cut -f 3 | grep '2006'</li>
+</ul>
+</div>
+      
+<h5>9.3.2. Поиск по файлам</h5>
+
+<p><strong>Grep</strong> умеет производить поиск не только в стандартном потоке
+ввода, но и по файлам. Как обычно в UNIX, для этого нужно указать файл
+последним аргументом. Следующий пример выведет все строки из файла
+<code>/etc/passwd</code>, начинающиеся с подстроки <var>daniel</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ grep "^daniel" /etc/passwd</li>
+<li>daniel:*:1001:1001:Daniel de Kok:/home/daniel:/bin/sh</li>
+</ul>
+</div>
+      
+<p>С указанной опцией <var>-r</var> <strong>grep</strong> будет искать
+вхождение подстроки рекурсивно по всей структуре директорий. Но для лучшей
+переносимости можно комбинировать <strong>grep</strong> и <strong>find</strong>
+с параметром <var>-exec</var>.</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ grep -r 'somepattern' somedir</li>
+</ul>
+</div>
+      
+<p>Этой непереносимой функции соответствует следующая переносимая:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ find /somedir -type f -exec grep 'somepattern' {} \; -print</li>
+</ul>
+</div>
+      
+<h5>9.3.3. Управление поиском</h5>
+
+<p>Также <strong>grep</strong> может вывести строки, которые <u>не содержат</u>
+шаблон поиска, если указать параметр <var>-v</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ grep -Ev '^(ab){2,3}$'</li>
+<li>ab</li>
+<li>ab</li>
+<li>abab</li>
+<li>ababab</li>
+<li>abababab</li>
+<li>abababab</li>
+</ul>
+</div>
+      
+<p>Если вы желаете включить регистронезависимый поиск, то вам нужно указать
+параметр <var>-i</var>. Например:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ grep -i "a"</li>
+<li>a</li>
+<li>a</li>
+<li>A</li>
+<li>A</li>
+</ul>
+</div>
+      
+<p>Также вы можете осуществить буквальный поиск подстроки с параметром
+<var>-F</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ grep -F 'aa*'</li>
+<li>a</li>
+<li>aa*</li>
+<li>aa*</li>
+</ul>
+</div>
+      
+<h5>9.3.4. Использование множественных шаблонов</h5>
+
+<p>Как мы видели, вы можете использовать указывать альтернативы поиска с
+помощью знака &laquo;|&raquo;. Но если шаблоны, которые требуется найти, сильно
+различаются, удобнее будет указать два разных шаблона. <strong>Grep</strong>
+позволяет вам использовать более одного шаблона, разделяя их символом новой
+строки. Так, к примеру, если вы желаете вывести все строки, совпадающие с
+шаблонами <var>&laquo;a&raquo;</var> и <var>&laquo;b&raquo;</var>, то это можно
+сделать, введя их на разных строках:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ grep 'a</li>
+<li>b'</li>
+<li>a</li>
+<li>a</li>
+<li>b</li>
+<li>b</li>
+<li>c</li>
+</ul>
+</div>
+      
+<p>Это работает потому, что используются кавычки. Но такое указание шаблонов
+неудобно. <strong>Grep</strong> предоставляет параметр <var>-e</var>, с помощью
+которого можно указать несколько поисковых запросов на одной строке. Вызвать
+<strong>grep</strong> с параметрами как в предыдущем примере можно следующим
+образом:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ grep -e 'a' -e 'b'</li>
+</ul>
+</div>
+      
+
+</br>
+<ul class="pager">
+  <li class="previous"><a href="08. Файлы и директории.html">&larr; 8. Файлы и директории</a></li>
+  <li class="next"><a href="10. Управление процессами.html">10. Управление процессами &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
