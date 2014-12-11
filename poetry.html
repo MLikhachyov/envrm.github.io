@@ -24,9 +24,7 @@
   (function($){    
       $(function(){    
         $("#g1").jFlip(300,449,{background:"white",cornersTop:false}).
-        bind("flip.jflip",function(event,index,total){
-          $("#l1").html("Image "+(index+1)+" of "+total);
-        });
+        flip.jflip;
       });
   })(jQuery);
   </script>
