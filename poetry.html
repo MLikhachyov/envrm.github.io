@@ -18,6 +18,19 @@
     <link rel="stylesheet" href="css/fontello.css">
     <link rel="stylesheet" href="css/animation.css">
 
+  <script type="text/javascript" src="js/jquery-1.2.6.min.js"></script>
+  <script type="text/javascript" src="js/jquery.jflip-0.4.js"></script>
+  <script type="text/javascript">
+  (function($){    
+      $(function(){    
+        $("#g1").jFlip(300,449,{background:"white",cornersTop:false}).
+        bind("flip.jflip",function(event,index,total){
+          $("#l1").html("Image "+(index+1)+" of "+total);
+        });
+      });
+  })(jQuery);
+  </script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -43,7 +56,65 @@
 
       <div class="row columns">
         <div class="col-lg-6">
-          <img class="hidden-xs thumbnail" src="img/paintings/book.png" width="300px">
+
+<div class="hidden-xs thumbnail" style="padding-left: 8px; padding-top: 8px;">
+  <ul id="g1">
+    <li><img src="img/book/title.jpg" /></li>
+    <li><img src="img/book/page_01.jpg" /></li>
+    <li><img src="img/book/page_02.jpg" /></li>
+    <li><img src="img/book/page_03.jpg" /></li>
+    <li><img src="img/book/page_04.jpg" /></li>
+    <li><img src="img/book/page_05.jpg" /></li>
+    <li><img src="img/book/page_06.jpg" /></li>
+    <li><img src="img/book/page_07.jpg" /></li>
+    <li><img src="img/book/page_08.jpg" /></li>
+    <li><img src="img/book/page_09.jpg" /></li>
+    <li><img src="img/book/page_10.jpg" /></li>
+    <li><img src="img/book/page_11.jpg" /></li>
+    <li><img src="img/book/page_12.jpg" /></li>
+    <li><img src="img/book/page_13.jpg" /></li>
+    <li><img src="img/book/page_14.jpg" /></li>
+    <li><img src="img/book/page_15.jpg" /></li>
+    <li><img src="img/book/page_16.jpg" /></li>
+    <li><img src="img/book/page_17.jpg" /></li>
+    <li><img src="img/book/page_18.jpg" /></li>
+    <li><img src="img/book/page_19.jpg" /></li>
+    <li><img src="img/book/page_20.jpg" /></li>
+    <li><img src="img/book/page_21.jpg" /></li>
+    <li><img src="img/book/page_22.jpg" /></li>
+    <li><img src="img/book/page_23.jpg" /></li>
+    <li><img src="img/book/page_24.jpg" /></li>
+    <li><img src="img/book/page_25.jpg" /></li>
+    <li><img src="img/book/page_26.jpg" /></li>
+    <li><img src="img/book/page_27.jpg" /></li>
+    <li><img src="img/book/page_28.jpg" /></li>
+    <li><img src="img/book/page_29.jpg" /></li>
+    <li><img src="img/book/page_30.jpg" /></li>
+    <li><img src="img/book/page_31.jpg" /></li>
+    <li><img src="img/book/page_32.jpg" /></li>
+    <li><img src="img/book/page_33.jpg" /></li>
+    <li><img src="img/book/page_34.jpg" /></li>
+    <li><img src="img/book/page_35.jpg" /></li>
+    <li><img src="img/book/page_36.jpg" /></li>
+    <li><img src="img/book/page_37.jpg" /></li>
+    <li><img src="img/book/page_38.jpg" /></li>
+    <li><img src="img/book/page_39.jpg" /></li>
+    <li><img src="img/book/page_40.jpg" /></li>
+    <li><img src="img/book/page_41.jpg" /></li>
+    <li><img src="img/book/page_42.jpg" /></li>
+    <li><img src="img/book/page_43.jpg" /></li>
+    <li><img src="img/book/page_44.jpg" /></li>
+    <li><img src="img/book/page_45.jpg" /></li>
+    <li><img src="img/book/page_46.jpg" /></li>
+    <li><img src="img/book/page_47.jpg" /></li>
+    <li><img src="img/book/page_48.jpg" /></li>
+    <li><img src="img/book/page_49.jpg" /></li>
+    <li><img src="img/book/page_50.jpg" /></li>
+    <li><img src="img/book/page_51.jpg" /></li>
+    <li><img src="img/book/page_52.jpg" /></li>
+  </ul>
+</div>
+
           <img class="visible-xs thumbnail" src="img/paintings/book.png" width="250px">
 
           <blockquote>
@@ -58,6 +129,8 @@
           </blockquote>
 
           <a href="files/book/Лихачёв М. - Ъ, 2014.pdf" class="btn btn-success btn-lg" role="button">Скачать PDF</a>
+
+
         </div>
 
         <div class="col-lg-6">
