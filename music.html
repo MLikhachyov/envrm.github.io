@@ -49,10 +49,10 @@
         audio.load(first);
 
         // Load in a track on click
-        $('ol li').click(function(e) {
+        $('li a:has(>span)').click(function(e) {
           e.preventDefault();
-          $(this).addClass('playing').siblings().removeClass('playing');
-          audio.load($('a', this).attr('data-src'));
+          $(this).parent().addClass('playing').siblings().removeClass('playing');
+          audio.load($(this).attr('data-src'));
           audio.play();
         });
         // Keyboard shortcuts
@@ -60,12 +60,12 @@
           var unicode = e.charCode ? e.charCode : e.keyCode;
              // right arrow
           if (unicode == 39) {
-            var next = $('li.playing').next();
+            var next = $('a', $('li.playing').next());
             if (!next.length) next = $('ol li').first();
             next.click();
             // back arrow
           } else if (unicode == 37) {
-            var prev = $('li.playing').prev();
+            var prev = $('a', $('li.playing').prev());
             if (!prev.length) prev = $('ol li').last();
             prev.click();
             // spacebar
@@ -105,37 +105,161 @@
 
     <div id="wrapper">
       <ol>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Перевал.mp3">Перевал</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Шёлкова трава заплетает след.mp3">Шёлкова трава заплетает след</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Μετεμψύχωσις.mp3">Μετεμψύχωσις</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Лазарь.mp3">Лазарь</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Птица Феникс.mp3">Птица Феникс</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Аврора.mp3">Аврора</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Серебряная река.mp3">Серебряная река</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Fata Morgana.mp3">Fata Morgana</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Новая весна.mp3">Новая весна</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - कल्प.mp3">कल्प</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Апрель.mp3">Апрель</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Туман над росстанью.mp3">Туман над росстанью</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Ко Святому Озеру.mp3">Ко Святому Озеру</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Бумажный змей.mp3">Бумажный змей</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Consolamentum.mp3">Consolamentum</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Паутина.mp3">Паутина</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Предания Старого Парка.mp3">Предания Старого Парка</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - За Гранью Кристалла.mp3">За Гранью Кристалла</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Свет Ветра.mp3">Свет Ветра</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Nevermore.mp3">Nevermore</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Три дня в Неаполе.mp3">Три дня в Неаполе</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Terra Incognita.mp3">Terra Incognita</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Долина Мориона.mp3">Долина Мориона</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Нуар.mp3">Нуар</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - По следу.mp3">По следу</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Дочь Девяти Лун.mp3">Дочь Девяти Лун</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - То, что оставил дождь.mp3">То, что оставил дождь</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Всё будет не с нами.mp3">Всё будет не с нами</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - В отражении Красной Луны.mp3">В отражении Красной Луны</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Утро, которое ночь.mp3">Утро, которое ночь</a></li>
-	<li><a href="#" data-src="files/music/Максим Лихачёв - Горький берег.mp3">Горький берег</a></li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Перевал.mp3"><span>Перевал</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Перевал.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+	</li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Шёлкова трава заплетает след.mp3"><span>Шёлкова трава заплетает след</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Шёлкова трава заплетает след.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+	</li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Μετεμψύχωσις.mp3"><span>Μετεμψύχωσις</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Μετεμψύχωσις.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Лазарь.mp3"><span>Лазарь</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Лазарь.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Птица Феникс.mp3"><span>Птица Феникс</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Птица Феникс.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Аврора.mp3"><span>Аврора</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Аврора.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Серебряная река.mp3"><span>Серебряная река</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Серебряная река.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Fata Morgana.mp3"><span>Fata Morgana</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Fata Morgana.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Новая весна.mp3"><span>Новая весна</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Новая весна.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - कल्प.mp3"><span>कल्प</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - कल्प.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Апрель.mp3"><span>Апрель</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Апрель.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Туман над росстанью.mp3"><span>Туман над росстанью</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Туман над росстанью.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Ко Святому Озеру.mp3"><span>Ко Святому Озеру</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Ко Святому Озеру.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Бумажный змей.mp3"><span>Бумажный змей</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Бумажный змей.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Consolamentum.mp3"><span>Consolamentum</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Consolamentum.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Паутина.mp3"><span>Паутина</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Паутина.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Предания Старого Парка.mp3"><span>Предания Старого Парка</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Предания Старого Парка.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - За Гранью Кристалла.mp3"><span>За Гранью Кристалла</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - За Гранью Кристалла.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Свет Ветра.mp3"><span>Свет Ветра</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Свет Ветра.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Nevermore.mp3"><span>Nevermore</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Nevermore.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Три дня в Неаполе.mp3"><span>Три дня в Неаполе</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Три дня в Неаполе.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Terra Incognita.mp3"><span>Terra Incognita</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Terra Incognita.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Долина Мориона.mp3"><span>Долина Мориона</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Долина Мориона.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Нуар.mp3"><span>Нуар</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Нуар.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - По следу.mp3"><span>По следу</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - По следу.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Дочь Девяти Лун.mp3"><span>Дочь Девяти Лун</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Дочь Девяти Лун.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - То, что оставил дождь.mp3"><span>То, что оставил дождь</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - То, что оставил дождь.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Всё будет не с нами.mp3"><span>Всё будет не с нами</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Всё будет не с нами.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - В отражении Красной Луны.mp3"><span>В отражении Красной Луны</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - В отражении Красной Луны.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Утро, которое ночь.mp3"><span>Утро, которое ночь</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Утро, которое ночь.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
+	<li><a href="#" data-src="files/music/Максим Лихачёв - Горький берег.mp3"><span>Горький берег</span></a>
+	  <span style="text-align: left;  float: right; ">
+	    <a href="files/music/Максим Лихачёв - Горький берег.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
+	  </span>
+        </li>
       </ol>
         </div>
 	</div>
