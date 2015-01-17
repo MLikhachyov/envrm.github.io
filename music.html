@@ -23,6 +23,40 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/audiojs/audio.min.js"></script>
 
+    <script src="js/jquery.tagcanvas.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        try {
+          TagCanvas.Start('myCanvas','tags',{
+            textColour: '#8B8878',
+            outlineColour: '#EDEDED',
+            reverse: true,
+            depth: 0.5,
+            maxSpeed: 0.05
+          });
+        } catch(e) {
+          // something went wrong, hide the canvas container
+          document.getElementById('myCanvasContainer').style.display = 'none';
+        }
+      };
+    </script>
+
+    <script type="text/javascript">
+      function highlightGenre(genre) {
+        var wholeList = document.getElementsByClassName("genre");
+        for (var g = 0; g < wholeList.length; g++) {
+          wholeList[g].style.color='#ccc';
+          wholeList[g].style.fontWeight='normal';
+        };
+
+        var list = document.getElementsByClassName(genre);
+        for (var i = 0; i < list.length; i++) {
+          list[i].style.color='#888';
+          list[i].style.fontWeight='bold';
+        }
+      };
+    </script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -123,162 +157,162 @@
 
           <div id="wrapper">
             <ol id="playlist">
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Луна Виноградной Лозы.mp3">Луна Виноградной Лозы</a>
+	      <li class="genre mGuitar mFolk"><a href="#" data-src="files/music/Максим Лихачёв - Луна Виноградной Лозы.mp3">Луна Виноградной Лозы</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Луна Виноградной Лозы.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
 	      </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Перевал.mp3">Перевал</a>
+	      <li class="genre mOrchestra mSymphonic mMetal"><a href="#" data-src="files/music/Максим Лихачёв - Перевал.mp3">Перевал</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Перевал.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
 	      </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Шёлкова трава заплетает след.mp3">Шёлкова трава заплетает след</a>
+	      <li class="genre mOrchestra mPiano mRock"><a href="#" data-src="files/music/Максим Лихачёв - Шёлкова трава заплетает след.mp3">Шёлкова трава заплетает след</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Шёлкова трава заплетает след.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
 	      </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Μετεμψύχωσις.mp3">Μετεμψύχωσις</a>
+	      <li class="genre mRock"><a href="#" data-src="files/music/Максим Лихачёв - Μετεμψύχωσις.mp3">Μετεμψύχωσις</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Μετεμψύχωσις.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Лазарь.mp3">Лазарь</a>
+	      <li class="genre mOrchestra mNeoclassical"><a href="#" data-src="files/music/Максим Лихачёв - Лазарь.mp3">Лазарь</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Лазарь.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Птица Феникс.mp3">Птица Феникс</a>
+	      <li class="genre mOrchestra mSymphonic mMetal mDoom"><a href="#" data-src="files/music/Максим Лихачёв - Птица Феникс.mp3">Птица Феникс</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Птица Феникс.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Аврора.mp3">Аврора</a>
+	      <li class="genre mOrchestra mNeoclassical mSymphonic mJazz"><a href="#" data-src="files/music/Максим Лихачёв - Аврора.mp3">Аврора</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Аврора.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Серебряная река.mp3">Серебряная река</a>
+	      <li class="genre mRock mNeoclassical"><a href="#" data-src="files/music/Максим Лихачёв - Серебряная река.mp3">Серебряная река</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Серебряная река.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Fata Morgana.mp3">Fata Morgana</a>
+	      <li class="genre mNeoclassical"><a href="#" data-src="files/music/Максим Лихачёв - Fata Morgana.mp3">Fata Morgana</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Fata Morgana.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Новая весна.mp3">Новая весна</a>
+	      <li class="genre mOrchestra mSymphonic"><a href="#" data-src="files/music/Максим Лихачёв - Новая весна.mp3">Новая весна</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Новая весна.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - कल्प.mp3">कल्प (Колесо Времени)</a>
+	      <li class="genre mRock mMetal"><a href="#" data-src="files/music/Максим Лихачёв - कल्प.mp3">कल्प (Колесо Времени)</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - कल्प.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Апрель.mp3">Апрель</a>
+	      <li class="genre mPiano mNeoclassical"><a href="#" data-src="files/music/Максим Лихачёв - Апрель.mp3">Апрель</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Апрель.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Туман над росстанью.mp3">Туман над росстанью</a>
+	      <li class="genre mOrchestra mMetal mSymphonic"><a href="#" data-src="files/music/Максим Лихачёв - Туман над росстанью.mp3">Туман над росстанью</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Туман над росстанью.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Ко Святому Озеру.mp3">Ко Святому Озеру</a>
+	      <li class="genre mSymphonic mNeoclassical mFolk mOrchestra"><a href="#" data-src="files/music/Максим Лихачёв - Ко Святому Озеру.mp3">Ко Святому Озеру</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Ко Святому Озеру.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Бумажный змей.mp3">Бумажный змей</a>
+	      <li class="genre mNeoclassical mRock mPiano"><a href="#" data-src="files/music/Максим Лихачёв - Бумажный змей.mp3">Бумажный змей</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Бумажный змей.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Consolamentum.mp3">Consolamentum</a>
+	      <li class="genre mChoir mRock mSymphonic mOrchestra"><a href="#" data-src="files/music/Максим Лихачёв - Consolamentum.mp3">Consolamentum</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Consolamentum.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Паутина.mp3">Паутина</a>
+	      <li class="genre mSymphonic mOrchestra mMetal"><a href="#" data-src="files/music/Максим Лихачёв - Паутина.mp3">Паутина</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Паутина.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Предания Старого Парка.mp3">Предания Старого Парка</a>
+	      <li class="genre mDarkwave mNeoclassical mRock"><a href="#" data-src="files/music/Максим Лихачёв - Предания Старого Парка.mp3">Предания Старого Парка</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Предания Старого Парка.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - За Гранью Кристалла.mp3">За Гранью Кристалла</a>
+	      <li class="genre mOrchestra mMetal mSymphonic"><a href="#" data-src="files/music/Максим Лихачёв - За Гранью Кристалла.mp3">За Гранью Кристалла</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - За Гранью Кристалла.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Свет Ветра.mp3">Свет Ветра</a>
+	      <li class="genre mOrchestra mSymphonic"><a href="#" data-src="files/music/Максим Лихачёв - Свет Ветра.mp3">Свет Ветра</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Свет Ветра.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Nevermore.mp3">Nevermore</a>
+	      <li class="genre mOrchestra mSymphonic mChoir"><a href="#" data-src="files/music/Максим Лихачёв - Nevermore.mp3">Nevermore</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Nevermore.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Три дня в Неаполе.mp3">Три дня в Неаполе</a>
+	      <li class="genre mOrchestra mNeoclassical mRock"><a href="#" data-src="files/music/Максим Лихачёв - Три дня в Неаполе.mp3">Три дня в Неаполе</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Три дня в Неаполе.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Terra Incognita.mp3">Terra Incognita</a>
+	      <li class="genre mOrchestra mSymphonic"><a href="#" data-src="files/music/Максим Лихачёв - Terra Incognita.mp3">Terra Incognita</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Terra Incognita.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Долина Мориона.mp3">Долина Мориона</a>
+	      <li class="genre mDoom mMetal mOrchestra"><a href="#" data-src="files/music/Максим Лихачёв - Долина Мориона.mp3">Долина Мориона</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Долина Мориона.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Нуар.mp3">Нуар</a>
+	      <li class="genre mPiano mNeoclassical"><a href="#" data-src="files/music/Максим Лихачёв - Нуар.mp3">Нуар</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Нуар.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - По следу.mp3">По следу</a>
+	      <li class="genre mRock mOrchestra"><a href="#" data-src="files/music/Максим Лихачёв - По следу.mp3">По следу</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - По следу.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Дочь Девяти Лун.mp3">Дочь Девяти Лун</a>
+	      <li class="genre mGuitar mFolk"><a href="#" data-src="files/music/Максим Лихачёв - Дочь Девяти Лун.mp3">Дочь Девяти Лун</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Дочь Девяти Лун.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - То, что оставил дождь.mp3">То, что оставил дождь</a>
+	      <li class="genre mMetal mGothic mDoom mSymphonic"><a href="#" data-src="files/music/Максим Лихачёв - То, что оставил дождь.mp3">То, что оставил дождь</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - То, что оставил дождь.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Всё будет не с нами.mp3">Всё будет не с нами</a>
+	      <li class="genre mPiano mNeoclassical mSymphonic"><a href="#" data-src="files/music/Максим Лихачёв - Всё будет не с нами.mp3">Всё будет не с нами</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Всё будет не с нами.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - В отражении Красной Луны.mp3">В отражении Красной Луны</a>
+	      <li class="genre mOrchestra mGothic mMetal mSymphonic"><a href="#" data-src="files/music/Максим Лихачёв - В отражении Красной Луны.mp3">В отражении Красной Луны</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - В отражении Красной Луны.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Утро, которое ночь.mp3">Утро, которое ночь</a>
+	      <li class="genre mJazz mRock"><a href="#" data-src="files/music/Максим Лихачёв - Утро, которое ночь.mp3">Утро, которое ночь</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Утро, которое ночь.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
               </li>
-	      <li><a href="#" data-src="files/music/Максим Лихачёв - Горький берег.mp3">Горький берег</a>
+	      <li class="genre mOrchestra mSymphonic mGothic mRock"><a href="#" data-src="files/music/Максим Лихачёв - Горький берег.mp3">Горький берег</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="files/music/Максим Лихачёв - Горький берег.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="icon-download-alt"></i></a>
 	        </span>
@@ -293,7 +327,42 @@
 	  <img title="Художник Султанова Г.В." alt="Художник Султанова Г.В." class="hidden-xs thumbnail" src="img/paintings/music.jpg" width="300px">
 
 	  <div class="text-center">
-	  <a href="https://yadi.sk/d/YkmOp1DndsGrw" class="btn btn-success btn-lg" role="button">Скачать всё</a>
+	    <div id="myCanvasContainer">
+              <canvas width="300" height="300" id="myCanvas"></canvas>
+            </div>
+
+	    <div id="tags">
+              <ul>
+                <!-- Okroshka -->
+                <li><a href="#" onclick="$('#tabs a:last').tab('show');">Noise</a></li>
+                <li><a href="#" onclick="$('#tabs a:last').tab('show');">Ambient</a></li>
+                <li><a href="#" onclick="$('#tabs a:last').tab('show');">Field recording</a></li>
+                <li><a href="#" onclick="$('#tabs a:last').tab('show');">Musique concrète</a></li>
+                <li><a href="#" onclick="$('#tabs a:last').tab('show');">Trip-Hop</a></li>
+                <li><a href="#" onclick="$('#tabs a:last').tab('show');">Abstract beats</a></li>
+                <li><a href="#" onclick="$('#tabs a:last').tab('show');">Glitch</a></li>
+                <li><a href="#" onclick="$('#tabs a:last').tab('show');">IDM</a></li>
+                <li><a href="#" onclick="$('#tabs a:last').tab('show');">Spoken word</a></li>
+
+                <li><a href="#" onclick='highlightGenre("mDarkwave");'>Darkwave</a></li>
+                <li><a href="#" onclick='highlightGenre("mDoom");'>Doom</a></li>
+                <li><a href="#" onclick='highlightGenre("mGothic");'>Gothic</a></li>
+                <li><a href="#" onclick='highlightGenre("mMetal");'>Metal</a></li>
+                <li><a href="#" onclick='highlightGenre("mRock");'>Rock</a></li>
+                <li><a href="#" onclick='highlightGenre("mSymphonic");'>Symphonic</a></li>
+                <li><a href="#" onclick='highlightGenre("mNeolcassical");'>Neoclassical</a></li>
+                <li><a href="#" onclick='highlightGenre("mFolk");'>Folk</a></li>
+                <li><a href="#" onclick='highlightGenre("mJazz");'>Jazz</a></li>
+                <li><a href="#" onclick='highlightGenre("mPiano");'>Piano</a></li>
+                <li><a href="#" onclick='highlightGenre("mGuitar");'>Guitar</a></li>
+                <li><a href="#" onclick='highlightGenre("mOrchestra");'>Orchestra</a></li>
+                <li><a href="#" onclick='highlightGenre("mChoir");'>Choir</a></li>
+              </ul>
+            </div>
+	  </div>
+
+	  <div class="text-center">
+	    <a href="https://yadi.sk/d/YkmOp1DndsGrw" class="btn btn-success btn-lg" role="button">Скачать всё</a>
 	  </div>
 
         </div>
@@ -305,7 +374,7 @@
           <br />
 	  <h3>2014 - Добродошли</h3>
 	  <p class="pull-right social-icon">
-	    <!-- <a href="http://last.fm/music/Максим+Лихачёв"><i class="icon-lastfm"></i></a> -->
+	    <a href="http://last.fm/music/Okroshka"><i class="icon-lastfm"></i></a>
 	    <a href="http://vk.com/kokokox"><i class="icon-vk"></i></a>
 	  </p>
 
