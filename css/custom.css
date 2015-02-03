@@ -46,7 +46,7 @@ h3 {
 }
 
 .footer {
-	padding-top: 19px;
+	padding-top: 10px;
 	color: #777;
 	border-top: 1px solid #e5e5e5;
 }
@@ -213,6 +213,34 @@ ol:not(.plain) li:not(.plain) a:not(.plain) {
 	/* padding: 0px 0px 0px 20px; */
 }
 
+.simple {
+	padding: 0px;
+	margin: 0px;
+	/* list-style: square outside; */
+	list-style: none;
+	color: #ccc;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	font-size: 0.9em;
+}
+
+.simple li {
+	position: relative;
+	margin: 0px;
+	margin-left: 3.3ex;
+	padding: 4px 2px 5px;
+}
+
+.simple ul li a {
+	display: run-in;
+	text-indent: 3.3ex;
+}
+
+.simple ul li a {
+	display: run-in;
+	text-indent: 3.3ex;
+}
+
 .tooltip-inner {
 	background-color: #B0C4DE;
 	border: 1px solid;
@@ -265,7 +293,7 @@ ol:not(.plain) li:not(.plain) a:not(.plain) {
 }
 
 .ribbon {
-	background-color: #a00;
+	background-color: #3CB371;
 	overflow: hidden;
 	white-space: nowrap;
 
@@ -286,7 +314,7 @@ ol:not(.plain) li:not(.plain) a:not(.plain) {
 }
 
 .ribbon a {
-	border: 1px solid #faa;
+	border: 1px solid #2E8B57;
 	color: #fff;
 	display: block;
 	font: bold 88.30% 'Helvetica Neue', Helvetica, Arial, sans-serif;
