@@ -60,5 +60,10 @@
 
 .shell-body pre {
 	margin: 0 0 0 0;
+	border: none;
+	background-color: transparent;
+	color: #45D40C;
+	font-size: 1.10em;
+	line-height: 0.1;
 }
 
