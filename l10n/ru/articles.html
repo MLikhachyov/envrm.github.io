@@ -18,6 +18,16 @@
     <link rel="stylesheet" href="../../css/fontello.css">
     <link rel="stylesheet" href="../../css/animation.css">
 
+    <link rel="stylesheet" href="../../css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap-image-gallery.min.css">
+
+    <style>
+      .tooltip-inner {
+	background-color: white;
+	border-color: grey;
+      }
+    </style>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -41,6 +51,41 @@
         <h3 class="text-muted">#!/usr/bin/env rm</h3>
       </div>
 
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
       <div class="row columns">
 
         <h3 class="text-center">Заметки и переводы</h3>
@@ -56,12 +101,21 @@
 
 	<br />
 
+        <!-- <span style="text-align: left;  float: right; "> -->
+        <p style="text-align: center;">
+          <a href="../../img/articles/trips/world_map.png" data-gallery>
+            <img id="tooltip1" data-toggle="tooltip" data-placement="bottom" title="Карта" src="../../ico/map.png">
+          </a>
+        </p>
+
+	<br />
+
 	<!-- <strong>2013 г.</strong> -->
 	<!-- <ul class="simple"> -->
 	  <!-- <li><a href="articles/trips/2014 - Balkans/report.html">07.12 - Карабаш</a></li> -->
 	<!-- </ul> -->
 
-	<br />
+	<!-- <br /> -->
 
 	<strong>2014 г.</strong>
 	<ul class="simple">
@@ -74,7 +128,7 @@
 	  <li><a href="articles/trips/2014.05.24 - Челябинская область.html">24.05 - Заброшенные храмы:</a> <a href="articles/trips/2014.05.24 - Челябинская область.html#1">Булзи</a> &rarr; <a href="articles/trips/2014.05.24 - Челябинская область.html#2">Багаряк</a> &rarr; <a href="articles/trips/2014.05.24 - Челябинская область.html#3">Огнёвское</a> &rarr; <a href="articles/trips/2014.05.24 - Челябинская область.html#4">Юшково</a></li>
 	  <!-- <li><a href="articles/trips/2014 - Balkans/report.html">31.05 - Уфа</a></li> -->
 	  <!-- <li><a href="articles/trips/2014 - Balkans/report.html">05.07 - Южноуральск &rarr; Верхняя Санарка</a></li> -->
-	  <!-- <li><a href="articles/trips/2014 - Balkans/report.html">27.07 - Таганай</a></li> -->
+	  <li><a href="articles/trips/2014.09.27 - Таганай.html">27.09 - Таганай</a></li>
 	  <li><a href="articles/trips/2014 - Балканы.html">17.08 - Балканы:</a> <a href="articles/trips/2014 - Балканы.html#serbia1">Сербия</a> &rarr; <a href="articles/trips/2014 - Балканы.html#bosnia">Босния и Герцеговина</a> &rarr; <a href="articles/trips/2014 - Балканы.html#montenegro">Черногория</a> &rarr; <a href="articles/trips/2014 - Балканы.html#serbia2">Сербия</a></li>
 	</ul>
 
@@ -175,6 +229,15 @@
 
     <script src="../../js/jquery-2.1.0.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
+
+    <script src="../../js/jquery.blueimp-gallery.min.js"></script>
+    <script src="../../js/bootstrap-image-gallery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("[data-toggle=tooltip]").tooltip();
+      }); 
+    </script>
 
   </body>
 </html>
