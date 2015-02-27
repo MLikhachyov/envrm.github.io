@@ -13,40 +13,40 @@
 
     <title>#!/usr/bin/env rm -- Заметки и переводы :: Основы Slackware Linux -- 26. BIND</title>
 
-    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../css/custom.css">
-    <link rel="stylesheet" href="../../../../css/fontello.css">
-    <link rel="stylesheet" href="../../../../css/animation.css">
+    <link rel="stylesheet" href="../../../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../../../css/animation.css">
 
-    <link rel="stylesheet" href="../../../../css/shell-wrap.css">
+    <link rel="stylesheet" href="../../../../../../css/shell-wrap.css">
 
-    <script type="text/javascript" src="../../../../js/SyntaxHighlighter/shCore.js"></script>
+    <script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shCore.js"></script>
 
-		<link href="../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="../../../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
 
-		<link href="../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
-		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
-		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
-		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
-		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
-		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
-		<!-- <link href="../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+		<link href="../../../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
 
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
-		<script type="text/javascript" src="../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
 
 <script type="text/javascript">
 			SyntaxHighlighter.defaults['toolbar'] = false;
@@ -65,7 +65,7 @@
     <div class="container">
       <div class="header">
         <ul class="nav navbar-nav pull-right">
-          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../../../index.html"><span class="icon-home"></span></a></li>
           <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
           <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
           <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
@@ -201,8 +201,8 @@ BIND при загрузке системы, сделайте исполнимы
 
     </div>
 
-    <script src="../../../../js/jquery-2.1.0.min.js"></script>
-    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../../../js/bootstrap.min.js"></script>
 
   </body>
 </html>
