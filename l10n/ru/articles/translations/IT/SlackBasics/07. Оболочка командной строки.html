@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Заметки и переводы :: Основы Slackware Linux -- 7. Оболочка командной строки</title>
+
+    <link rel="stylesheet" href="../../../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../../../../css/shell-wrap.css">
+
+    <script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                II. Основы Slackware Linux <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="00. Предисловие.html">Предисловие</a></li>
+              <li><a href="01. Об этой книге.html"><span>I.</span> Начало</a>
+              <li style="text-decoration: underline;"><a href="07. Оболочка командной строки.html"><span>II.</span> Основы Slackware Linux</a>
+              <li><a href="11. LaTeX.html"><span>III.</span> Набор и редактирование текста</a>
+              <li><a href="12. Чтение и отправка электронной почты с mutt.html"><span>IV.</span> Электронная почта</a>
+              <li><a href="14. Управление пользователями.html"><span>V.</span> Системное администрирование</a>
+              <li><a href="22. Настройка сети.html"><span>VI.</span> Сетевое администрирование</a>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                7. Оболочка командной строки <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li style="text-decoration: underline;"><a href="07. Оболочка командной строки.html">7. Оболочка командной строки</a></li>
+              <li><a href="08. Файлы и директории.html">8. Файлы и директории</a></li>
+              <li><a href="09. Работа с текстом.html">9. Работа с текстом</a></li>
+              <li><a href="10. Управление процессами.html">10. Управление процессами</a></li>
+            </ul>
+        </li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">7. Оболочка командной строки</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="1">7.1. Введение</h4>
+
+<p>В этой части мы рассмотрим традиционную рабочую среду UNIX-систем &#8211; оболочку
+командной строки (shell). Оболочка &#8211; это интерпретатор, который может
+использоваться как интерактивно, так и не интерактивно. Когда оболочка
+используется в неинтерактивном режиме, она функционирует как простой, но мощный
+язык сценариев.</p>
+
+<p>Процедура запуска оболочки зависит от того, какой способ регистрации в
+системе вы используете: графический или текстовый. Если вы входите в систему в
+текстовом режиме, оболочка запустится сразу после ввода (корректного) пароля.
+Если вы используете графический менеджер сеансов, такой как KDM, войдите в
+систему как обычно и найдите в меню вашего менеджера окон или окружения
+рабочего стола пункт под названием &laquo;XTerm&raquo;, &laquo;Terminal&raquo;
+или &laquo;Konsole&raquo;. XTerm - это эмулятор терминала, который при запуске
+открывает сеанс оболочки.</p>
+
+<p>Прежде чем двигаться дальше, мы должны предупредить вас, что Slackware Linux
+предоставляет более одной оболочки. Две из них самые популярные: Bourne shell и
+C shell. В этой части мы рассмотрим Bourne shell, соответствующую стандарту
+IEEE 1003.1. Bash (Bourne Again Shell) и ksh (Korn Shell) &#8211; оболочки, хорошо
+следующие стандарту. Таким образом, использование одной из этих оболочек -
+хорошая идея. Вы легко можете определить, какую оболочку запустила система,
+выполнив <strong>echo $SHELL</strong>. Пример того, что может ответить Born
+shell:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ echo $SHELL/bin/bash</li>
+    <li>/bin/bash</li>
+  </ul>
+</div>
+
+<p>Если вы используете другую оболочку, вы можете изменить оболоску по
+умолчанию. Прежде чем устанавливать другую оболочку, вы должны узнать полный
+путь до интерпретатора. Вы можете это сделать командой <strong>which</strong>.
+Например:</p>
+    
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ which bash</li>
+    <li>/bin/bash</li>
+    <li><br /></li> 
+    <li>$ which ksh</li>
+    <li>/bin/ksh</li>
+  </ul>
+</div>
+
+<p>На этой системе Slackware полный путь до bash &#8211;
+<code>/bin/bash</code>, а до ksh &#8211; <code>/bin/ksh</code>. С помощью этой
+информации и команды <strong>chsh</strong> вы можете изменить стандартную
+оболочку. Следующий пример установит оболочкой по умолчанию
+<strong>bash</strong>:</p>
+    
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ chsh -s /bin/bash</li>
+    <li>Changing shell for daniel</li>
+    <li>Password:</li>
+    <li>Shell changed.</li>
+  </ul>
+</div>
+
+<p>Новая оболочка будет активирована после выхода из текущего сеанса (с помощью
+команд <strong>logout</strong> или <strong>exit</strong>) или при запуске
+нового эмулятора терминала, если запущена система X11.</p>
+
+<br />
+
+<h4 id="2">7.2. Выполнение команд</h4>
+
+<p>В интерактивном сеансе оболочка используется для запуска программ с помощью
+выполнения команд. Существует два вида команд, которые может запустить
+оболочка:</p>
+
+<ul>
+  <li><strong>Встроенные команды</strong>: команды, интегрированные в оболочку.
+  Обычно используемые команды: <strong>cd</strong>, <strong>fg</strong>,
+  <strong>bg</strong> и <strong>jobs</strong>.</li>
+  
+  <li><strong>Внешние
+  команды</strong>: программы, которые не являются частью
+  командного процессора и хранятся отдельно в файловой системе. Некоторые
+  внешние команды: <strong>ls</strong>, <strong>cat</strong>,
+  <strong>rm</strong> и <strong>mkdir</strong>.</li>
+</ul>
+
+<p>Запуск всех команд оболочки имеет следующий синтаксис:</p>
+
+<p><strong>имя_команды [аргумент1 аргумент2 ... аргументN]</strong></p>
+
+<p>Число аргументов произвольно и они всегда следуют за командой. Команда может
+принять решение, что ей делать с аргументами.</p>
+
+<p>Все встроенные команды всегда могут быть исполнены, так как они являются
+частью оболочки. Внешние команды могут быть исполнены по имени, если команда
+находится в директориях поиска оболочки. В ином случае вы можете указать путь к
+программе. Путь поиска оболочки хранится в переменной окружения <var>PATH</var>.
+Переменная &#8211; это именованный участок памяти, содержимое которого может быть
+изменено. Мы можем увидеть содержимое переменной <var>PATH</var> следующим образом:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ echo $PATH</li>
+    <li>/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/daniel/bin</li>
+  </ul>
+</div>
+    
+<p>Директории поиска в переменной <var>PATH</var> разделяются с помощью символа
+двоеточия (:). Вы можете использовать эту команду, чтобы проверить, находится
+ли требуемая команда в текущем пути оболочки.</p>
+
+<p>Вы можете сделать это, передав имя команды which. Например:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ which pwd</li>
+    <li>/bin/pwd</li>
+  </ul>
+</div>
+ 
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ which sysstat</li>
+    <li>/usr/bin/which: no sysstat in</li>
+    <li>(/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/daniel/bin)</li>
+  </ul>
+</div>
+
+<p>Если программы нет по пути поиска, вы все равно можете выполнить ее, введя
+полный путь.</p>
+
+
+
+
+
+<br />
+
+<h4 id="4">7.4. История команд</h4>
+
+<p>Часто случается, что вы хотите выполнить команду, которую уже выполняли ранее.
+К счастью, вы не должны набирать всё заново. Вы можете просмотреть историю
+введённых команд с помощью клавиш вверх и вниз. Кроме того, доступен поиск по
+командам. Нажмите <kbd>Ctrl</kbd> + <kbd>r</kbd> и начните вводить команду,
+которую желаете выполнить.  Командная оболочка покажет первое найденное
+совпадение. Если это не та команда, которую вы ищете, то вы можете продолжить
+набирать команду (до тех пор, пока не встретится уникальный символ) или ещё раз
+нажать <kbd>Ctrl</kbd> + <kbd>r</kbd> для того, чтобы подставить следующее
+совпадение. После того, как вы нашли нужную команду, вы можете выполнить её,
+нажав <kbd>Enter</kbd>.</p>
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="06. Нестандартная установка.html">&larr; 6. Нестандартная установка</a></li>
+  <li class="next"><a href="08. Файлы и директории.html">8. Файлы и директории &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
