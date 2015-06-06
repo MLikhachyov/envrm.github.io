@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Создан:  Пт 27 фев 2015 14:00:57
-#Изменён: Пт 27 фев 2015 15:36:47
+#Изменён: Вс 07 июн 2015 03:53:01
 
 PREV="..\/poetry.html"
 
@@ -9,6 +9,8 @@ i=1
 
 for file in txt/*; {
 	filename=$(basename $file)
+
+	echo "# $filename"
 
 	PAGE=${filename/txt/html}
 
