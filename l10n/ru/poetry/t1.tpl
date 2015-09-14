@@ -59,6 +59,7 @@
         <li><a href="../../../index.html"><span class="icon-home"></span></a></li>
         <li><a href="../programming.html"><span class="icon-tools"></span></a></li>
         <li><a href="../music.html"><span class="icon-note-beamed"></span></a></li>
+        <li><a href="../travelling.html"><span class="icon-globe"></span></a></li>
         <li><a href="../articles.html"><span class="icon-book"></span></a></li>
         <li><a href="../about.html"><span class="icon-user"></span></a></li>
       </ul>
