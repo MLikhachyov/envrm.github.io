@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Заметки и переводы:: Конвертер алфавитов</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../css/animation.css">
+
+    <style>
+      .tooltip-inner {
+	background-color: white;
+	border-color: grey;
+	font-size: 10pt;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon"><a href="../../travelling.html"><span class="icon-globe"></span></a></li>
+          <li class="menu-icon active"><a href="../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="../../articles.html#r">Прочее</a></li>
+        <li class="active">Конвертер алфавитов</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">Конвертер алфавитов</h3>
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<div class="epigraph text-justify"></div>
+
+<p>Будучи в <a href="">Грузии</a>, я захотел научиться читать по-грузински.
+Времени на посещение этой удивительной страны мы отвели немного, поэтому не
+имело смысла изучать язык более, чем необходимо для приветствия, выражения
+благодарности и т.д., но знать их древнюю красивую письменность очень хотелось.
+Когда после нескольких дней чтения вывесок и встречающихся на пути надписей, я
+стал разбирать отдельные буквы, то понял, насколько много встречается
+интернациональных слов, таких как <em>аптека</em>, <em>полиция</em> или
+<em>интернет</em>. Тогда мне в голову пришла идея того, как этот факт можно
+использовать при изучении письменности (хочу отметить, что к изучению языка это
+не имеет никакого отношения).</p>
+
+<p>Возможно, идея не нова, но заключается она в следующем: нужно отобрать
+интернациональные слова, а потом последовательно переводить символы из одной
+графической системы в другую, чтобы в итоге получить слово,
+<em>закодированное</em> с помощью изучаемой азбуки.</p>
+
+<p>В связи с этим возникают следующие ограничения:
+<ul>
+  <li>Слова транслитерируются, а не переводятся, но разница между теми же
+  <em>policia</em>, <em>police</em> и <em>Polizei</em> минимальна, даже не зная
+  языка, можно понять, что эти слова означают.</li>
+  <li>Алфавит и звуковой строй разнятся от языка к языку, поэтому невозможно
+  установить тождество между символами. Например, в том же грузинском языке,
+  разные звуки, близкие к звуку [к], кодируются разными символами, но
+  реализация различения этого в программе слишком бы её усложнило. Но с помощью
+  этого нехитрого способа можно запомнить <em>большую часть</em> символов, а
+  потом уже изучить отличия.</li> </ul>
+</p>
+
+<p>Ниже представлен сценарий, с помощью которого можно преобразовывать азбуки.
+Правила заполнения просты:
+<ul>
+<li><strong>Алфавитом</strong> является строка символов, разделённых пробелами,
+составленная из соответствующих друг другу знаков обеих азбук.
+<br />Пример: <em>а a б b в w г g д d...</em>
+<br />Пользователь самостоятельно может указать интересующие его азбуки.</li>
+<li>Поле <strong>Исходный текст</strong> должно содержать слова, которые будут
+преобразованы. Рекомендуется использовать интернациональные слова, но можно
+использовать любые другие слова с целью распознования их транскрипции.</li>
+<li>В поле <strong>Результат</strong> будет выведен получившийся текст со
+словами, в которых последовательно преобразованы все буквы. Этот текст можно
+скопировать и использовать при изучении письменности.</li> </ul>
+</p>
+
+<p>
+<a href="Письменности.html?alfabet=а+α+я+α+б+β+г+γ+д+δ+е+ε+з+ζ+э+η+ф+θ+и+ί+к+κ+л+λ+м+м+н+н+кс+ξ+о+o+п+π+р+ρ+с+σ+т+τ+и+υ+ф+φ+х+χ+пс+ψ+о+ω&tFrom=интернет+президент+аптека+полиция+алгебра+физика+студент">Пример на основе греческой письменности</a>
+<br />
+<a href="Письменности.html?alfabet=а+ა+б+ბ+г+გ+дз+ძ+дж+ჯ+д+დ+е+ე+в+ვ+з+ზ+т+თ+и+ი+к+კ+л+ლ+м+მ+н+ნ+о+ო+п+პ+ж+ჟ+р+რ+с+ს+т+ტ+у+უ+п+ფ+к+ქ+г+ღ+к+ყ+ш+შ+ч+ჩ+ц+ც+ц+წ+ч+ჭ+х+ხ+х+ჰ&tFrom=интернет+президент+аптека+полиция+алгебра+физика+студент">Пример на основе грузинской письменности</a>
+</p>
+
+<br />
+
+	<form class="form-horizontal">
+<fieldset>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">Алфавит</label>
+  <div class="controls">
+    <textarea rows="2" class="form-control" style="resize:none"
+              placeholder="Массив символов вида что_менять на_что_менять" id="alfabet" name="alfabet" required
+              maxlength="999" data-toggle="tooltip" data-html="true"
+	      title="Массив символов вида <em>что_менять на_что_менять</em>">а α я α б β г γ д δ е ε з ζ э η ф θ и ί к κ л λ м м н н кс ξ о o п π р ρ с σ т τ и υ ф φ х χ пс ψ о ω</textarea>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="textarea">Исходный текст</label>
+  <div class="controls">
+    <textarea class="form-control" rows="6"
+              placeholder="Исходный текст для преобразования" id="tFrom" name="tFrom" required
+              maxlength="999" data-toggle="tooltip" data-html="true" title="Исходный текст для преобразования. Лучше использовать интернациональные слова.">интернет президент аптека полиция алгебра физика студент</textarea>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="textarea">Результат</label>
+  <div class="controls">
+    <textarea class="form-control" rows="6"
+              id="tTo" name="tTo" required
+              maxlength="999" data-toggle="tooltip" data-html="true" title="Результат"></textarea>
+  </div>
+</div>
+
+<br />
+
+<!-- Button -->
+<div class="controls text-center">
+  <button id="singlebutton" name="singlebutton" class="btn btn-primary" onClick="return generate();">Преобразовать</button>
+</div>
+
+</fieldset>
+</form>
+
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+
+    <script language="javascript" type="text/javascript">
+      function generate() {
+        alfabet = ($("#alfabet").val().trim()).split(" ");
+        s = ($("#tFrom").val().trim()).split(" ");
+        d = s.concat("\n");
+
+        for (var n = 0; n < alfabet.length; n = n+2) {
+	  s = s.map(function(str) { return str.replace(new RegExp(alfabet[n], "g"),alfabet[n+1]); });  
+	  d = d.concat(s,"\n");
+	}
+
+	$("#tTo").val(d.join(" "));
+
+	return false;
+      }
+
+function querySt(ji) {
+    hu = window.location.search.substring(1);
+    gy = hu.split("&");
+
+    for (i=0;i<gy.length;i++) {
+        ft = gy[i].split("=");
+        if (ft[0] == ji) {
+            return ft[1];
+        }
+    }
+}
+
+if (window.location.search.substring(1)) {
+	$("#alfabet").val(decodeURIComponent(querySt("alfabet").replace(/\+/g," ")));
+	$("#tFrom").val(decodeURIComponent(querySt("tFrom").replace(/\+/g," ")));
+}
+
+      $('textarea[name=alfabet]').tooltip({
+        placement: "right",
+        trigger: "focus"
+      });
+
+      $('textarea[name=tFrom]').tooltip({
+        placement: "right",
+        trigger: "focus"
+      });
+
+      //$('textarea[name=tTo]').tooltip({
+        //placement: "right",
+        //trigger: "focus"
+      //});
+    </script>
+
+  </body>
+</html>
+
