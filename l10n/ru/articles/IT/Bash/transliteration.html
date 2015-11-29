@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../../../../../css/fontello.css">
     <link rel="stylesheet" href="../../../../../css/animation.css">
 
-    <link rel="stylesheet" href="../../../../../css/shell-wrap.css">
+    <link rel="stylesheet" href="../../../../../css/jquery.shadow.css">
 
     <script type="text/javascript" src="../../../../../js/SyntaxHighlighter/shCore.js"></script>
 
@@ -51,6 +51,7 @@
           <li class="menu-icon"><a href="../../../programming.html"><span class="icon-tools"></span></a></li>
           <li class="menu-icon"><a href="../../../poetry.html"><span class="icon-feather"></span></a></li>
           <li class="menu-icon"><a href="../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon"><a href="../../../travelling.html"><span class="icon-globe"></span></a></li>
           <li class="menu-icon active"><a href="../../../articles.html"><span class="icon-book"></span></a></li>
           <li class="menu-icon"><a href="../../../about.html"><span class="icon-user"></span></a></li>
         </ul>
@@ -60,7 +61,7 @@
       <ol class="plain breadcrumb">
         <li><a href="../../../articles.html"><span class="icon-book"></span></a></li>
         <li><a href="../../../articles.html#it">Информационные технологии</a></li>
-        <li><a href="../../../articles.html#bash">Bash</a></li>
+        <li><a href="../../../articles.html#cli">CLI</a></li>
         <li class="active">Коррекция раскладки при вводе команд</li>
       </ol>
 
@@ -108,9 +109,9 @@ command_not_found_handle() {
 
 <p>Пример работы:</p>
 
-<div>
-<img class="img-thumbnail img-responsive" src="../../../../../img/articles/IT/Bash/transliteration.png">
-</div>
+  <div class="text-center">
+    <img class="shadow img-thumbnail img-responsive" width="400px" src="../../../../../img/articles/IT/Bash/transliteration.png">
+  </div>
 
         </div>
 
@@ -127,6 +128,12 @@ command_not_found_handle() {
 
     <script src="../../../../../js/jquery-2.1.0.min.js"></script>
     <script src="../../../../../js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../../../../../js/jquery.shadow.js"></script>
+
+    <script>
+      $('.shadow').shadow('raised');
+    </script>
 
   </body>
 </html>
