@@ -19,9 +19,19 @@
     <link rel="stylesheet" href="../../css/fontello.css">
     <link rel="stylesheet" href="../../css/animation.css">
 
+    <link rel="stylesheet" href="../../css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap-image-gallery.min.css">
+
     <script src="../../js/jquery-2.1.0.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/audiojs/audio.min.js"></script>
+
+    <link rel="stylesheet" href="../../css/jquery.shadow.css">
+
+    <script type="text/javascript" src="../../js/turntable/soundmanager2.js"></script>
+    <script src="../../js/turntable/turntable.js"></script>
+    <script src="../../js/turntable/turntable-app.js"></script>
+    <link rel="stylesheet" href="../../js/turntable/turntable.css" />
 
     <script src="../../js/jquery.tagcanvas.min.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -129,17 +139,42 @@
         <h3 class="text-muted">#!/usr/bin/env rm</h3>
       </div>
 
-      <div class="row columns">
-
-        <div class="pull-right" style="padding-right: 33px;">
-          <audio preload></audio>
-	    <!-- <div class="well"> -->
-              <!-- <h3>Управление:</h3> -->
-              <!-- <p><kbd>&rarr;</kbd> Следующий трек</p> -->
-              <!-- <p><kbd>&larr;</kbd> Предыдущий трек</p> -->
-              <!-- <p><kbd>Space</kbd> Старт/Пауза</p> -->
-	    <!-- </div> -->
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
+
+      <div class="row columns">
 
       <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#solo" data-toggle="tab">Музыка</a></li>
@@ -357,7 +392,17 @@
 	  <img title="Художник Султанова Г.В." alt="Художник Султанова Г.В." class="visible-xs thumbnail" src="../../img/paintings/music.jpg" width="250px">
 	  <img title="Художник Султанова Г.В." alt="Художник Султанова Г.В." class="hidden-xs thumbnail" src="../../img/paintings/music.jpg" width="300px">
 
-	  <div class="text-center">
+        <div style="padding-right: 33px;">
+          <audio preload></audio>
+	    <!-- <div class="well"> -->
+              <!-- <h3>Управление:</h3> -->
+              <!-- <p><kbd>&rarr;</kbd> Следующий трек</p> -->
+              <!-- <p><kbd>&larr;</kbd> Предыдущий трек</p> -->
+              <!-- <p><kbd>Space</kbd> Старт/Пауза</p> -->
+	    <!-- </div> -->
+        </div>
+
+	  <div class="text-left">
 	    <div id="myCanvasContainer">
               <canvas width="300" height="300" id="myCanvas"></canvas>
             </div>
@@ -401,151 +446,149 @@
       </div>
 
       <div class="tab-pane" id="okroshka">
-        <div class="col-lg-6">
-          <br />
-	  <h4><img src="../../ico/rs32.png"> 2014 - Добродошли</h4>
-	  <p class="pull-right social-icon">
-	    <a href="http://last.fm/music/Okroshka"><i class="icon-lastfm"></i></a>
-	    <a href="http://vk.com/kokokox"><i class="icon-vk"></i></a>
-	  </p>
 
-          <div id="wrapper">
-            <ol id="playlist">
-	      <li><a href="#" data-src="../../files/music/Okroshka/Okroshka - Добродошли.mp3">Добродошли</a>
-	        <span style="text-align: left;  float: right; ">
-	          <a href="../../files/music/Okroshka/Okroshka - Добродошли.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphicon-download-alt"></i></a>
-	        </span>
-	      </li>
-            </ol>
-            <br />
-          </div>
+<!-- start turntable: centered and scales up to a predetermined max-width (based on image size) -->
+<div class="col-lg-1"></div>
+<div class="col-lg-10">
+  <br />
+  <h2 class="text-center">Okroshka</h2>
+  <p class="text-center social-icon">
+    <a href="http://last.fm/music/Okroshka"><i class="icon-lastfm"></i></a>
+    <a href="http://vk.com/kokokox"><i class="icon-vk"></i></a>
+  </p>
+  <div style="position:relative;text-align:center">
+    <div id="turntable-large" class="turntable has-slipmat" style="display:inline-block">
+       <div class="frame"></div>
+       <div class="table-bg"></div>
+       <img src="../../js/turntable/image/tt_case_and_lighting.png" alt="" class="stub" />
+       <div class="bd">
+        <div class="platter"></div>
+        <div class="slipmat-holder">
+         <div class="slipmat"></div>
         </div>
-
-        <div class="col-lg-6">
-          <br />
-          <img class="visible-xs thumbnail" src="../../img/okroshka/dobrodosli.jpg" width="250px">
-          <img class="hidden-xs thumbnail" src="../../img/okroshka/dobrodosli.jpg" width="300px">
+        <div class="record-holder">
+         <div class="record"></div>
+         <div class="record-grooves"></div>
+         <div class="label"></div>
         </div>
-
-        <div class="col-lg-6">
-          <br />
-	  <h4><img src="../../ico/nl32.png"> 2015 - Mantra</h4>
-
-          <div id="wrapper">
-            <ol id="playlist">
-	      <li><a href="#" data-src="../../files/music/Okroshka/Okroshka - Mantra.mp3">Mantra</a>
-	        <span style="text-align: left;  float: right; ">
-	          <a href="../../files/music/Okroshka/Okroshka - Mantra.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphicon-download-alt"></i></a>
-	        </span>
-	      </li>
-            </ol>
-            <br />
-          </div>
+        <div class="spindle"></div>
+        <div class="power-light"></div>
+        <a href="#" class="power-dial" data-method="powerToggle"></a>
+        <a href="#" class="button start-stop" data-method="toggle"></a>
+        <a href="#" class="button speed-33 on"></a>
+        <a href="#" class="button speed-45"></a>
+        <div class="light light-on"></div>
+        <a href="#" class="button light"></a>
+        <div class="tonearm-holder">
+         <div class="tonearm"></div>
         </div>
+       </div>
+    </div>
+  </div>
+</div>
+<div class="col-lg-1"></div>
+<!-- end turntable -->
 
-        <div class="col-lg-6">
-          <br />
-          <img class="visible-xs thumbnail" src="../../img/okroshka/mantra.png" width="250px">
-          <img class="hidden-xs thumbnail" src="../../img/okroshka/mantra.png" width="300px">
-        </div>
+<div class="col-lg-12" style="text-align: center;">
+  <div class="col-lg-4">
+    <h5 class="text-center"><strong><a href="../../files/music/Okroshka/Okroshka - Добродошли.mp3" data-turntable="turntable-large" data-artwork="../../js/turntable/image/vinyl.jpg">Добродошли</a></strong></h5>
+    <a href="../../img/okroshka/dobrodosli.png" title="2014 &#8211; Добродошли" data-gallery>
+        <img src="../../img/okroshka/th/dobrodosli.png" alt="2014 &#8211; Добродошли" class="img-responsive shadow">
+    </a>
+    <h5 class="text-center"><img src="../../ico/rs32.png"> 2014 / <a href="../../files/music/Okroshka/Okroshka - Добродошли.mp3" title="Загрузить mp3">
+        <i style="color: #ccc;" class="glyphicon glyphicon-music"></i>
+      </a>
+    </h5>
+  </div>
+  <div class="col-lg-4">
+    <h5 class="text-center"><strong><a href="../../files/music/Okroshka/Okroshka - Mantra.mp3" data-turntable="turntable-large" data-artwork="../../js/turntable/image/vinyl.jpg">Mantra</a></strong></h5>
+    <a href="../../img/okroshka/mantra.png" title="2015 &#8211; Mantra" data-gallery>
+        <img src="../../img/okroshka/th/mantra.png" alt="2015 &#8211; Mantra" class="img-responsive shadow">
+    </a>
+    <h5><img src="../../ico/nl32.png"> 2014 /
+      <a href="../../files/music/Okroshka/Okroshka - Mantra.mp3" title="Загрузить mp3">
+        <i style="color: #ccc;" class="glyphicon glyphicon-music"></i>
+      </a>
+    </h5>
+  </div>
+  <div class="col-lg-4">
+    <h5 class="text-center"><strong><a href="../../files/music/Okroshka/Okroshka - Baklava.mp3" data-turntable="turntable-large" data-artwork="../../js/turntable/image/vinyl.jpg">Baklava</a></strong></h5>
+    <a href="../../img/okroshka/baklava.png" title="2015 &#8211; Baklava" data-gallery>
+        <img src="../../img/okroshka/th/baklava.png" alt="2015 &#8211; Baklava" class="img-responsive shadow">
+    </a>
+    <h5><img src="../../ico/tr32.png"> 2015 /
+      <a href="../../files/music/Okroshka/Okroshka - Baklava.mp3" title="Загрузить mp3">
+        <i style="color: #ccc;" class="glyphicon glyphicon-music"></i>
+      </a>
+    </h5>
+  </div>
+</div>
 
-        <div class="col-lg-6">
-          <br />
-	  <h4><img src="../../ico/tr32.png"> 2015 - Baklava</h4>
+<div class="col-lg-12" style="text-align: center;">
+  <div class="col-lg-4">
+    <h5 class="text-center"><strong><a href="../../files/music/Okroshka/Okroshka - საქართველო.mp3" data-turntable="turntable-large" data-artwork="../../js/turntable/image/vinyl.jpg">საქართველო</a></strong></h5>
+    <a href="../../img/okroshka/sakartvelo.png" title="2015 &#8211; საქართველო" data-gallery>
+        <img src="../../img/okroshka/th/sakartvelo.png" alt="2015 &#8211; საქართველო" class="img-responsive shadow">
+    </a>
+    <h5><img src="../../ico/ge32.png"> 2015 /
+      <a href="../../files/music/Okroshka/Okroshka - საქართველო.mp3" title="Загрузить mp3">
+        <i style="color: #ccc;" class="glyphicon glyphicon-music"></i>
+      </a>
+    </h5>
+  </div>
+  <div class="col-lg-4">
+    <h5 class="text-center"><strong><a href="../../files/music/Okroshka/Okroshka - Чукча-Му.mp3" data-turntable="turntable-large" data-artwork="../../js/turntable/image/vinyl.jpg">Чукча-Му</a></strong></h5>
+    <a href="../../img/okroshka/chukchamu.png" title="2015 &#8211; Чукча-Му" data-gallery>
+        <img src="../../img/okroshka/th/chukchamu.png" alt="2015 &#8211; Чукча-Му" class="img-responsive shadow">
+    </a>
+    <h5><img src="../../ico/mn32.png"> 2015 /
+      <a href="../../files/music/Okroshka/Okroshka - Чукча-Му.mp3" title="Загрузить mp3">
+        <i style="color: #ccc;" class="glyphicon glyphicon-music"></i>
+      </a>
+    </h5>
+  </div>
+  <div class="col-lg-4">
+    <h5 class="text-center"><strong><a href="../../files/music/Okroshka/Okroshka - Valle de los Caídos.mp3" data-turntable="turntable-large" data-artwork="../../js/turntable/image/vinyl.jpg">Valle de los Caídos</a></strong></h5>
+    <a href="../../img/okroshka/valle_de_los_caidos.png" title="2015 &#8211; Valle de los Caídos" data-gallery>
+        <img src="../../img/okroshka/th/valle_de_los_caidos.png" alt="2015 &#8211; Valle de los Caídos" class="img-responsive shadow">
+    </a>
+    <h5><img src="../../ico/es32.png"> 2015 /
+      <a href="../../files/music/Okroshka/Okroshka - Valle de los Caídos.mp3" title="Загрузить mp3">
+        <i style="color: #ccc;" class="glyphicon glyphicon-music"></i>
+      </a>
+    </h5>
+  </div>
+</div>
 
-          <div id="wrapper">
-            <ol id="playlist">
-	      <li><a href="#" data-src="../../files/music/Okroshka/Okroshka - Baklava.mp3">Baklava</a>
-	        <span style="text-align: left;  float: right; ">
-	          <a href="../../files/music/Okroshka/Okroshka - Baklava.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphicon-download-alt"></i></a>
-	        </span>
-	      </li>
-            </ol>
-            <br />
-          </div>
-        </div>
+<br />
+<br />
 
-        <div class="col-lg-6">
-          <br />
-          <img class="visible-xs thumbnail" src="../../img/okroshka/baklava.png" width="250px">
-          <img class="hidden-xs thumbnail" src="../../img/okroshka/baklava.png" width="300px">
-        </div>
 
-        <div class="col-lg-6">
-          <br />
-	  <h4><img src="../../ico/ge32.png"> 2015 - საქართველო</h4>
 
-          <div id="wrapper">
-            <ol id="playlist">
-	      <li><a href="#" data-src="../../files/music/Okroshka/Okroshka - საქართველო.mp3">საქართველო</a>
-	        <span style="text-align: left;  float: right; ">
-	          <a href="../../files/music/Okroshka/Okroshka - საქართველო.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphicon-download-alt"></i></a>
-	        </span>
-	      </li>
-            </ol>
-            <br />
-          </div>
-        </div>
+  </div>
 
-        <div class="col-lg-6">
-          <br />
-          <img class="visible-xs thumbnail" src="../../img/okroshka/sakartvelo.png" width="250px">
-          <img class="hidden-xs thumbnail" src="../../img/okroshka/sakartvelo.png" width="300px">
-        </div>
-
-        <div class="col-lg-6">
-          <br />
-	  <h4><img src="../../ico/mn32.png"> 2015 - Чукча-Му</h4>
-
-          <div id="wrapper">
-            <ol id="playlist">
-	      <li><a href="#" data-src="../../files/music/Okroshka/Okroshka - Чукча-Му.mp3">Чукча-Му</a>
-	        <span style="text-align: left;  float: right; ">
-	          <a href="../../files/music/Okroshka/Okroshka - Чукча-Му.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphicon-download-alt"></i></a>
-	        </span>
-	      </li>
-            </ol>
-            <br />
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <br />
-          <img class="visible-xs thumbnail" src="../../img/okroshka/chukchamu.png" width="250px">
-          <img class="hidden-xs thumbnail" src="../../img/okroshka/chukchamu.png" width="300px">
-        </div>
-
-        <div class="col-lg-6">
-          <br />
-	  <h4><img src="../../ico/es32.png"> 2015 - Valle de los Caídos</h4>
-
-          <div id="wrapper">
-            <ol id="playlist">
-	      <li><a href="#" data-src="../../files/music/Okroshka/Okroshka - Valle de los Caídos.mp3">Valle de los Caídos</a>
-	        <span style="text-align: left;  float: right; ">
-	          <a href="../../files/music/Okroshka/Okroshka - Valle de los Caídos.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphicon-download-alt"></i></a>
-	        </span>
-	      </li>
-            </ol>
-            <br />
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <br />
-          <img class="visible-xs thumbnail" src="../../img/okroshka/valle_de_los_caidos.png" width="250px">
-          <img class="hidden-xs thumbnail" src="../../img/okroshka/valle_de_los_caidos.png" width="300px">
-        </div>
-
-      </div>
 
         </div>
       </div>
+
+
 
       <div class="footer">
       </div>
 
     </div>
+
+    <script src="../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+
+    <script src="../../js/jquery.blueimp-gallery.min.js"></script>
+    <script src="../../js/bootstrap-image-gallery.min.js"></script>
+
+    <script type="text/javascript" src="../../js/jquery.shadow.js"></script>
+
+    <script>
+      $('.shadow').shadow('raised');
+    </script>
 
   </body>
 
