@@ -18,16 +18,9 @@
     <link rel="stylesheet" href="../../css/fontello.css">
     <link rel="stylesheet" href="../../css/animation.css">
 
-  <script type="text/javascript" src="../../js/jquery-1.2.6.min.js"></script>
-  <script type="text/javascript" src="../../js/jquery.jflip-0.4.js"></script>
-  <script type="text/javascript">
-  (function($){    
-      $(function(){    
-        $("#g1").jFlip(300,449,{background:"white",cornersTop:false}).
-        flip.jflip;
-      });
-  })(jQuery);
-  </script>
+    <link rel="stylesheet" href="../../js/bookblock/css/bookblock.css">
+
+    <script src="../../js/bookblock/js/modernizr.custom.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -56,65 +49,9 @@
       <div class="row columns">
         <div class="col-lg-6">
 
-<div class="hidden-xs thumbnail" style="padding-left: 8px; padding-top: 8px;">
-  <ul id="g1">
-    <li><img src="../../img/book/title.jpg" /></li>
-    <li><img src="../../img/book/page_01.jpg" /></li>
-    <li><img src="../../img/book/page_02.jpg" /></li>
-    <li><img src="../../img/book/page_03.jpg" /></li>
-    <li><img src="../../img/book/page_04.jpg" /></li>
-    <li><img src="../../img/book/page_05.jpg" /></li>
-    <li><img src="../../img/book/page_06.jpg" /></li>
-    <li><img src="../../img/book/page_07.jpg" /></li>
-    <li><img src="../../img/book/page_08.jpg" /></li>
-    <li><img src="../../img/book/page_09.jpg" /></li>
-    <li><img src="../../img/book/page_10.jpg" /></li>
-    <li><img src="../../img/book/page_11.jpg" /></li>
-    <li><img src="../../img/book/page_12.jpg" /></li>
-    <li><img src="../../img/book/page_13.jpg" /></li>
-    <li><img src="../../img/book/page_14.jpg" /></li>
-    <li><img src="../../img/book/page_15.jpg" /></li>
-    <li><img src="../../img/book/page_16.jpg" /></li>
-    <li><img src="../../img/book/page_17.jpg" /></li>
-    <li><img src="../../img/book/page_18.jpg" /></li>
-    <li><img src="../../img/book/page_19.jpg" /></li>
-    <li><img src="../../img/book/page_20.jpg" /></li>
-    <li><img src="../../img/book/page_21.jpg" /></li>
-    <li><img src="../../img/book/page_22.jpg" /></li>
-    <li><img src="../../img/book/page_23.jpg" /></li>
-    <li><img src="../../img/book/page_24.jpg" /></li>
-    <li><img src="../../img/book/page_25.jpg" /></li>
-    <li><img src="../../img/book/page_26.jpg" /></li>
-    <li><img src="../../img/book/page_27.jpg" /></li>
-    <li><img src="../../img/book/page_28.jpg" /></li>
-    <li><img src="../../img/book/page_29.jpg" /></li>
-    <li><img src="../../img/book/page_30.jpg" /></li>
-    <li><img src="../../img/book/page_31.jpg" /></li>
-    <li><img src="../../img/book/page_32.jpg" /></li>
-    <li><img src="../../img/book/page_33.jpg" /></li>
-    <li><img src="../../img/book/page_34.jpg" /></li>
-    <li><img src="../../img/book/page_35.jpg" /></li>
-    <li><img src="../../img/book/page_36.jpg" /></li>
-    <li><img src="../../img/book/page_37.jpg" /></li>
-    <li><img src="../../img/book/page_38.jpg" /></li>
-    <li><img src="../../img/book/page_39.jpg" /></li>
-    <li><img src="../../img/book/page_40.jpg" /></li>
-    <li><img src="../../img/book/page_41.jpg" /></li>
-    <li><img src="../../img/book/page_42.jpg" /></li>
-    <li><img src="../../img/book/page_43.jpg" /></li>
-    <li><img src="../../img/book/page_44.jpg" /></li>
-    <li><img src="../../img/book/page_45.jpg" /></li>
-    <li><img src="../../img/book/page_46.jpg" /></li>
-    <li><img src="../../img/book/page_47.jpg" /></li>
-    <li><img src="../../img/book/page_48.jpg" /></li>
-    <li><img src="../../img/book/page_49.jpg" /></li>
-    <li><img src="../../img/book/page_50.jpg" /></li>
-    <li><img src="../../img/book/page_51.jpg" /></li>
-    <li><img src="../../img/book/page_52.jpg" /></li>
-  </ul>
-</div>
-
-          <img class="visible-xs thumbnail" src="../../img/paintings/book.png" width="250px">
+          <a href="#" data-toggle="modal" data-target="#Book">
+            <img class="thumbnail" style="padding: 8px;" src="../../img/book/original/title.png" width="320px">
+          </a>
 
           <blockquote>
             <p><strong>Максим Лихачёв. Ъ. – 2014 – М.:<br />М. Лихачёв, 2014. – 52 с.</strong></p>
@@ -127,7 +64,149 @@
             Л651</p>
           </blockquote>
 
-          <a href="../../files/book/Лихачёв М. - Ъ, 2014.pdf" class="btn btn-success btn-lg" role="button">Скачать PDF</a>
+<div class="text-center">
+<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#Book">Пролистать</button>
+<a href="../../files/book/Лихачёв М. - Ъ, 2014.pdf" class="btn btn-success btn-lg" role="button">Скачать PDF</a>
+</div>
+
+<!-- Modal -->
+<div id="Book" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Максим Лихачёв, &laquo;Ъ&raquo;</h4>
+      </div>
+      <div class="modal-body">
+		<div class="bb-custom-wrapper">
+			<div id="bb-bookblock1" class="bb-bookblock bb-book1">
+				<div class="bb-item"><img src="../../img/book/original/01.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/02.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/03.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/04.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/05.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/06.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/07.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/08.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/09.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/10.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/11.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/12.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/13.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/14.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/15.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/16.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/17.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/18.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/19.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/20.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/21.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/22.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/23.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/24.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/25.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/26.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/27.jpg"/></div>
+				<div class="bb-item"><img src="../../img/book/original/28.jpg"/></div>
+			</div>
+		<nav>
+			<a id="bb-nav-first1" href="#" class="bb-custom-icon bb-custom-icon-first">В начало</a>
+			<a id="bb-nav-prev1" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Назад</a>
+			<a id="bb-nav-next1" href="#" class="bb-custom-icon bb-custom-icon-arrow-right">Вперёд</a>
+			<a id="bb-nav-last1" href="#" class="bb-custom-icon bb-custom-icon-last">В конец</a>
+		</nav>
+	</div>
+      </div>
+      <!-- <div class="modal-footer"> -->
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button> -->
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+
+	  <br />
+	  <hr />
+
+	  <!-- ########## -->
+
+          <a href="#" data-toggle="modal" data-target="#HandmadeBook">
+            <img class="thumbnail" style="padding: 8px;" src="../../img/book/handmade/title.png" width="320px">
+          </a>
+
+          <blockquote>
+            <p><strong>Максим Лихачёв. Ъ. – 2015, 55 с.</strong></p>
+
+	    <p>Сборник создан для участия в проекте
+	    <a href="http://www.fapmc.ru/rospechat/newsandevents/events/exhibitions/2015/10/event5.html">
+	    «Ручная работа»</a>, организованном
+	    Государственным литературным музеем.<br />
+	    <br />
+	    Идея и изготовление: Полина Лихачёва.<br />
+	    Иллюстрации: Галия Султанова.<br />
+          </blockquote>
+
+<div class="text-center">
+  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#HandmadeBook">Пролистать</button>
+  <a href="../../files/book/Лихачёв М. - Ъ. Ручная работа, 2015.pdf" class="btn btn-success btn-lg" role="button">Скачать PDF</a>
+</div>
+
+<!-- Modal -->
+<div id="HandmadeBook" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Максим Лихачёв, &laquo;Ъ. Ручная работа&raquo;</h4>
+      </div>
+      <div class="modal-body">
+		<div class="bb-custom-wrapper">
+			<div id="bb-bookblock2" class="bb-bookblock bb-book2">
+				<div class="bb-item"><img src="../../img/book/handmade/01.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/02.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/03.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/04.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/05.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/06.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/07.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/08.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/09.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/10.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/11.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/12.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/13.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/14.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/15.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/16.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/17.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/18.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/19.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/20.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/21.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/22.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/23.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/24.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/25.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/26.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/27.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/28.png"/></div>
+				<div class="bb-item"><img src="../../img/book/handmade/29.png"/></div>
+			</div>
+		<nav>
+			<a id="bb-nav-first2" href="#" class="bb-custom-icon bb-custom-icon-first">В начало</a>
+			<a id="bb-nav-prev2" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Назад</a>
+			<a id="bb-nav-next2" href="#" class="bb-custom-icon bb-custom-icon-arrow-right">Вперёд</a>
+			<a id="bb-nav-last2" href="#" class="bb-custom-icon bb-custom-icon-last">В конец</a>
+		</nav>
+	</div>
+      </div>
+      <!-- <div class="modal-footer"> -->
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button> -->
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
 
 
         </div>
@@ -236,6 +315,131 @@
 
     <script src="../../js/jquery-2.1.0.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/bookblock/js/jquery.bookblock.min.js"></script>
+
+		<script>
+			var Book1 = (function() {
+				
+				var config1 = {
+						$bookBlock : $( '#bb-bookblock1' ),
+						$navNext : $( '#bb-nav-next1' ),
+						$navPrev : $( '#bb-nav-prev1' ),
+						$navFirst : $( '#bb-nav-first1' ),
+						$navLast : $( '#bb-nav-last1' )
+					},
+					init = function() {
+						config1.$bookBlock.bookblock( {
+							speed : 800,
+							shadowSides : 0.8,
+							shadowFlip : 0.7
+						} );
+						initEvents();
+					},
+					initEvents = function() {
+						
+						var $slides = config1.$bookBlock.children();
+
+						// add navigation events
+						config1.$navNext.on( 'click touchstart', function() {
+							config1.$bookBlock.bookblock( 'next' );
+							return false;
+						} );
+
+						config1.$navPrev.on( 'click touchstart', function() {
+							config1.$bookBlock.bookblock( 'prev' );
+							return false;
+						} );
+
+						config1.$navFirst.on( 'click touchstart', function() {
+							config1.$bookBlock.bookblock( 'first' );
+							return false;
+						} );
+
+						config1.$navLast.on( 'click touchstart', function() {
+							config1.$bookBlock.bookblock( 'last' );
+							return false;
+						} );
+						
+						// add swipe events
+						$slides.on( {
+							'swipeleft' : function( event ) {
+								config1.$bookBlock.bookblock( 'next' );
+								return false;
+							},
+							'swiperight' : function( event ) {
+								config1.$bookBlock.bookblock( 'prev' );
+								return false;
+							}
+						} );
+					};
+
+					return { init : init };
+
+			})();
+
+			var Book2 = (function() {
+				
+				var config2 = {
+						$bookBlock : $( '#bb-bookblock2' ),
+						$navNext : $( '#bb-nav-next2' ),
+						$navPrev : $( '#bb-nav-prev2' ),
+						$navFirst : $( '#bb-nav-first2' ),
+						$navLast : $( '#bb-nav-last2' )
+					},
+					init = function() {
+						config2.$bookBlock.bookblock( {
+							speed : 800,
+							shadowSides : 0.8,
+							shadowFlip : 0.7
+						} );
+						initEvents();
+					},
+					initEvents = function() {
+						
+						var $slides = config2.$bookBlock.children();
+
+						// add navigation events
+						config2.$navNext.on( 'click touchstart', function() {
+							config2.$bookBlock.bookblock( 'next' );
+							return false;
+						} );
+
+						config2.$navPrev.on( 'click touchstart', function() {
+							config2.$bookBlock.bookblock( 'prev' );
+							return false;
+						} );
+
+						config2.$navFirst.on( 'click touchstart', function() {
+							config2.$bookBlock.bookblock( 'first' );
+							return false;
+						} );
+
+						config2.$navLast.on( 'click touchstart', function() {
+							config2.$bookBlock.bookblock( 'last' );
+							return false;
+						} );
+						
+						// add swipe events
+						$slides.on( {
+							'swipeleft' : function( event ) {
+								config2.$bookBlock.bookblock( 'next' );
+								return false;
+							},
+							'swiperight' : function( event ) {
+								config2.$bookBlock.bookblock( 'prev' );
+								return false;
+							}
+						} );
+					};
+
+					return { init : init };
+
+			})();
+		</script>
+<script>
+Book1.init();
+Book2.init();
+</script>
 
   </body>
 </html>
