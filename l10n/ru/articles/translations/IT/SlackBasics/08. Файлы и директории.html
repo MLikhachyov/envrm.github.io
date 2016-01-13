@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Заметки и переводы :: Основы Slackware Linux -- 8. Файлы и директории</title>
+
+    <link rel="stylesheet" href="../../../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../../../../css/shell-wrap.css">
+
+    <script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeDjango.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeEmacs.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeFadeToGrey.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeMDUltra.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeMidnight.css" rel="stylesheet" type="text/css" /> -->
+		<!-- <link href="../../../../../../css/SyntaxHighlighter/shThemeRDark.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushScheme.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushTcl_simple.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushErlang.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushLatex.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushHaskell.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushProlog.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushDiff.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushBat.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+		<script type="text/javascript" src="../../../../../../js/SyntaxHighlighter/shBrushCss.js"></script>
+
+<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon active"><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="index.html">Основы Slackware Linux</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                II. Основы Slackware Linux <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="00. Предисловие.html">Предисловие</a></li>
+              <li><a href="01. Об этой книге.html"><span>I.</span> Начало</a>
+              <li style="text-decoration: underline;"><a href="08. Файлы и директории.html"><span>II.</span> Основы Slackware Linux</a>
+              <li><a href="11. LaTeX.html"><span>III.</span> Набор и редактирование текста</a>
+              <li><a href="12. Чтение и отправка электронной почты с mutt.html"><span>IV.</span> Электронная почта</a>
+              <li><a href="14. Управление пользователями.html"><span>V.</span> Системное администрирование</a>
+              <li><a href="22. Настройка сети.html"><span>VI.</span> Сетевое администрирование</a>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                8. Файлы и директории <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="07. Оболочка командной строки.html">7. Оболочка командной строки</a></li>
+              <li style="text-decoration: underline;"><a href="08. Файлы и директории.html">8. Файлы и директории</a></li>
+              <li><a href="09. Работа с текстом.html">9. Работа с текстом</a></li>
+              <li><a href="10. Управление процессами.html">10. Управление процессами</a></li>
+            </ul>
+        </li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">8. Файлы и директории</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+<h4 id="3">8.3. Работа с директориями</h4>
+
+<p>Мы кратко рассмотрели вопрос функционирования системы директорий в секции 8.1.1,
+сейчас же мы обратимся к некоторым командам для манипуляции с директориями.</p>
+
+<h5>8.3.1. Просмотр директорий</h5>
+
+<p>Команда <strong>ls</strong>, с которой мы уже знакомы по разделу 8.2.1, так
+же может быть использована для просмотра директорий. Как мы знаем, по умолчанию
+<strong>ls</strong> выводит файлы и директории, которые можно идетифицировать в расширенном
+("long") режиме
+вывода <strong>ls</strong>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ ls -l</li>
+    <li>total 36</li>
+    <li>-rw-rw-r--  1 daniel daniel 12235 Sep  4 15:56 dns.txt</li>
+    <li>-rw-rw-r--  1 daniel daniel  7295 Sep  4 15:56 network-hosts.txt</li>
+    <li>drwxrwxr-x  2 daniel daniel  4096 Sep  4 15:55 papers</li>
+  </ul>
+</div>
+      
+<p>Если указано имя директории или же шаблон подстановки, <strong>ls</strong> выведет содержимое
+этой директории или всех директорий, имена которых совпадают с шаблоном.
+Например, если существует директория papers, команда <strong>ls paper*</strong> выведет
+содержимое этой директории. Это может обескуражить, если вам требуется всего
+лишь вывести список директорий, а не их содержимое. Флаг <var>-d</var> позволит вам это
+сделать:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ ls -ld paper*</li>
+    <li>drwxrwxr-x  2 daniel daniel  4096 Sep  4 15:55 papers</li>
+  </ul>
+</div>
+      
+<p>Вы так же можете вывести содержимое всех директорий и поддиректорий рекурсивно,
+указав параметр <var>-R</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ ls -R</li>
+    <li>.:</li>
+    <li>dns.txt  network-hosts.txt  papers</li>
+    <br />
+    <li>./papers:</li>
+    <li>cs  phil</li>
+    <br />
+    <li>./papers/cs:</li>
+    <li>entr.pdf</li>
+    <br />
+    <li>./papers/phil:</li>
+    <li>logics.pdf</li>
+  </ul>
+</div>
+      
+<h5>8.3.2. Создание и удаление директорий</h5>
+
+<p>В UNIX есть команда <strong>mkdir</strong>, используемая для создания директорий. Если указан
+относительный путь, то директория будет создана в текущей директории. Базовый
+синтаксис команды очень прост: <var>mkdir &lt;name&gt;</var>. Например:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ mkdir mydir</li>
+  </ul>
+</div>
+      
+<p>По умолчанию, <strong>mkdir</strong> создаёт одну директорию. Так, если вы
+решите создать директории <code>mydir/mysubdir</code>, <strong>mkdir</strong>
+выдаст ошибку, если директория <code>mydir</code> ещё не существует. Но если вы
+всё же хотите создать обе директории одной командой, то вам нужно указать
+параметр <var>-p</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+<li>$ mkdir -p mydir/mysubdir</li>
+  </ul>
+</div>
+      
+<p>Команда <strong>rmdir</strong> удаляет директории. Её поведение сходно с
+поведением команды <strong>mkdir</strong>. Команда <strong>rmdir
+mydir/mysubdir</strong> удалит только директорию <code>mysubdir</code>, тогда
+как команда <strong>rmdir -p mydir/mysubdir</strong> удалит сначала
+<code>mydir/mysubdir</code>, а затем и <code>mydir</code>.</p>
+
+<p>Если в директории, которую вы удаляете, есть записи, то выполнение
+<strong>rmdir</strong> остановится. В случае, если вам нужно удалить директорию
+со всем содержимым, то используйте команду <strong>rm</strong>.</p>
+
+<br />
+<ul class="pager">
+  <li class="previous"><a href="07. Оболочка командной строки.html">&larr; 7. Оболочка командной строки</a></li>
+  <li class="next"><a href="09. Работа с текстом.html">9. Работа с текстом &rarr;</a></li>
+</ul>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../../../js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
