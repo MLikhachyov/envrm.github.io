@@ -7,12 +7,11 @@
 .icon-user:before { content: '\e805'; } /* '' */
 .icon-feather:before { content: '\e806'; } /* '' */
 .icon-android:before { content: '\e807'; } /* '' */
-.icon-vk:before { content: '\e808'; } /* '' */
 .icon-windows:before { content: '\e809'; } /* '' */
 .icon-email:before { content: '\e80a'; } /* '' */
 .icon-github:before { content: '\e80b'; } /* '' */
 .icon-github-circled:before { content: '\e80c'; } /* '' */
-.icon-lastfm:before { content: '\e80d'; } /* '' */
+.icon-vk:before { content: '\e80d'; } /* '' */
 .icon-tools:before { content: '\e80e'; } /* '' */
 .icon-doc-inv:before { content: '\e80f'; } /* '' */
 .icon-book:before { content: '\e810'; } /* '' */
@@ -23,3 +22,4 @@
 .icon-file-pdf:before { content: '\e815'; } /* '' */
 .icon-globe:before { content: '\e816'; } /* '' */
 .icon-bandcamp:before { content: '\e817'; } /* '' */
+.icon-lastfm:before { content: '\e818'; } /* '' */
