@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal page">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Заметки и переводы :: Vim -- Расширения</title>
+
+    <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../../../css/shell-wrap.css">
+
+    <link rel="stylesheet" href="../../../../../css/jquery.shadow.css">
+
+    <script type="text/javascript" src="../../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="../../../../../js/SyntaxHighlighter/shBrushVim.js"></script>
+		<script type="text/javascript" src="../../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+
+                <script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon"><a href="../../../travelling.html"><span class="icon-globe"></span></a></li>
+          <li class="menu-icon active"><a href="../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="../../../articles.html#it">Информационные технологии</a></li>
+        <li><a href="../../../articles.html#cli">CLI</a></li>
+        <li class="active">Расширения Vim</li>
+      </ol>
+
+      <div class="row columns">
+
+        <h3 class="text-center">Расширения Vim</h3>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+        <div class="epigraph text-justify"></div>
+
+<p>Vim многогранен и удивителен. Кривая обучения работе в этом редакторе &#8211;
+притча во языцех, но если заставить себя выучить основные мнемокоманды, то набор
+текста, будь это программный код, заметка или документ LaTeX, становится лёгким
+как никогда. Говорят, что курсор следует за взглядом вимера, и это почти правда.
+Vim &#8211; не &laquo;операционная система со встроенным текстовым
+редактором&raquo;, но он очень расширяем, хоть и язык сценариев &#8211; VimL
+&#8211; не лучший пример языков программирования. Каждый день на официальном
+сайте <a href="http://www.vim.org">http://www.vim.org</a> появляются новые
+расширения. Я долгое время работаю в Vim, и из многих сотен испробованных
+дополнений отобрал лучшие (естественно, на моё усмотрение и сугубо для моих
+целей).</p>
+
+<p>Тонкую настройку Vim и всех перечисленных расширений можно найти в
+репозитории на <a href="https://github.com/envrm/shellrc/tree/master/etc/soft/vim">github</a>,
+здесь же я только перечислю то, чем пользуюсь сам.</p>
+
+  <br />
+
+<div>
+	<hr />
+
+    <br />
+
+    <p><strong>1. <a href="http://www.vim.org/scripts/script.php?script_id=2332">Pathogen</a> </strong>
+    блегчает установку расширений. Не использую Vundle и прочие подобные
+    расширения, т.к. не вижу смысла в функции автоматического обновления и
+    управления расширениями из Vim (вместо файлового менеджера).</p>
+
+    <p><strong>2. <a href="http://www.vim.org/scripts/script.php?script_id=4661">Vim-Airline</a> </strong>
+    &#8211; &laquo;продвинутая&raquo; строка состояния. Использую старую версию,
+    т.к. мне не нужна интеграция с другими расширениями.</p>
+
+    <p><strong>3. <a href="http://www.vim.org/scripts/script.php?script_id=2790">Cmdline-increment</a></strong>
+    &#8211; инкремент/декремент чисел в командной строке с помощью стандартных
+    комбинаций клавиш: <kbd>Ctrl</kbd> + <kbd>a</kbd> и <kbd>Ctrl</kbd> +
+    <kbd>x</kbd>. Особенно полезно для записи макросов.</p>
+
+    <p><strong>4. <a href="http://www.vim.org/scripts/script.php?script_id=2120">Speeddating</a></strong>
+    &#8211; тоже инкремент, но это расширение работает уже с датами и временем в разных форматах.</p>
+
+    <p><strong>5. <a href="http://www.vim.org/scripts/script.php?script_id=2431">Comment Toggle</a></strong>
+    &#8211; комментирование строк. Лучший плагин из всех опробованных.
+    Поддерживает множество языков программирования, добавить новые тоже не
+    доставляет труда.</p>
+
+    <p><strong>6. <a href="http://www.vim.org/scripts/script.php?script_id=895">Toggle</a></strong>
+    переключает ключевые слова: <var>true/false</var>, <var>on/off</var>,
+    <var>+/-</var> и некоторые другие. Иногда бывает полезно.</p>
+
+    <p><strong>7. <a href="http://www.vim.org/scripts/script.php?script_id=2893">Filetype completion</a></strong>
+    позволяет выбрать тип файла из меню. Следует ввести <strong>:setf</strong> и
+    выбрать тип файла с помощью клавиши <kbd>Tab</kbd>.</p>
+
+    <p><strong>8. <a href="http://www.vim.org/scripts/script.php?script_id=2989">Pummode</a></strong>
+    включает перемещение по меню дополнения (файлов, ключевых слов или omni
+    completion) с помощью клавиш hjkl.</p>
+
+    <p><strong>9. <a href="http://www.vim.org/scripts/script.php?script_id=2136">Repeat</a></strong>
+    улучшает поведение стандартного повторения последнего действия, вызываемого клавишей <kbd>.</kbd>.
+    </p>
+
+    <p><strong>10. <a href="http://www.vim.org/scripts/script.php?script_id=1697">Surround</a></strong>
+    устанавливает и удаляет &laquo;окружения&raquo; &#8211; скобки, html-теги и
+    команды TeX. Например, <kbd>ysw)</kbd> заключит слово под курсором в круглые
+    скобки, а <kbd>ds)</kbd> удалит их.</p>
+
+    <p><strong>11. <a href="http://www.vim.org/scripts/script.php?script_id=3575">Enter-Indent</a></strong>
+    правильно расставляет отступы в программном коде после нажатия <kbd>Enter</kbd> внутри
+    скобок/тегов и т.д.</p>
+
+    <p><strong>12. <a href="http://github.com/Raimondi/delimitMate">delinitMate</a></strong>
+    &#8211; балансировка скобок, кавычек и т.д.</p>
+
+    <p><strong>13. <a href="http://www.vim.org/scripts/script.php?script_id=1795">autoloadTemplate</a></strong>
+    позволяет создавать шаблоны для разных типов файлов и автоматически
+    загружает их при создании нового файла.</p>
+
+    <p><strong>14. <a href="http://www.vim.org/scripts/script.php?script_id=923">Timestamp</a></strong>
+    обновляет время последнего редактирования файла. Настраивается просто, а в
+    связке с предыдущим расширением и того проще, нужно лишь добавить в первые
+    пять строк шаблона ключевые слова (настраиваются). Каждый короткий сценарий
+    не помещать в систему контроля версий бессмысленно, а знать время создания и
+    изменения бывает полезно.</p>
+
+    <p><strong>15. <a href="http://www.vim.org/scripts/script.php?script_id=39">Matchit</a></strong>
+    расширяет навигацию между элементами с помощью <kbd>%</kbd>: можно
+    передвигаться по парам if/else, begin/end и проч.</p>
+
+    <p><strong>16. <a href="https://github.com/Lokaltog/vim-easymotion">Easy-Motion</a></strong>
+    добавляет множество новых способов передвижения и поиска, расширяющие
+    стандартный поиск в строке с помощью <kbd>fF</kbd> и <kbd>tT</kbd>.</p>
+
+    <p><strong>17. <a href="http://www.vim.org/scripts/script.php?script_id=521">MRU</a></strong>
+    сохраняет имена последних открытых файлов для быстрого доступа.</p>
+
+    <p><strong>18. <a href="http://www.vim.org/scripts/script.php?script_id=1234">Yankring</a></strong>
+    добавляет всё скопированное или удалённое в отдельный файл, имитируя
+    менеджер буфера обмена. Мне это показалось в использовании более простым,
+    чем сохранение данных в именованные регистры. Также удобно использовать один
+    буфер обмена в разных &laquo;окнах&raquo; vim (редакторах, запущенных в
+    разных сессиях).</p>
+
+    <p><strong>19. <a href="http://www.vim.org/scripts/script.php?script_id=3692">quickhl</a></strong>
+    выделяет цветом текст. Удобно использовать с другими плагинами, например, с <a href="#lookup">look-up</a>.</p>
+
+    <p><strong>20. <a href="https://github.com/mattn/emmet-vim">emmet-vim</a></strong>
+    — плагин для zen-редактирования html. Например, <em>html:5</em><kbd>Ctrl</kbd> + <kbd>,y</kbd>
+    — и будет создана основа html-документа с необходимыми тегами.</p>
+
+    <p><strong>21. <a href="http://www.vim.org/scripts/script.php?script_id=2620">Neocomplcache</a></strong>
+    — дополнение по файлам/буферам/ключевым словам и т.д. Использую этот плагин, т.к. пишу для него удобные
+    <a href="https://github.com/envrm/shellrc/tree/master/etc/soft/vim/vim/%2Bsnippets">сниппеты</a>.</p>
+    <p></p>
+
+    <p><strong>22. <a href="http://www.vim.org/scripts/script.php?script_id=1769">Lispcomplete</a></strong>
+    — omnicompletion для Common Lisp.</p>
+
+    <p><strong>23. <a href="http://www.vim.org/scripts/script.php?script_id=52">haskellConceal</a></strong>
+    — использование conceal-возможностей vim для «обёртывания» синтаксиса haskell
+    математическими символами. Изменения только визуальные, подмены синтаксиса не
+    происходит.</p>
+
+    <p><strong>24. <a href="http://www.vim.org/scripts/script.php?script_id=1230">Rainbow Parenthesis</a>.</strong>
+    Как понятно из названия, это дополнение раскрашивает вложенные скобки. По
+    умолчанию работает в файлах любого типа, но через ftdetect можно настроить для
+    работы только, например, с искодным кодом на lisp/scheme (как у меня и
+    сделано).</p>
+
+    <p><strong>25. <a href="http://www.vim.org/scripts/script.php?script_id=1861">Error marker</a></strong>
+    — навигация по ошибкам компиляции/интерпретации.</p>
+
+    <p><strong>26. <a href="http://www.vim.org/scripts/script.php?script_id=2607">Tasklist</a></strong>
+    отображает окно со ссылками на все &laquo;программистские&raquo; метки в
+    файле, такие как TODO, FIXME, (DE)BUG и проч. Легко можно добавить свои
+    шаблоны для поиска меток.</p>
+
+    <p><strong>27. <a href="http://www.vim.org/scripts/script.php?script_id=2194">Number Marks</a></strong>
+    — цифровые визуальные закладки. Удобнее стандартных возможностей vim (кроме,
+    разве что, <kbd>g;</kbd>).</p>
+
+    <p><strong>28. <a href="http://www.vim.org/scripts/script.php?script_id=4995">vCoolor</a>.</strong>
+    Дополнение позволяет вставлять коды цвета в разных форматах. Используется
+    главным образом при редактировании таблиц стилей.</p>
+
+    <p id="lookup"><strong>29. <a href="https://github.com/envrm/look-up">look-up</a></strong>
+    — мой собственный плагин для интеграции sdcv (консольный клиент StarDict) в
+    vim. Позволяет смотреть определения слов в словаре.</p>
+
+    <p><strong>30. <a href="http://www.vim.org/scripts/script.php?script_id=3359">Figlet</a></strong>
+    — ввод текста с помощью <a href="http://www.figlet.org/">Figlet</a>. Можно использовать :!figlet
+    [...], но с помощью этого дополнения удобно выбирать нужный шрифт.</p>
+
+    <p><strong>31. <a href="http://www.vim.org/scripts/script.php?script_id=4979">Improved AnsiEsc</a>.</strong>
+    Дополнение позволяет преобразовать escape-коды Ansi в видимую форму. Удобно
+    использовать в конвеере с командами, имеющими цветной вывод.</p> <p></p>
+
+    <p><strong>32. <a href="http://code.google.com/p/vimwiki/">Vimwiki</a>.</strong>
+    Этим плагином я пользуюсь ежедневно. Это полноценная вики с выводом в html
+    и дневник (+календарь). Правда, я пользуюсь версией 1.1.1, т.к. в v2 сломали
+    важные мне функции и привычное поведение.</p>
+
+    <p><strong>33. <a href="http://www.vim.org/scripts/script.php?script_id=52">Calendar</a></strong>
+    интегрируется с VimWiki, позволяя вносить записи в дневник и показывать
+    наличие записей в календаре.</p>
+
+    <p></p>
+
+    </div>
+</div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../../js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../../../../../js/jquery.shadow.js"></script>
+
+    <script>
+      $('.shadow').shadow('raised');
+    </script>
+
+  </body>
+</html>
+
