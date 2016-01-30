@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Предпросмотр изображений в терминале">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="../../../../../ico/favicon.ico">
+
+    <title>#!/usr/bin/env rm -- Заметки и переводы :: Bash -- ls для изображений</title>
+
+    <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../../css/custom.css">
+    <link rel="stylesheet" href="../../../../../css/fontello.css">
+    <link rel="stylesheet" href="../../../../../css/animation.css">
+
+    <link rel="stylesheet" href="../../../../../css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="../../../../../css/bootstrap-image-gallery.min.css">
+
+    <link rel="stylesheet" href="../../../../../css/jquery.shadow.css">
+
+    <script type="text/javascript" src="../../../../../js/SyntaxHighlighter/shCore.js"></script>
+
+		<link href="../../../../../css/SyntaxHighlighter/shCore.css" rel="stylesheet" type="text/css" />
+
+		<link href="../../../../../css/SyntaxHighlighter/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="../../../../../js/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" src="../../../../../js/SyntaxHighlighter/shBrushPlain.js"></script>
+
+                <script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+		</script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav navbar-nav pull-right">
+          <li class="menu-icon"><a href="../../../../../index.html"><span class="icon-home"></span></a></li>
+          <li class="menu-icon"><a href="../../../programming.html"><span class="icon-tools"></span></a></li>
+          <li class="menu-icon"><a href="../../../poetry.html"><span class="icon-feather"></span></a></li>
+          <li class="menu-icon"><a href="../../../music.html"><span class="icon-note-beamed"></span></a></li>
+          <li class="menu-icon"><a href="../../../travelling.html"><span class="icon-globe"></span></a></li>
+          <li class="menu-icon active"><a href="../../../articles.html"><span class="icon-book"></span></a></li>
+          <li class="menu-icon"><a href="../../../about.html"><span class="icon-user"></span></a></li>
+        </ul>
+        <h3 class="text-muted">#!/usr/bin/env rm</h3>
+      </div>
+
+      <ol class="plain breadcrumb">
+        <li><a href="../../../articles.html"><span class="icon-book"></span></a></li>
+        <li><a href="../../../articles.html#it">Информационные технологии</a></li>
+        <li><a href="../../../articles.html#cli">CLI</a></li>
+        <li class="active">ls для изображений</li>
+      </ol>
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <div class="row columns">
+
+        <h3 class="text-center">ls для изображений</h3>
+        <h4 class="text-center">Предпросмотр изображений в эмуляторе терминала</h4>
+
+<br />
+
+        <div class="col-lg-1">
+        </div>
+
+<div class="article col-lg-10 text-justify">
+
+        <div class="epigraph text-justify"></div>
+
+<p>Задумавшись о том, что часто даже легковесные feh и geeqie избыточны для
+просмотра изображений, я начал искать способы просмотра изображений в эмуляторе
+терминала. В скором времени я нашёл интересную заметку z3bra (<a href="http://blog.z3bra.org/2014/01/images-in-terminal.html">http://blog.z3bra.org/2014/01/images-in-terminal.html</a>),
+который придумал удивительное в своей простоте решение, соответствующее
+UNIX-way и KISS: если w3m (консольный браузер) умеет отображать картинки, то
+можно использовать его библиотеку.</p>
+
+<p>Вдохновившись этой идеей и взяв за основу предложенный им сценарий, я
+написал скрипт, который выводит превью 24 изображений в директории (если не
+указаны имена файлов). Почему 24? Столько вмещается в экран моего нетбука.
+Поэтому и все значения позиций и смещений жёстко указаны в сценарии.</p>
+
+<p>Да, можно сделать нечто вроде пагинатора, чтобы листать «страницы» с
+изображениями, но мне кажется, что это лишнее. Во всяком случае, для моих
+целей.</p>
+
+<p>Текст сценария:</p>
+
+<pre class="brush:bash">
+#!/bin/bash
+
+# Идея z3bra -- 2014-01-21
+# Доработка envrm
+
+W3MIMGDISPLAY="/usr/libexec/w3m/w3mimgdisplay"
+FONTH=12 # Size of one terminal row
+FONTW=8  # Size of one terminal column
+COLUMNS=`tput cols`
+LINES=`tput lines`
+
+#Все позиции захардкорены
+posx[1]=10; posx[2]=205; posx[3]=400;
+posx[4]=600; posx[5]=800; posx[6]=1000
+posy[1]=45; posy[2]=200; posy[3]=350;
+posy[4]=500; posy[5]=800; posy[6]=1000
+
+text[1]=18; text[2]=36; text[3]=54;
+text[4]=72; text[5]=90; text[6]=111
+
+row[1]=0; row[2]=100; row[3]=200;
+row[4]=300; row[5]=300
+
+x=1
+y=1
+img=1
+images=24
+
+clear
+echo -e "\n \033[1;32m$(pwd):\033[00m"
+
+for FILENAME in ${*:-*}; {
+ #Обработка только изображений
+ file "$FILENAME" | grep 'JPEG|PNG|GIF' 2&gt;&1 &gt;/dev/null
+
+ if [ $? -eq 0 ]; then
+  read width height &lt;&lt;&lt; `echo -e "5;$FILENAME" \
+      				| $W3MIMGDISPLAY`
+
+  max_width=$(($FONTW * $COLUMNS))
+  max_height=$(($FONTH * $(($LINES - 2))))
+
+  if test $width -gt $max_width; then
+    height=$(($height * $max_width / $width))
+    width=$max_width
+  fi
+
+  if test $height -gt $max_height; then
+    width=$(($width * $max_height / $height))
+    height=$max_height
+  fi
+
+  width=$((width / 4))
+  height=$((height / 4))
+
+  w3m="0;1;${posx[x]};${posy[y]};$width;$height;;;;;$FILENAME\n4;\n3;"
+
+  tput cup $((($height+${row[y]})/$FONTH)) ${text[$((x-1))]}
+  echo " $FILENAME"
+  echo -n -e $w3m|$W3MIMGDISPLAY
+
+  if [ $x -eq 6 ]; then
+    x=1
+    y=$((y + 1))
+  else
+    x=$((x + 1))
+  fi
+
+  if [ $img -eq $images ]; then
+    exit
+    else
+    img=$((img + 1))
+  fi
+ fi
+}
+</pre>
+
+<p>Сценарий на github: <a href="https://github.com/envrm/scripts-linux/blob/master/lsi">https://github.com/envrm/scripts-linux/blob/master/lsi</a>.</p>
+
+<p>Пример работы в urxvt:</p>
+
+  <div class="text-center">
+    <a href="../../../../../img/articles/IT/Bash/lsi.png" title="" data-gallery>
+        <img src="../../../../../img/articles/IT/Bash/lsi.png" alt="lsi" class="img-responsive shadow">
+    </a>
+  </div>
+
+        </div>
+
+        <div class="col-lg-1">
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p align="center"></p>
+      </div>
+
+    </div>
+
+    <script src="../../../../../js/jquery-2.1.0.min.js"></script>
+    <script src="../../../../../js/bootstrap.min.js"></script>
+
+    <script src="../../../../../js/jquery.blueimp-gallery.min.js"></script>
+    <script src="../../../../../js/bootstrap-image-gallery.min.js"></script>
+
+    <script type="text/javascript" src="../../../../../js/jquery.shadow.js"></script>
+
+    <script>
+      $('.shadow').shadow('raised');
+    </script>
+
+  </body>
+</html>
+
