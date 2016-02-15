@@ -97,7 +97,7 @@ command_not_found_handle() {
 			/qwertyuiop\[\]asdfghjkl;\'zxcvbnm,\.\/
 			QWERTYUIOP\{\}ASDFGHJKL:\"ZXCVBNM&lt;&gt;\?/")"
 		echo "[$@] -&gt; [$ex]"
-		$ex
+		bash --rcfile ~/.bashrc -c "$ex"
 	else
 		echo &gt;&amp;2 "Команда не найдена."
 	fi
