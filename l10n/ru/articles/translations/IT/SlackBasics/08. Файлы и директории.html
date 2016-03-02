@@ -212,6 +212,182 @@ mydir/mysubdir</strong> удалит только директорию <code>mys
 <strong>rmdir</strong> остановится. В случае, если вам нужно удалить директорию
 со всем содержимым, то используйте команду <strong>rm</strong>.</p>
 
+<h4 id="7">8.7. Архивы</h4>
+
+<h5>8.7.1. Введение</h5>
+
+<p>Рано или поздно пользователь GNU/Linux столкнётся с архивами tar &#8211;
+стандартным форматом архивирования файлов в этих системах. <strong>Tar</strong>
+обычно используется вместе с <strong>gzip</strong> или <strong>bzip2</strong>.
+Обе команды могут сжимать файлы и архивы. В следующей таблице перечислены самые
+распространённые расширения архивов и их значения.</p>
+
+<p class="text-right"><strong>Таблица 8.6 Расширения архивов</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Расширение</th>
+          <th>Значение</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>.tar</th>  
+          <td>Несжатый архив tar</td>
+        </tr>
+        <tr>
+          <th>.tar.gz</th>  
+          <td>Tar-архив, сжатый при помощи <strong>gzip</strong></td>
+        </tr>
+        <tr>
+          <th>.tgz</th>  
+          <td>Tar-архив, сжатый при помощи <strong>gzip</strong></td>
+        </tr>
+        <tr>
+          <th>.tar.bz2</th>  
+          <td>Tar-архив, сжатый при помощи <strong>bzip2</strong></td>
+        </tr>
+        <tr>
+          <th>.tbz</th>  
+          <td>Tar-архив, сжатый при помощи <strong>bzip2</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+<p>The difference between <strong>bzip2</strong> and <strong>gzip</strong> is that <strong>bzip2</strong> can find repeating information in larger blocks, resulting in better compression. But <strong>bzip2</strong> is also a lot slower, because it does more data analysis.</p>
+
+<p>Разница между <strong>bzip2</strong> и <strong>gzip</strong> в том, что <strong>bzip2</strong> обнаруживает повторение данных в б<em>о</em>льших блоках, что даёт лучшее сжатие. Но в связи с этим <strong>bzip2</strong> работает медленнее, чем <strong>gzip</strong>.</p>
+
+<h5>8.7.2. Распаковка архивов</h5>
+
+<p>Так как в системах GNU/Linux данные и программы часто упакованы в архивы с
+помощью <strong>tar</strong>, важно уметь распаковывать такие файлы. Первое,
+что вы обычно захотите выполнить, получив tar-архив, &#8211; это
+посмотреть его содержимое. Это можно сделать с помощью параметра
+<var>t</var>. Однако, если вы выполните команду <strong>tar</strong> с
+указанным параметром и именем файла, то программа будет ожидать
+ввода:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ tar t test.tar</li>
+  </ul>
+</div>
+      
+<p>Это происходит потому, что <strong>tar</strong> читает данные из
+стандартного потока ввода. Если вы забыли, как работает перенаправление
+потоков, то перечитайте раздел <a href="07. Оболочка командной
+строки.html#7">«7.7. Перенаправление ввода/вывода и конвееры»</a>. Давайте
+рассмотрим, что произойдёт, если мы направим содержимое архива программе
+<strong>tar</strong>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ tar t &lg; test.tar</li>
+    <li>test/</li>
+    <li>test/test2</li>
+    <li>test/test1</li>
+  </ul>
+</div>
+      
+<p>Это больше похоже на то, что мы ожидаем. Этот архив содержит директорию
+<code>test</code>, в которой находятся файлы <code>test2</code> и
+<code>test1</code>. Это также можно увидеть, указав параметр <var>f</var> и
+передав имя файла:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ tar tf test.tar</li>
+    <li>test/</li>
+    <li>test/test2</li>
+    <li>test/test1</li>
+  </ul>
+</div>
+      
+<p>Это выглядит так, будто архив содержит полезные файлы ;). Теперь мы можем
+извлечь содержимое архива с помощью параметра <var>x</var>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ tar xf test.tar</li>
+  </ul>
+</div>
+      
+<p>Мы можем проверить, извлеклись ли файлы, посмотрев содержимое директории с
+помощью <strong>ls</strong>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ ls test/</li>
+    <li>test1  test2</li>
+  </ul>
+</div>
+      
+<p>Распаковка или просмотр содержимого архивов, сжатых с помощью <strong>gzip</strong> или <strong>bzip2</strong>
+не многим сложнее. Нужно лишь добавить параметры <var>z</var> или <var>j</var>
+соответственно. Например, мы можем отобразить содержимое архива, сжатого при
+помощи <strong>gzip</strong>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ tar ztf archive2.tar.gz</li>
+  </ul>
+</div>
+      
+<p>И <strong>bzip2</strong>-архив:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ tar jxf archive3.tar.bz2</li>
+  </ul>
+</div>
+      
+<h5>8.7.3. Создание архивов</h5>
+
+<p>Вы можете создать архив при помощи параметра <var>c</var>. Допустим, что у
+нас есть директория <code>test</code> из предыдущего примера. Мы можем
+упаковать её в архив так:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ tar cf important-files.tar test</li>
+  </ul>
+</div>
+      
+<p>Это создаст архив с именем <code>important-files.tar</code> (которое
+передано параметру <var>f</var>). Мы можем проверить архив:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ tar tf important-files.tar</li>
+    <li>test/</li>
+    <li>test/test2</li>
+    <li>test/test1</li>
+  </ul>
+</div>
+      
+<p>Создание сжатых архивов осуществляется обычной командой архивирования
+файлов, но с добавлением ключей: <var>z</var> для использования алгоритма <strong>gzip</strong>
+и <var>b</var> для <strong>bzip2</strong>. Допустим, мы хотим создать сжатый <strong>gzip</strong>-архив
+директории из предыдущих примеров. Мы можем сделать это таким образом:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>tar zcf important-files.tar.gz test</li>
+  </ul>
+</div>
+
 <br />
 <ul class="pager">
   <li class="previous"><a href="07. Оболочка командной строки.html">&larr; 7. Оболочка командной строки</a></li>
