@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="../../css/fontello.css">
     <link rel="stylesheet" href="../../css/animation.css">
 
+    <link rel="stylesheet" href="../../css/video-js.css">
+
+    <link rel="stylesheet" href="../../css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap-image-gallery.min.css">
+
     <link rel="stylesheet" href="../../js/bookblock/css/bookblock.css">
 
     <script src="../../js/bookblock/js/modernizr.custom.js"></script>
@@ -45,6 +50,41 @@
 
         <h3 class="text-muted">#!/usr/bin/env rm</h3>
       </div>
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
       <div class="row columns">
         <div class="col-lg-6">
@@ -125,31 +165,78 @@
   </div>
 </div>
 
-	  <br />
-	  <hr />
+        </div>
 
-	  <!-- ########## -->
+        <div class="col-lg-6">
+          <h3>Стихотворения</h3>
+
+          <div id="wrapper">
+            <ol>
+              <li> <a href="poetry/2006-01.html">&laquo;Рутина жизни, дыханье смерти...&raquo;</a></li>
+              <li> <a href="poetry/2006-02.html">&laquo;Метания души в силках из искушений...&raquo;</a></li>
+              <li> <a href="poetry/2006-03.html">&laquo;Зачем мы здесь? Предначертанье звезд?..&raquo;</a></li>
+              <li> <a href="poetry/2010-12-17-01.html">&laquo;Бежим по снегу под гору по склону...&raquo;</a></li>
+              <li> <a href="poetry/2010-12-17-02.html">&laquo;Я каждый день как будто умираю...&raquo;</a></li>
+              <li> <a href="poetry/2011-04-25.html">&laquo;Беззвездна ночь. И в темноте лишь пара окон...&raquo;</a></li>
+              <li> <a href="poetry/2011-05-08.html">&laquo;Из чего рождается боль?..&raquo;</a></li>
+              <li> <a href="poetry/2011-05-17.html">&laquo;Как глупо &#8211; писать о любви...&raquo;</a></li>
+              <li> <a href="poetry/2011-08-09.html">&laquo;Свежим воздухом манит даль...&raquo;</a></li>
+              <li> <a href="poetry/2011-09-11.html">&laquo;Я ждал, взирая в темноту...&raquo;</a></li>
+              <li> <a href="poetry/2011-09-25.html">&laquo;Очередной &#8211; все тот же самый...&raquo;</a></li>
+              <li> <a href="poetry/2011-12-15.html">&laquo;Луна, запутавшись в упругих проводах...&raquo;</a></li>
+              <li> <a href="poetry/2011-12-16.html">&laquo;Взлетела, порвавшись, струна...&raquo;</a></li>
+              <li> <a href="poetry/2012-03-03.html">&laquo;Вдыхай. Воздух наполнен городом...&raquo;</a></li>
+              <li> <a href="poetry/2012-03-14.html">&laquo;По грубым городским рукам...&raquo;</a></li>
+              <li> <a href="poetry/2012-04-29.html">&laquo;Всё. Вот и пришла моя осень...&raquo;</a></li>
+              <li> <a href="poetry/2012-07-06.html">&laquo;Черновиками рвется сердце из груди...&raquo;</a></li>
+              <li> <a href="poetry/2012-10-20.html">&laquo;Тишина. Над пустыми дворами раскинулась осень...&raquo;</a></li>
+              <li> <a href="poetry/2012-11-15.html">&laquo;Вечер рассыпан снегом...&raquo;</a></li>
+              <li> <a href="poetry/2012-12-07.html">&laquo;Алеет кровью новый день...&raquo;</a></li>
+              <li> <a href="poetry/2013-01-04.html">&laquo;Прольюсь дождем на нотные листы...&raquo;</a></li>
+              <li> <a href="poetry/2013-01-06.html">&laquo;Ночь. Тигр сменяет быка...&raquo;</a></li>
+              <li> <a href="poetry/2013-04-06.html">&laquo;Оранжево город струится в окно...&raquo;</a></li>
+              <li> <a href="poetry/2013-04-19.html">&laquo;Облаком &#8211; ночь...&raquo;</a></li>
+              <li> <a href="poetry/2013-08-30.html">&laquo;Ты мне приснилась...&raquo;</a></li>
+              <li> <a href="poetry/2013-09-24.html">&laquo;Свинцовые сумерки. Нечем дышать...&raquo;</a></li>
+              <li> <a href="poetry/2013-09-25.html">&laquo;Сентябрь. Листья готовы к полёту...&raquo;</a></li>
+              <li> <a href="poetry/2013-10-03.html">&laquo;Эти камни всё помнят...&raquo;</a></li>
+              <li> <a href="poetry/2013-10-12.html">&laquo;Первый снег в еле слышном дыхании тает...&raquo;</a></li>
+              <li> <a href="poetry/2013-10-23.html">&laquo;Тяжело &#8211; то сбивчиво, то мутно...&raquo;</a></li>
+              <li> <a href="poetry/2013-10-29.html">&laquo;Ветер кутает в шарф. Ночь асбестовой крошкой...&raquo;</a></li>
+              <li> <a href="poetry/2013-11-04.html">&laquo;Невоплотим звучит во мне мотив...&raquo;</a></li>
+              <li> <a href="poetry/2013-12-16.html">&laquo;Знаешь, здесь совсем грустно...&raquo;</a></li>
+              <li> <a href="poetry/2013-12-28.html">&laquo;Начала нет. Так есть ли край?..&raquo;</a></li>
+              <li> <a href="poetry/2014-01-08.html">&laquo;Любовь. Она не трепетна, о нет!..&raquo;</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="text-center">«Ъ» — участник конкурсов и проектов</h4>
+
+      <!-- ########## -->
+      <div class="row columns">
+
+	<br />
+
+        <div class="row">
+          <div class="col-lg-1">
+	  </div>
+          <div class="col-lg-4">
 
           <a href="#" data-toggle="modal" data-target="#HandmadeBook">
-            <img class="thumbnail" style="padding: 8px;" src="../../img/book/handmade/title.png" width="320px">
+            <img class="thumbnail" style="padding: 8px;" src="../../img/book/handmade/title.png" width="210px">
           </a>
-
-          <blockquote>
-            <p><strong>Максим Лихачёв. Ъ. – 2015, 55 с.</strong></p>
-
-	    <p>Сборник создан для участия в проекте
-	    <a href="http://www.fapmc.ru/rospechat/newsandevents/events/exhibitions/2015/10/event5.html">
-	    «Ручная работа»</a>, организованном
-	    Государственным литературным музеем.<br />
-	    <br />
-	    Идея и изготовление: Полина Лихачёва.<br />
-	    Иллюстрации: Галия Султанова.<br />
-          </blockquote>
+          <p>Максим Лихачёв. Ъ. –2015, 55 с.</p>
 
 <div class="text-center">
-  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#HandmadeBook">Пролистать</button>
-  <a href="../../files/book/Лихачёв М. - Ъ. Ручная работа, 2015.pdf" class="btn btn-success btn-lg" role="button">Скачать PDF</a>
+  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#HandmadeBook">Пролистать</button> <a href="../../files/book/Лихачёв М. - Ъ. Ручная работа, 2015.pdf" class="btn btn-success btn-lg" role="button">PDF</a>
 </div>
+
+	    <p class="text-center">
+	      <br />
+	      <i class="text-muted icon-file-pdf"></i> <a href="../../files/book/Каталог аукциона.pdf">Каталог аукциона</a>
+    	    </p>
 
 <!-- Modal -->
 <div id="HandmadeBook" class="modal fade" role="dialog">
@@ -201,71 +288,122 @@
 		</nav>
 	</div>
       </div>
-      <!-- <div class="modal-footer"> -->
-        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button> -->
-      <!-- </div> -->
     </div>
   </div>
 </div>
 
+	  </div>
+          <div class="col-lg-6 text-justify">
+            <h4>2015-2016 г. — «Ручная работа»</h4>
 
-        </div>
+	    <p>Проект рукописных книг современных поэтов
+	    <a href="http://www.fapmc.ru/rospechat/newsandevents/events/exhibitions/2015/10/event5.html">
+	    «Ручная работа»</a>, организованный Государственным литературным
+	    музеем, был приурочен к завершению Года литературы в России и
+	    125-летию со дня рождения Осипа Мандельштама.</p>
 
-        <div class="col-lg-6">
-          <h3>Стихотворения</h3>
+	    <p><strong>Идея и изготовление:</strong> Полина Лихачёва.</p>
+	    <p><strong>Количество экземпляров:</strong> 3;
+              первый передан в Государственный литературный музей, второй продан на
+	      <a href="http://fapmc.ru/rospechat/newsandevents/newsagency/2016/03/item14.html">благотворительном
+	      аукционе</a>, средства с которого поступят в пользу музея О.Э. Мандельштама в г.  Фрязино.
+            </p>
 
-          <div id="wrapper">
-            <ol>
-              <li> <a href="poetry/2006-01.html">&laquo;Рутина жизни, дыханье смерти...&raquo;</a></li>
-              <li> <a href="poetry/2006-02.html">&laquo;Метания души в силках из искушений...&raquo;</a></li>
-              <li> <a href="poetry/2006-03.html">&laquo;Зачем мы здесь? Предначертанье звезд?..&raquo;</a></li>
-              <li> <a href="poetry/2010-12-17-01.html">&laquo;Бежим по снегу под гору по склону...&raquo;</a></li>
-              <li> <a href="poetry/2010-12-17-02.html">&laquo;Я каждый день как будто умираю...&raquo;</a></li>
-              <li> <a href="poetry/2011-04-25.html">&laquo;Беззвездна ночь. И в темноте лишь пара окон...&raquo;</a></li>
-              <li> <a href="poetry/2011-05-08.html">&laquo;Из чего рождается боль?..&raquo;</a></li>
-              <li> <a href="poetry/2011-05-17.html">&laquo;Как глупо &#8211; писать о любви...&raquo;</a></li>
-              <li> <a href="poetry/2011-08-09.html">&laquo;Свежим воздухом манит даль...&raquo;</a></li>
-              <li> <a href="poetry/2011-09-11.html">&laquo;Я ждал, взирая в темноту...&raquo;</a></li>
-              <li> <a href="poetry/2011-09-25.html">&laquo;Очередной &#8211; все тот же самый...&raquo;</a></li>
-              <li> <a href="poetry/2011-12-15.html">&laquo;Луна, запутавшись в упругих проводах...&raquo;</a></li>
-              <li> <a href="poetry/2011-12-16.html">&laquo;Взлетела, порвавшись, струна...&raquo;</a></li>
-              <li> <a href="poetry/2012-03-03.html">&laquo;Вдыхай. Воздух наполнен городом...&raquo;</a></li>
-              <li> <a href="poetry/2012-03-14.html">&laquo;По грубым городским рукам...&raquo;</a></li>
-              <li> <a href="poetry/2012-04-29.html">&laquo;Всё. Вот и пришла моя осень...&raquo;</a></li>
-              <li> <a href="poetry/2012-07-06.html">&laquo;Черновиками рвется сердце из груди...&raquo;</a></li>
-              <li> <a href="poetry/2012-10-20.html">&laquo;Тишина. Над пустыми дворами раскинулась осень...&raquo;</a></li>
-              <li> <a href="poetry/2012-11-15.html">&laquo;Вечер рассыпан снегом...&raquo;</a></li>
-              <li> <a href="poetry/2012-12-07.html">&laquo;Алеет кровью новый день...&raquo;</a></li>
-              <li> <a href="poetry/2013-01-04.html">&laquo;Прольюсь дождем на нотные листы...&raquo;</a></li>
-              <li> <a href="poetry/2013-01-06.html">&laquo;Ночь. Тигр сменяет быка...&raquo;</a></li>
-              <li> <a href="poetry/2013-04-06.html">&laquo;Оранжево город струится в окно...&raquo;</a></li>
-              <li> <a href="poetry/2013-04-19.html">&laquo;Облаком &#8211; ночь...&raquo;</a></li>
-              <li> <a href="poetry/2013-08-30.html">&laquo;Ты мне приснилась...&raquo;</a></li>
-              <li> <a href="poetry/2013-09-24.html">&laquo;Свинцовые сумерки. Нечем дышать...&raquo;</a></li>
-              <li> <a href="poetry/2013-09-25.html">&laquo;Сентябрь. Листья готовы к полёту...&raquo;</a></li>
-              <li> <a href="poetry/2013-10-03.html">&laquo;Эти камни всё помнят...&raquo;</a></li>
-              <li> <a href="poetry/2013-10-12.html">&laquo;Первый снег в еле слышном дыхании тает...&raquo;</a></li>
-              <li> <a href="poetry/2013-10-23.html">&laquo;Тяжело &#8211; то сбивчиво, то мутно...&raquo;</a></li>
-              <li> <a href="poetry/2013-10-29.html">&laquo;Ветер кутает в шарф. Ночь асбестовой крошкой...&raquo;</a></li>
-              <li> <a href="poetry/2013-11-04.html">&laquo;Невоплотим звучит во мне мотив...&raquo;</a></li>
-              <li> <a href="poetry/2013-12-16.html">&laquo;Знаешь, здесь совсем грустно...&raquo;</a></li>
-              <li> <a href="poetry/2013-12-28.html">&laquo;Начала нет. Так есть ли край?..&raquo;</a></li>
-              <li> <a href="poetry/2014-01-08.html">&laquo;Любовь. Она не трепетна, о нет!..&raquo;</a></li>
-            </ol>
+            <p>Победителем аукциона стал
+            <a href="http://www.pogarsky.ru/cgi-bin/foremanel.pl?mod=pages&id=438">Михаил Погарский</a>,
+            и сборник занял место в
+            <a href="http://www.pogarsky.ru/cgi-bin/foremanel.pl?mod=books&a=books&id=220">Московском архиве Книги художника</a>.</p>
+
+	  <p><strong>Сообщения в СМИ:</strong>
+	  <ul>
+	  <li><a href="http://rg.ru/2016/04/01/sbornik-stihov-aleksandra-kushnera-prodali-na-aukcione-za-20-tysiach-rublej.html#2304bb47/17277/1">Российская газета</a></li>
+	  <li><a href="http://www.mk.ru/culture/2016/04/03/na-aukcione-rukopisnykh-knig-prodali-pachku-sigaret.html">Московский комсомолец</a></li>
+	  <li><a href="http://www.otr-online.ru/news/v-stolitse-proshel-56510.html">Общественное телевидение России</a></li>
+	  </ul>
+	  </p>
+
           </div>
-        </div>
+
+          <div class="col-lg-1">
+	  </div>
       </div>
 
+        <div class="row columns text-center" style="margin: 0px 0;">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-10">
+            <p class="text-left" style="padding: 12px"><strong>Материалы проекта:</strong></p>
+            <div class="text-center">
+                <a href="../../img/book/auction/Информация об аукционе.png" title="Сообщение о подготовке аукциона на сайте Роспечати" data-gallery>
+                    <img src="../../img/book/auction/th/Информация об аукционе.png" class="img-responsive img-thumbnail">
+                </a>
+                <a href="../../img/book/auction/Каталог аукциона.png" title="Информация о лоте из каталога аукциона" data-gallery>
+                    <img src="../../img/book/auction/th/Каталог аукциона.png" class="img-responsive img-thumbnail">
+                </a>
+                <a href="../../img/book/auction/Победитель аукциона.png" title="Сообщение о сборнике в Facebook победителя аукциона" data-gallery>
+                    <img src="../../img/book/auction/th/Победитель аукциона.png" class="img-responsive img-thumbnail">
+                </a>
+                <a href="../../img/book/auction/Победитель аукциона. Сайт.png" title="Московский архив Книги художника" data-gallery>
+                    <img src="../../img/book/auction/th/Победитель аукциона. Сайт.png" class="img-responsive img-thumbnail">
+                </a>
+            </div>
+
+	    <br />
+
+            <video id="my-video" class="video-js" controls preload="auto" width="550" height="310"
+              poster="../../files/book/ОТР - Ручная работа.png" data-setup="{}">
+                <source src="../../files/book/ОТР - Ручная работа.mp4" type='video/mp4'>
+                <p class="vjs-no-js">
+                  Для просмотра видео включите JavaScript, и убедитесь, что ваш браузер
+                  <a href="http://videojs.com/html5-video-support/" target="_blank">поддерживает HTML5.</a>
+                </p>
+              </video>
+	  </div>
+
+          <div class="col-lg-1"></div>
+	</div>
+      <!-- ########## -->
+
+      <!-- ########## -->
       <div class="row columns">
-	<h4 class="text-center">«Ъ» — участник конкурсов и проектов</h4>
+
+	<hr />
 
         <div class="row">
-	</div>
+          <div class="col-lg-1">
+	  </div>
+          <div class="col-lg-4">
+            <a href="../../img/book/muza/Диплом.png" title="Диплом финалиста конкурса «Музыка слов»" data-gallery>
+                <img src="../../img/book/muza/Диплом.png" style="padding: 8px;" width="210px" class="img-responsive img-thumbnail">
+                </a>
+          </a>
 
-        <div class="row">
-	</div>
+<!-- <div class="text-center"> -->
+  <!-- <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#HandmadeBook">Пролистать</button> <a href="../../files/book/Лихачёв М. - Ъ. Ручная работа, 2015.pdf" class="btn btn-success btn-lg" role="button">PDF</a> -->
+<!-- </div> -->
+
+	  </div>
+          <div class="col-lg-6 text-justify">
+            <h4>2015-2016 г. — «Музыка слов»</h4>
+
+	    <p>Всероссийский поэтический конкурс
+	    <a href="http://www.labirint.ru/muza/">«Музыка слов»</a> проведён
+	    интернет-магазином «Лабиринт» при поддержке Литературного института имени А.М. Горького.</p>
+
+	    <p>В конкурсе приняли участие 4 240 человек.<p>
+
+	    <p>Среди всех конкурсантов жюри определило 3 победителей и 100
+	    финалистов, в число которых вошло стихотворение
+	    <a href="poetry/2013-01-04.html">«Прольюсь дождём на нотные листы...»</a>.</p>
+
+	    <p>Произведения ста финалистов вошли в состав итогового поэтического сборника.</p>
+          </div>
+
+          <div class="col-lg-1">
+	  </div>
       </div>
+      <!-- ########## -->
 
+      <br />
       <hr />
       <p align="center"><b>Неизданное</b></p>
 
@@ -331,6 +469,11 @@
     <script src="../../js/jquery-2.1.0.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/bookblock/js/jquery.bookblock.min.js"></script>
+
+    <script src="../../js/video.js"></script>
+
+    <script src="../../js/jquery.blueimp-gallery.min.js"></script>
+    <script src="../../js/bootstrap-image-gallery.min.js"></script>
 
 		<script>
 			var Book1 = (function() {
