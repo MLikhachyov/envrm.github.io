@@ -6,7 +6,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Personal page">
+    <meta name="description" content="Музыка">
     <meta name="author" content="Likhachev Maxim">
 
     <link rel="shortcut icon" href="../../ico/favicon.ico">
@@ -79,24 +79,35 @@
         var a = audiojs.createAll({
           trackEnded: function() {
             var next = $('ol li.playing').next();
-            if (!next.length) next = $('ol li').first();
-            next.addClass('playing').siblings().removeClass('playing');
+            if (!next.length) {   
+                $('ol li.playing').parent().removeClass('album');
+                next = $('ol.album li').first();
+                $('ol li.playing').parent().addClass('album');
+            }
+
+            //if (!next.length) next = $('ol.next li').first();
+            $('ol li').removeClass('playing');
+            next.addClass('playing');//.siblings().removeClass('playing');
             audio.load($('a', next).attr('data-src'));
             audio.play();
           }
         });
-        
-        // Load in the first track
+
+     // Load in the first track
         var audio = a[0];
             first = $('ol a').attr('data-src');
+        $('ol').first().addClass('album');
         $('ol li').first().addClass('playing');
         audio.load(first);
 
         // Load in a track on click
-        $('ol a[data-src]').click(function(e) {
+        $('ol li').click(function(e) {
           e.preventDefault();
-          $(this).parent().addClass('playing').siblings().removeClass('playing');
-          audio.load($(this).attr('data-src'));
+          //$('ol').removeClass('album');
+          //$(this).parent().addClass('album');
+          $('ol li').removeClass('playing');
+          $(this).addClass('playing');//.siblings().removeClass('playing');
+          audio.load($('a', this).attr('data-src'));
           audio.play();
         });
       });
@@ -174,7 +185,7 @@
 	    </p>
 
           <div id="wrapper">
-           <ol id="playlist">
+           <ol class="album" id="playlist">
 	      <li class="genre mGuitar mOrchestra mRock mPiano mSymphonic"><a href="#" data-src="../../files/music/Максим Лихачёв - Coda.mp3">Coda</a>
 	        <span style="text-align: left;  float: right; ">
 	          <a href="../../files/music/Максим Лихачёв - Coda.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
@@ -608,6 +619,111 @@
   <div class="col-lg-2">
   </div>
 </div>
+
+      <div class="col-lg-12">
+
+        <div class="col-lg-6">
+          <br />
+          <br />
+          <a href="../../img/okroshka/akshorko.png" title="2016 &#8211; Акшорко" data-gallery>
+              <img src="../../img/okroshka/th/akshorko.png" alt="2016 &#8211; Акшорко" class="img-responsive shadow">
+          </a>
+
+	  <br />
+
+	  <br />
+
+	  <div class="text-center">
+	    <a href="https://yadi.sk/d/YkmOp1DndsGrw" class="btn btn-success btn-lg" role="button">Скачать всё</a>
+	  </div>
+	</div>
+
+        <div class="col-lg-6">
+            <br />
+	    <h3><img src="../../ico/ru32.png"> 2016 &#8211; Акшорко</h3>
+
+          <div id="wrapper">
+           <ol class="album" id="playlist">
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/01 - 55°09′44″, 61°24′11″.mp3">55°09′44″, 61°24′11″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/01 - 55°09′44″, 61°24′11″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/02 - 55°16′09″, 59°08′28″.mp3">55°16′09″, 59°08′28″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/02 - 55°16′09″, 59°08′28″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/03 - 48°41′57″, 44°28′24″.mp3">48°41′57″, 44°28′24″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/03 - 48°41′57″, 44°28′24″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/04 - 45°02′00″, 41°58′00″.mp3">45°02′00″, 41°58′00″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/04 - 45°02′00″, 41°58′00″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/05 - 44°43′00″, 37°46′00″.mp3">44°43′00″, 37°46′00″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/05 - 44°43′00″, 37°46′00″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/06 - 45°02′56″, 35°22′45″.mp3">45°02′56″, 35°22′45″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/06 - 45°02′56″, 35°22′45″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/07 - 44°36′00″, 33°32′00″.mp3">44°36′00″, 33°32′00″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/07 - 44°36′00″, 33°32′00″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/08 - 44°41′42″, 33°53′06″.mp3">44°41′42″, 33°53′06″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/08 - 44°41′42″, 33°53′06″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/09 - 43°07′00″, 131°54′00″.mp3">43°07′00″, 131°54′00″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/09 - 43°07′00″, 131°54′00″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/10 - 48°29′00″, 135°04′00″.mp3">48°29′00″, 135°04′00″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/10 - 48°29′00″, 135°04′00″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/11 - 51°50′00″, 107°37′00″.mp3">51°50′00″, 107°37′00″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/11 - 51°50′00″, 107°37′00″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/12 - 52°17′00″, 104°18′00″.mp3">52°17′00″, 104°18′00″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/12 - 52°17′00″, 104°18′00″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/13 - 56°18′40″, 43°55′50″.mp3">56°18′40″, 43°55′50″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/13 - 56°18′40″, 43°55′50″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-src="../../files/music/Okroshka/2016 - Акшорко/14 - 59°34′00″, 30°08′00″.mp3">59°34′00″, 30°08′00″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/14 - 59°34′00″, 30°08′00″.mp3" title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+	      <li><a href="#" data-turntable="turntable-large" data-artwork="../../js/turntable/image/vinyl.jpg"  data-src="../../files/music/Okroshka/2016 - Акшорко/15 - 56°50′00″, 60°35′00″.mp3">56°50′00″, 60°35′00″</a>
+	        <span style="text-align: left;  float: right; ">
+	          <a href="../../files/music/Okroshka/2016 - Акшорко/15 - 56°50′00″, 60°35′00″.mp3"title="Загрузить mp3"><i style="color: #ccc;" class="glyphicon glyphglyphicon glyphicon-download-alt"></i></a>
+	        </span>
+	      </li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
 
 
 <br />
