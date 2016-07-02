@@ -295,7 +295,11 @@ ol:not(.plain) li:not(.plain) a:not(.plain) {
 	font-style: italic;
 }
 
-.article .epigraph + p:first-letter {
+.initial {
+}
+
+.article .epigraph + p:first-letter,
+.article .initial + p:first-letter {
 	float: left;
 	font-size: 90px;
 	line-height: 1;
