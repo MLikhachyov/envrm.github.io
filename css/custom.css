@@ -252,6 +252,14 @@ ol:not(.plain) li:not(.plain) a:not(.plain) {
 	/* padding: 0px 0px 0px 20px; */
 }
 
+.pl ul {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	text-indent: -2.5ex;
+	list-style: decimal-leading-zero inside;
+	color: #ccc;
+}
+
 .simple {
 	padding: 0px;
 	margin: 0px;
