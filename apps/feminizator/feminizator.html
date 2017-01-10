@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Феминизатор слов</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Феминизатор слов">
+    <meta name="author" content="Likhachev Maxim">
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <link href="css/feminitives.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+      <div id="definition">
+        <h1>Феминизатор v1.3</h1>
+
+        <input  id="definition-word" type="text" placeholder="Слово" autofocus>
+        <button id="definition-convert" type="button">Феминитивь!</button>
+
+        <div id="definition-dict"></div>
+        <div id="definition-full"></div>
+        <div id="definition-image">
+          <div id="definition-card">
+            <h1><span> ф — феминитивы </span></h1>
+            <div id="definition-content" style="visibility: visible;">Введите слово</div>
+	      <div id="definition-help"  style="visibility: hidden;">
+	        <p>ФЕМИНИТИВЫ – это слова женского рода, альтернативные или парные
+                аналогичным понятиям мужского рода, относящимся ко всем людям независимо от их
+                пола.</p>
+
+		<p>При помощи <a href="http://github.com/envrm/feminizator">
+		этой небольшой программы</a>,реализующей феминистическую
+		логику, вы сами можете создать феминитивы к любому слову.</p>
+
+                <p>Попробуйте: <a href="javascript:tr('автор');">автор</a>, <a
+                href="javascript:tr('врач');">врач</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="toolbar" href="../../l10n/ru/programming.html" title="Вернуться на сайт">↢</a>
+        <a class="toolbar" href="javascript:show_help()" title="Справка">?</a>
+        <a class="toolbar" href="javascript:download_image()" title="Сохранить изображение">❇</a>
+        <a class="toolbar" href="javascript:share_page()" title="Поделиться в vk.com">❤</a>
+      </div>
+    </div>
+
+    <script src="js/feminitives.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script>
+      init('definition');
+    </script>
+  </body>
+</html>
+
