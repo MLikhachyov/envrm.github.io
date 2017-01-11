@@ -76,6 +76,7 @@ FEM.endings = {
 			['ан', 0],
 			['рг', 1],
 			['ст', 0], //специалист -> специалистка
+			['ль', 1], //создатель -> создателка
 			['ец', 2], //канадец -> канадка
 			['ет', 0]  //авторитет -> авторитетка
 		],
@@ -89,6 +90,7 @@ FEM.endings = {
 			['ог', 0], //биолог -> биологиня
 			['рг', 0],
 			['ач', 0], //врач -> врачиня
+			['ль', 1], //создатель -> создателиня
 			['ст', 0], //специалист -> специалистиня
 			['од', 0], //метод -> методиня
 			['ет', 2], //авторитет -> авторитиня
@@ -105,6 +107,7 @@ FEM.endings = {
 			['[ои]к', 0],
 			['ог', 0], //биолог -> биологесса
 			['ан', 0],
+			['ль', 1], //создатель -> создателесса
 			['рг', 0],
 			['ач', 0], //врач -> врачесса
 			['ый', 2], //учёный -> учёнесса
@@ -129,7 +132,7 @@ FEM.endings = {
 			['ец', 2]  //канадец -> канадица
 		],
 	'ница' : [
-			['ль', 0],
+			['ль', 0], //создатель -> создательница
 			['ас', 0],
 			['ет', 0], //авторитет -> авторитетица
 			['ец', 2]  //канадец -> канадница
@@ -336,9 +339,7 @@ function tr(word) {
 	var wd = word || HTML.input().value.trim().toLowerCase().split(" ")[0];
 	var feminitives = "";
 
-	//Изменение адреса
-	window.location.hash = wd;
-	URL.opt.href = window.location.href;
+	URL.opt.href = encodeURIComponent(window.location.href);
 
 	HTML.dict().innerHTML = "";
 	HTML.content().innerHTML = "";
@@ -362,19 +363,29 @@ function tr(word) {
 	HTML.content().innerHTML = feminitives[0].replace(/(.)/, s => s.toUpperCase());
 	HTML.dict().innerHTML    = feminitives[1].join(" | ")
 				|| "Это слово и так прекрасно. Оставим его как есть.";
+
+	//Изменение адреса
+	window.history.pushState({}, null, window.location.href.split('?')[0]+'?word='+wd);
 }
 
 //------------------------------------------------------------------------------
 
+//Разбор параметров
 var URL = {opt: {}};
+
+URL.parse = function() {
+	var gy = window.location.search.substring(1).split("&");
+	gy.forEach(arg => {
+		let ft = arg.split("=");
+		this.opt[ft[0]] = this.opt[ft[0]] || decodeURIComponent(ft[1]);
+	});
+};
 
 //Инициализация с разбором адресной строки
 function init(container) {
 	HTML.init(container);
+	URL.parse();
 
-	URL.opt.href = window.location.href;
-	URL.opt.word = window.location.hash.substring(1) || null;
-		
 	if (URL.opt.word) {
 		HTML.input().value = URL.opt.word.replace(/\+/g," ");
 		tr();
@@ -382,6 +393,4 @@ function init(container) {
 		show_help();
 	}
 }
-
-// http://vk.com/share.php?url=http://envrm.github.io/apps/feminizator/gofem.html
 
