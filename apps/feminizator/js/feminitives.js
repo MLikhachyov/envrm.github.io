@@ -239,7 +239,12 @@ function construct_feminitive(stem, ending, gap) {
 
 //Отправка адреса страницы в vk.com
 function share_page() {
-	var new_tab = window.open("http://vk.com/share.php?url=" + URL.opt.href,'_blank');
+	let vk_url = "http://vk.com/share.php"
+			+ "?url="         + URL.opt.href
+			+ "&title="       + URL.opt.title
+			+ "&description=" + URL.opt.description;
+
+	let new_tab = window.open(vk_url,'_blank');
 	new_tab.focus();
 }
 
@@ -365,6 +370,7 @@ function tr(word) {
 	//Изменение адреса
 	window.history.pushState({}, null, window.location.href.split('?')[0]+'?word='+wd);
 	URL.opt.href = encodeURIComponent(window.location.href);
+	URL.opt.description = 'Как феминистки пишут слово "' + wd + '".';
 }
 
 //------------------------------------------------------------------------------
@@ -378,6 +384,10 @@ URL.parse = function() {
 		let ft = arg.split("=");
 		this.opt[ft[0]] = this.opt[ft[0]] || decodeURIComponent(ft[1]);
 	});
+
+	this.opt.title = document.title;
+	this.opt.href  = encodeURIComponent(window.location.href);
+	this.opt.description = 'Как феминистки пишут слово "' + this.opt.word + '".';
 };
 
 //Инициализация с разбором адресной строки
