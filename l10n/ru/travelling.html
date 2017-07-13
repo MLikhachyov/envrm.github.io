@@ -21,20 +21,6 @@
     <link rel="stylesheet" href="../../css/blueimp-gallery.min.css">
     <link rel="stylesheet" href="../../css/bootstrap-image-gallery.min.css">
 
-    <style>
-      #mapbox { position:static; top:0; bottom:0; width:550px; height:300px; }
-
-      .tooltip-inner {
-	background-color: white;
-	border-color: grey;
-      }
-    </style>
-
-    <script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
-    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/Leaflet.fullscreen.min.js'></script>
-    <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
-    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/leaflet.fullscreen.css' rel='stylesheet' />
-
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -111,16 +97,9 @@
 	  <em><abbr title="Везде побывай — домой возвращайся (серб.)">Свуда прођи, кући дођи.</abbr></em>
 	</p>
 
-	<div id='mapbox'></div>
+	<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af763786de27e9896ec6b74f23aa460b2d086cafabfe4befb672ef92236be4ee5&amp;width=550&amp;height=300&amp;lang=ru_RU&amp;scroll=true"></script>
 
-	<p class="text-right"><small>15 стран, 54 250 км автостопом</small></p>
-
-	<script>
-		L.mapbox.accessToken = 'pk.eyJ1IjoiZW52cm0iLCJhIjoiY2lldmFsOHJsMDBhaXRibTBla3JtajZkNiJ9.IL8iaygWnitKyXS4Jcx7bg';
-		var map = L.mapbox.map('mapbox', 'envrm.cieval7he009cteksquxn80mw')
-
-		L.control.fullscreen().addTo(map);
-	</script>
+	<p class="text-right"><small>16 стран, около 56 000 км автостопом</small></p>
 
 	<!-- <br /> -->
 
@@ -221,13 +200,13 @@
 
 	<br />
 
-	<strong>2017 г.</strong>
-	<ul class="simple">
-	  <li><a href="">01.01 &#8211; Москва</a> &rarr; <a href="">Владимир</a> &rarr; <a href="">Боголюбово</a> &rarr; <a href="">Суздаль</a> &rarr; <a href="">Кострома</a> &rarr; <a href="">Ярославль</a></li>
-	</ul>
+	<!-- <strong>2017 г.</strong> -->
+	<!-- <ul class="simple"> -->
+	  <!-- <li><a href="">01.01 &#8211; Москва</a> &rarr; <a href="">Владимир</a> &rarr; <a href="">Боголюбово</a> &rarr; <a href="">Суздаль</a> &rarr; <a href="">Кострома</a> &rarr; <a href="">Ярославль</a></li> -->
+	<!-- </ul> -->
 
-	<br />
-	<br />
+	<!-- <br /> -->
+	<!-- <br /> -->
 
 	<strong>Разное</strong>
 	<ul class="simple">
