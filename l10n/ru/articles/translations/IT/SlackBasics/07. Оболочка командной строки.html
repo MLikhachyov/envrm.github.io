@@ -255,8 +255,467 @@ shell:</p>
 полный путь.</p>
 
 
+<h4 id="3">7.3. Управление курсором</h4>
 
+<p>Во время редактирования длинной команды часто возникает необходимость
+переместить курсор в командной строке на определённую позицию и отредактировать
+команду. Обе оболочки командной строки, <strong>bash</strong> и
+<strong>ksh</strong>, имеют специальные сочетания клавиш для стандартных
+операций. Есть два режима командной строки, сочетания клавиш в которых
+отличаются. Эти режимы соответствуют своим поведением двум наиболее популярным
+текстовым редакторам, <strong>vi</strong> и <strong>emacs</strong>. В этой
+книге мы раскроем только режим <var>EMACS</var>. Вы можете проверить, в каком
+режиме находитесь, выведя содержимое переменной окружения <var>SHELLOPTS</var>.
+В первом примере оболочка командной строки настроена на режим <var>EMACS</var>,
+во втором — на режим <strong>vi</strong>.</p>
 
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ echo $SHELLOPTS</li>
+    <li>braceexpand:emacs:hashall:histexpand:history:interactive-comments:monitor</li>
+    <li><br /></li> 
+    <li>$ echo $SHELLOPTS</li>
+    <li>braceexpand:hashall:histexpand:history:interactive-comments:monitor:vi</li>
+  </ul>
+</div>
+
+<p>Если ваша оболочка использует режим <var>vi</var>, вы можете сменить его на
+<var>EMACS</var> следующей командой:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>$ set -o emacs</li>
+  </ul>
+</div>
+
+<p>Тогда вы сможете использовать приведённые ниже сочетания клавиш. Мы рассмотрим
+три их типа: для редактирования символов, слов и строк. Также мы приведём
+некоторые комбинации для поиска команд в истории.</p>
+
+<h5>7.3.1. Редактирование символов</h5>
+
+<p>Первая группа сочетаний клавиш оперирует символами. В таблице ниже приведены
+комбинации клавиш, которые используются для перемещения в строке:</p>
+
+<p class="text-right"><strong>Таблица 7.1. Перемещение в командной строке</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Клавиши</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Ctrl-b</th>
+          <th>Перейти на один символ назад</th>
+        </tr>
+        <tr>
+          <th>Ctrl-f</th>
+          <th>Перейти на один символ вперёд</th>
+        </tr>
+      </tbody>
+    </table>
+
+<p>Эти сочетания клавиш простые и делают только то, что указано. Допустим, что вы
+ввели следующую строку:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.ogg' - -print</li>
+  </ul>
+</div>
+
+<p>Курсор будет в конце строки. Вы можете переместить его в начало строки, зажав
+<kbd>Ctrl</kbd> + <kbd>b</kbd>:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music - -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>Таким же образом вы можете вернуться и назад в конец строки, зажав
+<kbd>Ctrl</kbd> + <kbd>f</kbd>.</p>
+
+<p>В этой команде есть ошибка — один лишний дефис. Для исправления ошибки вы
+можете использовать сочетания клавиш для удаления символов:</p>
+
+<p class="text-right"><strong>Таблица 7.2. Удаление символов</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Клавиши</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Ctrl-h</th>
+          <th>Удаление символа перед курсором (эффект как у Backspace)</th>
+        </tr>
+        <tr>
+          <th>Ctrl-d</th>
+          <th>Удаление символа под курсором</th>
+        </tr>
+      </tbody>
+    </table>
+
+<p>Вы можете удалить дефис двумя способами. Первый — установить курсор на
+дефис:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music - -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>и дважды нажать <kbd>Ctrl</kbd> + <kbd>d</kbd>. Это удалит символ дефиса и
+следующий за ним пробел.</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>Посмотрев на оригинальную команду, можно решить проблему иначе: установить
+курсор на пробел, следующий за дефисом</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -  -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>и дважды нажать <kbd>Ctrl</kbd> + <kbd>h</kbd>, что удалит два символа перед
+курсором. Результат будет тем же, что и в первом решении, кроме итоговой
+позиции курсора:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>Замечательная особенность современных оболочек командной строки заключается в
+поддержке клавиатурных сокращений для замены символов местами. Это полезно в
+случае, если вы допустили ошибку при наборе команды, и два символа оказались
+перепутаны.</p>
+
+<p class="text-right"><strong>Таблица 7.3. Замена символов местами</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Клавиши</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Ctrl-t</th>
+          <th>Замена местами символа под курсором и символа перед курсором</th>
+        </tr>
+      </tbody>
+    </table>
+
+<p>Допустим, что вы ввели следующую команду:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>cat myreport.ttx</li>
+  </ul>
+</div>
+
+<p>Здесь опечатка в расширении, набрано <var>.ttx</var> вместо <var>.txt</var>.
+Это можно исправить при помощи приведённого выше сочетания клавиш.</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>cat myreport.ttx</li>
+  </ul>
+</div>
+
+<p>Вы можете нажать <kbd>Ctrl</kbd> + <kbd>t</kbd>, установив курсор на символ
+«x». Символы будут поменяны местами, и команда будет исправлена:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>cat myreport.txt</li>
+  </ul>
+</div>
+
+<h5>7.3.2. Редактирование слов</h5>
+
+<p>Передвигаться по символам часто бывает утомительно. К счастью, командные
+оболочки Bash и Korn позволяют перемещаться по целым словам. Слово — это набор
+символов, слова разделяются специальными символами, такими как пробел. В
+следующей таблице приведены сочетания клавиш, которые вы можете использовать
+для навигации по словам:</p>
+
+<p class="text-right"><strong>Таблица 7.4. Перемещение по словам</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Клавиши</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Esc b</th>
+          <th>Перемещение в начало текущего или предыдущего слова</th>
+        </tr>
+        <tr>
+          <th>Esc f</th>
+          <th>Перемещение в конец текущего или следующего слова</th>
+        </tr>
+      </tbody>
+    </table>
+
+<p>Как вы можете видеть, клавиши в этих сочетаниях используются те же, что и для
+посимвольного перемещения. Логика движения немного любопытна. Перемещение
+вперед помещает курсор в конец текущего слова, а не к первому символу
+следующего слова, как вы, возможно, могли бы предположить. Давайте посмотрим на
+пример. В начале курсор установлен на первом символе строки.</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>Нажатие <kbd>Esc</kbd> + <kbd>f</kbd> установит курсор на последний символ
+первого слова:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>Ещё одно нажатие переместит курсор на слово вперёд:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>Перемещение же назад помещает курсор на первый символ текущего слова или на
+первый символ предыдущего слова, если в настоящее время курсор находится на
+первом символе слова. Таким образом, перемещение назад на одно слово в ситуации
+из предыдущего примера поместит курсор на первый символ слова «music»:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>Удаление слов работает точно так же, как и перемещение по словам с той лишь
+разницей, что символы будут удалены. В следующей таблице приведены сочетания
+клавиш, используемые для удаления слов:</p>
+
+<p class="text-right"><strong>Таблица 7.5. Удаление слов</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Клавиши</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Alt-d</th>
+          <th>Удаление символов от курсора до конца слова</th>
+        </tr>
+        <tr>
+          <th>Alt-Backspace</th>
+          <th>Удаление символов от курсора до начала слова</th>
+        </tr>
+      </tbody>
+    </table>
+
+<p>Наконец, есть несколько комбинаций клавиш, полезных для манипуляций со
+словами:</p>
+
+<p class="text-right"><strong>Таблица 7.6. Изменение слов</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Клавиши</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Alt-t</th>
+          <th>Замена местами текущего и предыдущего слов</th>
+        </tr>
+        <tr>
+          <th>Alt-u</th>
+          <th>Перевод всех символов от курсора и до конца слова в верхний регистр</th>
+        </tr>
+        <tr>
+          <th>Alt-l</th>
+          <th>Перевод всех символов от курсора и до конца слова в нижний регистр</th>
+        </tr>
+        <tr>
+          <th>Alt-c</th>
+          <th>Капитализация (перевод в верхний регистр первой буквы) текущего или следующего слова.</th>
+        </tr>
+      </tbody>
+    </table>
+
+<p><kbd>Alt</kbd> + <kbd>t</kbd> заменяет слова местами. Обычно поведение этой
+комбинации клавиш предсказуемо. Допустим, у нас есть следующая строка:</p>
+
+<pre>
+one two three
+</pre>
+
+<p>Нажатие этой комбинации клавиш сменит слова «one» и «two» местами:</p>
+
+<pre>
+two one three
+</pre>
+
+<p>Но если в строке есть символы, не принадлежащие словам, оболочка командной
+строки изменит места слов с сохранением порядка специальных символов. Это очень
+удобно для изменения аргументов команд. Допустим, мы сделали ошибку и
+перепутали параметры:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.print' -ogg</li>
+  </ul>
+</div>
+
+<p>Вы можете изменить их, поместив курсор на второе из ошибочных слов (в данном
+случае, слово «ogg») и нажать <kbd>Alt</kbd> + <kbd>t</kbd>. Это приведёт к
+следующему результату:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>Наконец, есть некоторые сочетания клавиш, которые меняют регистр слов.
+<kbd>Alt</kbd> + <kbd>U</kbd> переводит все символы в верхний регистр, начиная
+с текущей позиции курсора и до конца слова. Так что, если у нас есть имя
+«alice», набранное в нижнем регистре, <kbd>Alt</kbd> + <kbd>U</kbd> преобразует
+его в «Alice». <kbd>Alt</kbd> + <kbd>L</kbd> делает почти то же самое, но
+меняет буквы в нижний регистр. Таким образом, используя <kbd>Alt</kbd> +
+<kbd>L</kbd> на слове «alICE» с курсором, установленном на «I», вы получите
+«alice». <kbd>Alt</kbd> + <kbd>C</kbd> переводит в верхний регистр только
+символа под курсором. Например, нажатие <kbd>Alt</kbd> + <kbd>C</kbd> на слове
+«alice», если курсор установлен на первом символе, даст «Alice».</p>
+
+<h5>7.3.3. Редактирование строк</h5>
+
+<p>Наивысший уровень редактирования — это целая строка. В следующей таблице
+приведены две предназначенные для этого комбинации клавиш.</p>
+
+<p class="text-right"><strong>Таблица 7.7. Перемещение по строке</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Клавиши</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Ctrl-a</th>
+          <th>Перемещение в начало текущей строки</th>
+        </tr>
+        <tr>
+          <th>Ctrl-e</th>
+          <th>Перемещение в конец текущей строки</th>
+        </tr>
+      </tbody>
+    </table>
+
+<p>Допустим, что курсор стоит где-нибудь в середине строки:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>Нажатие <kbd>Ctrl</kbd> + <kbd>e</kbd> переместит его в конец строки:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>Нажатие <kbd>Ctrl</kbd> + <kbd>a</kbd> переместит его в начало строки:</p>
+
+<div class="shell-wrap">
+  <p class="shell-top-bar">user@darkstar:~</p>
+  <ul class="shell-body">
+    <li>find ~/music -name '*.ogg' -print</li>
+  </ul>
+</div>
+
+<p>Вы также можете удалять символы в строке. Предназначенные для этого сочетания
+клавиш приведены в таблице ниже. Следует учесть, что <kbd>Ctrl</kbd> +
+<kbd>k</kbd> удалить символ под курсором, а <kbd>Ctrl</kbd> + <kbd>x</kbd> +
+<kbd>Backspace</kbd> — нет. Переход в начало строки при помощи <kbd>Ctrl</kbd>
++ <kbd>a</kbd> и нажатие <kbd>Ctrl</kbd> + <kbd>k</kbd> — это самый быстрый
+способ очистить всю строку.</p>
+
+<p class="text-right"><strong>Таблица 7.8. Удаление символов</strong></p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Клавиши</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Ctrl-k</th>
+          <th>Удаление всех символов от позиции курсора до конца строки</th>
+        </tr>
+        <tr>
+          <th>Ctrl-x Backspace</th>
+          <th>Удаление всех символов от начала строки до позиции курсора</th>
+        </tr>
+      </tbody>
+    </table>
 
 <h4 id="4">7.4. История команд</h4>
 
