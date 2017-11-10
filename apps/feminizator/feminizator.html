@@ -13,55 +13,38 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
     <link href="css/feminitives.css" rel="stylesheet">
+
+    <!-- <meta http-equiv="refresh" content="5; URL=http://feminitives.ru"> -->
+
+    <script>
+    delay = 2;
+
+    function move(){
+        stp=setInterval("redirect()", 1000)
+    }
+
+    function redirect() {
+        if (delay == 0) {
+	    document.location.href = "http://feminitives.ru/" + document.location.search;
+        } else {
+	    var x
+	    var cntText = "Вы будете перенаправлены через " + delay + " с.";
+
+	    x = document.getElementById('message');
+            x.innerHTML = cntText;
+        }
+        delay--;
+    }
+
+    //window.setTimeout('document.location.href = "http://feminitives.ru/" + document.location.search;', 5000);
+    </script>
   </head>
 
-  <body>
+  <body onLoad="move()">
     <div style="text-align: center;">
-      <div id="definition">
-        <h1 id="title" onclick="swap_title('suffix')">Феминизатор<span id="suffix">_ка</span> <sup>v1.4</sup></h1>
-
-        <input  id="definition-word" type="text" placeholder="Слово" autofocus>
-        <button id="definition-convert" type="button">Феминитивь!</button>
-
-        <div id="definition-dict"></div>
-        <div id="definition-full"></div>
-        <div id="definition-image">
-          <div id="definition-card">
-            <h1><span> ф — феминитивы </span></h1>
-            <div id="definition-content" style="visibility: visible;">Введите слово</div>
-	      <div id="definition-help"  style="visibility: hidden;">
-	        <p>ФЕМИНИТИВЫ – это слова женского рода, альтернативные или парные
-                аналогичным понятиям мужского рода, относящимся ко всем людям независимо от их
-                пола.</p>
-
-		<p>При помощи <a href="http://github.com/envrm/feminizator">
-		этой небольшой программы</a>,реализующей феминистическую
-		логику, вы сами можете создать феминитивы к любому слову.</p>
-
-                <p>Попробуйте: <a href="javascript:tr('автор');">автор</a>, <a
-                href="javascript:tr('врач');">врач</a>.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="toolbar" href="../../l10n/ru/programming.html" title="Вернуться на сайт">↢</a>
-        <a class="toolbar" href="javascript:show_help()" title="Справка">?</a>
-        <a class="toolbar" href="javascript:download_image()" title="Сохранить изображение">❇</a>
-        <a class="toolbar" href="javascript:share_page()" title="Поделиться в vk.com">❤</a>
-
-	<br />
-	<br />
-
-        <a class="toolbar" href="https://money.yandex.ru/to/410014402076764" target="_blank" title="Помочь в борьбе">⛀⛁⛃⛂</a>
-      </div>
+        <p>Сайт переехал на адрес <a href="http://feminitives.ru">http://feminitives.ru</a></p>
+        <p id="message">Вы будете перенаправлены через 3 с.</p>
     </div>
-
-
-    <script src="js/feminitives.js"></script>
-    <script src="js/html2canvas.js"></script>
-    <script>
-      init('definition');
-    </script>
   </body>
 </html>
 
